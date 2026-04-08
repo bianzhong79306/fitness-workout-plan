@@ -1,0 +1,208 @@
+{
+  "site": {
+    "title": "FitPlan Pro",
+    "description": "Your Personal Fitness Training Plan Platform"
+  },
+  "nav": {
+    "home": "Home",
+    "exercises": "Exercises",
+    "plans": "Workout Plans",
+    "timers": "Timers",
+    "dashboard": "Dashboard",
+    "progress": "Progress",
+    "signIn": "Sign In",
+    "signOut": "Sign Out"
+  },
+  "home": {
+    "hero": {
+      "title": "Transform Your Body,\nTransform Your Life",
+      "subtitle": "Personalized workout plans, expert guidance, and progress tracking - all in one place.",
+      "cta": {
+        "start": "Start Free",
+        "learn": "Learn More"
+      }
+    },
+    "features": {
+      "title": "Why Choose FitPlan Pro?",
+      "subtitle": "Everything you need to achieve your fitness goals",
+      "plans": {
+        "title": "Personalized Plans",
+        "description": "Custom workout plans tailored to your goals, fitness level, and available equipment."
+      },
+      "exercises": {
+        "title": "100+ Exercises",
+        "description": "Comprehensive exercise library with detailed instructions and video demonstrations."
+      },
+      "tracking": {
+        "title": "Progress Tracking",
+        "description": "Track your workouts, monitor progress, and celebrate your achievements."
+      },
+      "timers": {
+        "title": "Workout Timers",
+        "description": "Built-in timers for HIIT, Tabata, and rest periods to optimize your training."
+      }
+    },
+    "plans": {
+      "title": "Popular Workout Plans",
+      "viewAll": "View All Plans"
+    }
+  },
+  "exercises": {
+    "title": "Exercise Library",
+    "subtitle": "Browse our comprehensive collection of exercises",
+    "search": "Search exercises...",
+    "filter": {
+      "muscle": "Muscle Group",
+      "difficulty": "Difficulty",
+      "equipment": "Equipment",
+      "all": "All"
+    },
+    "difficulty": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "muscles": {
+      "chest": "Chest",
+      "back": "Back",
+      "shoulders": "Shoulders",
+      "arms": "Arms",
+      "core": "Core",
+      "legs": "Legs",
+      "glutes": "Glutes",
+      "full-body": "Full Body"
+    },
+    "equipment": {
+      "none": "No Equipment",
+      "chair": "Chair",
+      "wall": "Wall",
+      "doorframe": "Doorframe",
+      "dumbbell": "Dumbbell",
+      "barbell": "Barbell",
+      "gym": "Gym"
+    },
+    "detail": {
+      "tips": "Tips",
+      "mistakes": "Common Mistakes",
+      "alternatives": "Alternative Exercises"
+    }
+  },
+  "plans": {
+    "title": "Workout Plans",
+    "subtitle": "Find the perfect plan for your fitness goals",
+    "goal": {
+      "muscle_gain": "Muscle Gain",
+      "fat_loss": "Fat Loss",
+      "strength": "Strength",
+      "endurance": "Endurance",
+      "general": "General Fitness"
+    },
+    "card": {
+      "weeks": "weeks",
+      "sessions": "sessions/week",
+      "minutes": "min",
+      "startPlan": "Start Plan",
+      "viewDetails": "View Details"
+    },
+    "detail": {
+      "overview": "Overview",
+      "sessions": "Training Sessions",
+      "equipment": "Equipment Needed",
+      "startPlan": "Start This Plan",
+      "week": "Week"
+    }
+  },
+  "workout": {
+    "title": "Workout",
+    "start": "Start Workout",
+    "pause": "Pause",
+    "resume": "Resume",
+    "complete": "Complete Workout",
+    "skip": "Skip",
+    "next": "Next Exercise",
+    "previous": "Previous",
+    "rest": "Rest",
+    "set": "Set",
+    "sets": "Sets",
+    "reps": "Reps",
+    "seconds": "seconds",
+    "completed": "Workout Completed!",
+    "summary": {
+      "title": "Workout Summary",
+      "duration": "Total Duration",
+      "totalSets": "Total Sets",
+      "totalReps": "Total Reps",
+      "rating": "How was your workout?",
+      "save": "Save Workout"
+    }
+  },
+  "timers": {
+    "title": "Workout Timers",
+    "stopwatch": "Stopwatch",
+    "countdown": "Countdown",
+    "hiit": "HIIT Timer",
+    "tabata": "Tabata Timer",
+    "start": "Start",
+    "pause": "Pause",
+    "reset": "Reset",
+    "work": "Work",
+    "rest": "Rest",
+    "rounds": "Rounds",
+    "prepare": "Prepare"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "quickStats": {
+      "title": "Quick Stats",
+      "totalWorkouts": "Total Workouts",
+      "thisWeek": "This Week",
+      "currentStreak": "Current Streak",
+      "totalMinutes": "Total Minutes"
+    },
+    "recentWorkouts": "Recent Workouts",
+    "activePlan": "Active Plan",
+    "noActivePlan": "No active plan. Start one today!"
+  },
+  "progress": {
+    "title": "Progress",
+    "history": "History",
+    "stats": "Statistics",
+    "achievements": "Achievements",
+    "weeklyActivity": "Weekly Activity",
+    "monthlyProgress": "Monthly Progress",
+    "noWorkouts": "No workouts recorded yet. Start your first workout!"
+  },
+  "auth": {
+    "signIn": {
+      "title": "Sign In",
+      "subtitle": "Sign in to track your progress and access personalized workout plans",
+      "google": "Continue with Google",
+      "or": "or",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up for free"
+    },
+    "error": {
+      "title": "Authentication Error",
+      "description": "There was a problem signing you in. Please try again.",
+      "backHome": "Back to Home"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "free": "Free",
+    "premium": "Premium"
+  }
+}

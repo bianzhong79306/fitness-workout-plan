@@ -1,0 +1,208 @@
+{
+  "site": {
+    "title": "FitPlan Pro",
+    "description": "您的私人健身训练计划平台"
+  },
+  "nav": {
+    "home": "首页",
+    "exercises": "动作库",
+    "plans": "训练计划",
+    "timers": "计时器",
+    "dashboard": "仪表板",
+    "progress": "进度追踪",
+    "signIn": "登录",
+    "signOut": "退出登录"
+  },
+  "home": {
+    "hero": {
+      "title": "改变身体，\n改变生活",
+      "subtitle": "个性化训练计划、专业指导和进度追踪 - 尽在掌握",
+      "cta": {
+        "start": "免费开始",
+        "learn": "了解更多"
+      }
+    },
+    "features": {
+      "title": "为什么选择 FitPlan Pro？",
+      "subtitle": "实现健身目标所需的一切",
+      "plans": {
+        "title": "个性化计划",
+        "description": "根据您的目标、健身水平和可用设备定制的训练计划"
+      },
+      "exercises": {
+        "title": "100+ 动作",
+        "description": "全面的动作库，包含详细说明和视频演示"
+      },
+      "tracking": {
+        "title": "进度追踪",
+        "description": "记录训练、监控进度、庆祝成就"
+      },
+      "timers": {
+        "title": "训练计时器",
+        "description": "内置HIIT、Tabata和休息计时器，优化训练效果"
+      }
+    },
+    "plans": {
+      "title": "热门训练计划",
+      "viewAll": "查看全部计划"
+    }
+  },
+  "exercises": {
+    "title": "动作库",
+    "subtitle": "浏览我们全面的动作收藏",
+    "search": "搜索动作...",
+    "filter": {
+      "muscle": "目标肌群",
+      "difficulty": "难度",
+      "equipment": "器械",
+      "all": "全部"
+    },
+    "difficulty": {
+      "beginner": "初级",
+      "intermediate": "中级",
+      "advanced": "高级"
+    },
+    "muscles": {
+      "chest": "胸部",
+      "back": "背部",
+      "shoulders": "肩部",
+      "arms": "手臂",
+      "core": "核心",
+      "legs": "腿部",
+      "glutes": "臀部",
+      "full-body": "全身"
+    },
+    "equipment": {
+      "none": "徒手",
+      "chair": "椅子",
+      "wall": "墙壁",
+      "doorframe": "门框",
+      "dumbbell": "哑铃",
+      "barbell": "杠铃",
+      "gym": "健身房"
+    },
+    "detail": {
+      "tips": "动作要点",
+      "mistakes": "常见错误",
+      "alternatives": "替代动作"
+    }
+  },
+  "plans": {
+    "title": "训练计划",
+    "subtitle": "找到最适合您健身目标的计划",
+    "goal": {
+      "muscle_gain": "增肌",
+      "fat_loss": "减脂",
+      "strength": "力量提升",
+      "endurance": "耐力提升",
+      "general": "综合健身"
+    },
+    "card": {
+      "weeks": "周",
+      "sessions": "次/周",
+      "minutes": "分钟",
+      "startPlan": "开始训练",
+      "viewDetails": "查看详情"
+    },
+    "detail": {
+      "overview": "概述",
+      "sessions": "训练课程",
+      "equipment": "所需器械",
+      "startPlan": "开始此计划",
+      "week": "第"
+    }
+  },
+  "workout": {
+    "title": "训练",
+    "start": "开始训练",
+    "pause": "暂停",
+    "resume": "继续",
+    "complete": "完成训练",
+    "skip": "跳过",
+    "next": "下一个动作",
+    "previous": "上一个",
+    "rest": "休息",
+    "set": "组",
+    "sets": "组",
+    "reps": "次",
+    "seconds": "秒",
+    "completed": "训练完成！",
+    "summary": {
+      "title": "训练总结",
+      "duration": "总时长",
+      "totalSets": "总组数",
+      "totalReps": "总次数",
+      "rating": "训练感觉如何？",
+      "save": "保存训练"
+    }
+  },
+  "timers": {
+    "title": "训练计时器",
+    "stopwatch": "秒表",
+    "countdown": "倒计时",
+    "hiit": "HIIT计时器",
+    "tabata": "Tabata计时器",
+    "start": "开始",
+    "pause": "暂停",
+    "reset": "重置",
+    "work": "训练",
+    "rest": "休息",
+    "rounds": "轮数",
+    "prepare": "准备"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "welcome": "欢迎回来",
+    "quickStats": {
+      "title": "数据概览",
+      "totalWorkouts": "总训练次数",
+      "thisWeek": "本周",
+      "currentStreak": "连续天数",
+      "totalMinutes": "总训练时长"
+    },
+    "recentWorkouts": "最近训练",
+    "activePlan": "进行中的计划",
+    "noActivePlan": "暂无进行中的计划，开始一个新的计划吧！"
+  },
+  "progress": {
+    "title": "进度追踪",
+    "history": "历史记录",
+    "stats": "统计数据",
+    "achievements": "成就",
+    "weeklyActivity": "每周活动",
+    "monthlyProgress": "月度进度",
+    "noWorkouts": "还没有训练记录。开始您的第一次训练吧！"
+  },
+  "auth": {
+    "signIn": {
+      "title": "登录",
+      "subtitle": "登录以追踪进度并获取个性化训练计划",
+      "google": "使用 Google 登录",
+      "or": "或",
+      "noAccount": "还没有账号？",
+      "signUp": "免费注册"
+    },
+    "error": {
+      "title": "认证错误",
+      "description": "登录时出现问题，请重试。",
+      "backHome": "返回首页"
+    }
+  },
+  "footer": {
+    "rights": "版权所有",
+    "privacy": "隐私政策",
+    "terms": "服务条款"
+  },
+  "common": {
+    "loading": "加载中...",
+    "error": "出错了",
+    "retry": "重试",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "view": "查看",
+    "free": "免费",
+    "premium": "高级"
+  }
+}
