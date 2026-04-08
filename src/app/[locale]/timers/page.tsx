@@ -1,9 +1,10 @@
 import { setRequestLocale } from "next-intl/server";
+export const runtime = "edge";
 import { Link } from "@/i18n/routing";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Timer, Stopwatch, Gauge, Flame } from "lucide-react";
+import { Timer, Clock, Gauge, Flame } from "lucide-react";
 import { StopwatchClient } from "./stopwatch-client";
 import { CountdownClient } from "./countdown-client";
 import { HIITTimerClient } from "./hiit-client";
@@ -44,7 +45,7 @@ async function TimersPageContent({
       <Tabs defaultValue="stopwatch" className="max-w-2xl mx-auto">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="stopwatch">
-            <Stopwatch className="h-4 w-4 mr-2" />
+            <Clock className="h-4 w-4 mr-2" />
             {isZh ? "秒表" : "Stopwatch"}
           </TabsTrigger>
           <TabsTrigger value="countdown">

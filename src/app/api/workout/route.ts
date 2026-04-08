@@ -48,7 +48,17 @@ export async function POST(request: Request) {
   }
 
   try {
-    const body = await request.json();
+    const body = await request.json() as {
+      sessionId?: string;
+      planId?: string;
+      startedAt?: string;
+      completedAt?: string;
+      durationSeconds?: number;
+      exercises?: unknown[];
+      totalSets?: number;
+      totalReps?: number;
+      rating?: number;
+    };
     const ctx = getRequestContext();
     const db = (ctx.env as any).DB as D1Database;
 

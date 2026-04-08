@@ -1,4 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
+export const runtime = "edge";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import {

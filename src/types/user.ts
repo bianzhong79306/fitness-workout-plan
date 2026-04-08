@@ -1,6 +1,7 @@
 // 用户类型定义
 
-import type { FitnessGoal, Difficulty } from './plan';
+import type { FitnessGoal } from './plan';
+import type { Difficulty } from './exercise';
 
 export type MembershipType = 'free' | 'premium' | 'pro';
 

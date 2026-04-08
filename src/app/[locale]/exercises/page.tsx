@@ -1,4 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
+export const runtime = "edge";
 import { Link } from "@/i18n/routing";
 import {
   Card,
@@ -9,7 +10,8 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { exercises, muscleGroupOptions, difficultyOptions } from "@/data/exercises";
+import { exercises } from "@/data/exercises";
+import { muscleGroupOptions } from "@/types/exercise";
 import { Dumbbell, Clock, ChevronRight } from "lucide-react";
 
 export default function ExercisesPage({
