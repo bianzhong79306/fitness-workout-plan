@@ -1,6 +1,7 @@
 // 获取用户会员信息 API
 
 import { NextRequest, NextResponse } from 'next/server';
+import { getRequestContext } from '@cloudflare/next-on-pages';
 import { auth } from '@/auth';
 import { getUserTier, getUserLimits, getUserActiveSubscription } from '@/lib/membership';
 import type { D1Database } from '@/types/database';
@@ -17,32 +18,33 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  // 尝试获取 D1 数据库绑定
-  const env = process.env as unknown as { DB?: D1Database };
-
-  if (!env.DB) {
-    // 没有 D1 绑定，返回默认免费用户信息
-    return NextResponse.json({
-      tier: 'free',
-      limits: {
-        plansPerMonth: 3,
-        aiGenerationsPerDay: 1,
-        customPlans: 1,
-        progressHistory: 30,
-        bodyMetricsRecords: 50,
-        canAccessPremiumPlans: false,
-        canExportData: false,
-        canSyncWearable: false,
-        priority: 0,
-      },
-      subscription: null,
-    });
-  }
-
   try {
-    const tier = await getUserTier(env.DB, session.user.id);
-    const limits = await getUserLimits(env.DB, session.user.id);
-    const subscription = await getUserActiveSubscription(env.DB, session.user.id);
+    // 尝试获取 Cloudflare D1 数据库绑定
+    const { env } = getRequestContext();
+    const db = env.DB as D1Database | undefined;
+
+    if (!db) {
+      // 没有 D1 绑定，返回默认免费用户信息
+      return NextResponse.json({
+        tier: 'free',
+        limits: {
+          plansPerMonth: 3,
+          aiGenerationsPerDay: 1,
+          customPlans: 1,
+          progressHistory: 30,
+          bodyMetricsRecords: 50,
+          canAccessPremiumPlans: false,
+          canExportData: false,
+          canSyncWearable: false,
+          priority: 0,
+        },
+        subscription: null,
+      });
+    }
+
+    const tier = await getUserTier(db, session.user.id);
+    const limits = await getUserLimits(db, session.user.id);
+    const subscription = await getUserActiveSubscription(db, session.user.id);
 
     return NextResponse.json({
       tier,

@@ -1,6 +1,7 @@
 // 升级用户会员等级 API（管理员功能）
 
 import { NextRequest, NextResponse } from 'next/server';
+import { getRequestContext } from '@cloudflare/next-on-pages';
 import { auth } from '@/auth';
 import { createSubscription, updateUserTier } from '@/lib/membership';
 import type { D1Database } from '@/types/database';
@@ -18,16 +19,17 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const env = process.env as unknown as { DB?: D1Database };
-
-  if (!env.DB) {
-    return NextResponse.json(
-      { error: 'Database not configured' },
-      { status: 503 }
-    );
-  }
-
   try {
+    const { env } = getRequestContext();
+    const db = env.DB as D1Database | undefined;
+
+    if (!db) {
+      return NextResponse.json(
+        { error: 'Database not configured' },
+        { status: 503 }
+      );
+    }
+
     const body = await request.json() as { tier?: string };
     const tierId = (body.tier || 'premium') as TierId;
 
@@ -44,7 +46,7 @@ export async function POST(request: NextRequest) {
     const permanentExpiresAt = new Date();
     permanentExpiresAt.setFullYear(permanentExpiresAt.getFullYear() + 100);
 
-    await createSubscription(env.DB, {
+    await createSubscription(db, {
       userId: session.user.id,
       tierId,
       status: 'active',
@@ -53,7 +55,7 @@ export async function POST(request: NextRequest) {
     });
 
     // 同时更新用户表的会员等级
-    await updateUserTier(env.DB, session.user.id, tierId);
+    await updateUserTier(db, session.user.id, tierId);
 
     return NextResponse.json({
       success: true,
