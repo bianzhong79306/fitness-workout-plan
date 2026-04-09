@@ -15,6 +15,7 @@ export async function getUserActiveSubscription(
   db: D1Database,
   userId: string
 ): Promise<UserSubscription | null> {
+  // 使用 strftime 统一时间格式进行比较
   const result = await db
     .prepare(`
       SELECT
@@ -28,7 +29,7 @@ export async function getUserActiveSubscription(
         created_at as createdAt
       FROM user_subscriptions
       WHERE user_id = ? AND status = 'active'
-      AND (expires_at IS NULL OR expires_at > datetime('now'))
+      AND (expires_at IS NULL OR strftime('%Y-%m-%dT%H:%M:%SZ', expires_at) > strftime('%Y-%m-%dT%H:%M:%SZ', 'now', 'utc'))
       ORDER BY created_at DESC
       LIMIT 1
     `)
