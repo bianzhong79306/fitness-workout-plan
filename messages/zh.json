@@ -204,5 +204,41 @@
     "view": "查看",
     "free": "免费",
     "premium": "高级"
+  },
+  "pricing": {
+    "title": "会员定价",
+    "subtitle": "选择适合你的会员计划",
+    "billing": {
+      "monthly": "按月付费",
+      "yearly": "按年付费",
+      "save": "省20%"
+    },
+    "tiers": {
+      "free": {
+        "name": "免费用户",
+        "price": "免费"
+      },
+      "pro": {
+        "name": "专业会员",
+        "recommended": "推荐"
+      },
+      "premium": {
+        "name": "高级会员"
+      }
+    },
+    "features": {
+      "basic_plans": "基础训练计划",
+      "basic_timer": "基础计时器",
+      "progress_tracking": "进度追踪",
+      "ai_generation": "AI智能生成",
+      "premium_plans": "高级计划",
+      "data_export": "数据导出"
+    },
+    "actions": {
+      "currentPlan": "当前计划",
+      "getStarted": "免费开始",
+      "upgrade": "立即升级"
+    },
+    "footer": "所有计划都包含基础训练计划、计时器和进度追踪功能"
   }
 }

@@ -204,5 +204,41 @@
     "view": "View",
     "free": "Free",
     "premium": "Premium"
+  },
+  "pricing": {
+    "title": "Membership Pricing",
+    "subtitle": "Choose the right membership plan for your fitness journey",
+    "billing": {
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "save": "Save 20%"
+    },
+    "tiers": {
+      "free": {
+        "name": "Free",
+        "price": "Free"
+      },
+      "pro": {
+        "name": "Pro",
+        "recommended": "Recommended"
+      },
+      "premium": {
+        "name": "Premium"
+      }
+    },
+    "features": {
+      "basic_plans": "Basic Plans",
+      "basic_timer": "Basic Timer",
+      "progress_tracking": "Progress Tracking",
+      "ai_generation": "AI Plan Generation",
+      "premium_plans": "Premium Plans",
+      "data_export": "Data Export"
+    },
+    "actions": {
+      "currentPlan": "Current Plan",
+      "getStarted": "Get Started",
+      "upgrade": "Upgrade Now"
+    },
+    "footer": "All plans include basic workout plans, timer, and progress tracking"
   }
 }

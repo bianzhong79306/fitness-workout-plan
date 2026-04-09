@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS users (
   avatar_url TEXT,
   fitness_goal TEXT,
   fitness_level TEXT,
+  membership_tier TEXT DEFAULT 'free',
   created_at TEXT DEFAULT (datetime('now')),
   last_login TEXT
 );

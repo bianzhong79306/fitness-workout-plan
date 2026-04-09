@@ -15,6 +15,7 @@ import {
   Menu,
   X,
   Globe,
+  Crown,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -86,6 +87,12 @@ export function Header() {
 
           {isLoggedIn ? (
             <div className="hidden md:flex items-center gap-2">
+              <Link href="/pricing">
+                <Button variant="ghost" size="sm">
+                  <Crown className="h-4 w-4 mr-1" />
+                  {locale === "zh" ? "会员" : "Membership"}
+                </Button>
+              </Link>
               <Link href="/dashboard">
                 <Button variant="ghost" size="sm">
                   <BarChart3 className="h-4 w-4 mr-1" />
@@ -150,6 +157,16 @@ export function Header() {
               </Button>
               {isLoggedIn ? (
                 <>
+                  <Link
+                    href="/pricing"
+                    className="block"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Button variant="ghost" className="w-full justify-start">
+                      <Crown className="h-4 w-4 mr-2" />
+                      {locale === "zh" ? "会员" : "Membership"}
+                    </Button>
+                  </Link>
                   <Link
                     href="/dashboard"
                     className="block"
