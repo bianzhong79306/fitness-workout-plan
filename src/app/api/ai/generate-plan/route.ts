@@ -26,8 +26,8 @@ export async function POST(request: NextRequest) {
   
   // 检查 API Key 配置
   if (!env.WENWEN_AI_API_KEY) {
-    // 使用阿里云 API Key（开发阶段备用）
-    process.env.WENWEN_AI_API_KEY = 'sk-sp-5e3a01ed2161435b9eac745a2e827a57';
+    // 使用 Wenwen AI Key（开发阶段备用）
+    process.env.WENWEN_AI_API_KEY = 'sk-RLG8Lo3Rt9pExSt6E4pXtUEYc7uHVJdlFFElCNlKBbCDULyD';
   }
   
   try {

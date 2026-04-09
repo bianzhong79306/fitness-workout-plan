@@ -1,9 +1,9 @@
 // AI 计划生成服务 - 简化版，快速响应
 
-// 阿里云 Coding Plan API 配置
+// Wenwen AI 中转站配置
 const AI_CONFIG = {
-  baseUrl: 'https://coding.dashscope.aliyuncs.com/v1',
-  model: 'glm-5',  // 快速模型
+  baseUrl: 'https://breakout.wenwen-ai.com/v1',
+  model: 'claude-haiku-4-5-20251001',
   apiKey: process.env.WENWEN_AI_API_KEY || '',
 };
 
