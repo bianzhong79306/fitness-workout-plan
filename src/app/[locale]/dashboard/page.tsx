@@ -3,16 +3,16 @@ export const runtime = "edge";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import {
   Dumbbell,
   Clock,
   Flame,
+  Target,
   Trophy,
   Calendar,
-  Target,
 } from "lucide-react";
+import { MembershipCard } from "./DashboardClient";
 
 export default async function DashboardPage({
   params,
@@ -53,6 +53,9 @@ export default async function DashboardPage({
             : "Track your fitness progress and stats"}
         </p>
       </div>
+
+      {/* Membership Info */}
+      <MembershipCard locale={locale} />
 
       {/* Quick Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
