@@ -3,6 +3,8 @@
 import { Metadata } from 'next';
 import PricingPageClient from './PricingPageClient';
 
+export const runtime = 'edge';
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'FitPlan Pro - Membership Pricing',

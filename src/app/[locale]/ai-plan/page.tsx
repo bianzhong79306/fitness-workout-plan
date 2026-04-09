@@ -3,6 +3,8 @@
 import { Metadata } from 'next';
 import AIPlanGeneratorClient from './AIPlanGeneratorClient';
 
+export const runtime = 'edge';
+
 export async function generateMetadata(): Promise<Metadata> {
   return {
     title: 'FitPlan Pro - AI Workout Plan Generator',
