@@ -54,6 +54,11 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
   const [restTimeLeft, setRestTimeLeft] = useState(0);
   const [timerRunning, setTimerRunning] = useState(false);
 
+  // 训练记录数据
+  const [workoutStartedAt, setWorkoutStartedAt] = useState<string | null>(null);
+  const [completedSets, setCompletedSets] = useState<Array<{exerciseId: string; name: string; sets: number; reps: number; weight?: number}>>([]);
+  const [isSavingWorkout, setIsSavingWorkout] = useState(false);
+
   useEffect(() => {
     fetch(`/api/plans/${planId}`)
       .then(res => res.json())
@@ -90,16 +95,77 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
     setIsResting(false);
     setRestTimeLeft(0);
     setTimerRunning(false);
+    setWorkoutStartedAt(new Date().toISOString());
+    setCompletedSets([]);
     setWorkoutMode(true);
   };
 
-  const endWorkout = () => {
+  const endWorkout = async () => {
+    if (!workoutStartedAt || isSavingWorkout) {
+      setWorkoutMode(false);
+      return;
+    }
+
+    setIsSavingWorkout(true);
+
+    const completedAt = new Date().toISOString();
+    const durationSeconds = Math.floor((new Date(completedAt).getTime() - new Date(workoutStartedAt).getTime()) / 1000);
+
+    // 计算总组数和次数
+    const totalSets = completedSets.reduce((sum, ex) => sum + ex.sets, 0);
+    const totalReps = completedSets.reduce((sum, ex) => sum + (ex.reps || 0) * ex.sets, 0);
+
+    try {
+      const response = await fetch('/api/workout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          planId: plan?.id,
+          sessionId: plan?.sessions[currentSessionIndex]?.session_number?.toString(),
+          startedAt: workoutStartedAt,
+          completedAt,
+          durationSeconds,
+          exercises: completedSets,
+          totalSets,
+          totalReps,
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Workout saved successfully');
+      } else {
+        console.error('Failed to save workout');
+      }
+    } catch (error) {
+      console.error('Error saving workout:', error);
+    }
+
+    setIsSavingWorkout(false);
     setWorkoutMode(false);
   };
 
   const nextSet = () => {
     const exercises = getExercises(currentSessionIndex);
     const currentExercise = exercises[currentExerciseIndex];
+
+    // 记录完成的组
+    setCompletedSets(prev => {
+      const existing = prev.find(e => e.exerciseId === currentExercise?.exerciseId || e.name === currentExercise?.name);
+      if (existing) {
+        return prev.map(e => e.exerciseId === currentExercise?.exerciseId || e.name === currentExercise?.name
+          ? { ...e, sets: e.sets + 1 }
+          : e
+        );
+      } else {
+        return [...prev, {
+          exerciseId: currentExercise?.exerciseId || '',
+          name: currentExercise?.name || '',
+          sets: 1,
+          reps: currentExercise?.reps || 0,
+          weight: currentExercise?.weight,
+        }];
+      }
+    });
 
     if (currentSet < currentExercise.sets) {
       // 开始休息
