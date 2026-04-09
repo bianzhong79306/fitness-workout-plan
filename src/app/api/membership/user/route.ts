@@ -3,15 +3,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getRequestContext } from '@cloudflare/next-on-pages';
 import { auth } from '@/auth';
-import { getUserTier, getUserLimits, getUserActiveSubscription } from '@/lib/membership';
+import { getTierById, DEFAULT_TIERS } from '@/types/membership';
 import type { D1Database } from '@/types/database';
+import type { TierId, TierLimits } from '@/types/membership';
 
 export const runtime = 'edge';
 
 export async function GET(request: NextRequest) {
   const session = await auth();
 
-  if (!session?.user?.id) {
+  if (!session?.user?.email) {
     return NextResponse.json(
       { error: 'Unauthorized' },
       { status: 401 }
@@ -19,35 +20,57 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // 尝试获取 Cloudflare D1 数据库绑定
     const { env } = getRequestContext();
     const db = env.DB as D1Database | undefined;
 
     if (!db) {
-      // 没有 D1 绑定，返回默认免费用户信息
       return NextResponse.json({
         tier: 'free',
-        limits: {
-          plansPerMonth: 3,
-          aiGenerationsPerDay: 1,
-          customPlans: 1,
-          progressHistory: 30,
-          bodyMetricsRecords: 50,
-          canAccessPremiumPlans: false,
-          canExportData: false,
-          canSyncWearable: false,
-          priority: 0,
-        },
+        limits: DEFAULT_TIERS[0].limits,
         subscription: null,
       });
     }
 
-    const tier = await getUserTier(db, session.user.id);
-    const limits = await getUserLimits(db, session.user.id);
-    const subscription = await getUserActiveSubscription(db, session.user.id);
+    // 通过 email 查找用户（解决 OAuth ID 与数据库 ID 不一致问题）
+    const user = await db
+      .prepare('SELECT id, membership_tier FROM users WHERE email = ?')
+      .bind(session.user.email)
+      .first<{ id: string; membership_tier: string }>();
+
+    if (!user) {
+      return NextResponse.json({
+        tier: 'free',
+        limits: DEFAULT_TIERS[0].limits,
+        subscription: null,
+      });
+    }
+
+    // 检查用户的有效订阅
+    const subscription = await db
+      .prepare(`
+        SELECT
+          id,
+          user_id as userId,
+          tier_id as tierId,
+          status,
+          started_at as startedAt,
+          expires_at as expiresAt
+        FROM user_subscriptions
+        WHERE user_id = ? AND status = 'active'
+        AND (expires_at IS NULL OR strftime('%Y-%m-%dT%H:%M:%SZ', expires_at) > strftime('%Y-%m-%dT%H:%M:%SZ', 'now', 'utc'))
+        ORDER BY created_at DESC
+        LIMIT 1
+      `)
+      .bind(user.id)
+      .first<{ tierId: TierId }>();
+
+    // 确定用户等级：订阅优先，其次用户表
+    const tierId: TierId = subscription?.tierId || (user.membership_tier as TierId) || 'free';
+    const tier = getTierById(tierId);
+    const limits: TierLimits = tier?.limits ?? DEFAULT_TIERS[0].limits;
 
     return NextResponse.json({
-      tier,
+      tier: tierId,
       limits,
       subscription,
     });
