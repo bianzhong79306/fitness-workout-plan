@@ -4,10 +4,11 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { Dumbbell, Clock, Calendar, CheckCircle } from 'lucide-react';
+import { Dumbbell, Clock, Calendar, CheckCircle, Play, Pause, SkipForward, X } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { Progress } from '@/components/ui/progress';
 
 interface PlanDetail {
   id: string;
@@ -28,11 +29,31 @@ interface PlanDetail {
   }>;
 }
 
+interface Exercise {
+  exerciseId?: string;
+  name: string;
+  nameEn: string;
+  sets: number;
+  reps?: number;
+  duration?: number;
+  restSeconds: number;
+  weight?: number;
+}
+
 export default function PlanDetailClient({ locale, planId }: { locale: string; planId: string }) {
   const [plan, setPlan] = useState<PlanDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  
+
+  // 训练模式状态
+  const [workoutMode, setWorkoutMode] = useState(false);
+  const [currentSessionIndex, setCurrentSessionIndex] = useState(0);
+  const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
+  const [currentSet, setCurrentSet] = useState(1);
+  const [isResting, setIsResting] = useState(false);
+  const [restTimeLeft, setRestTimeLeft] = useState(0);
+  const [timerRunning, setTimerRunning] = useState(false);
+
   useEffect(() => {
     fetch(`/api/plans/${planId}`)
       .then(res => res.json())
@@ -44,15 +65,176 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
       .catch(() => setError('Failed to load'))
       .finally(() => setLoading(false));
   }, [planId]);
-  
+
+  // 休息计时器
+  useEffect(() => {
+    if (timerRunning && restTimeLeft > 0) {
+      const interval = setInterval(() => {
+        setRestTimeLeft(prev => {
+          if (prev <= 1) {
+            setTimerRunning(false);
+            setIsResting(false);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [timerRunning, restTimeLeft]);
+
+  const startWorkout = (sessionIndex: number = 0) => {
+    setCurrentSessionIndex(sessionIndex);
+    setCurrentExerciseIndex(0);
+    setCurrentSet(1);
+    setIsResting(false);
+    setRestTimeLeft(0);
+    setTimerRunning(false);
+    setWorkoutMode(true);
+  };
+
+  const endWorkout = () => {
+    setWorkoutMode(false);
+  };
+
+  const nextSet = () => {
+    const exercises = getExercises(currentSessionIndex);
+    const currentExercise = exercises[currentExerciseIndex];
+
+    if (currentSet < currentExercise.sets) {
+      // 开始休息
+      setCurrentSet(prev => prev + 1);
+      setIsResting(true);
+      setRestTimeLeft(currentExercise.restSeconds);
+      setTimerRunning(true);
+    } else {
+      // 当前动作完成，进入下一个动作
+      nextExercise();
+    }
+  };
+
+  const nextExercise = () => {
+    const exercises = getExercises(currentSessionIndex);
+    if (currentExerciseIndex < exercises.length - 1) {
+      setCurrentExerciseIndex(prev => prev + 1);
+      setCurrentSet(1);
+      setIsResting(false);
+      setRestTimeLeft(0);
+      setTimerRunning(false);
+    } else {
+      // 当前 session 完成
+      if (currentSessionIndex < (plan?.sessions.length || 1) - 1) {
+        setCurrentSessionIndex(prev => prev + 1);
+        setCurrentExerciseIndex(0);
+        setCurrentSet(1);
+      } else {
+        // 全部训练完成
+        endWorkout();
+      }
+    }
+  };
+
+  const skipRest = () => {
+    setIsResting(false);
+    setRestTimeLeft(0);
+    setTimerRunning(false);
+  };
+
+  const getExercises = (sessionIndex: number): Exercise[] => {
+    if (!plan?.sessions[sessionIndex]) return [];
+    try {
+      return JSON.parse(plan.sessions[sessionIndex].exercises_json || '[]');
+    } catch {
+      return [];
+    }
+  };
+
   if (loading) {
     return <div className="container py-8 text-center">{locale === 'zh' ? '加载中...' : 'Loading...'}</div>;
   }
-  
+
   if (error || !plan) {
     return <div className="container py-8 text-center text-red-500">{error || 'Not found'}</div>;
   }
-  
+
+  // 训练模式界面
+  if (workoutMode) {
+    const exercises = getExercises(currentSessionIndex);
+    const currentExercise = exercises[currentExerciseIndex];
+    const session = plan.sessions[currentSessionIndex];
+    const progress = ((currentExerciseIndex * currentExercise?.sets + currentSet) / (exercises.reduce((sum, ex) => sum + ex.sets, 0))) * 100;
+
+    return (
+      <div className="container mx-auto py-8 px-4 max-w-2xl">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl font-bold">{locale === 'zh' ? session.name : session.name_en}</h2>
+          <Button variant="outline" size="sm" onClick={endWorkout}>
+            <X className="w-4 h-4 mr-1" />
+            {locale === 'zh' ? '结束' : 'End'}
+          </Button>
+        </div>
+
+        <Progress value={progress} className="mb-6" />
+
+        {isResting ? (
+          <Card className="text-center py-8">
+            <CardContent>
+              <Clock className="w-16 h-16 mx-auto mb-4 text-primary" />
+              <p className="text-4xl font-bold mb-2">{restTimeLeft}s</p>
+              <p className="text-muted-foreground mb-4">
+                {locale === 'zh' ? '休息时间' : 'Rest Time'}
+              </p>
+              <div className="flex gap-2 justify-center">
+                <Button onClick={() => setTimerRunning(!timerRunning)}>
+                  {timerRunning ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}
+                  {timerRunning ? (locale === 'zh' ? '暂停' : 'Pause') : (locale === 'zh' ? '继续' : 'Resume')}
+                </Button>
+                <Button variant="outline" onClick={skipRest}>
+                  <SkipForward className="w-4 h-4 mr-2" />
+                  {locale === 'zh' ? '跳过' : 'Skip'}
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        ) : (
+          <Card>
+            <CardHeader>
+              <div className="flex justify-between items-center">
+                <div>
+                  <CardTitle>{locale === 'zh' ? currentExercise?.name : currentExercise?.nameEn}</CardTitle>
+                  <CardDescription>
+                    {locale === 'zh' ? `第 ${currentSet} 组 / 共 ${currentExercise?.sets} 组` : `Set ${currentSet} of ${currentExercise?.sets}`}
+                  </CardDescription>
+                </div>
+                <Badge variant="secondary">
+                  {currentExercise?.reps ? `${currentExercise.reps} reps` : `${currentExercise?.duration}s`}
+                </Badge>
+              </div>
+            </CardHeader>
+            <CardContent className="text-center py-6">
+              <p className="text-2xl font-bold mb-4">
+                {currentExercise?.reps
+                  ? `${currentExercise.reps} ${locale === 'zh' ? '次' : 'reps'}`
+                  : `${currentExercise?.duration} ${locale === 'zh' ? '秒' : 'seconds'}`}
+              </p>
+              <Button size="lg" onClick={nextSet} className="w-full">
+                <CheckCircle className="w-5 h-5 mr-2" />
+                {locale === 'zh' ? '完成此组' : 'Complete Set'}
+              </Button>
+            </CardContent>
+          </Card>
+        )}
+
+        <div className="mt-4 text-center text-sm text-muted-foreground">
+          {locale === 'zh'
+            ? `动作 ${currentExerciseIndex + 1}/${exercises.length}`
+            : `Exercise ${currentExerciseIndex + 1}/${exercises.length}`}
+        </div>
+      </div>
+    );
+  }
+
+  // 计划详情界面
   return (
     <div className="container mx-auto py-8 px-4 max-w-4xl">
       <Card>
@@ -70,30 +252,33 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
           </div>
         </CardHeader>
         <CardContent className="space-y-4">
-          {plan.sessions.map(s => {
+          {plan.sessions.map((s, idx) => {
             const exercises = JSON.parse(s.exercises_json || '[]');
             return (
               <div key={s.session_number} className="border rounded-lg p-4">
-                <div className="flex justify-between mb-2">
+                <div className="flex justify-between items-center mb-2">
                   <h3 className="font-medium">{locale === 'zh' ? s.name : s.name_en}</h3>
-                  <span className="text-sm text-muted-foreground"><Clock className="w-4 h-4 inline mr-1" />{s.duration_minutes}min</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-muted-foreground"><Clock className="w-4 h-4 inline mr-1" />{s.duration_minutes}min</span>
+                    <Button size="sm" onClick={() => startWorkout(idx)}>
+                      <Play className="w-3 h-3 mr-1" />
+                      {locale === 'zh' ? '开始' : 'Start'}
+                    </Button>
+                  </div>
                 </div>
                 <div className="space-y-1">
-                  {exercises.map((ex: any, i: number) => (
+                  {exercises.map((ex: Exercise, i: number) => (
                     <div key={i} className="flex justify-between text-sm">
                       <span>{locale === 'zh' ? ex.name : ex.nameEn}</span>
-                      <span className="text-muted-foreground">{ex.sets}×{ex.reps}</span>
+                      <span className="text-muted-foreground">
+                        {ex.sets}×{ex.reps || `${ex.duration}s`}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
             );
           })}
-          
-          <Button className="w-full" size="lg">
-            <CheckCircle className="w-4 h-4 mr-2" />
-            {locale === 'zh' ? '开始训练' : 'Start Workout'}
-          </Button>
         </CardContent>
       </Card>
     </div>

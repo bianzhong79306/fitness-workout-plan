@@ -57,11 +57,11 @@ export async function POST(request: NextRequest) {
     const planId = crypto.randomUUID();
     const now = new Date().toISOString();
 
-    // 保存计划主表
+    // 保存计划主表 (creator_id 为 NULL，允许匿名用户创建)
     await db.prepare(`
       INSERT INTO workout_plans (id, creator_id, name, name_en, description, description_en,
         goal, difficulty, duration_weeks, sessions_per_week, equipment, is_premium, is_published, created_at)
-      VALUES (?, 'guest', ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 1, ?)
+      VALUES (?, NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 1, ?)
     `).bind(
       planId,
       plan.name || 'Plan',
