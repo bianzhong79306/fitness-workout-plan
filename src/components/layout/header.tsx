@@ -16,12 +16,14 @@ import {
   X,
   Globe,
   Crown,
+  Sparkles,
 } from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
   { href: "/exercises", labelKey: "exercises", icon: Dumbbell },
   { href: "/plans", labelKey: "plans", icon: Dumbbell },
+  { href: "/ai-plan", labelKey: "ai-plan", icon: Sparkles },
   { href: "/timers", labelKey: "timers", icon: Timer },
 ];
 

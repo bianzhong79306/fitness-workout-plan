@@ -240,5 +240,46 @@
       "upgrade": "Upgrade Now"
     },
     "footer": "All plans include basic workout plans, timer, and progress tracking"
+  },
+  "aiPlan": {
+    "title": "AI Workout Plan Generator",
+    "subtitle": "Generate a personalized workout plan based on your goals and conditions",
+    "form": {
+      "goal": "Training Goal",
+      "level": "Fitness Level",
+      "days": "Days per Week",
+      "duration": "Session Duration",
+      "equipment": "Available Equipment"
+    },
+    "goals": {
+      "general": "General Fitness",
+      "muscle_gain": "Muscle Gain",
+      "fat_loss": "Fat Loss",
+      "strength": "Strength",
+      "endurance": "Endurance"
+    },
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    },
+    "equipment": {
+      "none": "No Equipment",
+      "dumbbell": "Dumbbell",
+      "barbell": "Barbell",
+      "gym": "Full Gym",
+      "home": "Home Equipment"
+    },
+    "actions": {
+      "generate": "Generate Workout Plan",
+      "generating": "Generating...",
+      "save": "Save This Plan"
+    },
+    "result": {
+      "weeks": "weeks",
+      "sessionsPerWeek": "sessions/week",
+      "minutes": "min",
+      "rest": "rest"
+    }
   }
 }

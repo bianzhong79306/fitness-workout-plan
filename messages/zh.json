@@ -240,5 +240,46 @@
       "upgrade": "立即升级"
     },
     "footer": "所有计划都包含基础训练计划、计时器和进度追踪功能"
+  },
+  "aiPlan": {
+    "title": "AI智能训练计划生成",
+    "subtitle": "根据你的目标、水平和条件，生成专属训练计划",
+    "form": {
+      "goal": "训练目标",
+      "level": "健身水平",
+      "days": "每周训练天数",
+      "duration": "每次训练时长",
+      "equipment": "可用器械"
+    },
+    "goals": {
+      "general": "综合健身",
+      "muscle_gain": "增肌塑形",
+      "fat_loss": "减脂瘦身",
+      "strength": "力量提升",
+      "endurance": "耐力提升"
+    },
+    "levels": {
+      "beginner": "初学者",
+      "intermediate": "中级",
+      "advanced": "高级"
+    },
+    "equipment": {
+      "none": "徒手/无器械",
+      "dumbbell": "哑铃",
+      "barbell": "杠铃",
+      "gym": "健身房全套",
+      "home": "居家简易器械"
+    },
+    "actions": {
+      "generate": "生成训练计划",
+      "generating": "正在生成...",
+      "save": "保存此计划"
+    },
+    "result": {
+      "weeks": "周",
+      "sessionsPerWeek": "次/周",
+      "minutes": "分钟",
+      "rest": "休息"
+    }
   }
 }
