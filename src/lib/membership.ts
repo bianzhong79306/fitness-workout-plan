@@ -17,15 +17,24 @@ export async function getUserActiveSubscription(
 ): Promise<UserSubscription | null> {
   const result = await db
     .prepare(`
-      SELECT * FROM user_subscriptions 
-      WHERE user_id = ? AND status = 'active' 
+      SELECT
+        id,
+        user_id as userId,
+        tier_id as tierId,
+        status,
+        started_at as startedAt,
+        expires_at as expiresAt,
+        cancelled_at as cancelledAt,
+        created_at as createdAt
+      FROM user_subscriptions
+      WHERE user_id = ? AND status = 'active'
       AND (expires_at IS NULL OR expires_at > datetime('now'))
-      ORDER BY created_at DESC 
+      ORDER BY created_at DESC
       LIMIT 1
     `)
     .bind(userId)
     .first<UserSubscription>();
-  
+
   return result;
 }
 
@@ -39,14 +48,23 @@ export async function getUserSubscriptionHistory(
 ): Promise<UserSubscription[]> {
   const result = await db
     .prepare(`
-      SELECT * FROM user_subscriptions 
-      WHERE user_id = ? 
-      ORDER BY created_at DESC 
+      SELECT
+        id,
+        user_id as userId,
+        tier_id as tierId,
+        status,
+        started_at as startedAt,
+        expires_at as expiresAt,
+        cancelled_at as cancelledAt,
+        created_at as createdAt
+      FROM user_subscriptions
+      WHERE user_id = ?
+      ORDER BY created_at DESC
       LIMIT ?
     `)
     .bind(userId, limit)
     .all<UserSubscription>();
-  
+
   return result.results;
 }
 
