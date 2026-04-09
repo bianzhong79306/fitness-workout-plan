@@ -1,9 +1,9 @@
 // AI 计划生成服务
 
-// Wenwen AI 中转站配置
+// 阿里云 Coding Plan API 配置（Wenwen AI 不稳定）
 const AI_CONFIG = {
-  baseUrl: 'https://breakout.wenwen-ai.com/v1',
-  model: 'claude-haiku-4-5-20251001',
+  baseUrl: 'https://coding.dashscope.aliyuncs.com/v1',
+  model: 'qwen3.5-plus',  // 速度快、成本低
   // API Key 从环境变量读取
   apiKey: process.env.WENWEN_AI_API_KEY || '',
 };
@@ -63,6 +63,10 @@ export async function generateWorkoutPlan(input: AIPlanInput): Promise<Generated
 
   const prompt = buildPrompt(input);
 
+  // 设置 25 秒超时（Cloudflare Edge Function 限制）
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 25000);
+
   try {
     const response = await fetch(`${AI_CONFIG.baseUrl}/chat/completions`, {
       method: 'POST',
@@ -82,10 +86,13 @@ export async function generateWorkoutPlan(input: AIPlanInput): Promise<Generated
             content: prompt,
           },
         ],
-        max_tokens: 4000,
+        max_tokens: 2000,
         temperature: 0.7,
       }),
+      signal: controller.signal,
     });
+
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       const error = await response.text();
@@ -104,6 +111,10 @@ export async function generateWorkoutPlan(input: AIPlanInput): Promise<Generated
     return plan;
 
   } catch (error) {
+    clearTimeout(timeoutId);
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new Error('AI API timeout - request took too long');
+    }
     console.error('AI plan generation failed:', error);
     throw error;
   }
