@@ -96,6 +96,32 @@ CREATE TABLE IF NOT EXISTS user_plan_subscriptions (
   FOREIGN KEY (plan_id) REFERENCES workout_plans(id)
 );
 
+-- 会员等级配置表
+CREATE TABLE IF NOT EXISTS membership_tiers (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  name_zh TEXT NOT NULL,
+  price_monthly REAL DEFAULT 0,
+  price_yearly REAL DEFAULT 0,
+  features_json TEXT NOT NULL,
+  limits_json TEXT NOT NULL,
+  is_active BOOLEAN DEFAULT 1,
+  created_at TEXT DEFAULT (datetime('now'))
+);
+
+-- 用户订阅表
+CREATE TABLE IF NOT EXISTS user_subscriptions (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  tier_id TEXT NOT NULL,
+  status TEXT NOT NULL DEFAULT 'active',
+  started_at TEXT DEFAULT (datetime('now')),
+  expires_at TEXT,
+  cancelled_at TEXT,
+  created_at TEXT DEFAULT (datetime('now')),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
 -- 成就表
 CREATE TABLE IF NOT EXISTS user_achievements (
   id TEXT PRIMARY KEY,
@@ -112,3 +138,5 @@ CREATE INDEX IF NOT EXISTS idx_workout_logs_date ON workout_logs(started_at);
 CREATE INDEX IF NOT EXISTS idx_body_metrics_user ON body_metrics(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_plans_user ON user_plan_subscriptions(user_id);
 CREATE INDEX IF NOT EXISTS idx_achievements_user ON user_achievements(user_id);
+CREATE INDEX IF NOT EXISTS idx_user_subscriptions_user ON user_subscriptions(user_id);
+CREATE INDEX IF NOT EXISTS idx_user_subscriptions_status ON user_subscriptions(status);

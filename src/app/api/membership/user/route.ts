@@ -3,25 +3,23 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/auth';
 import { getUserTier, getUserLimits, getUserActiveSubscription } from '@/lib/membership';
+import type { D1Database } from '@/types/database';
 
 export const runtime = 'edge';
 
-interface Env {
-  DB: D1Database;
-}
-
 export async function GET(request: NextRequest) {
   const session = await auth();
-  
+
   if (!session?.user?.id) {
     return NextResponse.json(
       { error: 'Unauthorized' },
       { status: 401 }
     );
   }
-  
-  const env = process.env as unknown as Env;
-  
+
+  // 尝试获取 D1 数据库绑定
+  const env = process.env as unknown as { DB?: D1Database };
+
   if (!env.DB) {
     // 没有 D1 绑定，返回默认免费用户信息
     return NextResponse.json({
@@ -40,12 +38,12 @@ export async function GET(request: NextRequest) {
       subscription: null,
     });
   }
-  
+
   try {
     const tier = await getUserTier(env.DB, session.user.id);
     const limits = await getUserLimits(env.DB, session.user.id);
     const subscription = await getUserActiveSubscription(env.DB, session.user.id);
-    
+
     return NextResponse.json({
       tier,
       limits,

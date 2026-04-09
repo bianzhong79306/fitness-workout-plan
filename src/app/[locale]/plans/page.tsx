@@ -1,5 +1,6 @@
-import { setRequestLocale } from "next-intl/server";
-export const runtime = "edge";
+"use client";
+
+import { useState } from "react";
 import { Link } from "@/i18n/routing";
 import {
   Card,
@@ -12,25 +13,25 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { workoutPlans } from "@/data/workout-plans";
 import { fitnessGoalOptions } from "@/types/plan";
-import { Dumbbell, Calendar, Clock, ChevronRight } from "lucide-react";
+import { Dumbbell, Calendar, Clock } from "lucide-react";
 
-export default function PlansPage({
-  params,
-}: {
+interface PlansPageProps {
   params: Promise<{ locale: string }>;
-}) {
-  return <PlansPageContent params={params} />;
 }
 
-async function PlansPageContent({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}) {
-  const { locale } = await params;
-  setRequestLocale(locale);
+export default function PlansPage({ params }: PlansPageProps) {
+  const [selectedGoal, setSelectedGoal] = useState<string | null>(null);
+  const [locale, setLocale] = useState<string>("en");
+
+  // 解析 params
+  params.then((p) => setLocale(p.locale));
 
   const isZh = locale === "zh";
+
+  // 筛选逻辑
+  const filteredPlans = selectedGoal
+    ? workoutPlans.filter((plan) => plan.goal === selectedGoal)
+    : workoutPlans;
 
   return (
     <div className="container py-8">
@@ -48,19 +49,37 @@ async function PlansPageContent({
 
       {/* Goal Filters */}
       <div className="flex flex-wrap justify-center gap-2 mb-8">
-        <Button variant="outline" size="sm">
+        <Button
+          variant={selectedGoal === null ? "default" : "outline"}
+          size="sm"
+          onClick={() => setSelectedGoal(null)}
+        >
           {isZh ? "全部" : "All"}
         </Button>
         {fitnessGoalOptions.map((goal) => (
-          <Button key={goal.value} variant="outline" size="sm">
+          <Button
+            key={goal.value}
+            variant={selectedGoal === goal.value ? "default" : "outline"}
+            size="sm"
+            onClick={() => setSelectedGoal(goal.value)}
+          >
             {isZh ? goal.label : goal.labelEn}
           </Button>
         ))}
       </div>
 
+      {/* Results count */}
+      {selectedGoal && (
+        <p className="text-center text-muted-foreground mb-6">
+          {isZh
+            ? `找到 ${filteredPlans.length} 个计划`
+            : `${filteredPlans.length} plans found`}
+        </p>
+      )}
+
       {/* Plans Grid */}
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {workoutPlans.map((plan) => (
+        {filteredPlans.map((plan) => (
           <Link key={plan.id} href={`/plans/${plan.id}`}>
             <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer">
               <CardHeader>
@@ -115,6 +134,24 @@ async function PlansPageContent({
           </Link>
         ))}
       </div>
+
+      {/* No results */}
+      {filteredPlans.length === 0 && (
+        <div className="text-center py-12">
+          <p className="text-muted-foreground">
+            {isZh
+              ? "没有找到符合条件的计划"
+              : "No plans match your criteria"}
+          </p>
+          <Button
+            variant="link"
+            onClick={() => setSelectedGoal(null)}
+            className="mt-2"
+          >
+            {isZh ? "查看全部计划" : "View all plans"}
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

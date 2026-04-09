@@ -87,11 +87,9 @@ Output JSON only, no explanation.`;
       signal: controller.signal,
     });
 
-    clearTimeout(timeoutId);
-
     if (!response.ok) {
       const error = await response.text();
-      throw new Error(`AI API error: ${response.status}`);
+      throw new Error(`AI API error: ${response.status} - ${error}`);
     }
 
     const data = await response.json() as { choices: Array<{ message: { content: string } }> };
@@ -104,11 +102,12 @@ Output JSON only, no explanation.`;
     return parseAIResponse(content, input);
 
   } catch (error) {
-    clearTimeout(timeoutId);
     if (error instanceof Error && error.name === 'AbortError') {
-      throw new Error('AI API timeout - request took too long');
+      throw new Error('AI API timeout - request took too long (20s limit)');
     }
     throw error;
+  } finally {
+    clearTimeout(timeoutId);
   }
 }
 

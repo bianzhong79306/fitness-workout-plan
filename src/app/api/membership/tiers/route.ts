@@ -2,16 +2,14 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { getAllTiers } from '@/lib/membership';
+import type { D1Database } from '@/types/database';
 
 export const runtime = 'edge';
 
-interface Env {
-  DB: D1Database;
-}
-
 export async function GET(request: NextRequest) {
-  const env = process.env as unknown as Env;
-  
+  // 尝试获取 D1 数据库绑定
+  const env = process.env as unknown as { DB?: D1Database };
+
   if (!env.DB) {
     // 没有 D1 绑定，返回默认配置
     return NextResponse.json({
@@ -100,7 +98,7 @@ export async function GET(request: NextRequest) {
       ],
     });
   }
-  
+
   try {
     const tiers = await getAllTiers(env.DB);
     return NextResponse.json({ tiers });

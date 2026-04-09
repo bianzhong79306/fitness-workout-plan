@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Play, Pause, RotateCcw } from "lucide-react";
@@ -11,6 +11,20 @@ export function CountdownClient({ isZh }: { isZh: boolean }) {
   const [timeLeft, setTimeLeft] = useState(60);
   const [isRunning, setIsRunning] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  // 计算总秒数
+  const totalTime = inputMinutes * 60 + inputSeconds;
+
+  // 更新时间
+  const updateTimeFromInputs = useCallback(() => {
+    if (!isRunning) {
+      setTimeLeft(totalTime);
+    }
+  }, [isRunning, totalTime]);
+
+  useEffect(() => {
+    updateTimeFromInputs();
+  }, [updateTimeFromInputs]);
 
   useEffect(() => {
     if (isRunning && timeLeft > 0) {
@@ -35,31 +49,21 @@ export function CountdownClient({ isZh }: { isZh: boolean }) {
 
   const start = () => {
     if (!isRunning && timeLeft === 0) {
-      setTimeLeft(inputMinutes * 60 + inputSeconds);
+      setTimeLeft(totalTime);
     }
     setIsRunning(true);
   };
 
   const reset = () => {
     setIsRunning(false);
-    setTimeLeft(inputMinutes * 60 + inputSeconds);
+    setTimeLeft(totalTime);
   };
-
-  const handleInputChange = () => {
-    if (!isRunning) {
-      setTimeLeft(inputMinutes * 60 + inputSeconds);
-    }
-  };
-
-  useEffect(() => {
-    handleInputChange();
-  }, [inputMinutes, inputSeconds]);
 
   return (
     <div className="text-center">
       <div className="text-6xl font-mono font-bold mb-8">{formatTime(timeLeft)}</div>
 
-      {!isRunning && timeLeft === inputMinutes * 60 + inputSeconds && (
+      {!isRunning && timeLeft === totalTime && (
         <div className="flex items-center justify-center gap-4 mb-6">
           <div>
             <label className="text-sm text-muted-foreground block mb-1">

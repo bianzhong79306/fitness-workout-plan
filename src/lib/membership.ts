@@ -1,25 +1,8 @@
 // 会员系统数据库操作
 
 import type { TierId, UserSubscription, MembershipTier, TierLimits } from '@/types/membership';
+import type { D1Database } from '@/types/database';
 import { DEFAULT_TIERS, getTierById } from '@/types/membership';
-
-// D1 数据库绑定类型
-interface D1Database {
-  prepare(query: string): D1PreparedStatement;
-}
-
-interface D1PreparedStatement {
-  bind(...values: unknown[]): D1PreparedStatement;
-  first<T = unknown>(): Promise<T | null>;
-  run(): Promise<D1Result>;
-  all<T = unknown>(): Promise<D1Result<T>>;
-}
-
-interface D1Result<T = unknown> {
-  results: T[];
-  success: boolean;
-  error?: string;
-}
 
 // =====================
 // 用户订阅操作

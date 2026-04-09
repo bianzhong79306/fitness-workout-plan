@@ -5,3 +5,4 @@ export * from './plan';
 export * from './workout';
 export * from './user';
 export * from './membership';
+export * from './database';
