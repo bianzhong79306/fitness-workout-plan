@@ -1,10 +1,9 @@
 import { setRequestLocale } from "next-intl/server";
 export const runtime = "edge";
-import { auth } from "@/auth";
+import { auth, signIn } from "@/auth";
 import { redirect } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { signIn } from "next-auth/react";
 
 export default function SignInPage({
   params,
@@ -47,7 +46,6 @@ async function SignInPageContent({
             {/* Google Sign In Button */}
             <form
               action={async () => {
-                "use server";
                 await signIn("google", { redirectTo: `/${locale}/dashboard` });
               }}
             >
