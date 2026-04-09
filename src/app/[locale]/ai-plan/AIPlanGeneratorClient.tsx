@@ -17,9 +17,12 @@ type Goal = 'muscle_gain' | 'fat_loss' | 'strength' | 'endurance' | 'general';
 type Level = 'beginner' | 'intermediate' | 'advanced';
 
 export default function AIPlanGeneratorClient({ locale }: { locale: string }) {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
   const t = useTranslations('aiPlan');
+  
+  // 是否已登录（考虑加载状态）
+  const isLoggedIn = status === 'authenticated' && session?.user;
   
   // 表单状态
   const [goal, setGoal] = useState<Goal>('general');
@@ -30,6 +33,8 @@ export default function AIPlanGeneratorClient({ locale }: { locale: string }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [generatedPlan, setGeneratedPlan] = useState<GeneratedPlan | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [savedPlanId, setSavedPlanId] = useState<string | null>(null);
   
   // 器械选项
   const equipmentOptions = [
@@ -56,7 +61,32 @@ export default function AIPlanGeneratorClient({ locale }: { locale: string }) {
     { key: 'advanced', label: '高级', labelEn: 'Advanced' },
   ];
   
-  // 处理器械选择
+  // 保存计划到数据库
+  const handleSavePlan = async () => {
+    if (!generatedPlan || !isLoggedIn) return;
+    
+    setSaving(true);
+    try {
+      const response = await fetch('/api/plans/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(generatedPlan),
+      });
+      
+      const data = await response.json() as { success?: boolean; planId?: string; error?: string };
+      
+      if (response.ok && data.success) {
+        setSavedPlanId(data.planId ?? null);
+        router.push(`/${locale}/plans/${data.planId}`);
+      } else {
+        setError(data.error || 'Failed to save plan');
+      }
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to save plan');
+    } finally {
+      setSaving(false);
+    }
+  };
   const handleEquipmentChange = (key: string) => {
     if (key === 'none') {
       setEquipment(['none']);
@@ -73,7 +103,13 @@ export default function AIPlanGeneratorClient({ locale }: { locale: string }) {
   
   // 生成计划
   const handleGenerate = async () => {
-    if (!session?.user) {
+    // 如果正在加载 session，等待
+    if (status === 'loading') {
+      return;
+    }
+    
+    // 未登录则跳转登录页
+    if (!isLoggedIn) {
       router.push(`/${locale}/auth/signin?callbackUrl=${encodeURIComponent(`/${locale}/ai-plan`)}`);
       return;
     }
@@ -314,9 +350,19 @@ export default function AIPlanGeneratorClient({ locale }: { locale: string }) {
               </div>
             ))}
             
-            {/* TODO: Save Plan Button */}
-            <Button variant="outline" className="w-full" disabled>
-              {locale === 'zh' ? '保存此计划（开发中）' : 'Save This Plan (Coming Soon)'}
+            {/* Save Plan Button */}
+            <Button 
+              variant="outline" 
+              className="w-full"
+              onClick={handleSavePlan}
+              disabled={saving || savedPlanId !== null}
+            >
+              {saving 
+                ? (locale === 'zh' ? '保存中...' : 'Saving...')
+                : savedPlanId
+                  ? (locale === 'zh' ? '已保存 ✓' : 'Saved ✓')
+                  : (locale === 'zh' ? '保存此计划' : 'Save This Plan')
+              }
             </Button>
           </CardContent>
         </Card>
