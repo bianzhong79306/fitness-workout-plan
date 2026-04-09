@@ -62,7 +62,7 @@ export async function GET(request: NextRequest) {
     // 创建订阅记录
     await createSubscription(db, {
       userId: orderInfo.userId,
-      tierId: orderInfo.tierId,
+      tierId: orderInfo.tierId as 'pro' | 'premium',
       status: 'active',
       startedAt: new Date().toISOString(),
       expiresAt,

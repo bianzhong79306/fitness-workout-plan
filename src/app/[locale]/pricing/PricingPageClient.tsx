@@ -73,14 +73,16 @@ export default function PricingPageClient({ locale }: { locale: string }) {
         body: JSON.stringify({ tierId, billingCycle }),
       });
 
-      const data = await response.json();
+      const data = await response.json() as { error?: string; approveUrl?: string; orderId?: string };
 
       if (!response.ok) {
         throw new Error(data.error || 'Failed to create payment');
       }
 
       // 跳转到 PayPal 授权页面
-      window.location.href = data.approveUrl;
+      if (data.approveUrl) {
+        window.location.href = data.approveUrl;
+      }
     } catch (error) {
       console.error('Payment error:', error);
       alert(error instanceof Error ? error.message : 'Payment failed');
