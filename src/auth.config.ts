@@ -102,8 +102,45 @@ export const authConfig: NextAuthConfig = {
       }
       return true;
     },
-    jwt({ token, user }) {
-      if (user) {
+    async jwt({ token, user, account }) {
+      // 首次登录时，同步用户到数据库
+      if (user?.email && account) {
+        try {
+          const { getRequestContext } = await import('@cloudflare/next-on-pages');
+          const { env } = getRequestContext();
+          const db = env.DB;
+
+          if (db) {
+            // 查找或创建用户
+            let dbUser = await db
+              .prepare("SELECT id FROM users WHERE email = ?")
+              .bind(user.email)
+              .first<{ id: string }>();
+
+            if (!dbUser) {
+              // 创建新用户
+              const newId = crypto.randomUUID();
+              await db
+                .prepare("INSERT INTO users (id, email, name, created_at, last_login) VALUES (?, ?, ?, datetime('now'), datetime('now'))")
+                .bind(newId, user.email, user.name || null)
+                .run();
+              dbUser = { id: newId };
+            } else {
+              // 更新最后登录时间
+              await db
+                .prepare("UPDATE users SET last_login = datetime('now') WHERE email = ?")
+                .bind(user.email)
+                .run();
+            }
+
+            // 使用数据库中的用户 ID
+            token.id = dbUser.id;
+          }
+        } catch (e) {
+          // 如果获取不到 D1，使用原始 ID
+          if (user.id) token.id = user.id;
+        }
+      } else if (user?.id) {
         token.id = user.id;
       }
       return token;
