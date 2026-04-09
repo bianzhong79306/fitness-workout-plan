@@ -1,9 +1,10 @@
 import { setRequestLocale } from "next-intl/server";
 export const runtime = "edge";
-import { auth, signIn } from "@/auth";
+import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { handleGoogleSignIn } from "./actions";
 
 export default function SignInPage({
   params,
@@ -44,11 +45,8 @@ async function SignInPageContent({
           </CardHeader>
           <CardContent className="space-y-4">
             {/* Google Sign In Button */}
-            <form
-              action={async () => {
-                await signIn("google", { redirectTo: `/${locale}/dashboard` });
-              }}
-            >
+            <form action={handleGoogleSignIn}>
+              <input type="hidden" name="locale" value={locale} />
               <Button type="submit" className="w-full" size="lg">
                 <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24">
                   <path
