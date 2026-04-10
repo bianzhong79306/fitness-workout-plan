@@ -145,6 +145,27 @@
 | 体脂趋势图 | `BodyMetricsCard.tsx` | Recharts折线图、数据录入表单 |
 | 训练日历 | `calendar/` | 月历视图、训练详情弹窗 |
 
+### PWA支持 (2026-04-10 完成)
+
+| 子功能 | 文件 | 说明 |
+|--------|------|------|
+| 应用清单 | `public/manifest.json` | PWA清单、shortcuts、中英双语 |
+| Service Worker | `public/sw.js` | 预缓存、离线支持、API缓存策略 |
+| 应用图标 | `public/icons/*.svg` | 192x192、512x512、maskable SVG图标 |
+| Metadata更新 | `src/app/layout.tsx` | viewport、themeColor、manifest、icons |
+| SW注册 | `src/app/[locale]/layout.tsx` | Service Worker注册脚本 |
+
+### 性能优化 (2026-04-10 完成)
+
+| 子功能 | 文件 | 说明 |
+|--------|------|------|
+| 包导入优化 | `next.config.ts` | optimizePackageImports配置 |
+| API缓存 | `next.config.ts` | Cache-Control响应头 |
+| 安全头 | `next.config.ts` | X-Frame-Options、X-Content-Type-Options |
+| 图片预加载 | `src/app/[locale]/page.tsx` | Hero背景图preload |
+| 图片格式优化 | `src/app/[locale]/page.tsx` | WebP格式、尺寸优化 |
+| 骨架屏 | `loading.tsx` | exercises、plans、challenges、dashboard |
+
 ---
 
 ## 开发进度追踪
@@ -158,8 +179,12 @@
 | 2026-04-10 | Phase 2 & 3 功能完成 | WeeklyGoalCard + 训练日历 + 体脂趋势 |
 | 2026-04-10 | 高级数据分析 | 力量进步追踪 + 围度展示增强 |
 | 2026-04-10 | PayPal退款处理 | Webhook自动降级会员 |
-| 2026-04-10 | 动作库扩充 | 59→128个动作 |
+| 2026-04-10 | 动作库扩充 | 59→128→300+个动作 |
 | 2026-04-10 | 社区功能 + 成就系统 | 动态发布、点赞评论、10个成就徽章 |
+| 2026-04-10 | 首页改版 | Hero重设计、Bento Grid、AI Feature |
+| 2026-04-10 | 挑战赛独立页面系统 | 列表页、详情页、历史页、导航入口 |
+| 2026-04-10 | PWA支持 | manifest.json、Service Worker、SVG图标 |
+| 2026-04-10 | 性能优化 | Next.js配置、图片预加载、骨架屏 |
 
 ---
 
@@ -186,4 +211,4 @@
 
 ---
 
-*最后更新：2026-04-10 17:00*
+*最后更新：2026-04-10 21:30*
