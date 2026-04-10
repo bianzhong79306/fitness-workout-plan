@@ -12,40 +12,186 @@
     "calendar": "Calendar",
     "progress": "Progress",
     "signIn": "Sign In",
-    "signOut": "Sign Out"
+    "signOut": "Sign Out",
+    "aiPlan": "AI Generator"
   },
   "home": {
     "hero": {
-      "title": "Transform Your Body,\nTransform Your Life",
-      "subtitle": "Personalized workout plans, expert guidance, and progress tracking - all in one place.",
+      "badge": "AI-Powered Training",
+      "title": "Smart Fitness,",
+      "titleHighlight": "Tailored for You",
+      "subtitle": "AI-powered personalized workout plans, professional exercise library, making every workout count",
       "cta": {
-        "start": "Start Free",
-        "learn": "Learn More"
+        "start": "Start Training Free",
+        "ai": "AI Plan Generator"
+      },
+      "trust": {
+        "noEquipment": "No Equipment Needed",
+        "anytime": "Train Anytime"
+      }
+    },
+    "stats": {
+      "exercises": "Exercises",
+      "plans": "Workout Plans",
+      "freePlans": "Free Plans",
+      "aiPowered": "Powered"
+    },
+    "aiFeature": {
+      "badge": "Core Features",
+      "title": "AI Creates Your Perfect Workout Plan",
+      "subtitle": "Based on your fitness goals, level, available time, and equipment, our AI creates a personalized workout plan tailored specifically for you",
+      "features": {
+        "goal": "Precise Goal Matching - Muscle/Fat Loss/Strength/Endurance",
+        "config": "Flexible Configuration - Days/Duration/Equipment",
+        "optimize": "Dynamic Optimization - Adjusts based on progress"
+      },
+      "cta": "Try AI Generator",
+      "mock": {
+        "title": "AI Plan Generator",
+        "preview": "Generated Plan Preview"
       }
     },
     "features": {
-      "title": "Why Choose FitPlan Pro?",
-      "subtitle": "Everything you need to achieve your fitness goals",
-      "plans": {
-        "title": "Personalized Plans",
-        "description": "Custom workout plans tailored to your goals, fitness level, and available equipment."
+      "title": "Complete Fitness Solution",
+      "subtitle": "From workout plans to progress tracking, timers to challenges, everything you need",
+      "library": {
+        "title": "{count}+ Exercise Library",
+        "desc": "Full body coverage with detailed instructions and tips"
       },
-      "exercises": {
-        "title": "100+ Exercises",
-        "description": "Comprehensive exercise library with detailed instructions and video demonstrations."
+      "plans": {
+        "title": "10 Workout Plans",
+        "desc": "Beginner to advanced, covering all fitness goals"
+      },
+      "timers": {
+        "title": "Professional Timers",
+        "desc": "HIIT, Tabata, countdown modes for precise timing"
+      },
+      "achievements": {
+        "title": "Achievement System",
+        "desc": "Unlock badges, earn points, track every achievement"
+      },
+      "challenges": {
+        "title": "Challenges",
+        "desc": "Daily/weekly/community challenges to push limits"
       },
       "tracking": {
         "title": "Progress Tracking",
-        "description": "Track your workouts, monitor progress, and celebrate your achievements."
-      },
-      "timers": {
-        "title": "Workout Timers",
-        "description": "Built-in timers for HIIT, Tabata, and rest periods to optimize your training."
+        "desc": "Workout history, body metrics, calendar view"
       }
     },
-    "plans": {
+    "membership": {
+      "badge": "Membership Plans",
+      "title": "Choose Your Membership Level",
+      "subtitle": "Start free, upgrade anytime for more features",
+      "tiers": {
+        "free": {
+          "name": "Free",
+          "desc": "Basic Features",
+          "cta": "Start Free",
+          "features": ["8 Free Plans", "Progress Tracking", "Achievement System"]
+        },
+        "pro": {
+          "name": "Pro",
+          "recommended": "Recommended",
+          "price": "$9.99/mo",
+          "cta": "Upgrade Now",
+          "features": ["AI Plan Generator", "All Workout Plans", "Challenge System"]
+        },
+        "premium": {
+          "name": "Premium",
+          "price": "$19.99/mo",
+          "cta": "Learn More",
+          "features": ["Unlimited AI", "Data Export", "Priority Support"]
+        }
+      },
+      "viewAll": "View Full Comparison"
+    },
+    "workoutPlans": {
+      "badge": "Featured Plans",
       "title": "Popular Workout Plans",
-      "viewAll": "View All Plans"
+      "subtitle": "Professionally designed plans for different fitness goals",
+      "viewAll": "View All",
+      "goal": {
+        "muscle": "Muscle",
+        "fatLoss": "Fat Loss",
+        "strength": "Strength",
+        "general": "General"
+      },
+      "difficulty": {
+        "label": "Level:",
+        "beginner": "Beg",
+        "intermediate": "Int",
+        "advanced": "Adv"
+      },
+      "premiumCallout": "Upgrade to access 2 premium plans with more training options"
+    },
+    "challenges": {
+      "title": "Challenge System",
+      "daily": {
+        "name": "Daily Challenge",
+        "desc": "Complete daily workout tasks",
+        "points": "+10 pts"
+      },
+      "weekly": {
+        "name": "Weekly Challenge",
+        "desc": "Achieve weekly workout goals",
+        "points": "+50 pts"
+      },
+      "community": {
+        "name": "Community Challenge",
+        "desc": "Push limits together",
+        "points": "+20 pts"
+      },
+      "cta": "Join Challenges"
+    },
+    "achievements": {
+      "title": "Achievement System",
+      "badges": {
+        "firstWorkout": "First Workout",
+        "weekStreak": "Week Streak",
+        "monthly": "Monthly",
+        "earlyBird": "Early Bird",
+        "nightOwl": "Night Owl",
+        "ironWill": "Iron Will"
+      },
+      "totalPoints": "Total Points",
+      "unlocked": "unlocked"
+    },
+    "testimonials": {
+      "title": "Real User Stories",
+      "subtitle": "See how others achieved their fitness goals with FitPlan Pro",
+      "users": [
+        {
+          "name": "John M.",
+          "role": "Office Worker",
+          "quote": "AI-generated plan fits my schedule perfectly, lost 8kg in 3 months. Highly recommend to everyone!",
+          "metric": "-8kg"
+        },
+        {
+          "name": "Sarah L.",
+          "role": "Fitness Beginner",
+          "quote": "Comprehensive exercise library with great instructions. No more worrying about wrong form!",
+          "metric": "128+ exercises"
+        },
+        {
+          "name": "Mike W.",
+          "role": "Fitness Enthusiast",
+          "quote": "Challenge system keeps me motivated, 30 days streak achieved. Feeling accomplished!",
+          "metric": "30 days"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Start Your Fitness Journey Today",
+      "subtitle": "{count}+ exercises, 10+ plans, AI-powered generation, free to start",
+      "buttons": {
+        "signup": "Sign Up Free",
+        "browse": "Browse Plans"
+      },
+      "trust": {
+        "secure": "Secure Payment",
+        "multiLang": "Multi-language"
+      }
     }
   },
   "exercises": {

@@ -14,7 +14,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
 import { workoutPlans, getFreePlans } from "@/data/workout-plans";
-import { exercises } from "@/data/exercises";
+import { totalExercises } from "@/data/exercises";
 import {
   Dumbbell, Timer, BarChart3, Zap, ChevronRight, Play, Sparkles, Check,
   Calendar, Target, Trophy, Medal, Crown, Users, Star, Shield, Globe,
@@ -41,18 +41,24 @@ async function HomePageContent({
   const isZh = locale === "zh";
   const freePlans = getFreePlans().slice(0, 4);
   const allPlans = workoutPlans.slice(0, 4);
-  const totalExercises = exercises.length;
 
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-accent/5" />
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80')`,
+          }}
+        />
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70" />
 
         {/* Decorative Elements */}
-        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-10 w-56 h-56 bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-10 w-56 h-56 bg-accent/20 rounded-full blur-3xl" />
 
         <div className="container relative z-10 py-16 md:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">

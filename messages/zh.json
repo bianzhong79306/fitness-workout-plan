@@ -12,40 +12,186 @@
     "calendar": "日历",
     "progress": "进度追踪",
     "signIn": "登录",
-    "signOut": "退出登录"
+    "signOut": "退出登录",
+    "aiPlan": "AI生成"
   },
   "home": {
     "hero": {
-      "title": "改变身体，\n改变生活",
-      "subtitle": "个性化训练计划、专业指导和进度追踪 - 尽在掌握",
+      "badge": "AI 智能训练",
+      "title": "科学健身，",
+      "titleHighlight": "智能定制",
+      "subtitle": "AI 驱动的个性化训练计划，专业动作库，让每次训练都有价值",
       "cta": {
-        "start": "免费开始",
-        "learn": "了解更多"
+        "start": "免费开始训练",
+        "ai": "AI 智能生成"
+      },
+      "trust": {
+        "noEquipment": "无需器械",
+        "anytime": "随时随地"
+      }
+    },
+    "stats": {
+      "exercises": "专业动作",
+      "plans": "训练计划",
+      "freePlans": "免费计划",
+      "aiPowered": "智能生成"
+    },
+    "aiFeature": {
+      "badge": "核心功能",
+      "title": "AI 为你量身定制训练计划",
+      "subtitle": "根据你的健身目标、训练水平、可用时间和器械条件，智能生成最适合你的专属训练计划",
+      "features": {
+        "goal": "精准目标匹配 - 增肌/减脂/力量/耐力",
+        "config": "灵活参数配置 - 天数/时长/器械",
+        "optimize": "动态调整优化 - 根据进度实时优化"
+      },
+      "cta": "体验 AI 生成",
+      "mock": {
+        "title": "AI 计划生成器",
+        "preview": "生成结果预览"
       }
     },
     "features": {
-      "title": "为什么选择 FitPlan Pro？",
-      "subtitle": "实现健身目标所需的一切",
-      "plans": {
-        "title": "个性化计划",
-        "description": "根据您的目标、健身水平和可用设备定制的训练计划"
+      "title": "全方位健身解决方案",
+      "subtitle": "从训练计划到进度追踪，从计时器到社区挑战，满足你所有健身需求",
+      "library": {
+        "title": "{count}+ 动作库",
+        "desc": "覆盖全身各肌群，含详细动作说明和要点提示"
       },
-      "exercises": {
-        "title": "100+ 动作",
-        "description": "全面的动作库，包含详细说明和视频演示"
+      "plans": {
+        "title": "10 个训练计划",
+        "desc": "从初级到高级，涵盖增肌、减脂、力量等多个目标"
+      },
+      "timers": {
+        "title": "专业计时器",
+        "desc": "HIIT、Tabata、倒计时多种模式，精准把控训练节奏"
+      },
+      "achievements": {
+        "title": "成就系统",
+        "desc": "解锁徽章，积累积分，记录每一次进步"
+      },
+      "challenges": {
+        "title": "挑战赛",
+        "desc": "每日/每周/社区挑战，与他人一起突破极限"
       },
       "tracking": {
         "title": "进度追踪",
-        "description": "记录训练、监控进度、庆祝成就"
-      },
-      "timers": {
-        "title": "训练计时器",
-        "description": "内置HIIT、Tabata和休息计时器，优化训练效果"
+        "desc": "训练历史、身体数据、日历视图全面记录成长轨迹"
       }
     },
-    "plans": {
+    "membership": {
+      "badge": "会员计划",
+      "title": "选择适合你的会员等级",
+      "subtitle": "从免费开始，随时升级解锁更多功能",
+      "tiers": {
+        "free": {
+          "name": "免费",
+          "desc": "基础功能",
+          "cta": "免费开始",
+          "features": ["8个免费计划", "进度追踪", "成就系统"]
+        },
+        "pro": {
+          "name": "专业会员",
+          "recommended": "推荐",
+          "price": "$9.99/月",
+          "cta": "立即升级",
+          "features": ["AI 智能生成", "全部训练计划", "挑战赛系统"]
+        },
+        "premium": {
+          "name": "高级会员",
+          "price": "$19.99/月",
+          "cta": "了解更多",
+          "features": ["无限 AI 生成", "数据导出", "优先支持"]
+        }
+      },
+      "viewAll": "查看完整对比"
+    },
+    "workoutPlans": {
+      "badge": "精选计划",
       "title": "热门训练计划",
-      "viewAll": "查看全部计划"
+      "subtitle": "专业设计的训练计划，满足不同健身目标",
+      "viewAll": "查看全部",
+      "goal": {
+        "muscle": "增肌",
+        "fatLoss": "减脂",
+        "strength": "力量",
+        "general": "综合"
+      },
+      "difficulty": {
+        "label": "难度：",
+        "beginner": "初级",
+        "intermediate": "中级",
+        "advanced": "高级"
+      },
+      "premiumCallout": "升级会员解锁 2 个高级计划，获得更多训练选择"
+    },
+    "challenges": {
+      "title": "挑战赛系统",
+      "daily": {
+        "name": "每日挑战",
+        "desc": "每天完成指定训练任务",
+        "points": "+10 积分"
+      },
+      "weekly": {
+        "name": "每周挑战",
+        "desc": "一周内达成训练目标",
+        "points": "+50 积分"
+      },
+      "community": {
+        "name": "社区挑战",
+        "desc": "与大家一起突破极限",
+        "points": "+20 积分"
+      },
+      "cta": "参与挑战"
+    },
+    "achievements": {
+      "title": "成就系统",
+      "badges": {
+        "firstWorkout": "首次训练",
+        "weekStreak": "周连续",
+        "monthly": "月度坚持",
+        "earlyBird": "早起鸟",
+        "nightOwl": "夜猫子",
+        "ironWill": "钢铁意志"
+      },
+      "totalPoints": "总积分",
+      "unlocked": "已解锁"
+    },
+    "testimonials": {
+      "title": "用户真实反馈",
+      "subtitle": "看看其他用户如何通过 FitPlan Pro 实现健身目标",
+      "users": [
+        {
+          "name": "张明",
+          "role": "上班族",
+          "quote": "AI 生成的计划非常适合我的时间安排，3个月减掉了8公斤，推荐给所有想健身的朋友！",
+          "metric": "-8kg"
+        },
+        {
+          "name": "李雪",
+          "role": "健身新手",
+          "quote": "动作库很全面，视频指导帮助我正确掌握每个动作，作为新手再也不用担心姿势不对了。",
+          "metric": "128+ 动作"
+        },
+        {
+          "name": "王强",
+          "role": "健身爱好者",
+          "quote": "挑战赛系统让我保持动力，已经连续训练30天，成就感满满！",
+          "metric": "30 天"
+        }
+      ]
+    },
+    "cta": {
+      "title": "今天就开始你的健身之旅",
+      "subtitle": "{count}+ 专业动作，10+ 训练计划，AI 智能生成，免费开始",
+      "buttons": {
+        "signup": "免费注册开始",
+        "browse": "浏览训练计划"
+      },
+      "trust": {
+        "secure": "安全支付",
+        "multiLang": "中英双语"
+      }
     }
   },
   "exercises": {

@@ -2,7 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -25,7 +25,7 @@ import { useState } from "react";
 const navItems = [
   { href: "/exercises", labelKey: "exercises", icon: Dumbbell },
   { href: "/plans", labelKey: "plans", icon: Dumbbell },
-  { href: "/ai-plan", labelKey: "ai-plan", icon: Sparkles },
+  { href: "/ai-plan", labelKey: "aiPlan", icon: Sparkles },
   { href: "/timers", labelKey: "timers", icon: Timer },
 ];
 
@@ -34,6 +34,7 @@ export function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const locale = useLocale();
+  const t = useTranslations("nav");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const isLoggedIn = status === "authenticated";
@@ -72,7 +73,7 @@ export function Header() {
               }`}
             >
               <item.icon className="h-4 w-4" />
-              {item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1)}
+              {t(item.labelKey)}
             </Link>
           ))}
         </nav>
@@ -100,7 +101,7 @@ export function Header() {
               <Link href="/dashboard">
                 <Button variant="ghost" size="sm">
                   <BarChart3 className="h-4 w-4 mr-1" />
-                  Dashboard
+                  {t("dashboard")}
                 </Button>
               </Link>
               <Link href="/calendar">
@@ -127,7 +128,7 @@ export function Header() {
             </div>
           ) : (
             <Link href="/auth/signin" className="hidden md:block">
-              <Button size="sm">Sign In</Button>
+              <Button size="sm">{t("signIn")}</Button>
             </Link>
           )}
 
@@ -159,7 +160,7 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <item.icon className="h-4 w-4" />
-                {item.labelKey.charAt(0).toUpperCase() + item.labelKey.slice(1)}
+                {t(item.labelKey)}
               </Link>
             ))}
             <div className="border-t border-border pt-2 mt-2">
@@ -190,7 +191,7 @@ export function Header() {
                   >
                     <Button variant="ghost" className="w-full justify-start">
                       <BarChart3 className="h-4 w-4 mr-2" />
-                      Dashboard
+                      {t("dashboard")}
                     </Button>
                   </Link>
                   <Link
@@ -219,7 +220,7 @@ export function Header() {
                     onClick={handleSignOut}
                   >
                     <LogOut className="h-4 w-4 mr-2" />
-                    Sign Out
+                    {t("signOut")}
                   </Button>
                 </>
               ) : (
@@ -227,7 +228,7 @@ export function Header() {
                   href="/auth/signin"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <Button className="w-full">Sign In</Button>
+                  <Button className="w-full">{t("signIn")}</Button>
                 </Link>
               )}
             </div>
