@@ -14,7 +14,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Scale, TrendingUp, TrendingDown, Minus, Plus, Activity } from 'lucide-react';
+import { Scale, TrendingUp, TrendingDown, Minus, Plus, Activity, ChevronDown, ChevronUp } from 'lucide-react';
 import { BodyMetricsForm } from './BodyMetricsForm';
 
 interface BodyMetric {
@@ -43,6 +43,7 @@ export function BodyMetricsCard({ locale }: BodyMetricsCardProps) {
   const [metrics, setMetrics] = useState<BodyMetric[]>([]);
   const [latest, setLatest] = useState<BodyMetric | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showAllMeasurements, setShowAllMeasurements] = useState(false);
   const isZh = locale === 'zh';
 
   const fetchMetrics = useCallback(async () => {
@@ -142,56 +143,100 @@ export function BodyMetricsCard({ locale }: BodyMetricsCardProps) {
       <CardContent>
         {/* 最新数据展示 */}
         {latest && (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            {latest.weight !== null && (
-              <div className="flex flex-col items-center p-3 bg-muted/50 rounded-lg">
-                <div className="flex items-center gap-1 text-muted-foreground text-sm">
-                  <Scale className="h-3 w-3" />
-                  {isZh ? '体重' : 'Weight'}
+          <div className="space-y-4 mb-6">
+            {/* 主要数据 */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {latest.weight !== null && (
+                <div className="flex flex-col items-center p-3 bg-muted/50 rounded-lg">
+                  <div className="flex items-center gap-1 text-muted-foreground text-sm">
+                    <Scale className="h-3 w-3" />
+                    {isZh ? '体重' : 'Weight'}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl font-bold">{latest.weight}</span>
+                    <span className="text-sm text-muted-foreground">kg</span>
+                    {weightTrend && (
+                      weightTrend === 'up' ? (
+                        <TrendingUp className="h-4 w-4 text-red-500" />
+                      ) : weightTrend === 'down' ? (
+                        <TrendingDown className="h-4 w-4 text-green-500" />
+                      ) : (
+                        <Minus className="h-4 w-4 text-muted-foreground" />
+                      )
+                    )}
+                  </div>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl font-bold">{latest.weight}</span>
-                  <span className="text-sm text-muted-foreground">kg</span>
-                  {weightTrend && (
-                    weightTrend === 'up' ? (
-                      <TrendingUp className="h-4 w-4 text-red-500" />
-                    ) : weightTrend === 'down' ? (
-                      <TrendingDown className="h-4 w-4 text-green-500" />
-                    ) : (
-                      <Minus className="h-4 w-4 text-muted-foreground" />
-                    )
-                  )}
+              )}
+              {latest.body_fat !== null && (
+                <div className="flex flex-col items-center p-3 bg-muted/50 rounded-lg">
+                  <div className="flex items-center gap-1 text-muted-foreground text-sm">
+                    <Activity className="h-3 w-3" />
+                    {isZh ? '体脂率' : 'Body Fat'}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-2xl font-bold">{latest.body_fat}</span>
+                    <span className="text-sm text-muted-foreground">%</span>
+                  </div>
                 </div>
-              </div>
-            )}
-            {latest.body_fat !== null && (
-              <div className="flex flex-col items-center p-3 bg-muted/50 rounded-lg">
-                <div className="flex items-center gap-1 text-muted-foreground text-sm">
-                  <Activity className="h-3 w-3" />
-                  {isZh ? '体脂率' : 'Body Fat'}
+              )}
+              {latest.waist !== null && (
+                <div className="flex flex-col items-center p-3 bg-muted/50 rounded-lg">
+                  <div className="text-muted-foreground text-sm">{isZh ? '腰围' : 'Waist'}</div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-2xl font-bold">{latest.waist}</span>
+                    <span className="text-sm text-muted-foreground">cm</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  <span className="text-2xl font-bold">{latest.body_fat}</span>
-                  <span className="text-sm text-muted-foreground">%</span>
+              )}
+              {latest.height !== null && (
+                <div className="flex flex-col items-center p-3 bg-muted/50 rounded-lg">
+                  <div className="text-muted-foreground text-sm">{isZh ? '身高' : 'Height'}</div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-2xl font-bold">{latest.height}</span>
+                    <span className="text-sm text-muted-foreground">cm</span>
+                  </div>
                 </div>
-              </div>
-            )}
-            {latest.waist !== null && (
-              <div className="flex flex-col items-center p-3 bg-muted/50 rounded-lg">
-                <div className="text-muted-foreground text-sm">{isZh ? '腰围' : 'Waist'}</div>
-                <div className="flex items-center gap-1">
-                  <span className="text-2xl font-bold">{latest.waist}</span>
-                  <span className="text-sm text-muted-foreground">cm</span>
-                </div>
-              </div>
-            )}
-            {latest.height !== null && (
-              <div className="flex flex-col items-center p-3 bg-muted/50 rounded-lg">
-                <div className="text-muted-foreground text-sm">{isZh ? '身高' : 'Height'}</div>
-                <div className="flex items-center gap-1">
-                  <span className="text-2xl font-bold">{latest.height}</span>
-                  <span className="text-sm text-muted-foreground">cm</span>
-                </div>
+              )}
+            </div>
+
+            {/* 围度数据（可展开） */}
+            {(latest.chest !== null || latest.hip !== null || latest.arm !== null || latest.thigh !== null) && (
+              <div>
+                <button
+                  className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setShowAllMeasurements(!showAllMeasurements)}
+                >
+                  {showAllMeasurements ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                  {isZh ? '围度数据' : 'Measurements'}
+                </button>
+                {showAllMeasurements && (
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-3">
+                    {latest.chest !== null && (
+                      <div className="flex flex-col items-center p-2 bg-muted/30 rounded-lg">
+                        <div className="text-muted-foreground text-xs">{isZh ? '胸围' : 'Chest'}</div>
+                        <span className="text-lg font-semibold">{latest.chest} cm</span>
+                      </div>
+                    )}
+                    {latest.hip !== null && (
+                      <div className="flex flex-col items-center p-2 bg-muted/30 rounded-lg">
+                        <div className="text-muted-foreground text-xs">{isZh ? '臀围' : 'Hip'}</div>
+                        <span className="text-lg font-semibold">{latest.hip} cm</span>
+                      </div>
+                    )}
+                    {latest.arm !== null && (
+                      <div className="flex flex-col items-center p-2 bg-muted/30 rounded-lg">
+                        <div className="text-muted-foreground text-xs">{isZh ? '臂围' : 'Arm'}</div>
+                        <span className="text-lg font-semibold">{latest.arm} cm</span>
+                      </div>
+                    )}
+                    {latest.thigh !== null && (
+                      <div className="flex flex-col items-center p-2 bg-muted/30 rounded-lg">
+                        <div className="text-muted-foreground text-xs">{isZh ? '大腿围' : 'Thigh'}</div>
+                        <span className="text-lg font-semibold">{latest.thigh} cm</span>
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
             )}
           </div>

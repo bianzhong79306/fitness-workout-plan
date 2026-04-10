@@ -141,3 +141,22 @@ CREATE INDEX IF NOT EXISTS idx_user_plans_user ON user_plan_subscriptions(user_i
 CREATE INDEX IF NOT EXISTS idx_achievements_user ON user_achievements(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_subscriptions_user ON user_subscriptions(user_id);
 CREATE INDEX IF NOT EXISTS idx_user_subscriptions_status ON user_subscriptions(status);
+
+-- 力量进步记录表
+CREATE TABLE IF NOT EXISTS exercise_progress (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  exercise_id TEXT NOT NULL,
+  weight REAL,
+  reps INTEGER,
+  sets INTEGER,
+  one_rep_max REAL,
+  notes TEXT,
+  recorded_at TEXT DEFAULT (datetime('now')),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_exercise_progress_user ON exercise_progress(user_id);
+CREATE INDEX IF NOT EXISTS idx_exercise_progress_exercise ON exercise_progress(exercise_id);
+CREATE INDEX IF NOT EXISTS idx_exercise_progress_date ON exercise_progress(recorded_at);
+CREATE INDEX IF NOT EXISTS idx_exercise_progress_user_exercise ON exercise_progress(user_id, exercise_id);

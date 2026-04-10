@@ -16,6 +16,7 @@ import { MembershipCard } from "./DashboardClient";
 import { StatsCharts } from "./StatsCharts";
 import { BodyMetricsCard } from "./BodyMetricsCard";
 import { WeeklyGoalCard } from "./WeeklyGoalCard";
+import { StrengthProgressCard } from "./StrengthProgressCard";
 import { getRequestContext } from "@cloudflare/next-on-pages";
 
 // D1Database 类型
@@ -183,6 +184,9 @@ export default async function DashboardPage({
 
       {/* Body Metrics */}
       <BodyMetricsCard locale={locale} />
+
+      {/* Strength Progress */}
+      <StrengthProgressCard locale={locale} />
 
       {/* Stats Charts */}
       <StatsCharts locale={locale} totalWorkouts={stats.totalWorkouts} />
