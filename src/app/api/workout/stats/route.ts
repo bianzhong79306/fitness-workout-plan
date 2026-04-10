@@ -18,6 +18,8 @@ interface WorkoutStats {
   thisMonthWorkouts: number;
   averageRating: number | null;
   lastWorkoutDate: string | null;
+  weeklyGoal: number;
+  completionRate: number;
   weeklyData: Array<{
     week: string;
     workouts: number;
@@ -42,16 +44,16 @@ export async function GET(request: NextRequest) {
 
     // 获取用户
     const user = await db
-      .prepare('SELECT id FROM users WHERE email = ?')
+      .prepare('SELECT id, weekly_workout_goal FROM users WHERE email = ?')
       .bind(session.user.email)
-      .first<{ id: string }>();
+      .first<{ id: string; weekly_workout_goal: number | null }>();
 
     if (!user) {
       return NextResponse.json(getEmptyStats());
     }
 
     // 计算统计数据
-    const stats = await calculateStats(db, user.id);
+    const stats = await calculateStats(db, user.id, user.weekly_workout_goal ?? 3);
 
     return NextResponse.json(stats);
   } catch (error) {
@@ -72,11 +74,13 @@ function getEmptyStats(): WorkoutStats {
     thisMonthWorkouts: 0,
     averageRating: null,
     lastWorkoutDate: null,
+    weeklyGoal: 3,
+    completionRate: 0,
     weeklyData: [],
   };
 }
 
-async function calculateStats(db: D1Database, userId: string): Promise<WorkoutStats> {
+async function calculateStats(db: D1Database, userId: string, weeklyGoal: number): Promise<WorkoutStats> {
   const now = new Date();
   const weekStart = new Date(now);
   weekStart.setDate(now.getDate() - now.getDay());
@@ -87,7 +91,7 @@ async function calculateStats(db: D1Database, userId: string): Promise<WorkoutSt
   // 总体统计
   const totalStats = await db
     .prepare(`
-      SELECT 
+      SELECT
         COUNT(*) as totalWorkouts,
         SUM(duration_seconds) as totalDuration,
         SUM(total_sets) as totalSets,
@@ -112,7 +116,7 @@ async function calculateStats(db: D1Database, userId: string): Promise<WorkoutSt
     .prepare(`
       SELECT COUNT(*) as count
       FROM workout_logs
-      WHERE user_id = ? 
+      WHERE user_id = ?
       AND completed_at IS NOT NULL
       AND started_at >= ?
     `)
@@ -137,6 +141,12 @@ async function calculateStats(db: D1Database, userId: string): Promise<WorkoutSt
   // 获取最近8周的每周数据
   const weeklyData = await getWeeklyData(db, userId);
 
+  // 计算本周完成率
+  const thisWeekWorkouts = thisWeekResult?.count || 0;
+  const completionRate = weeklyGoal > 0
+    ? Math.min(100, Math.round((thisWeekWorkouts / weeklyGoal) * 100))
+    : 0;
+
   return {
     totalWorkouts: totalStats?.totalWorkouts || 0,
     totalDurationMinutes: Math.round((totalStats?.totalDuration || 0) / 60),
@@ -144,10 +154,12 @@ async function calculateStats(db: D1Database, userId: string): Promise<WorkoutSt
     totalReps: totalStats?.totalReps || 0,
     currentStreak: streakData.current,
     longestStreak: streakData.longest,
-    thisWeekWorkouts: thisWeekResult?.count || 0,
+    thisWeekWorkouts,
     thisMonthWorkouts: thisMonthResult?.count || 0,
     averageRating: totalStats?.avgRating || null,
     lastWorkoutDate: totalStats?.lastWorkout || null,
+    weeklyGoal,
+    completionRate,
     weeklyData,
   };
 }

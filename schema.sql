@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS users (
   fitness_goal TEXT,
   fitness_level TEXT,
   membership_tier TEXT DEFAULT 'free',
+  weekly_workout_goal INTEGER DEFAULT 3,
   created_at TEXT DEFAULT (datetime('now')),
   last_login TEXT
 );

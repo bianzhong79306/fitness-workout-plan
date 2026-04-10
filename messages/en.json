@@ -9,6 +9,7 @@
     "plans": "Workout Plans",
     "timers": "Timers",
     "dashboard": "Dashboard",
+    "calendar": "Calendar",
     "progress": "Progress",
     "signIn": "Sign In",
     "signOut": "Sign Out"
@@ -162,7 +163,51 @@
     },
     "recentWorkouts": "Recent Workouts",
     "activePlan": "Active Plan",
-    "noActivePlan": "No active plan. Start one today!"
+    "noActivePlan": "No active plan. Start one today!",
+    "bodyMetrics": {
+      "title": "Body Metrics",
+      "record": "Record Data",
+      "weight": "Weight",
+      "bodyFat": "Body Fat",
+      "height": "Height",
+      "chest": "Chest",
+      "waist": "Waist",
+      "hip": "Hip",
+      "arm": "Arm",
+      "thigh": "Thigh",
+      "trend": "Trends",
+      "latest": "Latest Record",
+      "noData": "Start Tracking Your Body Metrics",
+      "noDataDesc": "Record weight, body fat, and more to track your fitness progress",
+      "records": "records",
+      "measurements": "Measurements (Optional)"
+    },
+    "weeklyGoal": {
+      "title": "Weekly Goal",
+      "workoutsThisWeek": "Workouts this week",
+      "goalCompleted": "Goal completed!",
+      "startFirstWorkout": "Start your first workout",
+      "moreToComplete": "{count} more to complete goal",
+      "setGoal": "Set Weekly Workout Goal",
+      "goalDesc": "Choose how many workouts you plan to complete each week:",
+      "save": "Save",
+      "saving": "Saving..."
+    },
+    "calendar": {
+      "title": "Workout Calendar",
+      "subtitle": "View your workout history and progress",
+      "workoutDays": "Workout days",
+      "totalWorkouts": "Total workouts",
+      "today": "Today",
+      "noWorkouts": "No workouts this month. Start your first workout!",
+      "workoutDetail": {
+        "workouts": "workouts",
+        "customWorkout": "Custom Workout",
+        "notRecorded": "Not recorded",
+        "min": "min",
+        "sets": "sets"
+      }
+    }
   },
   "progress": {
     "title": "Progress",

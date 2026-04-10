@@ -9,6 +9,7 @@
     "plans": "训练计划",
     "timers": "计时器",
     "dashboard": "仪表板",
+    "calendar": "日历",
     "progress": "进度追踪",
     "signIn": "登录",
     "signOut": "退出登录"
@@ -162,7 +163,51 @@
     },
     "recentWorkouts": "最近训练",
     "activePlan": "进行中的计划",
-    "noActivePlan": "暂无进行中的计划，开始一个新的计划吧！"
+    "noActivePlan": "暂无进行中的计划，开始一个新的计划吧！",
+    "bodyMetrics": {
+      "title": "身体数据",
+      "record": "记录数据",
+      "weight": "体重",
+      "bodyFat": "体脂率",
+      "height": "身高",
+      "chest": "胸围",
+      "waist": "腰围",
+      "hip": "臀围",
+      "arm": "臂围",
+      "thigh": "大腿围",
+      "trend": "趋势图",
+      "latest": "最近记录",
+      "noData": "开始记录身体数据",
+      "noDataDesc": "记录体重、体脂等数据，追踪您的健身进度",
+      "records": "条记录",
+      "measurements": "围度测量（可选）"
+    },
+    "weeklyGoal": {
+      "title": "本周目标",
+      "workoutsThisWeek": "本周训练次数",
+      "goalCompleted": "目标已完成！",
+      "startFirstWorkout": "开始你的第一次训练",
+      "moreToComplete": "还需 {count} 次完成目标",
+      "setGoal": "设置每周训练目标",
+      "goalDesc": "选择每周计划完成的训练次数：",
+      "save": "保存",
+      "saving": "保存中..."
+    },
+    "calendar": {
+      "title": "训练日历",
+      "subtitle": "查看您的训练历史和进度",
+      "workoutDays": "训练天数",
+      "totalWorkouts": "总训练次数",
+      "today": "今天",
+      "noWorkouts": "本月还没有训练记录，开始您的第一次训练吧！",
+      "workoutDetail": {
+        "workouts": "次训练",
+        "customWorkout": "自定义训练",
+        "notRecorded": "未记录",
+        "min": "分钟",
+        "sets": "组"
+      }
+    }
   },
   "progress": {
     "title": "进度追踪",

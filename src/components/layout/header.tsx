@@ -17,6 +17,7 @@ import {
   Globe,
   Crown,
   Sparkles,
+  CalendarDays,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -101,6 +102,12 @@ export function Header() {
                   Dashboard
                 </Button>
               </Link>
+              <Link href="/calendar">
+                <Button variant="ghost" size="sm">
+                  <CalendarDays className="h-4 w-4 mr-1" />
+                  {locale === "zh" ? "日历" : "Calendar"}
+                </Button>
+              </Link>
               <Avatar className="h-8 w-8">
                 <AvatarImage src={session?.user?.image || ""} />
                 <AvatarFallback>
@@ -177,6 +184,16 @@ export function Header() {
                     <Button variant="ghost" className="w-full justify-start">
                       <BarChart3 className="h-4 w-4 mr-2" />
                       Dashboard
+                    </Button>
+                  </Link>
+                  <Link
+                    href="/calendar"
+                    className="block"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Button variant="ghost" className="w-full justify-start">
+                      <CalendarDays className="h-4 w-4 mr-2" />
+                      {locale === "zh" ? "日历" : "Calendar"}
                     </Button>
                   </Link>
                   <Button

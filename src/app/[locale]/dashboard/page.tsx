@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import { MembershipCard } from "./DashboardClient";
 import { StatsCharts } from "./StatsCharts";
+import { BodyMetricsCard } from "./BodyMetricsCard";
+import { WeeklyGoalCard } from "./WeeklyGoalCard";
 import { getRequestContext } from "@cloudflare/next-on-pages";
 
 // D1Database 类型
@@ -175,6 +177,12 @@ export default async function DashboardPage({
 
       {/* Membership Info */}
       <MembershipCard locale={locale} />
+
+      {/* Weekly Goal */}
+      <WeeklyGoalCard locale={locale} />
+
+      {/* Body Metrics */}
+      <BodyMetricsCard locale={locale} />
 
       {/* Stats Charts */}
       <StatsCharts locale={locale} totalWorkouts={stats.totalWorkouts} />
