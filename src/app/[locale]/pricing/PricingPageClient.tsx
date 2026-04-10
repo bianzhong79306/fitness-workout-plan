@@ -138,8 +138,8 @@ export default function PricingPageClient({ locale }: { locale: string }) {
         <Alert className="max-w-2xl mx-auto mb-8 border-green-500 bg-green-50">
           <AlertDescription className="text-green-700">
             {locale === 'zh'
-              ? `🎉 恭喜！您已成功升级到 ${newTier === 'pro' ? 'Pro' : 'Premium'} 会员！`
-              : `🎉 Congratulations! You've successfully upgraded to ${newTier === 'pro' ? 'Pro' : 'Premium'} membership!`}
+              ? `🎉 恭喜！您已成功升级到 Pro 会员！`
+              : `🎉 Congratulations! You've successfully upgraded to Pro membership!`}
           </AlertDescription>
         </Alert>
       )}
@@ -155,7 +155,7 @@ export default function PricingPageClient({ locale }: { locale: string }) {
       )}
 
       {/* Pricing Cards */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {tiers.map((tier) => {
           const isCurrentTier = currentTier === tier.id;
           const isRecommended = tier.id === 'pro';

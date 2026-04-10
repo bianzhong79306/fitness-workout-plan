@@ -6,6 +6,7 @@
   "nav": {
     "home": "首页",
     "exercises": "动作库",
+    "knowledge": "知识库",
     "plans": "训练计划",
     "timers": "计时器",
     "dashboard": "仪表板",
@@ -97,13 +98,7 @@
           "recommended": "推荐",
           "price": "$9.99/月",
           "cta": "立即升级",
-          "features": ["AI 智能生成", "全部训练计划", "挑战赛系统"]
-        },
-        "premium": {
-          "name": "高级会员",
-          "price": "$19.99/月",
-          "cta": "了解更多",
-          "features": ["无限 AI 生成", "数据导出", "优先支持"]
+          "features": ["无限 AI 生成", "全部训练计划", "数据导出"]
         }
       },
       "viewAll": "查看完整对比"
@@ -125,7 +120,7 @@
         "intermediate": "中级",
         "advanced": "高级"
       },
-      "premiumCallout": "升级会员解锁 2 个高级计划，获得更多训练选择"
+      "premiumCallout": "升级 Pro 会员解锁全部高级计划、无限 AI 生成和数据导出功能"
     },
     "challenges": {
       "title": "挑战赛系统",
@@ -497,16 +492,13 @@
       "pro": {
         "name": "专业会员",
         "recommended": "推荐"
-      },
-      "premium": {
-        "name": "高级会员"
       }
     },
     "features": {
       "basic_plans": "基础训练计划",
       "basic_timer": "基础计时器",
       "progress_tracking": "进度追踪",
-      "ai_generation": "AI智能生成",
+      "ai_generation": "AI智能生成（无限）",
       "premium_plans": "高级计划",
       "data_export": "数据导出"
     },

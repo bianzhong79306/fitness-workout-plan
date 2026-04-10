@@ -15,7 +15,7 @@ import {
 import Link from 'next/link';
 
 interface MembershipInfo {
-  tier: 'free' | 'pro' | 'premium';
+  tier: 'free' | 'pro';
   subscription: {
     tierId: string;
     status: string;
@@ -27,13 +27,11 @@ interface MembershipInfo {
 const tierNames = {
   free: { en: 'Free', zh: '免费会员' },
   pro: { en: 'Pro', zh: '专业会员' },
-  premium: { en: 'Premium', zh: '高级会员' },
 };
 
 const tierColors = {
   free: 'bg-gray-100 text-gray-800',
   pro: 'bg-blue-100 text-blue-800',
-  premium: 'bg-gradient-to-r from-purple-500 to-pink-500 text-white',
 };
 
 export function MembershipCard({ locale }: { locale: string }) {
@@ -98,11 +96,11 @@ export function MembershipCard({ locale }: { locale: string }) {
   const isLifetime = !subscription?.expiresAt || (subscription?.expiresAt && new Date(subscription.expiresAt).getFullYear() > 2090);
 
   return (
-    <Card className={`mb-6 ${tier === 'premium' ? 'border-purple-300 bg-gradient-to-r from-purple-50 to-pink-50' : tier === 'pro' ? 'border-blue-300 bg-blue-50/50' : ''}`}>
+    <Card className={`mb-6 ${tier === 'pro' ? 'border-blue-300 bg-blue-50/50' : ''}`}>
       <CardHeader className="pb-3">
         <CardTitle className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Crown className={`h-5 w-5 ${tier === 'premium' ? 'text-purple-600' : tier === 'pro' ? 'text-blue-600' : 'text-gray-500'}`} />
+            <Crown className={`h-5 w-5 ${tier === 'pro' ? 'text-blue-600' : 'text-gray-500'}`} />
             <span>{isZh ? '会员信息' : 'Membership'}</span>
           </div>
           <Badge className={tierColors[tier]}>
@@ -183,20 +181,20 @@ export function MembershipCard({ locale }: { locale: string }) {
           </div>
         )}
 
-        {/* Premium 特享功能 */}
-        {tier === 'premium' && (
-          <div className="mt-4 pt-4 border-t border-purple-200">
-            <p className="text-sm text-purple-600 font-medium mb-2">
-              {isZh ? '✨ Premium 特享功能' : '✨ Premium Features'}
+        {/* Pro 特享功能 */}
+        {tier === 'pro' && (
+          <div className="mt-4 pt-4 border-t border-blue-200">
+            <p className="text-sm text-blue-600 font-medium mb-2">
+              {isZh ? '✨ Pro 特享功能' : '✨ Pro Features'}
             </p>
             <div className="flex flex-wrap gap-2">
-              <Badge variant="outline" className="border-purple-300">
+              <Badge variant="outline" className="border-blue-300">
                 {isZh ? '无限AI计划生成' : 'Unlimited AI Plans'}
               </Badge>
-              <Badge variant="outline" className="border-purple-300">
+              <Badge variant="outline" className="border-blue-300">
                 {isZh ? '高级训练计划' : 'Premium Plans'}
               </Badge>
-              <Badge variant="outline" className="border-purple-300">
+              <Badge variant="outline" className="border-blue-300">
                 {isZh ? '数据导出' : 'Data Export'}
               </Badge>
             </div>

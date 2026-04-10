@@ -6,6 +6,7 @@
   "nav": {
     "home": "Home",
     "exercises": "Exercises",
+    "knowledge": "Knowledge",
     "plans": "Workout Plans",
     "timers": "Timers",
     "dashboard": "Dashboard",
@@ -97,13 +98,7 @@
           "recommended": "Recommended",
           "price": "$9.99/mo",
           "cta": "Upgrade Now",
-          "features": ["AI Plan Generator", "All Workout Plans", "Challenge System"]
-        },
-        "premium": {
-          "name": "Premium",
-          "price": "$19.99/mo",
-          "cta": "Learn More",
-          "features": ["Unlimited AI", "Data Export", "Priority Support"]
+          "features": ["Unlimited AI Generation", "All Workout Plans", "Data Export"]
         }
       },
       "viewAll": "View Full Comparison"
@@ -125,7 +120,7 @@
         "intermediate": "Int",
         "advanced": "Adv"
       },
-      "premiumCallout": "Upgrade to access 2 premium plans with more training options"
+      "premiumCallout": "Upgrade to Pro to unlock all premium plans, unlimited AI generation, and data export"
     },
     "challenges": {
       "title": "Challenge System",
@@ -497,16 +492,13 @@
       "pro": {
         "name": "Pro",
         "recommended": "Recommended"
-      },
-      "premium": {
-        "name": "Premium"
       }
     },
     "features": {
       "basic_plans": "Basic Plans",
       "basic_timer": "Basic Timer",
       "progress_tracking": "Progress Tracking",
-      "ai_generation": "AI Plan Generation",
+      "ai_generation": "AI Plan Generation (Unlimited)",
       "premium_plans": "Premium Plans",
       "data_export": "Data Export"
     },

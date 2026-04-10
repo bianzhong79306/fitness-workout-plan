@@ -62,14 +62,14 @@ export async function GET(request: NextRequest) {
     // 创建订阅记录
     const subscription = await createSubscription(db, {
       userId: orderInfo.userId,
-      tierId: orderInfo.tierId as 'pro' | 'premium',
+      tierId: orderInfo.tierId as 'pro',
       status: 'active',
       startedAt: new Date().toISOString(),
       expiresAt,
     });
 
     // 更新用户会员等级
-    await updateUserTier(db, orderInfo.userId, orderInfo.tierId as 'pro' | 'premium');
+    await updateUserTier(db, orderInfo.userId, orderInfo.tierId as 'pro');
 
     // 存储 capture_id 用于退款追踪
     const captureId = captureResult.purchase_units[0]?.payments?.captures?.[0]?.id;

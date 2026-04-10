@@ -69,20 +69,20 @@ async function HomePageContent({
             <div className="text-center lg:text-left">
               <Badge className="mb-4 bg-accent/20 text-accent border-accent/30">
                 <Sparkles className="w-3 h-3 mr-1" />
-                {isZh ? "AI 智能训练" : "AI-Powered Training"}
+                {isZh ? "知识库 + AI" : "Knowledge + AI"}
               </Badge>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                {isZh ? "科学健身，" : "Smart Fitness, "}
+                {isZh ? "教你怎么练，" : "Learn How to Train, "}
                 <span className="text-primary">
-                  {isZh ? "智能定制" : "Tailored for You"}
+                  {isZh ? "科学健身" : "Train Smart"}
                 </span>
               </h1>
 
               <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-xl">
                 {isZh
-                  ? "AI 驱动的个性化训练计划，专业动作库，让每次训练都有价值"
-                  : "AI-powered personalized workout plans, professional exercise library, making every workout count"}
+                  ? "专业的动作百科、训练知识库，AI智能生成计划，教会你正确的健身方法"
+                  : "Professional exercise encyclopedia, training knowledge, AI-powered plan generation, teaching you the right way to train"}
               </p>
 
               <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
@@ -304,12 +304,12 @@ async function HomePageContent({
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">
-              {isZh ? "全方位健身解决方案" : "Complete Fitness Solution"}
+              {isZh ? "知识库 + AI 智能健身" : "Knowledge + AI Fitness"}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               {isZh
-                ? "从训练计划到进度追踪，从计时器到社区挑战，满足你所有健身需求"
-                : "From workout plans to progress tracking, timers to challenges, everything you need"}
+                ? "专业的动作百科、训练知识、AI智能生成，教你怎么练"
+                : "Professional exercise encyclopedia, training knowledge, AI generation, teaching you how to train"}
             </p>
           </div>
 
@@ -317,38 +317,38 @@ async function HomePageContent({
             {[
               {
                 icon: Dumbbell,
-                title: isZh ? `${totalExercises}+ 动作库` : `${totalExercises}+ Exercise Library`,
-                desc: isZh ? "覆盖全身各肌群，含详细动作说明和要点提示" : "Full body coverage with detailed instructions and tips",
-                color: "primary",
-              },
-              {
-                icon: CalendarDays,
-                title: isZh ? "10 个训练计划" : "10 Workout Plans",
-                desc: isZh ? "从初级到高级，涵盖增肌、减脂、力量等多个目标" : "Beginner to advanced, covering all fitness goals",
-                color: "accent",
-              },
-              {
-                icon: Timer,
-                title: isZh ? "专业计时器" : "Professional Timers",
-                desc: isZh ? "HIIT、Tabata、倒计时多种模式，精准把控训练节奏" : "HIIT, Tabata, countdown modes for precise timing",
-                color: "primary",
-              },
-              {
-                icon: Trophy,
-                title: isZh ? "成就系统" : "Achievement System",
-                desc: isZh ? "解锁徽章，积累积分，记录每一次进步" : "Unlock badges, earn points, track every achievement",
-                color: "accent",
-              },
-              {
-                icon: Target,
-                title: isZh ? "挑战赛" : "Challenges",
-                desc: isZh ? "每日/每周/社区挑战，与他人一起突破极限" : "Daily/weekly/community challenges to push limits",
+                title: isZh ? `${totalExercises}+ 动作百科` : `${totalExercises}+ Exercise Encyclopedia`,
+                desc: isZh ? "每个动作详细教学：要点、错误、替代方案" : "Detailed teaching for each exercise: tips, mistakes, alternatives",
                 color: "primary",
               },
               {
                 icon: BarChart3,
-                title: isZh ? "进度追踪" : "Progress Tracking",
-                desc: isZh ? "训练历史、身体数据、日历视图全面记录成长轨迹" : "Workout history, body metrics, calendar view",
+                title: isZh ? "训练知识库" : "Training Knowledge",
+                desc: isZh ? "增肌减脂原理、周期化训练、人群指南" : "Muscle/fat loss principles, periodization, guides for different groups",
+                color: "accent",
+              },
+              {
+                icon: Sparkles,
+                title: isZh ? "AI 智能生成" : "AI Generation",
+                desc: isZh ? "根据你的条件生成个性化训练计划" : "Generate personalized workout plans based on your conditions",
+                color: "primary",
+              },
+              {
+                icon: Timer,
+                title: isZh ? "专业计时器" : "Professional Timers",
+                desc: isZh ? "HIIT、Tabata、倒计时多种模式" : "HIIT, Tabata, countdown modes for precise timing",
+                color: "accent",
+              },
+              {
+                icon: CalendarDays,
+                title: isZh ? "训练计划模板" : "Workout Plan Templates",
+                desc: isZh ? "10个专业计划作为学习参考" : "10 professional plans as learning references",
+                color: "primary",
+              },
+              {
+                icon: Target,
+                title: isZh ? "数据记录" : "Data Tracking",
+                desc: isZh ? "可选的身体数据、力量进步记录" : "Optional body metrics and strength progress tracking",
                 color: "accent",
               },
             ].map((feature, i) => (
@@ -385,7 +385,7 @@ async function HomePageContent({
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {/* Free */}
             <Card className="text-center p-6 hover:shadow-lg transition-shadow">
               <div className="text-2xl font-bold mb-2">{isZh ? "免费" : "Free"}</div>
@@ -395,15 +395,15 @@ async function HomePageContent({
               <ul className="text-sm space-y-3 mb-6 text-left">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                  {isZh ? "动作百科浏览" : "Exercise Encyclopedia"}
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-accent flex-shrink-0" />
+                  {isZh ? "AI生成 1次/天" : "AI Generation 1/day"}
+                </li>
+                <li className="flex items-center gap-2">
+                  <Check className="w-4 h-4 text-accent flex-shrink-0" />
                   {isZh ? "8个免费计划" : "8 Free Plans"}
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                  {isZh ? "进度追踪" : "Progress Tracking"}
-                </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                  {isZh ? "成就系统" : "Achievement System"}
                 </li>
               </ul>
               <Link href="/auth/signin">
@@ -428,7 +428,7 @@ async function HomePageContent({
               <ul className="text-sm space-y-3 mb-6 text-left">
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                  {isZh ? "AI 智能生成" : "AI Plan Generator"}
+                  {isZh ? "无限 AI 智能生成" : "Unlimited AI Generation"}
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-accent flex-shrink-0" />
@@ -436,39 +436,16 @@ async function HomePageContent({
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                  {isZh ? "挑战赛系统" : "Challenge System"}
-                </li>
-              </ul>
-              <Link href="/pricing">
-                <Button className="w-full">
-                  {isZh ? "立即升级" : "Upgrade Now"}
-                </Button>
-              </Link>
-            </Card>
-
-            {/* Premium */}
-            <Card className="text-center p-6 hover:shadow-lg transition-shadow">
-              <div className="text-2xl font-bold mb-2">{isZh ? "高级会员" : "Premium"}</div>
-              <div className="font-bold text-xl mb-4">
-                $19.99<span className="text-sm text-muted-foreground font-normal">/mo</span>
-              </div>
-              <ul className="text-sm space-y-3 mb-6 text-left">
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                  {isZh ? "无限 AI 生成" : "Unlimited AI"}
+                  {isZh ? "训练知识库" : "Training Knowledge Base"}
                 </li>
                 <li className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-accent flex-shrink-0" />
                   {isZh ? "数据导出" : "Data Export"}
                 </li>
-                <li className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-accent flex-shrink-0" />
-                  {isZh ? "优先支持" : "Priority Support"}
-                </li>
               </ul>
               <Link href="/pricing">
-                <Button variant="outline" className="w-full">
-                  {isZh ? "了解更多" : "Learn More"}
+                <Button className="w-full">
+                  {isZh ? "立即升级" : "Upgrade Now"}
                 </Button>
               </Link>
             </Card>
@@ -579,112 +556,21 @@ async function HomePageContent({
             ))}
           </div>
 
-          {/* Premium Plans Callout */}
+          {/* Pro Plans Callout */}
           <div className="mt-8 text-center">
             <Alert className="max-w-2xl mx-auto border-primary/20 bg-primary/5">
               <Crown className="w-4 h-4 text-primary" />
               <AlertDescription>
                 {isZh
-                  ? "升级会员解锁 2 个高级计划，获得更多训练选择"
-                  : "Upgrade to access 2 premium plans with more training options"}
+                  ? "升级 Pro 会员解锁全部高级计划、无限 AI 生成和数据导出功能"
+                  : "Upgrade to Pro to unlock all premium plans, unlimited AI generation, and data export"}
               </AlertDescription>
             </Alert>
           </div>
         </div>
       </section>
 
-      {/* Challenges & Achievements Preview */}
-      <section className="py-20">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Challenges Preview */}
-            <div>
-              <div className="flex items-center gap-2 mb-6">
-                <Target className="w-6 h-6 text-primary" />
-                <h2 className="text-2xl font-bold">
-                  {isZh ? "挑战赛系统" : "Challenge System"}
-                </h2>
-              </div>
-
-              <div className="space-y-4">
-                {[
-                  { type: "daily", name: isZh ? "每日挑战" : "Daily Challenge", desc: isZh ? "每天完成指定训练任务" : "Complete daily workout tasks", icon: Zap, points: 10 },
-                  { type: "weekly", name: isZh ? "每周挑战" : "Weekly Challenge", desc: isZh ? "一周内达成训练目标" : "Achieve weekly workout goals", icon: Calendar, points: 50 },
-                  { type: "community", name: isZh ? "社区挑战" : "Community Challenge", desc: isZh ? "与大家一起突破极限" : "Push limits together", icon: Users, points: 20 },
-                ].map((challenge, i) => (
-                  <Card key={i} className="p-4 flex items-center gap-4 hover:border-primary/30 transition-colors cursor-pointer group">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <challenge.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="flex-1">
-                      <div className="font-medium">{challenge.name}</div>
-                      <p className="text-sm text-muted-foreground">{challenge.desc}</p>
-                    </div>
-                    <Badge variant="secondary" className="flex-shrink-0">
-                      +{challenge.points} {isZh ? "积分" : "pts"}
-                    </Badge>
-                  </Card>
-                ))}
-              </div>
-
-              <Link href="/dashboard" className="inline-block mt-6">
-                <Button variant="outline" className="gap-2">
-                  {isZh ? "参与挑战" : "Join Challenges"}
-                  <ChevronRight className="w-4 h-4" />
-                </Button>
-              </Link>
-            </div>
-
-            {/* Achievements Preview */}
-            <div>
-              <div className="flex items-center gap-2 mb-6">
-                <Trophy className="w-6 h-6 text-accent" />
-                <h2 className="text-2xl font-bold">
-                  {isZh ? "成就系统" : "Achievement System"}
-                </h2>
-              </div>
-
-              <Card className="p-6">
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  {[
-                    { icon: Dumbbell, name: isZh ? "首次训练" : "First Workout", unlocked: true },
-                    { icon: Flame, name: isZh ? "周连续" : "Week Streak", unlocked: true },
-                    { icon: Medal, name: isZh ? "月度坚持" : "Monthly", unlocked: false },
-                    { icon: Sunrise, name: isZh ? "早起鸟" : "Early Bird", unlocked: false },
-                    { icon: Moon, name: isZh ? "夜猫子" : "Night Owl", unlocked: true },
-                    { icon: Crown, name: isZh ? "钢铁意志" : "Iron Will", unlocked: false },
-                  ].map((achievement, i) => (
-                    <div
-                      key={i}
-                      className={`text-center p-3 rounded-lg transition-colors ${
-                        achievement.unlocked
-                          ? 'bg-accent/10 border border-accent/30'
-                          : 'bg-muted/50 opacity-50'
-                      }`}
-                    >
-                      <achievement.icon className={`w-6 h-6 mx-auto mb-2 ${
-                        achievement.unlocked ? 'text-accent' : 'text-muted-foreground'
-                      }`} />
-                      <span className="text-xs">{achievement.name}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <div className="flex items-center justify-between pt-4 border-t">
-                  <div className="text-sm">
-                    <span className="text-accent font-bold">150</span>
-                    <span className="text-muted-foreground ml-1">
-                      {isZh ? "总积分" : "Total Points"}
-                    </span>
-                  </div>
-                  <Badge variant="secondary">3/6 {isZh ? "已解锁" : "unlocked"}</Badge>
-                </div>
-              </Card>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      {/* Challenges & Achievements Preview - REMOVED for knowledge platform pivot */}
       {/* Testimonials */}
       <section className="py-20 bg-muted/30">
         <div className="container">
@@ -706,27 +592,27 @@ async function HomePageContent({
                 name: isZh ? "张明" : "John M.",
                 role: isZh ? "上班族" : "Office Worker",
                 quote: isZh
-                  ? "AI 生成的计划非常适合我的时间安排，3个月减掉了8公斤，推荐给所有想健身的朋友！"
-                  : "AI-generated plan fits my schedule perfectly, lost 8kg in 3 months. Highly recommend to everyone!",
-                metric: "-8kg"
+                  ? "动作百科教会了我每个动作的正确姿势，3个月后肌肉明显增长，感谢这个平台！"
+                  : "The exercise encyclopedia taught me correct form for every exercise. Significant muscle gains in 3 months!",
+                metric: "+5kg"
               },
               {
                 avatar: "S",
                 name: isZh ? "李雪" : "Sarah L.",
                 role: isZh ? "健身新手" : "Fitness Beginner",
                 quote: isZh
-                  ? "动作库很全面，视频指导帮助我正确掌握每个动作，作为新手再也不用担心姿势不对了。"
-                  : "Comprehensive exercise library with great instructions. No more worrying about wrong form!",
-                metric: "128+ exercises"
+                  ? "作为新手，动作要点和常见错误帮我避免了很多问题，现在练得越来越自信。"
+                  : "As a beginner, the tips and common mistakes helped me avoid many issues. Now training with confidence!",
+                metric: isZh ? "入门成功" : "Started Well"
               },
               {
                 avatar: "M",
                 name: isZh ? "王强" : "Mike W.",
                 role: isZh ? "健身爱好者" : "Fitness Enthusiast",
                 quote: isZh
-                  ? "挑战赛系统让我保持动力，已经连续训练30天，成就感满满！"
-                  : "Challenge system keeps me motivated, 30 days streak achieved. Feeling accomplished!",
-                metric: "30 days"
+                  ? "AI生成的计划很适合我的时间安排，知识库的内容也很专业，推荐！"
+                  : "AI-generated plan fits my schedule perfectly, and the knowledge base is very professional!",
+                metric: "Pro会员"
               },
             ].map((testimonial, i) => (
               <Card key={i} className="p-6 hover:shadow-lg transition-shadow">

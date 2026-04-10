@@ -1,4 +1,4 @@
-// 数据导出 API（Premium 会员功能）
+// 数据导出 API（Pro 会员功能）
 
 import { NextRequest, NextResponse } from 'next/server';
 import { getRequestContext } from '@cloudflare/next-on-pages';
@@ -71,7 +71,7 @@ export async function GET(request: NextRequest) {
     const limits = await getUserLimits(db, user.id);
     if (!limits.canExportData) {
       return NextResponse.json(
-        { error: 'Export requires Premium membership', upgradeUrl: '/pricing' },
+        { error: 'Export requires Pro membership', upgradeUrl: '/pricing' },
         { status: 403 }
       );
     }

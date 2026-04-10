@@ -19,12 +19,12 @@ import {
   Sparkles,
   CalendarDays,
   Users,
-  Trophy,
 } from "lucide-react";
 import { useState } from "react";
 
 const navItems = [
   { href: "/exercises", labelKey: "exercises", icon: Dumbbell },
+  { href: "/knowledge", labelKey: "knowledge", icon: Sparkles },
   { href: "/plans", labelKey: "plans", icon: Dumbbell },
   { href: "/ai-plan", labelKey: "aiPlan", icon: Sparkles },
   { href: "/timers", labelKey: "timers", icon: Timer },
@@ -115,12 +115,6 @@ export function Header() {
                 <Button variant="ghost" size="sm">
                   <Users className="h-4 w-4 mr-1" />
                   {locale === "zh" ? "社区" : "Community"}
-                </Button>
-              </Link>
-              <Link href="/challenges">
-                <Button variant="ghost" size="sm">
-                  <Trophy className="h-4 w-4 mr-1" />
-                  {locale === "zh" ? "挑战赛" : "Challenges"}
                 </Button>
               </Link>
               <Avatar className="h-8 w-8">
@@ -219,16 +213,6 @@ export function Header() {
                     <Button variant="ghost" className="w-full justify-start">
                       <Users className="h-4 w-4 mr-2" />
                       {locale === "zh" ? "社区" : "Community"}
-                    </Button>
-                  </Link>
-                  <Link
-                    href="/challenges"
-                    className="block"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <Button variant="ghost" className="w-full justify-start">
-                      <Trophy className="h-4 w-4 mr-2" />
-                      {locale === "zh" ? "挑战赛" : "Challenges"}
                     </Button>
                   </Link>
                   <Button

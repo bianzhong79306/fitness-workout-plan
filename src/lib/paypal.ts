@@ -119,7 +119,6 @@ export async function createOrder(
 
   const tierNames: Record<string, { en: string; zh: string }> = {
     pro: { en: 'Pro Membership', zh: 'Pro会员' },
-    premium: { en: 'Premium Membership', zh: 'Premium会员' },
   };
 
   const tierName = tierNames[tierId] || { en: tierId, zh: tierId };

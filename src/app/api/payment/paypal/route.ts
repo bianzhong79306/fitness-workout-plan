@@ -25,7 +25,7 @@ export async function POST(request: NextRequest) {
     };
 
     // 验证会员等级
-    const tier = getTierById(tierId as 'pro' | 'premium');
+    const tier = getTierById(tierId as 'pro');
     if (!tier) {
       return NextResponse.json(
         { error: 'Invalid tier' },

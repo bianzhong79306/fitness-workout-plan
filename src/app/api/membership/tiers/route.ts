@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
   const env = process.env as unknown as { DB?: D1Database };
 
   if (!env.DB) {
-    // 没有 D1 绑定，返回默认配置
+    // 没有 D1 绑定，返回默认配置（只有 Free 和 Pro）
     return NextResponse.json({
       tiers: [
         {
@@ -51,33 +51,6 @@ export async function GET(request: NextRequest) {
             { key: 'basic_plans', name: 'Basic Plans', nameZh: '基础训练计划', included: true },
             { key: 'basic_timer', name: 'Basic Timer', nameZh: '基础计时器', included: true },
             { key: 'progress_tracking', name: 'Progress Tracking', nameZh: '进度追踪', included: true },
-            { key: 'ai_generation', name: 'AI Plan Generation', nameZh: 'AI智能生成', included: true, highlight: true },
-            { key: 'premium_plans', name: 'Premium Plans', nameZh: '高级计划', included: true },
-            { key: 'data_export', name: 'Data Export', nameZh: '数据导出', included: false },
-          ],
-          limits: {
-            plansPerMonth: 20,
-            aiGenerationsPerDay: 10,
-            customPlans: 10,
-            progressHistory: 365,
-            bodyMetricsRecords: 500,
-            canAccessPremiumPlans: true,
-            canExportData: false,
-            canSyncWearable: false,
-            priority: 1,
-          },
-          isActive: true,
-        },
-        {
-          id: 'premium',
-          name: 'Premium',
-          nameZh: '高级会员',
-          priceMonthly: 19.99,
-          priceYearly: 159.99,
-          features: [
-            { key: 'basic_plans', name: 'Basic Plans', nameZh: '基础训练计划', included: true },
-            { key: 'basic_timer', name: 'Basic Timer', nameZh: '基础计时器', included: true },
-            { key: 'progress_tracking', name: 'Progress Tracking', nameZh: '进度追踪', included: true },
             { key: 'ai_generation', name: 'AI Plan Generation', nameZh: 'AI智能生成（无限）', included: true, highlight: true },
             { key: 'premium_plans', name: 'Premium Plans', nameZh: '高级计划', included: true },
             { key: 'data_export', name: 'Data Export', nameZh: '数据导出', included: true },
@@ -91,7 +64,7 @@ export async function GET(request: NextRequest) {
             canAccessPremiumPlans: true,
             canExportData: true,
             canSyncWearable: true,
-            priority: 2,
+            priority: 1,
           },
           isActive: true,
         },

@@ -31,10 +31,10 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json() as { tier?: string };
-    const tierId = (body.tier || 'premium') as TierId;
+    const tierId = (body.tier || 'pro') as TierId;
 
     // 验证 tier 是否有效
-    const validTiers: TierId[] = ['free', 'pro', 'premium'];
+    const validTiers: TierId[] = ['free', 'pro'];
     if (!validTiers.includes(tierId)) {
       return NextResponse.json(
         { error: 'Invalid tier' },

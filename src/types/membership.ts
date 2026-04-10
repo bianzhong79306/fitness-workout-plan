@@ -1,7 +1,7 @@
 // 会员系统类型定义
 
 // 会员等级
-export type TierId = 'free' | 'pro' | 'premium';
+export type TierId = 'free' | 'pro';
 
 // 会员状态
 export type SubscriptionStatus = 'active' | 'cancelled' | 'expired' | 'pending';
@@ -91,47 +91,20 @@ export const DEFAULT_TIERS: MembershipTier[] = [
       { key: 'basic_plans', name: 'Basic Plans', nameZh: '基础训练计划', included: true },
       { key: 'basic_timer', name: 'Basic Timer', nameZh: '基础计时器', included: true },
       { key: 'progress_tracking', name: 'Progress Tracking', nameZh: '进度追踪', included: true },
-      { key: 'ai_generation', name: 'AI Plan Generation', nameZh: 'AI智能生成', included: true, highlight: true },
-      { key: 'premium_plans', name: 'Premium Plans', nameZh: '高级计划', included: true },
-      { key: 'data_export', name: 'Data Export', nameZh: '数据导出', included: false },
-    ],
-    limits: {
-      plansPerMonth: 20,
-      aiGenerationsPerDay: 10,
-      customPlans: 10,
-      progressHistory: 365,
-      bodyMetricsRecords: 500,
-      canAccessPremiumPlans: true,
-      canExportData: false,
-      canSyncWearable: false,
-      priority: 1,
-    },
-    isActive: true,
-  },
-  {
-    id: 'premium',
-    name: 'Premium',
-    nameZh: '高级会员',
-    priceMonthly: 19.99,
-    priceYearly: 159.99,
-    features: [
-      { key: 'basic_plans', name: 'Basic Plans', nameZh: '基础训练计划', included: true },
-      { key: 'basic_timer', name: 'Basic Timer', nameZh: '基础计时器', included: true },
-      { key: 'progress_tracking', name: 'Progress Tracking', nameZh: '进度追踪', included: true },
       { key: 'ai_generation', name: 'AI Plan Generation', nameZh: 'AI智能生成（无限）', included: true, highlight: true },
       { key: 'premium_plans', name: 'Premium Plans', nameZh: '高级计划', included: true },
       { key: 'data_export', name: 'Data Export', nameZh: '数据导出', included: true },
     ],
     limits: {
       plansPerMonth: -1, // 无限制
-      aiGenerationsPerDay: -1,
-      customPlans: -1,
-      progressHistory: -1,
-      bodyMetricsRecords: -1,
+      aiGenerationsPerDay: -1, // 无限制
+      customPlans: -1, // 无限制
+      progressHistory: -1, // 无限制
+      bodyMetricsRecords: -1, // 无限制
       canAccessPremiumPlans: true,
       canExportData: true,
       canSyncWearable: true,
-      priority: 2,
+      priority: 1,
     },
     isActive: true,
   },

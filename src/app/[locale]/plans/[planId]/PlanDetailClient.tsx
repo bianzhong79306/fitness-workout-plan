@@ -1,14 +1,16 @@
-// 计划详情客户端组件
+// 计划详情客户端组件 - 学习模式
+// 用户在这里学习计划结构，然后自己去实践
 
 'use client';
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { Dumbbell, Clock, Calendar, CheckCircle, Play, Pause, SkipForward, X, Trophy, Share2, Target } from 'lucide-react';
+import { Dumbbell, Clock, Calendar, Info, ArrowUpRight } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Progress } from '@/components/ui/progress';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Link } from '@/i18n/routing';
 
 interface PlanDetail {
   id: string;
@@ -20,6 +22,7 @@ interface PlanDetail {
   difficulty: string;
   duration_weeks: number;
   sessions_per_week: number;
+  is_premium: boolean;
   sessions: Array<{
     session_number: number;
     name: string;
@@ -40,47 +43,11 @@ interface Exercise {
   weight?: number;
 }
 
-// 成就名称映射
-const ACHIEVEMENT_NAMES: Record<string, Record<string, string>> = {
-  'first-workout': { zh: '首次训练', en: 'First Workout' },
-  'week-warrior': { zh: '周战士', en: 'Week Warrior' },
-  'iron-will': { zh: '钢铁意志', en: 'Iron Will' },
-  'ten-workouts': { zh: '健身新手', en: 'Fitness Beginner' },
-  'fifty-workouts': { zh: '健身达人', en: 'Fitness Enthusiast' },
-  'hundred-workouts': { zh: '健身大师', en: 'Fitness Master' },
-  'early-bird': { zh: '早起鸟', en: 'Early Bird' },
-  'night-owl': { zh: '夜猫子', en: 'Night Owl' },
-  'thousand-sets': { zh: '千组成就', en: 'Thousand Sets' },
-  'goal-crusher': { zh: '目标粉碎机', en: 'Goal Crusher' },
-};
-
-function getAchievementName(id: string, locale: string): string {
-  return ACHIEVEMENT_NAMES[id]?.[locale] || id;
-}
-
 export default function PlanDetailClient({ locale, planId }: { locale: string; planId: string }) {
   const [plan, setPlan] = useState<PlanDetail | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
-  // 训练模式状态
-  const [workoutMode, setWorkoutMode] = useState(false);
-  const [currentSessionIndex, setCurrentSessionIndex] = useState(0);
-  const [currentExerciseIndex, setCurrentExerciseIndex] = useState(0);
-  const [currentSet, setCurrentSet] = useState(1);
-  const [isResting, setIsResting] = useState(false);
-  const [restTimeLeft, setRestTimeLeft] = useState(0);
-  const [timerRunning, setTimerRunning] = useState(false);
-
-  // 训练记录数据
-  const [workoutStartedAt, setWorkoutStartedAt] = useState<string | null>(null);
-  const [completedSets, setCompletedSets] = useState<Array<{exerciseId: string; name: string; sets: number; reps: number; weight?: number}>>([]);
-  const [isSavingWorkout, setIsSavingWorkout] = useState(false);
-  const [workoutCompleted, setWorkoutCompleted] = useState(false);
-  const [workoutStats, setWorkoutStats] = useState<{duration: number; sets: number; planName: string} | null>(null);
-  const [shareToCommunity, setShareToCommunity] = useState(true);
-  const [newlyUnlocked, setNewlyUnlocked] = useState<string[]>([]);
-  const [completedChallenges, setCompletedChallenges] = useState<Array<{ challengeId: string; challengeName: string }>>([]);
+  const [selectedSession, setSelectedSession] = useState<number>(0);
 
   useEffect(() => {
     fetch(`/api/plans/${planId}`)
@@ -94,181 +61,6 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
       .finally(() => setLoading(false));
   }, [planId]);
 
-  // 休息计时器
-  useEffect(() => {
-    if (timerRunning && restTimeLeft > 0) {
-      const interval = setInterval(() => {
-        setRestTimeLeft(prev => {
-          if (prev <= 1) {
-            setTimerRunning(false);
-            setIsResting(false);
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
-      return () => clearInterval(interval);
-    }
-  }, [timerRunning, restTimeLeft]);
-
-  const startWorkout = (sessionIndex: number = 0) => {
-    setCurrentSessionIndex(sessionIndex);
-    setCurrentExerciseIndex(0);
-    setCurrentSet(1);
-    setIsResting(false);
-    setRestTimeLeft(0);
-    setTimerRunning(false);
-    setWorkoutStartedAt(new Date().toISOString());
-    setCompletedSets([]);
-    setWorkoutMode(true);
-  };
-
-  const endWorkout = async () => {
-    if (!workoutStartedAt || isSavingWorkout) {
-      setWorkoutMode(false);
-      return;
-    }
-
-    setIsSavingWorkout(true);
-
-    const completedAt = new Date().toISOString();
-    const durationSeconds = Math.floor((new Date(completedAt).getTime() - new Date(workoutStartedAt).getTime()) / 1000);
-
-    // 计算总组数和次数
-    const totalSets = completedSets.reduce((sum, ex) => sum + ex.sets, 0);
-    const totalReps = completedSets.reduce((sum, ex) => sum + (ex.reps || 0) * ex.sets, 0);
-
-    try {
-      const response = await fetch('/api/workout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          planId: plan?.id,
-          sessionId: plan?.sessions[currentSessionIndex]?.session_number?.toString(),
-          startedAt: workoutStartedAt,
-          completedAt,
-          durationSeconds,
-          exercises: completedSets,
-          totalSets,
-          totalReps,
-        }),
-      });
-
-      if (response.ok) {
-        const workoutData = await response.json() as { id: string; newlyUnlocked?: string[]; completedChallenges?: Array<{ challengeId: string; challengeName: string }> };
-
-        // 记录新解锁的成就
-        if (workoutData.newlyUnlocked && workoutData.newlyUnlocked.length > 0) {
-          setNewlyUnlocked(workoutData.newlyUnlocked);
-        }
-
-        // 记录完成的挑战
-        if (workoutData.completedChallenges && workoutData.completedChallenges.length > 0) {
-          setCompletedChallenges(workoutData.completedChallenges);
-        }
-
-        // 分享到社区
-        if (shareToCommunity) {
-          const planName = locale === 'zh' ? plan?.name : plan?.name_en;
-          const durationMin = Math.round(durationSeconds / 60);
-          const content = locale === 'zh'
-            ? `💪 刚刚完成了 ${planName} 训练！\n⏱️ 时长: ${durationMin} 分钟\n🏋️ 共 ${totalSets} 组动作\n#健身打卡 #FitPlanPro`
-            : `💪 Just completed ${planName}!\n⏱️ Duration: ${durationMin} min\n🏋️ ${totalSets} sets total\n#FitnessJourney #FitPlanPro`;
-
-          await fetch('/api/community/posts', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              content,
-              post_type: 'workout',
-              workout_id: workoutData.id,
-              plan_id: plan?.id,
-              workout_duration: durationMin,
-              workout_sets: totalSets,
-            }),
-          });
-        }
-
-        // 显示完成界面
-        setWorkoutStats({
-          duration: Math.round(durationSeconds / 60),
-          sets: totalSets,
-          planName: locale === 'zh' ? (plan?.name || '训练') : (plan?.name_en || 'Workout'),
-        });
-        setWorkoutCompleted(true);
-      } else {
-        console.error('Failed to save workout');
-      }
-    } catch (error) {
-      console.error('Error saving workout:', error);
-    }
-
-    setIsSavingWorkout(false);
-    setWorkoutMode(false);
-  };
-
-  const nextSet = () => {
-    const exercises = getExercises(currentSessionIndex);
-    const currentExercise = exercises[currentExerciseIndex];
-
-    // 记录完成的组
-    setCompletedSets(prev => {
-      const existing = prev.find(e => e.exerciseId === currentExercise?.exerciseId || e.name === currentExercise?.name);
-      if (existing) {
-        return prev.map(e => e.exerciseId === currentExercise?.exerciseId || e.name === currentExercise?.name
-          ? { ...e, sets: e.sets + 1 }
-          : e
-        );
-      } else {
-        return [...prev, {
-          exerciseId: currentExercise?.exerciseId || '',
-          name: currentExercise?.name || '',
-          sets: 1,
-          reps: currentExercise?.reps || 0,
-          weight: currentExercise?.weight,
-        }];
-      }
-    });
-
-    if (currentSet < currentExercise.sets) {
-      // 开始休息
-      setCurrentSet(prev => prev + 1);
-      setIsResting(true);
-      setRestTimeLeft(currentExercise.restSeconds);
-      setTimerRunning(true);
-    } else {
-      // 当前动作完成，进入下一个动作
-      nextExercise();
-    }
-  };
-
-  const nextExercise = () => {
-    const exercises = getExercises(currentSessionIndex);
-    if (currentExerciseIndex < exercises.length - 1) {
-      setCurrentExerciseIndex(prev => prev + 1);
-      setCurrentSet(1);
-      setIsResting(false);
-      setRestTimeLeft(0);
-      setTimerRunning(false);
-    } else {
-      // 当前 session 完成
-      if (currentSessionIndex < (plan?.sessions.length || 1) - 1) {
-        setCurrentSessionIndex(prev => prev + 1);
-        setCurrentExerciseIndex(0);
-        setCurrentSet(1);
-      } else {
-        // 全部训练完成
-        endWorkout();
-      }
-    }
-  };
-
-  const skipRest = () => {
-    setIsResting(false);
-    setRestTimeLeft(0);
-    setTimerRunning(false);
-  };
-
   const getExercises = (sessionIndex: number): Exercise[] => {
     if (!plan?.sessions[sessionIndex]) return [];
     try {
@@ -276,6 +68,26 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
     } catch {
       return [];
     }
+  };
+
+  const getGoalLabel = (goal: string) => {
+    const labels: Record<string, Record<string, string>> = {
+      muscle_gain: { zh: '增肌塑形', en: 'Muscle Gain' },
+      fat_loss: { zh: '减脂瘦身', en: 'Fat Loss' },
+      strength: { zh: '力量提升', en: 'Strength' },
+      endurance: { zh: '耐力提升', en: 'Endurance' },
+      general: { zh: '综合健身', en: 'General Fitness' },
+    };
+    return labels[goal]?.[locale] ?? goal;
+  };
+
+  const getDifficultyLabel = (difficulty: string) => {
+    const labels: Record<string, Record<string, string>> = {
+      beginner: { zh: '初级', en: 'Beginner' },
+      intermediate: { zh: '中级', en: 'Intermediate' },
+      advanced: { zh: '高级', en: 'Advanced' },
+    };
+    return labels[difficulty]?.[locale] ?? difficulty;
   };
 
   if (loading) {
@@ -286,238 +98,177 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
     return <div className="container py-8 text-center text-red-500">{error || 'Not found'}</div>;
   }
 
-  // 训练完成界面
-  if (workoutCompleted && workoutStats) {
-    return (
-      <div className="container mx-auto py-8 px-4 max-w-2xl">
-        <Card className="text-center">
-          <CardContent className="py-12">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Trophy className="w-10 h-10 text-green-600" />
-            </div>
-            <h2 className="text-2xl font-bold mb-2">
-              {locale === 'zh' ? '🎉 训练完成！' : '🎉 Workout Complete!'}
-            </h2>
-            <p className="text-muted-foreground mb-6">
-              {locale === 'zh' ? '太棒了！你完成了今天的训练。' : 'Great job! You completed your workout today.'}
-            </p>
+  const exercises = getExercises(selectedSession);
+  const currentSession = plan.sessions[selectedSession];
 
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="p-4 bg-muted/50 rounded-lg">
-                <div className="text-3xl font-bold">{workoutStats.duration}</div>
-                <div className="text-sm text-muted-foreground">
-                  {locale === 'zh' ? '分钟' : 'minutes'}
-                </div>
-              </div>
-              <div className="p-4 bg-muted/50 rounded-lg">
-                <div className="text-3xl font-bold">{workoutStats.sets}</div>
-                <div className="text-sm text-muted-foreground">
-                  {locale === 'zh' ? '组动作' : 'sets'}
-                </div>
-              </div>
-            </div>
-
-            {/* 新解锁成就 */}
-            {newlyUnlocked.length > 0 && (
-              <div className="mb-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <Trophy className="w-5 h-5 text-yellow-500" />
-                  <span className="font-medium text-yellow-700">
-                    {locale === 'zh' ? '🎉 新成就解锁！' : '🎉 New Achievement!'}
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {newlyUnlocked.map(id => (
-                    <Badge key={id} variant="secondary" className="bg-yellow-100 text-yellow-700">
-                      {locale === 'zh' ? getAchievementName(id, 'zh') : getAchievementName(id, 'en')}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* 完成的挑战 */}
-            {completedChallenges.length > 0 && (
-              <div className="mb-8 p-4 bg-green-50 border border-green-200 rounded-lg">
-                <div className="flex items-center gap-2 mb-2">
-                  <Target className="w-5 h-5 text-green-500" />
-                  <span className="font-medium text-green-700">
-                    {locale === 'zh' ? '🎯 挑战完成！' : '🎯 Challenge Complete!'}
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {completedChallenges.map(c => (
-                    <Badge key={c.challengeId} variant="secondary" className="bg-green-100 text-green-700">
-                      {c.challengeName}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            <div className="flex flex-col gap-3">
-              <Button
-                className="w-full"
-                onClick={() => {
-                  setWorkoutCompleted(false);
-                  setWorkoutStats(null);
-                }}
-              >
-                {locale === 'zh' ? '返回计划' : 'Back to Plan'}
-              </Button>
-              <Button
-                variant="outline"
-                className="w-full gap-2"
-                onClick={() => {
-                  window.location.href = `/${locale}/community`;
-                }}
-              >
-                <Share2 className="w-4 h-4" />
-                {locale === 'zh' ? '查看社区动态' : 'View Community'}
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-    );
-  }
-
-  // 训练模式界面
-  if (workoutMode) {
-    const exercises = getExercises(currentSessionIndex);
-    const currentExercise = exercises[currentExerciseIndex];
-    const session = plan.sessions[currentSessionIndex];
-    const progress = ((currentExerciseIndex * (currentExercise?.sets || 1) + currentSet) / (exercises.reduce((sum, ex) => sum + (ex.sets || 1), 0))) * 100;
-
-    return (
-      <div className="container mx-auto py-8 px-4 max-w-2xl">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-bold">{locale === 'zh' ? session.name : session.name_en}</h2>
-          <div className="flex items-center gap-2">
-            <label className="flex items-center gap-2 text-sm text-muted-foreground">
-              <input
-                type="checkbox"
-                checked={shareToCommunity}
-                onChange={(e) => setShareToCommunity(e.target.checked)}
-                className="rounded"
-              />
-              <Share2 className="w-4 h-4" />
-              {locale === 'zh' ? '分享' : 'Share'}
-            </label>
-            <Button variant="outline" size="sm" onClick={endWorkout}>
-              <X className="w-4 h-4 mr-1" />
-              {locale === 'zh' ? '结束' : 'End'}
-            </Button>
-          </div>
-        </div>
-
-        <Progress value={progress} className="mb-6" />
-
-        {isResting ? (
-          <Card className="text-center py-8">
-            <CardContent>
-              <Clock className="w-16 h-16 mx-auto mb-4 text-primary" />
-              <p className="text-4xl font-bold mb-2">{restTimeLeft}s</p>
-              <p className="text-muted-foreground mb-4">
-                {locale === 'zh' ? '休息时间' : 'Rest Time'}
-              </p>
-              <div className="flex gap-2 justify-center">
-                <Button onClick={() => setTimerRunning(!timerRunning)}>
-                  {timerRunning ? <Pause className="w-4 h-4 mr-2" /> : <Play className="w-4 h-4 mr-2" />}
-                  {timerRunning ? (locale === 'zh' ? '暂停' : 'Pause') : (locale === 'zh' ? '继续' : 'Resume')}
-                </Button>
-                <Button variant="outline" onClick={skipRest}>
-                  <SkipForward className="w-4 h-4 mr-2" />
-                  {locale === 'zh' ? '跳过' : 'Skip'}
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        ) : (
-          <Card>
-            <CardHeader>
-              <div className="flex justify-between items-center">
-                <div>
-                  <CardTitle>{locale === 'zh' ? currentExercise?.name : currentExercise?.nameEn}</CardTitle>
-                  <CardDescription>
-                    {locale === 'zh' ? `第 ${currentSet} 组 / 共 ${currentExercise?.sets} 组` : `Set ${currentSet} of ${currentExercise?.sets}`}
-                  </CardDescription>
-                </div>
-                <Badge variant="secondary">
-                  {currentExercise?.reps ? `${currentExercise.reps} reps` : `${currentExercise?.duration}s`}
-                </Badge>
-              </div>
-            </CardHeader>
-            <CardContent className="text-center py-6">
-              <p className="text-2xl font-bold mb-4">
-                {currentExercise?.reps
-                  ? `${currentExercise.reps} ${locale === 'zh' ? '次' : 'reps'}`
-                  : `${currentExercise?.duration} ${locale === 'zh' ? '秒' : 'seconds'}`}
-              </p>
-              <Button size="lg" onClick={nextSet} className="w-full">
-                <CheckCircle className="w-5 h-5 mr-2" />
-                {locale === 'zh' ? '完成此组' : 'Complete Set'}
-              </Button>
-            </CardContent>
-          </Card>
-        )}
-
-        <div className="mt-4 text-center text-sm text-muted-foreground">
-          {locale === 'zh'
-            ? `动作 ${currentExerciseIndex + 1}/${exercises.length}`
-            : `Exercise ${currentExerciseIndex + 1}/${exercises.length}`}
-        </div>
-      </div>
-    );
-  }
-
-  // 计划详情界面
   return (
     <div className="container mx-auto py-8 px-4 max-w-4xl">
-      <Card>
+      {/* 学习提示 */}
+      <Alert className="mb-6 border-primary/20 bg-primary/5">
+        <Info className="w-4 h-4 text-primary" />
+        <AlertDescription>
+          {locale === 'zh'
+            ? '💡 这是训练计划的学习页面。仔细了解每个动作的安排，然后自己安排时间去实践。点击动作名称可以查看详细教学。'
+            : '💡 This is a learning page for the workout plan. Understand each exercise arrangement, then practice on your own time. Click exercise names to see detailed instructions.'}
+        </AlertDescription>
+      </Alert>
+
+      {/* 计划概览 */}
+      <Card className="mb-6">
         <CardHeader>
           <div className="flex justify-between items-start">
             <div>
-              <CardTitle>{locale === 'zh' ? plan.name : plan.name_en}</CardTitle>
-              <CardDescription>{locale === 'zh' ? plan.description : plan.description_en}</CardDescription>
+              <CardTitle className="text-2xl">
+                {locale === 'zh' ? plan.name : plan.name_en}
+              </CardTitle>
+              <CardDescription className="mt-2">
+                {locale === 'zh' ? plan.description : plan.description_en}
+              </CardDescription>
             </div>
-            <Badge>{plan.difficulty}</Badge>
+            <div className="flex gap-2">
+              <Badge variant={plan.is_premium ? 'default' : 'secondary'}>
+                {plan.is_premium
+                  ? (locale === 'zh' ? '高级计划' : 'Premium Plan')
+                  : (locale === 'zh' ? '免费计划' : 'Free Plan')}
+              </Badge>
+            </div>
           </div>
-          <div className="flex gap-4 text-sm text-muted-foreground mt-2">
-            <span><Calendar className="w-4 h-4 inline mr-1" />{plan.duration_weeks} {locale === 'zh' ? '周' : 'weeks'}</span>
-            <span><Dumbbell className="w-4 h-4 inline mr-1" />{plan.sessions_per_week} {locale === 'zh' ? '次/周' : 'sessions/wk'}</span>
+
+          <div className="flex flex-wrap gap-4 mt-4 text-sm">
+            <span className="flex items-center gap-1 text-muted-foreground">
+              <TargetIcon className="w-4 h-4" />
+              {getGoalLabel(plan.goal)}
+            </span>
+            <span className="flex items-center gap-1 text-muted-foreground">
+              <Calendar className="w-4 h-4" />
+              {plan.duration_weeks} {locale === 'zh' ? '周计划' : 'weeks'}
+            </span>
+            <span className="flex items-center gap-1 text-muted-foreground">
+              <Dumbbell className="w-4 h-4" />
+              {plan.sessions_per_week} {locale === 'zh' ? '次/周' : 'sessions/week'}
+            </span>
+            <span className="flex items-center gap-1 text-muted-foreground">
+              <Clock className="w-4 h-4" />
+              {locale === 'zh' ? `${getDifficultyLabel(plan.difficulty)}难度` : `${getDifficultyLabel(plan.difficulty)} level`}
+            </span>
           </div>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {plan.sessions.map((s, idx) => {
-            const exercises = JSON.parse(s.exercises_json || '[]');
-            return (
-              <div key={s.session_number} className="border rounded-lg p-4">
-                <div className="flex justify-between items-center mb-2">
-                  <h3 className="font-medium">{locale === 'zh' ? s.name : s.name_en}</h3>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-muted-foreground"><Clock className="w-4 h-4 inline mr-1" />{s.duration_minutes}min</span>
-                    <Button size="sm" onClick={() => startWorkout(idx)}>
-                      <Play className="w-3 h-3 mr-1" />
-                      {locale === 'zh' ? '开始' : 'Start'}
-                    </Button>
+      </Card>
+
+      {/* 训练课程选择 */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {plan.sessions.map((s, idx) => (
+          <Button
+            key={s.session_number}
+            variant={selectedSession === idx ? 'default' : 'outline'}
+            size="sm"
+            onClick={() => setSelectedSession(idx)}
+          >
+            {locale === 'zh' ? s.name : s.name_en}
+          </Button>
+        ))}
+      </div>
+
+      {/* 当前课程详情 */}
+      <Card className="mb-6">
+        <CardHeader>
+          <CardTitle className="flex items-center justify-between">
+            <span>
+              {locale === 'zh' ? currentSession?.name : currentSession?.name_en}
+            </span>
+            <span className="text-muted-foreground text-sm flex items-center gap-1">
+              <Clock className="w-4 h-4" />
+              {currentSession?.duration_minutes} {locale === 'zh' ? '分钟' : 'min'}
+            </span>
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-3">
+            {exercises.map((ex, i) => (
+              <div
+                key={i}
+                className="flex justify-between items-center p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-sm font-medium">
+                    {i + 1}
+                  </div>
+                  <div>
+                    {/* 动作名称 - 可点击跳转到动作详情 */}
+                    {ex.exerciseId ? (
+                      <Link
+                        href={`/exercises/${ex.exerciseId}`}
+                        className="font-medium hover:text-primary transition-colors flex items-center gap-1"
+                      >
+                        {locale === 'zh' ? ex.name : ex.nameEn}
+                        <ArrowUpRight className="w-3 h-3" />
+                      </Link>
+                    ) : (
+                      <span className="font-medium">
+                        {locale === 'zh' ? ex.name : ex.nameEn}
+                      </span>
+                    )}
+                    <p className="text-xs text-muted-foreground mt-1">
+                      {locale === 'zh' ? `休息 ${ex.restSeconds} 秒` : `Rest ${ex.restSeconds}s`}
+                    </p>
                   </div>
                 </div>
-                <div className="space-y-1">
-                  {exercises.map((ex: Exercise, i: number) => (
-                    <div key={i} className="flex justify-between text-sm">
-                      <span>{locale === 'zh' ? ex.name : ex.nameEn}</span>
-                      <span className="text-muted-foreground">
-                        {ex.sets}×{ex.reps || `${ex.duration}s`}
-                      </span>
-                    </div>
-                  ))}
+                <div className="text-right">
+                  <Badge variant="secondary" className="text-sm">
+                    {ex.sets} × {ex.reps || `${ex.duration}s`}
+                  </Badge>
                 </div>
               </div>
-            );
-          })}
+            ))}
+          </div>
         </CardContent>
       </Card>
+
+      {/* 计划原理说明 */}
+      <Card className="bg-muted/30">
+        <CardHeader>
+          <CardTitle className="text-lg">
+            {locale === 'zh' ? '📋 计划原理' : '📋 Plan Principles'}
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="text-sm text-muted-foreground space-y-2">
+          <p>
+            {locale === 'zh'
+              ? `这是一个为期 ${plan.duration_weeks} 周的训练计划，每周 ${plan.sessions_per_week} 次训练。`
+              : `This is a ${plan.duration_weeks}-week plan with ${plan.sessions_per_week} sessions per week.`}
+          </p>
+          <p>
+            {locale === 'zh'
+              ? '建议在实际训练前，先了解每个动作的正确姿势和要点。点击动作名称可以查看详细教学。'
+              : 'We recommend understanding correct form and tips for each exercise before actual training. Click exercise names to see detailed instructions.'}
+          </p>
+          <p>
+            {locale === 'zh'
+              ? '根据渐进超负荷原则，可以随着训练进步逐渐增加重量或次数。'
+              : 'Following progressive overload principles, gradually increase weight or reps as you progress.'}
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* 底部操作按钮 */}
+      <div className="mt-6 flex flex-col sm:flex-row gap-3">
+        <Link href="/exercises" className="flex-1">
+          <Button variant="outline" className="w-full gap-2">
+            <Dumbbell className="w-4 h-4" />
+            {locale === 'zh' ? '查看动作百科' : 'Browse Exercise Library'}
+          </Button>
+        </Link>
+        <Link href="/ai-plan" className="flex-1">
+          <Button className="w-full gap-2">
+            {locale === 'zh' ? '生成个性化计划' : 'Generate Custom Plan'}
+          </Button>
+        </Link>
+      </div>
     </div>
   );
+}
+
+// 简单的目标图标
+function TargetIcon({ className }: { className?: string }) {
+  return <div className={className}>🎯</div>;
 }
