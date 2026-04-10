@@ -13,7 +13,9 @@
     "progress": "Progress",
     "signIn": "Sign In",
     "signOut": "Sign Out",
-    "aiPlan": "AI Generator"
+    "aiPlan": "AI Generator",
+    "challenges": "Challenges",
+    "community": "Community"
   },
   "home": {
     "hero": {

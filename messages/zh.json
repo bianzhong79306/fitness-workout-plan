@@ -13,7 +13,9 @@
     "progress": "进度追踪",
     "signIn": "登录",
     "signOut": "退出登录",
-    "aiPlan": "AI生成"
+    "aiPlan": "AI生成",
+    "challenges": "挑战赛",
+    "community": "社区"
   },
   "home": {
     "hero": {

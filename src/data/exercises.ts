@@ -1,5 +1,13 @@
 import { Exercise } from '@/types/exercise';
 import { additionalExercises } from './additional-exercises';
+import { expandedExercises } from './exercises-expanded';
+import {
+  legExpandedExercises,
+  coreExpandedExercises,
+  gluteExpandedExercises,
+  fullBodyExpandedExercises,
+  stretchExpandedExercises
+} from './exercises-expanded-part2';
 
 export const exercises: Exercise[] = [
   // ==================== 胸部动作 ====================
@@ -1278,7 +1286,16 @@ export const exercises: Exercise[] = [
 ];
 
 // 合并所有动作
-const allExercises = [...exercises, ...additionalExercises];
+const allExercises = [
+  ...exercises,
+  ...additionalExercises,
+  ...expandedExercises,
+  ...legExpandedExercises,
+  ...coreExpandedExercises,
+  ...gluteExpandedExercises,
+  ...fullBodyExpandedExercises,
+  ...stretchExpandedExercises,
+];
 
 // 按肌群分组
 export const exercisesByMuscle = allExercises.reduce((acc, exercise) => {
