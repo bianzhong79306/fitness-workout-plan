@@ -249,3 +249,67 @@ CREATE INDEX IF NOT EXISTS idx_community_comments_post ON community_comments(pos
 CREATE INDEX IF NOT EXISTS idx_community_likes_post ON community_likes(post_id);
 CREATE INDEX IF NOT EXISTS idx_community_likes_user ON community_likes(user_id);
 CREATE INDEX IF NOT EXISTS idx_achievements_category ON achievements(category);
+
+-- 挑战定义表
+CREATE TABLE IF NOT EXISTS challenges (
+  id TEXT PRIMARY KEY,
+  name TEXT NOT NULL,
+  name_en TEXT NOT NULL,
+  description TEXT NOT NULL,
+  description_en TEXT NOT NULL,
+  icon TEXT DEFAULT 'target',
+  challenge_type TEXT NOT NULL,
+  goal_type TEXT NOT NULL,
+  goal_value INTEGER NOT NULL,
+  reward_points INTEGER DEFAULT 0,
+  reward_achievement_id TEXT,
+  start_at TEXT NOT NULL,
+  end_at TEXT NOT NULL,
+  is_active BOOLEAN DEFAULT 1,
+  is_system BOOLEAN DEFAULT 0,
+  participants_count INTEGER DEFAULT 0,
+  completions_count INTEGER DEFAULT 0,
+  created_at TEXT DEFAULT (datetime('now')),
+  FOREIGN KEY (reward_achievement_id) REFERENCES achievements(id)
+);
+
+-- 用户挑战参与表
+CREATE TABLE IF NOT EXISTS user_challenges (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  challenge_id TEXT NOT NULL,
+  status TEXT DEFAULT 'active',
+  current_progress INTEGER DEFAULT 0,
+  target_progress INTEGER NOT NULL,
+  joined_at TEXT DEFAULT (datetime('now')),
+  completed_at TEXT,
+  last_progress_at TEXT,
+  reward_claimed BOOLEAN DEFAULT 0,
+  reward_claimed_at TEXT,
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (challenge_id) REFERENCES challenges(id),
+  UNIQUE(user_id, challenge_id)
+);
+
+-- 社区挑战排行榜
+CREATE TABLE IF NOT EXISTS challenge_leaderboard (
+  id TEXT PRIMARY KEY,
+  challenge_id TEXT NOT NULL,
+  user_id TEXT NOT NULL,
+  contribution INTEGER DEFAULT 0,
+  rank INTEGER DEFAULT 0,
+  updated_at TEXT DEFAULT (datetime('now')),
+  FOREIGN KEY (challenge_id) REFERENCES challenges(id),
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  UNIQUE(challenge_id, user_id)
+);
+
+-- 挑战赛索引
+CREATE INDEX IF NOT EXISTS idx_challenges_type ON challenges(challenge_type);
+CREATE INDEX IF NOT EXISTS idx_challenges_active ON challenges(is_active);
+CREATE INDEX IF NOT EXISTS idx_challenges_dates ON challenges(start_at, end_at);
+CREATE INDEX IF NOT EXISTS idx_user_challenges_user ON user_challenges(user_id);
+CREATE INDEX IF NOT EXISTS idx_user_challenges_challenge ON user_challenges(challenge_id);
+CREATE INDEX IF NOT EXISTS idx_user_challenges_status ON user_challenges(status);
+CREATE INDEX IF NOT EXISTS idx_leaderboard_challenge ON challenge_leaderboard(challenge_id);
+CREATE INDEX IF NOT EXISTS idx_leaderboard_rank ON challenge_leaderboard(challenge_id, rank);

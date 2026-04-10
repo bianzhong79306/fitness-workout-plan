@@ -261,6 +261,35 @@
         "name": "Iron Will",
         "desc": "Work out 30 days in a row"
       }
+    },
+    "challenges": {
+      "title": "Challenges",
+      "daily": "Daily Challenge",
+      "weekly": "Weekly Challenge",
+      "monthly": "Monthly Challenge",
+      "community": "Community Challenge",
+      "join": "Join Challenge",
+      "joining": "Joining...",
+      "progress": "Progress",
+      "completed": "Completed",
+      "claimReward": "Claim Reward",
+      "claiming": "Claiming...",
+      "rewardClaimed": "Reward Claimed",
+      "noActive": "No active challenges",
+      "participants": "joined",
+      "points": "pts",
+      "workouts": "workouts",
+      "days": "days",
+      "minutes": "min",
+      "sets": "sets",
+      "leaderboard": {
+        "title": "Community Leaderboard",
+        "totalProgress": "Community Progress",
+        "goalAchieved": "Community goal achieved!",
+        "contribution": "contrib",
+        "anonymous": "Anonymous",
+        "moreParticipants": "{count} more participants"
+      }
     }
   },
   "progress": {

@@ -4,7 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { Dumbbell, Clock, Calendar, CheckCircle, Play, Pause, SkipForward, X, Trophy, Share2 } from 'lucide-react';
+import { Dumbbell, Clock, Calendar, CheckCircle, Play, Pause, SkipForward, X, Trophy, Share2, Target } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -80,6 +80,7 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
   const [workoutStats, setWorkoutStats] = useState<{duration: number; sets: number; planName: string} | null>(null);
   const [shareToCommunity, setShareToCommunity] = useState(true);
   const [newlyUnlocked, setNewlyUnlocked] = useState<string[]>([]);
+  const [completedChallenges, setCompletedChallenges] = useState<Array<{ challengeId: string; challengeName: string }>>([]);
 
   useEffect(() => {
     fetch(`/api/plans/${planId}`)
@@ -154,11 +155,16 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
       });
 
       if (response.ok) {
-        const workoutData = await response.json() as { id: string; newlyUnlocked?: string[] };
+        const workoutData = await response.json() as { id: string; newlyUnlocked?: string[]; completedChallenges?: Array<{ challengeId: string; challengeName: string }> };
 
         // 记录新解锁的成就
         if (workoutData.newlyUnlocked && workoutData.newlyUnlocked.length > 0) {
           setNewlyUnlocked(workoutData.newlyUnlocked);
+        }
+
+        // 记录完成的挑战
+        if (workoutData.completedChallenges && workoutData.completedChallenges.length > 0) {
+          setCompletedChallenges(workoutData.completedChallenges);
         }
 
         // 分享到社区
@@ -324,6 +330,25 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
                   {newlyUnlocked.map(id => (
                     <Badge key={id} variant="secondary" className="bg-yellow-100 text-yellow-700">
                       {locale === 'zh' ? getAchievementName(id, 'zh') : getAchievementName(id, 'en')}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* 完成的挑战 */}
+            {completedChallenges.length > 0 && (
+              <div className="mb-8 p-4 bg-green-50 border border-green-200 rounded-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <Target className="w-5 h-5 text-green-500" />
+                  <span className="font-medium text-green-700">
+                    {locale === 'zh' ? '🎯 挑战完成！' : '🎯 Challenge Complete!'}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {completedChallenges.map(c => (
+                    <Badge key={c.challengeId} variant="secondary" className="bg-green-100 text-green-700">
+                      {c.challengeName}
                     </Badge>
                   ))}
                 </div>

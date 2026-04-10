@@ -218,7 +218,31 @@ export async function POST(request: Request) {
       console.error("Achievement check error:", e);
     }
 
-    return NextResponse.json({ success: true, id, newlyUnlocked });
+    // 更新挑战进度
+    let completedChallenges: Array<{ challengeId: string; challengeName: string }> = [];
+    try {
+      const progressResponse = await fetch(new URL('/api/challenges/progress', request.url), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          userId: user.id,
+          workoutData: {
+            durationSeconds: body.durationSeconds || 0,
+            totalSets: body.totalSets || 0,
+            completedAt,
+          },
+        }),
+      });
+
+      if (progressResponse.ok) {
+        const progressData = await progressResponse.json() as { completedChallenges: Array<{ challengeId: string; challengeName: string }> };
+        completedChallenges = progressData.completedChallenges || [];
+      }
+    } catch (e) {
+      console.error("Challenge progress update error:", e);
+    }
+
+    return NextResponse.json({ success: true, id, newlyUnlocked, completedChallenges });
   } catch (error) {
     console.error("Create workout log error:", error);
     return NextResponse.json(

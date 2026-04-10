@@ -261,6 +261,35 @@
         "name": "钢铁意志",
         "desc": "连续训练30天"
       }
+    },
+    "challenges": {
+      "title": "挑战赛",
+      "daily": "每日挑战",
+      "weekly": "每周挑战",
+      "monthly": "每月挑战",
+      "community": "社区挑战",
+      "join": "参与挑战",
+      "joining": "加入中...",
+      "progress": "进度",
+      "completed": "已完成",
+      "claimReward": "领取奖励",
+      "claiming": "领取中...",
+      "rewardClaimed": "奖励已领取",
+      "noActive": "暂无进行中的挑战",
+      "participants": "人参与",
+      "points": "积分",
+      "workouts": "次",
+      "days": "天",
+      "minutes": "分钟",
+      "sets": "组",
+      "leaderboard": {
+        "title": "社区排行榜",
+        "totalProgress": "社区总进度",
+        "goalAchieved": "社区目标已达成!",
+        "contribution": "贡献",
+        "anonymous": "匿名用户",
+        "moreParticipants": "还有 {count} 位参与者"
+      }
     }
   },
   "progress": {

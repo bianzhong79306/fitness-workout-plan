@@ -18,6 +18,8 @@ import { BodyMetricsCard } from "./BodyMetricsCard";
 import { WeeklyGoalCard } from "./WeeklyGoalCard";
 import { StrengthProgressCard } from "./StrengthProgressCard";
 import { AchievementsCard } from "@/components/dashboard/AchievementsCard";
+import { ChallengesCard } from "@/components/dashboard/ChallengesCard";
+import { ChallengeLeaderboard } from "@/components/dashboard/ChallengeLeaderboard";
 import { getRequestContext } from "@cloudflare/next-on-pages";
 
 // D1Database 类型
@@ -191,6 +193,12 @@ export default async function DashboardPage({
 
       {/* Achievements */}
       <AchievementsCard locale={locale} />
+
+      {/* Challenges */}
+      <ChallengesCard locale={locale} />
+
+      {/* Community Leaderboard */}
+      <ChallengeLeaderboard locale={locale} />
 
       {/* Stats Charts */}
       <StatsCharts locale={locale} totalWorkouts={stats.totalWorkouts} />
