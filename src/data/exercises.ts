@@ -1,4 +1,5 @@
 import { Exercise } from '@/types/exercise';
+import { additionalExercises } from './additional-exercises';
 
 export const exercises: Exercise[] = [
   // ==================== 胸部动作 ====================
@@ -1276,8 +1277,11 @@ export const exercises: Exercise[] = [
   }
 ];
 
+// 合并所有动作
+const allExercises = [...exercises, ...additionalExercises];
+
 // 按肌群分组
-export const exercisesByMuscle = exercises.reduce((acc, exercise) => {
+export const exercisesByMuscle = allExercises.reduce((acc, exercise) => {
   exercise.muscles.forEach(muscle => {
     if (!acc[muscle]) {
       acc[muscle] = [];
@@ -1289,14 +1293,14 @@ export const exercisesByMuscle = exercises.reduce((acc, exercise) => {
 
 // 按难度分组
 export const exercisesByDifficulty = {
-  beginner: exercises.filter(e => e.difficulty === 'beginner'),
-  intermediate: exercises.filter(e => e.difficulty === 'intermediate'),
-  advanced: exercises.filter(e => e.difficulty === 'advanced'),
+  beginner: allExercises.filter(e => e.difficulty === 'beginner'),
+  intermediate: allExercises.filter(e => e.difficulty === 'intermediate'),
+  advanced: allExercises.filter(e => e.difficulty === 'advanced'),
 };
 
 // 根据 ID 获取动作
 export function getExerciseById(id: string): Exercise | undefined {
-  return exercises.find(e => e.id === id);
+  return allExercises.find(e => e.id === id);
 }
 
 // 根据条件筛选动作
@@ -1306,7 +1310,7 @@ export function filterExercises(options: {
   type?: string;
   equipment?: string;
 }): Exercise[] {
-  return exercises.filter(exercise => {
+  return allExercises.filter(exercise => {
     if (options.muscles && options.muscles.length > 0) {
       if (!options.muscles.some(m => exercise.muscles.includes(m as any))) {
         return false;
@@ -1326,4 +1330,4 @@ export function filterExercises(options: {
 }
 
 // 动作总数
-export const totalExercises = exercises.length;
+export const totalExercises = allExercises.length;

@@ -60,7 +60,7 @@ export async function GET(request: NextRequest) {
     const expiresAt = calculateExpiryDate(orderInfo.billingCycle);
 
     // 创建订阅记录
-    await createSubscription(db, {
+    const subscription = await createSubscription(db, {
       userId: orderInfo.userId,
       tierId: orderInfo.tierId as 'pro' | 'premium',
       status: 'active',
@@ -70,6 +70,32 @@ export async function GET(request: NextRequest) {
 
     // 更新用户会员等级
     await updateUserTier(db, orderInfo.userId, orderInfo.tierId as 'pro' | 'premium');
+
+    // 存储 capture_id 用于退款追踪
+    const captureId = captureResult.purchase_units[0]?.payments?.captures?.[0]?.id;
+    if (captureId) {
+      await db
+        .prepare(`
+          INSERT INTO payment_records (id, user_id, capture_id, order_id, reference_id, tier_id, amount, status, created_at)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        `)
+        .bind(
+          crypto.randomUUID(),
+          orderInfo.userId,
+          captureId,
+          orderId,
+          referenceId,
+          orderInfo.tierId,
+          captureResult.purchase_units[0]?.payments?.captures?.[0]?.amount?.value || '0',
+          'completed',
+          new Date().toISOString()
+        )
+        .run()
+        .catch(() => {
+          // 如果表不存在，忽略错误（后续迁移会创建表）
+          console.log('[Capture] payment_records table not found, skipping record');
+        });
+    }
 
     // 重定向到成功页面
     return NextResponse.redirect(

@@ -160,3 +160,23 @@ CREATE INDEX IF NOT EXISTS idx_exercise_progress_user ON exercise_progress(user_
 CREATE INDEX IF NOT EXISTS idx_exercise_progress_exercise ON exercise_progress(exercise_id);
 CREATE INDEX IF NOT EXISTS idx_exercise_progress_date ON exercise_progress(recorded_at);
 CREATE INDEX IF NOT EXISTS idx_exercise_progress_user_exercise ON exercise_progress(user_id, exercise_id);
+
+-- 支付记录表
+CREATE TABLE IF NOT EXISTS payment_records (
+  id TEXT PRIMARY KEY,
+  user_id TEXT NOT NULL,
+  capture_id TEXT,
+  order_id TEXT,
+  reference_id TEXT,
+  tier_id TEXT NOT NULL,
+  amount TEXT,
+  currency TEXT DEFAULT 'USD',
+  status TEXT DEFAULT 'completed',
+  refunded_at TEXT,
+  created_at TEXT DEFAULT (datetime('now')),
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_payment_records_user ON payment_records(user_id);
+CREATE INDEX IF NOT EXISTS idx_payment_records_capture ON payment_records(capture_id);
+CREATE INDEX IF NOT EXISTS idx_payment_records_status ON payment_records(status);

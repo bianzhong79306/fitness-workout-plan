@@ -8,13 +8,14 @@ export type MuscleGroup =
   | 'core'
   | 'legs'
   | 'glutes'
-  | 'full-body';
+  | 'full-body'
+  | 'neck';
 
 export type Difficulty = 'beginner' | 'intermediate' | 'advanced';
 
-export type ExerciseType = 'strength' | 'cardio' | 'stretch' | 'balance';
+export type ExerciseType = 'strength' | 'cardio' | 'stretch' | 'balance' | 'plyometric';
 
-export type Equipment = 'none' | 'chair' | 'doorframe' | 'wall' | 'towel' | 'table' | 'dumbbell' | 'barbell' | 'gym';
+export type Equipment = 'none' | 'chair' | 'doorframe' | 'wall' | 'towel' | 'table' | 'dumbbell' | 'barbell' | 'gym' | 'bar' | 'dip-bar' | 'ab-wheel';
 
 export interface Exercise {
   id: string;

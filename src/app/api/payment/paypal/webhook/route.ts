@@ -2,6 +2,8 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { getRequestContext } from '@cloudflare/next-on-pages';
+import { parseReferenceId } from '@/lib/paypal';
+import { updateUserTier, cancelSubscription } from '@/lib/membership';
 import type { D1Database } from '@/types/database';
 
 export const runtime = 'edge';
@@ -11,6 +13,7 @@ const WEBHOOK_EVENTS = {
   PAYMENT_CAPTURE_COMPLETED: 'PAYMENT.CAPTURE.COMPLETED',
   PAYMENT_CAPTURE_DENIED: 'PAYMENT.CAPTURE.DENIED',
   PAYMENT_CAPTURE_REFUNDED: 'PAYMENT.CAPTURE.REFUNDED',
+  PAYMENT_CAPTURE_REVERSED: 'PAYMENT.CAPTURE.REVERSED',
   CHECKOUT_ORDER_APPROVED: 'CHECKOUT.ORDER.APPROVED',
   CHECKOUT_ORDER_COMPLETED: 'CHECKOUT.ORDER.COMPLETED',
 };
@@ -74,9 +77,10 @@ export async function POST(request: NextRequest) {
         break;
 
       case WEBHOOK_EVENTS.PAYMENT_CAPTURE_REFUNDED:
-        // 退款 - 需要处理会员降级
-        console.log('[Webhook] Payment refunded:', event.resource?.id);
-        await handleRefund(db, event.resource);
+      case WEBHOOK_EVENTS.PAYMENT_CAPTURE_REVERSED:
+        // 退款或撤销 - 需要处理会员降级
+        console.log('[Webhook] Payment refunded/reversed:', event.event_type, event.resource?.id);
+        await handleRefund(db, event.resource, event.event_type);
         break;
 
       case WEBHOOK_EVENTS.PAYMENT_CAPTURE_DENIED:
@@ -97,27 +101,94 @@ export async function POST(request: NextRequest) {
 }
 
 // 处理退款
-async function handleRefund(db: D1Database, refundResource: any) {
+async function handleRefund(db: D1Database, refundResource: any, eventType: string) {
   try {
-    const originalCaptureId = refundResource?.links?.find(
+    // 获取原始捕获ID
+    // PayPal退款事件中，links中rel='up'的链接指向原始捕获
+    let originalCaptureId = refundResource?.links?.find(
       (link: any) => link.rel === 'up'
     )?.href?.split('/').pop();
+
+    // 或者直接从resource中获取
+    if (!originalCaptureId) {
+      originalCaptureId = refundResource?.id;
+    }
 
     if (!originalCaptureId) {
       console.error('[Webhook] Cannot find original capture ID for refund');
       return;
     }
 
-    // 查找对应的订单记录
-    // 这里需要从我们存储的订单数据中找到用户
     console.log('[Webhook] Processing refund for capture:', originalCaptureId);
 
-    // TODO: 实现退款后的会员降级逻辑
-    // 1. 找到对应的用户
-    // 2. 取消订阅
-    // 3. 发送通知邮件（可选）
+    // 查找支付记录
+    const paymentRecord = await db
+      .prepare('SELECT * FROM payment_records WHERE capture_id = ? AND status = "completed"')
+      .bind(originalCaptureId)
+      .first<{
+        id: string;
+        user_id: string;
+        tier_id: string;
+        reference_id: string;
+      }>();
+
+    if (!paymentRecord) {
+      console.log('[Webhook] No payment record found for capture:', originalCaptureId);
+
+      // 尝试从reference_id解析（作为备选方案）
+      // PayPal订单可能包含custom_id或reference_id
+      const customId = refundResource?.custom_id || refundResource?.invoice_id;
+      if (customId) {
+        const orderInfo = parseReferenceId(customId);
+        if (orderInfo) {
+          await downgradeMembership(db, orderInfo.userId, originalCaptureId);
+        }
+      }
+      return;
+    }
+
+    // 降级会员
+    await downgradeMembership(db, paymentRecord.user_id, originalCaptureId);
+
+    // 更新支付记录状态
+    await db
+      .prepare('UPDATE payment_records SET status = "refunded", refunded_at = ? WHERE id = ?')
+      .bind(new Date().toISOString(), paymentRecord.id)
+      .run();
+
+    console.log('[Webhook] Successfully processed refund for user:', paymentRecord.user_id);
   } catch (error) {
     console.error('[Webhook] Refund handling error:', error);
+  }
+}
+
+// 降级会员到free
+async function downgradeMembership(db: D1Database, userId: string, captureId: string) {
+  try {
+    // 1. 取消用户的活跃订阅
+    const activeSub = await db
+      .prepare(`
+        SELECT id FROM user_subscriptions
+        WHERE user_id = ? AND status = 'active'
+        ORDER BY created_at DESC LIMIT 1
+      `)
+      .bind(userId)
+      .first<{ id: string }>();
+
+    if (activeSub) {
+      await cancelSubscription(db, activeSub.id);
+      console.log('[Webhook] Cancelled subscription:', activeSub.id);
+    }
+
+    // 2. 降级用户会员等级到free
+    await updateUserTier(db, userId, 'free');
+    console.log('[Webhook] Downgraded user to free:', userId);
+
+    // 3. 记录日志（可选：发送通知邮件）
+    console.log('[Webhook] Membership downgrade completed for user:', userId, 'capture:', captureId);
+  } catch (error) {
+    console.error('[Webhook] Failed to downgrade membership:', error);
+    throw error;
   }
 }
 
