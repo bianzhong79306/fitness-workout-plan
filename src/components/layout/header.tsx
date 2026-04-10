@@ -18,6 +18,7 @@ import {
   Crown,
   Sparkles,
   CalendarDays,
+  Users,
 } from "lucide-react";
 import { useState } from "react";
 
@@ -108,6 +109,12 @@ export function Header() {
                   {locale === "zh" ? "日历" : "Calendar"}
                 </Button>
               </Link>
+              <Link href="/community">
+                <Button variant="ghost" size="sm">
+                  <Users className="h-4 w-4 mr-1" />
+                  {locale === "zh" ? "社区" : "Community"}
+                </Button>
+              </Link>
               <Avatar className="h-8 w-8">
                 <AvatarImage src={session?.user?.image || ""} />
                 <AvatarFallback>
@@ -194,6 +201,16 @@ export function Header() {
                     <Button variant="ghost" className="w-full justify-start">
                       <CalendarDays className="h-4 w-4 mr-2" />
                       {locale === "zh" ? "日历" : "Calendar"}
+                    </Button>
+                  </Link>
+                  <Link
+                    href="/community"
+                    className="block"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <Button variant="ghost" className="w-full justify-start">
+                      <Users className="h-4 w-4 mr-2" />
+                      {locale === "zh" ? "社区" : "Community"}
                     </Button>
                   </Link>
                   <Button

@@ -4,7 +4,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
-import { Dumbbell, Clock, Calendar, CheckCircle, Play, Pause, SkipForward, X } from 'lucide-react';
+import { Dumbbell, Clock, Calendar, CheckCircle, Play, Pause, SkipForward, X, Trophy, Share2 } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -40,6 +40,24 @@ interface Exercise {
   weight?: number;
 }
 
+// 成就名称映射
+const ACHIEVEMENT_NAMES: Record<string, Record<string, string>> = {
+  'first-workout': { zh: '首次训练', en: 'First Workout' },
+  'week-warrior': { zh: '周战士', en: 'Week Warrior' },
+  'iron-will': { zh: '钢铁意志', en: 'Iron Will' },
+  'ten-workouts': { zh: '健身新手', en: 'Fitness Beginner' },
+  'fifty-workouts': { zh: '健身达人', en: 'Fitness Enthusiast' },
+  'hundred-workouts': { zh: '健身大师', en: 'Fitness Master' },
+  'early-bird': { zh: '早起鸟', en: 'Early Bird' },
+  'night-owl': { zh: '夜猫子', en: 'Night Owl' },
+  'thousand-sets': { zh: '千组成就', en: 'Thousand Sets' },
+  'goal-crusher': { zh: '目标粉碎机', en: 'Goal Crusher' },
+};
+
+function getAchievementName(id: string, locale: string): string {
+  return ACHIEVEMENT_NAMES[id]?.[locale] || id;
+}
+
 export default function PlanDetailClient({ locale, planId }: { locale: string; planId: string }) {
   const [plan, setPlan] = useState<PlanDetail | null>(null);
   const [loading, setLoading] = useState(true);
@@ -58,6 +76,10 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
   const [workoutStartedAt, setWorkoutStartedAt] = useState<string | null>(null);
   const [completedSets, setCompletedSets] = useState<Array<{exerciseId: string; name: string; sets: number; reps: number; weight?: number}>>([]);
   const [isSavingWorkout, setIsSavingWorkout] = useState(false);
+  const [workoutCompleted, setWorkoutCompleted] = useState(false);
+  const [workoutStats, setWorkoutStats] = useState<{duration: number; sets: number; planName: string} | null>(null);
+  const [shareToCommunity, setShareToCommunity] = useState(true);
+  const [newlyUnlocked, setNewlyUnlocked] = useState<string[]>([]);
 
   useEffect(() => {
     fetch(`/api/plans/${planId}`)
@@ -132,7 +154,42 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
       });
 
       if (response.ok) {
-        console.log('Workout saved successfully');
+        const workoutData = await response.json() as { id: string; newlyUnlocked?: string[] };
+
+        // 记录新解锁的成就
+        if (workoutData.newlyUnlocked && workoutData.newlyUnlocked.length > 0) {
+          setNewlyUnlocked(workoutData.newlyUnlocked);
+        }
+
+        // 分享到社区
+        if (shareToCommunity) {
+          const planName = locale === 'zh' ? plan?.name : plan?.name_en;
+          const durationMin = Math.round(durationSeconds / 60);
+          const content = locale === 'zh'
+            ? `💪 刚刚完成了 ${planName} 训练！\n⏱️ 时长: ${durationMin} 分钟\n🏋️ 共 ${totalSets} 组动作\n#健身打卡 #FitPlanPro`
+            : `💪 Just completed ${planName}!\n⏱️ Duration: ${durationMin} min\n🏋️ ${totalSets} sets total\n#FitnessJourney #FitPlanPro`;
+
+          await fetch('/api/community/posts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              content,
+              post_type: 'workout',
+              workout_id: workoutData.id,
+              plan_id: plan?.id,
+              workout_duration: durationMin,
+              workout_sets: totalSets,
+            }),
+          });
+        }
+
+        // 显示完成界面
+        setWorkoutStats({
+          duration: Math.round(durationSeconds / 60),
+          sets: totalSets,
+          planName: locale === 'zh' ? (plan?.name || '训练') : (plan?.name_en || 'Workout'),
+        });
+        setWorkoutCompleted(true);
       } else {
         console.error('Failed to save workout');
       }
@@ -223,21 +280,110 @@ export default function PlanDetailClient({ locale, planId }: { locale: string; p
     return <div className="container py-8 text-center text-red-500">{error || 'Not found'}</div>;
   }
 
+  // 训练完成界面
+  if (workoutCompleted && workoutStats) {
+    return (
+      <div className="container mx-auto py-8 px-4 max-w-2xl">
+        <Card className="text-center">
+          <CardContent className="py-12">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Trophy className="w-10 h-10 text-green-600" />
+            </div>
+            <h2 className="text-2xl font-bold mb-2">
+              {locale === 'zh' ? '🎉 训练完成！' : '🎉 Workout Complete!'}
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              {locale === 'zh' ? '太棒了！你完成了今天的训练。' : 'Great job! You completed your workout today.'}
+            </p>
+
+            <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="p-4 bg-muted/50 rounded-lg">
+                <div className="text-3xl font-bold">{workoutStats.duration}</div>
+                <div className="text-sm text-muted-foreground">
+                  {locale === 'zh' ? '分钟' : 'minutes'}
+                </div>
+              </div>
+              <div className="p-4 bg-muted/50 rounded-lg">
+                <div className="text-3xl font-bold">{workoutStats.sets}</div>
+                <div className="text-sm text-muted-foreground">
+                  {locale === 'zh' ? '组动作' : 'sets'}
+                </div>
+              </div>
+            </div>
+
+            {/* 新解锁成就 */}
+            {newlyUnlocked.length > 0 && (
+              <div className="mb-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <div className="flex items-center gap-2 mb-2">
+                  <Trophy className="w-5 h-5 text-yellow-500" />
+                  <span className="font-medium text-yellow-700">
+                    {locale === 'zh' ? '🎉 新成就解锁！' : '🎉 New Achievement!'}
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {newlyUnlocked.map(id => (
+                    <Badge key={id} variant="secondary" className="bg-yellow-100 text-yellow-700">
+                      {locale === 'zh' ? getAchievementName(id, 'zh') : getAchievementName(id, 'en')}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            <div className="flex flex-col gap-3">
+              <Button
+                className="w-full"
+                onClick={() => {
+                  setWorkoutCompleted(false);
+                  setWorkoutStats(null);
+                }}
+              >
+                {locale === 'zh' ? '返回计划' : 'Back to Plan'}
+              </Button>
+              <Button
+                variant="outline"
+                className="w-full gap-2"
+                onClick={() => {
+                  window.location.href = `/${locale}/community`;
+                }}
+              >
+                <Share2 className="w-4 h-4" />
+                {locale === 'zh' ? '查看社区动态' : 'View Community'}
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
   // 训练模式界面
   if (workoutMode) {
     const exercises = getExercises(currentSessionIndex);
     const currentExercise = exercises[currentExerciseIndex];
     const session = plan.sessions[currentSessionIndex];
-    const progress = ((currentExerciseIndex * currentExercise?.sets + currentSet) / (exercises.reduce((sum, ex) => sum + ex.sets, 0))) * 100;
+    const progress = ((currentExerciseIndex * (currentExercise?.sets || 1) + currentSet) / (exercises.reduce((sum, ex) => sum + (ex.sets || 1), 0))) * 100;
 
     return (
       <div className="container mx-auto py-8 px-4 max-w-2xl">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-bold">{locale === 'zh' ? session.name : session.name_en}</h2>
-          <Button variant="outline" size="sm" onClick={endWorkout}>
-            <X className="w-4 h-4 mr-1" />
-            {locale === 'zh' ? '结束' : 'End'}
-          </Button>
+          <div className="flex items-center gap-2">
+            <label className="flex items-center gap-2 text-sm text-muted-foreground">
+              <input
+                type="checkbox"
+                checked={shareToCommunity}
+                onChange={(e) => setShareToCommunity(e.target.checked)}
+                className="rounded"
+              />
+              <Share2 className="w-4 h-4" />
+              {locale === 'zh' ? '分享' : 'Share'}
+            </label>
+            <Button variant="outline" size="sm" onClick={endWorkout}>
+              <X className="w-4 h-4 mr-1" />
+              {locale === 'zh' ? '结束' : 'End'}
+            </Button>
+          </div>
         </div>
 
         <Progress value={progress} className="mb-6" />

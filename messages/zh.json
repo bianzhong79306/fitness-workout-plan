@@ -207,6 +207,60 @@
         "min": "分钟",
         "sets": "组"
       }
+    },
+    "community": {
+      "title": "健身社区",
+      "createPost": "发布动态",
+      "newPost": "发布新动态",
+      "postPlaceholder": "分享你的健身心得...",
+      "posting": "发布中...",
+      "post": "发布",
+      "cancel": "取消",
+      "noPosts": "还没有动态",
+      "noPostsDesc": "成为第一个分享健身心得的人吧！",
+      "workoutCheckin": "训练打卡",
+      "justNow": "刚刚",
+      "minutesAgo": "{count}分钟前",
+      "hoursAgo": "{count}小时前",
+      "daysAgo": "{count}天前",
+      "writeComment": "写评论...",
+      "noComments": "暂无评论",
+      "like": "赞",
+      "comment": "评论",
+      "delete": "删除",
+      "confirmDelete": "确定要删除这条动态吗？",
+      "shareWorkout": "分享训练",
+      "shareToCommunity": "分享到社区"
+    },
+    "achievements": {
+      "title": "成就",
+      "unlocked": "已解锁",
+      "locked": "未解锁",
+      "totalPoints": "总积分",
+      "firstWorkout": {
+        "name": "首次训练",
+        "desc": "完成你的第一次训练"
+      },
+      "weekStreak": {
+        "name": "周连续训练",
+        "desc": "连续训练7天"
+      },
+      "monthStreak": {
+        "name": "月度坚持",
+        "desc": "一个月内完成20次训练"
+      },
+      "earlyBird": {
+        "name": "早起鸟",
+        "desc": "在早上6点前完成训练"
+      },
+      "nightOwl": {
+        "name": "夜猫子",
+        "desc": "在晚上10点后完成训练"
+      },
+      "ironWill": {
+        "name": "钢铁意志",
+        "desc": "连续训练30天"
+      }
     }
   },
   "progress": {

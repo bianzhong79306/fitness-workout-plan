@@ -207,6 +207,60 @@
         "min": "min",
         "sets": "sets"
       }
+    },
+    "community": {
+      "title": "Fitness Community",
+      "createPost": "Post",
+      "newPost": "Create Post",
+      "postPlaceholder": "Share your fitness journey...",
+      "posting": "Posting...",
+      "post": "Post",
+      "cancel": "Cancel",
+      "noPosts": "No posts yet",
+      "noPostsDesc": "Be the first to share your fitness journey!",
+      "workoutCheckin": "Workout",
+      "justNow": "Just now",
+      "minutesAgo": "{count}m ago",
+      "hoursAgo": "{count}h ago",
+      "daysAgo": "{count}d ago",
+      "writeComment": "Write a comment...",
+      "noComments": "No comments yet",
+      "like": "Like",
+      "comment": "Comment",
+      "delete": "Delete",
+      "confirmDelete": "Delete this post?",
+      "shareWorkout": "Share Workout",
+      "shareToCommunity": "Share to Community"
+    },
+    "achievements": {
+      "title": "Achievements",
+      "unlocked": "Unlocked",
+      "locked": "Locked",
+      "totalPoints": "Total Points",
+      "firstWorkout": {
+        "name": "First Workout",
+        "desc": "Complete your first workout"
+      },
+      "weekStreak": {
+        "name": "Week Warrior",
+        "desc": "Work out 7 days in a row"
+      },
+      "monthStreak": {
+        "name": "Monthly Dedication",
+        "desc": "Complete 20 workouts in a month"
+      },
+      "earlyBird": {
+        "name": "Early Bird",
+        "desc": "Complete a workout before 6 AM"
+      },
+      "nightOwl": {
+        "name": "Night Owl",
+        "desc": "Complete a workout after 10 PM"
+      },
+      "ironWill": {
+        "name": "Iron Will",
+        "desc": "Work out 30 days in a row"
+      }
     }
   },
   "progress": {
