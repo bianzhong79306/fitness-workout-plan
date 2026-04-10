@@ -13,6 +13,7 @@ import {
   Calendar,
 } from "lucide-react";
 import { MembershipCard } from "./DashboardClient";
+import { StatsCharts } from "./StatsCharts";
 import { getRequestContext } from "@cloudflare/next-on-pages";
 
 // D1Database 类型
@@ -174,6 +175,9 @@ export default async function DashboardPage({
 
       {/* Membership Info */}
       <MembershipCard locale={locale} />
+
+      {/* Stats Charts */}
+      <StatsCharts locale={locale} totalWorkouts={stats.totalWorkouts} />
 
       {/* Quick Stats */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
