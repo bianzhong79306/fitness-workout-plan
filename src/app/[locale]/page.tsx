@@ -44,13 +44,16 @@ async function HomePageContent({
 
   return (
     <div className="flex flex-col">
+      {/* Preload hero image for faster LCP */}
+      <link rel="preload" as="image" href="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1280&q=80&fm=webp" />
+
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
-        {/* Background Image */}
+        {/* Background Image - optimized size */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1280&q=80&fm=webp')`,
           }}
         />
         {/* Dark Overlay */}

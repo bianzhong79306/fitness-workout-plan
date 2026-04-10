@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Maskable icon - needs safe zone padding -->
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+  </defs>
+  <!-- Full background (no circle for maskable) -->
+  <rect width="512" height="512" fill="url(#bg)"/>
+  <!-- Centered icon with safe zone padding -->
+  <g fill="white" transform="translate(156, 206)">
+    <rect x="0" y="10" width="30" height="60" rx="6"/>
+    <rect x="0" y="25" width="15" height="30" rx="3"/>
+    <rect x="30" y="38" width="130" height="8" rx="2"/>
+    <rect x="160" y="10" width="30" height="60" rx="6"/>
+    <rect x="175" y="25" width="15" height="30" rx="3"/>
+  </g>
+</svg>
