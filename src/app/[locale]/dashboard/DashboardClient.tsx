@@ -44,13 +44,33 @@ export function MembershipCard({ locale }: { locale: string }) {
     if (session?.user) {
       fetch('/api/membership/user')
         .then(res => res.json())
-        .then((data) => {
-          setMembership(data as MembershipInfo);
+        .then((data: unknown) => {
+          // 安全检查返回数据
+          if (data && typeof data === 'object' && data !== null) {
+            const obj = data as Record<string, unknown>;
+            if (obj.tier === 'free' || obj.tier === 'pro') {
+              setMembership(obj as unknown as MembershipInfo);
+            } else {
+              setMembership({ tier: 'free', subscription: null });
+            }
+          } else {
+            setMembership({ tier: 'free', subscription: null });
+          }
           setLoading(false);
         })
-        .catch(() => setLoading(false));
+        .catch(() => {
+          setMembership({ tier: 'free', subscription: null });
+          setLoading(false);
+        });
+    } else {
+      setLoading(false);
     }
   }, [session]);
+
+  // 确保 tier 是有效值
+  const tier = (membership?.tier && (membership.tier === 'free' || membership.tier === 'pro')) ? membership.tier : 'free';
+  const subscription = membership?.subscription;
+  const tierName = isZh ? tierNames[tier].zh : tierNames[tier].en;
 
   if (loading) {
     return (
@@ -68,9 +88,7 @@ export function MembershipCard({ locale }: { locale: string }) {
     );
   }
 
-  const tier = membership?.tier || 'free';
-  const subscription = membership?.subscription;
-  const tierName = isZh ? tierNames[tier].zh : tierNames[tier].en;
+  // (已移至上方)
 
   // 格式化日期
   const formatDate = (dateStr: string | null | undefined) => {
