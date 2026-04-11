@@ -45,8 +45,8 @@ export async function GET(request: NextRequest) {
           id: 'pro',
           name: 'Pro',
           nameZh: '专业会员',
-          priceMonthly: 9.99,
-          priceYearly: 79.99,
+          priceMonthly: 1.99,
+          priceYearly: 12.99,
           features: [
             { key: 'basic_plans', name: 'Basic Plans', nameZh: '基础训练计划', included: true },
             { key: 'basic_timer', name: 'Basic Timer', nameZh: '基础计时器', included: true },

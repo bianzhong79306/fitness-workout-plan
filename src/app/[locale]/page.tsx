@@ -423,7 +423,7 @@ async function HomePageContent({
               </div>
               <div className="text-2xl font-bold mb-2">{isZh ? "专业会员" : "Pro"}</div>
               <div className="text-primary font-bold text-xl mb-4">
-                $9.99<span className="text-sm text-muted-foreground font-normal">/mo</span>
+                $1.99<span className="text-sm text-muted-foreground font-normal">/mo</span>
               </div>
               <ul className="text-sm space-y-3 mb-6 text-left">
                 <li className="flex items-center gap-2">
