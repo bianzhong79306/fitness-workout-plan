@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "FitPlan Pro",
-    "description": "您的私人健身训练计划平台"
+    "description": "智能健身知识平台 - 教你科学健身"
   },
   "nav": {
     "home": "首页",
@@ -20,10 +20,10 @@
   },
   "home": {
     "hero": {
-      "badge": "AI 智能训练",
-      "title": "科学健身，",
-      "titleHighlight": "智能定制",
-      "subtitle": "AI 驱动的个性化训练计划，专业动作库，让每次训练都有价值",
+      "badge": "知识库 + AI",
+      "title": "教你怎么练，",
+      "titleHighlight": "科学健身",
+      "subtitle": "专业的动作百科、训练知识库，AI智能生成计划，教会你正确的健身方法",
       "cta": {
         "start": "免费开始训练",
         "ai": "AI 智能生成"

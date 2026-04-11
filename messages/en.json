@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "FitPlan Pro",
-    "description": "Your Personal Fitness Training Plan Platform"
+    "description": "Smart Fitness Knowledge Platform - Learn How to Train"
   },
   "nav": {
     "home": "Home",
@@ -20,10 +20,10 @@
   },
   "home": {
     "hero": {
-      "badge": "AI-Powered Training",
-      "title": "Smart Fitness,",
-      "titleHighlight": "Tailored for You",
-      "subtitle": "AI-powered personalized workout plans, professional exercise library, making every workout count",
+      "badge": "Knowledge + AI",
+      "title": "Learn How to Train,",
+      "titleHighlight": "Train Smart",
+      "subtitle": "Professional exercise encyclopedia, training knowledge, AI-powered plan generation, teaching you the right way to train",
       "cta": {
         "start": "Start Training Free",
         "ai": "AI Plan Generator"

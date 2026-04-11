@@ -139,7 +139,7 @@ Training causes microscopic muscle damage, triggering repair processes where mus
 - **Carbohydrates**: Adequate before and after training
     `,
     tags: ['增肌', 'muscle-building', '训练原理'],
-    relatedExercises: ['bench-press', 'squat', 'deadlift'],
+    relatedExercises: ['push-up', 'squat', 'glute-bridge'],
     isPremium: false,
     createdAt: '2026-04-11',
   },
@@ -248,7 +248,7 @@ Includes daily activities and exercise:
 - ✅ Strength + cardio combination is best
     `,
     tags: ['减脂', 'fat-loss', '训练原理'],
-    relatedExercises: ['hiit-cardio', 'circuit-training'],
+    relatedExercises: ['burpee', 'mountain-climber'],
     isPremium: false,
     createdAt: '2026-04-11',
   },
