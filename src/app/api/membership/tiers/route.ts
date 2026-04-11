@@ -44,7 +44,7 @@ export async function GET(request: NextRequest) {
         {
           id: 'pro',
           name: 'Pro',
-          nameZh: '专业会员',
+          nameZh: '高级会员',
           priceMonthly: 1.99,
           priceYearly: 12.99,
           features: [
