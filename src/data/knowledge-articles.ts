@@ -2742,3 +2742,476 @@ Consuming slow-release protein (like casein) before bed provides continuous amin
 **Breakfast**:
 - 3 eggs (18g) + 250ml milk (8g) = 26g
 
+,
+  {
+    id: '9',
+    slug: 'carbohydrate-guide',
+    title: '碳水化合物完全指南：训练能量与身体成分',
+    titleEn: 'The Complete Carbohydrate Guide: Training Energy and Body Composition',
+    category: 'training_principle',
+    categoryZh: '训练原理',
+    categoryEn: 'Training Principles',
+    summary: '碳水化合物是训练的主要能量来源。掌握碳水摄入时机、类型选择和周期策略，优化训练表现和身体成分。',
+    summaryEn: 'Carbohydrates are the primary energy source for training. Master carb timing, type selection, and periodization strategies to optimize training performance and body composition.',
+    content: `
+![Carbs](https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1200)
+
+# 碳水化合物完全指南：训练能量与身体成分
+
+碳水化合物是健身者又爱又恨的营养素。增肌期需要它提供能量，减脂期又怕它储存脂肪。真相是什么？如何科学使用碳水化合物？
+
+这篇指南，给你碳水化合物的完整使用手册。
+
+## 碳水化合物的作用
+
+### 主要能量来源
+
+| 活动强度 | 主要能量来源 | 碳水供能比例 |
+|----------|-------------|-------------|
+| 静息状态 | 脂肪 | 20-30% |
+| 低强度有氧 | 脂肪+碳水 | 40-50% |
+| 中等强度 | 碳水 | 60-70% |
+| 高强度训练 | 碳水 | 80-90% |
+
+**结论**：力量训练和高强度运动几乎完全依赖碳水化合物供能。
+
+### 肌糖原：肌肉的能量电池
+
+肌糖原是储存在肌肉中的碳水化合物，是力量训练的直接能量来源。
+
+- 肌糖原充足：训练有力，泵感强，恢复快
+- 肌糖原不足：无力，易疲劳，训练质量差
+
+### 节约蛋白质
+
+充足的碳水化合物摄入可以：
+- 减少蛋白质分解供能
+- 让更多蛋白质用于肌肉合成
+- 提高蛋白质利用效率
+
+## 碳水化合物的类型
+
+### 按消化速度分类
+
+**简单碳水（快碳）**：
+- 白米饭、白面包、香蕉
+- 运动饮料、葡萄糖
+- 消化快，血糖上升快
+- **用途**：训练前/训练中/训练后快速补充
+
+**复杂碳水（慢碳）**：
+- 燕麦、糙米、红薯
+- 全麦面包、藜麦
+- 消化慢，血糖稳定
+- **用途**：日常主食，维持稳定能量
+
+### 按来源分类
+
+| 来源 | 优点 | 缺点 |
+|------|------|------|
+| 谷物 | 富含B族维生素 | 精制谷物营养少 |
+| 薯类 | 富含钾、膳食纤维 | 烹饪方式影响大 |
+| 水果 | 富含维生素、抗氧化物 | 果糖摄入需控制 |
+| 蔬菜 | 低热量、高纤维 | 碳水含量低 |
+
+## 每天需要多少碳水化合物？
+
+### 根据目标调整
+
+| 目标 | 摄入量 | 70kg男性示例 |
+|------|--------|--------------|
+| 减脂期 | 2-3g/kg | 140-210g |
+| 维持期 | 3-4g/kg | 210-280g |
+| 增肌期 | 4-6g/kg | 280-420g |
+| 耐力运动员 | 6-8g/kg | 420-560g |
+
+### 根据训练量调整
+
+**训练日 vs 休息日**：
+- 训练日：高碳水（4-5g/kg）
+- 休息日：低碳水（2-3g/kg）
+
+这种周期性摄入可以：
+- 训练时有充足能量
+- 休息时促进脂肪氧化
+- 改善胰岛素敏感性
+
+## 碳水化合物摄入时机
+
+### 训练前（1-2小时）
+
+**目的**：为训练提供能量
+
+**推荐**：
+- 燕麦 + 香蕉
+- 白米饭 + 瘦肉
+- 全麦面包 + 鸡蛋
+
+**量**：1-1.5g/kg 体重
+
+### 训练中（可选）
+
+**目的**：维持长时间训练的能量
+
+**适用**：
+- 训练超过 90 分钟
+- 高强度间歇训练
+- 耐力训练
+
+**推荐**：
+- 运动饮料
+- 香蕉
+- 能量胶
+
+### 训练后（30-60分钟）
+
+**目的**：补充肌糖原，促进恢复
+
+**推荐**：
+- 白米饭 + 鸡胸肉
+- 红薯 + 牛肉
+- 香蕉 + 蛋白粉
+
+**量**：1-1.5g/kg 体重
+
+### 睡前
+
+**目的**：维持夜间血糖稳定
+
+**推荐**：
+- 少量慢碳（燕麦、红薯）
+- 避免简单糖
+
+## 碳水周期策略
+
+### 什么是碳水周期？
+
+根据训练安排，在不同日期调整碳水化合物摄入量。
+
+### 常见周期方案
+
+**方案一：高低碳日**
+- 训练日：高碳水（4-5g/kg）
+- 休息日：低碳水（2-3g/kg）
+
+**方案二：碳水循环**
+- 高碳日：5-6g/kg（大肌群训练日）
+- 中碳日：3-4g/kg（小肌群/有氧日）
+- 低碳日：1-2g/kg（休息日）
+
+### 碳水周期的优势
+
+1. **训练时能量充足**
+2. **休息时促进脂肪氧化**
+3. **改善胰岛素敏感性**
+4. **避免代谢适应**
+
+## 常见误区
+
+### ❌ 完全不吃碳水
+
+**危害**：
+- 训练无力，力量下降
+- 大脑功能受影响
+- 代谢率下降
+- 肌肉分解增加
+
+**正确做法**：即使是减脂期，也要保持最低 2g/kg 的碳水摄入。
+
+### ❌ 只吃水果当碳水
+
+**问题**：
+- 果糖摄入过多
+- 肝脏负担增加
+- 血糖波动大
+
+**正确做法**：以淀粉类主食为主，水果适量（每天 2-3 份）。
+
+### ❌ 训练后不吃碳水
+
+**误区**：怕胖，训练后只喝蛋白粉。
+
+**真相**：训练后是肌糖原补充的黄金窗口，此时吃碳水不容易储存为脂肪。
+
+**正确做法**：训练后及时补充碳水 + 蛋白质。
+
+## 实用碳水来源推荐
+
+### 训练前（慢碳为主）
+- 燕麦
+- 糙米
+- 全麦面包
+- 红薯
+
+### 训练后（快碳为主）
+- 白米饭
+- 白面包
+- 香蕉
+- 运动饮料
+
+### 日常主食
+- 杂粮饭
+- 藜麦
+- 紫薯
+- 玉米
+
+## 总结
+
+碳水化合物是训练能量的核心：
+
+1. **摄入量**：根据目标和训练量调整（2-6g/kg）
+2. **类型**：训练前慢碳，训练后快碳
+3. **时机**：训练前后重点补充，日常均匀分布
+4. **周期**：根据训练日/休息日调整摄入量
+5. **质量**：优先选择全谷物、薯类、水果
+
+> **碳水化合物不是敌人，用对时机和量，它是你最好的训练伙伴。**
+    `,
+    contentEn: `
+![Carbs](https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1200)
+
+# The Complete Carbohydrate Guide: Training Energy and Body Composition
+
+Carbohydrates are the nutrient fitness enthusiasts love to hate. Needed for energy during muscle building, feared for fat storage during cutting. What's the truth? How to use carbohydrates scientifically?
+
+This guide gives you the complete carbohydrate usage manual.
+
+## The Role of Carbohydrates
+
+### Primary Energy Source
+
+| Activity Level | Main Energy Source | Carb Energy % |
+|----------------|-------------------|---------------|
+| Rest | Fat | 20-30% |
+| Low intensity cardio | Fat + Carbs | 40-50% |
+| Moderate intensity | Carbs | 60-70% |
+| High intensity training | Carbs | 80-90% |
+
+**Conclusion**: Strength training and high-intensity exercise rely almost entirely on carbohydrate energy.
+
+### Muscle Glycogen: The Muscle's Battery
+
+Muscle glycogen is carbohydrate stored in muscles, the direct energy source for strength training.
+
+- Adequate glycogen: Powerful training, good pump, fast recovery
+- Low glycogen: Weakness, easy fatigue, poor training quality
+
+## Types of Carbohydrates
+
+### By Digestion Speed
+
+**Simple Carbs (Fast)**:
+- White rice, white bread, bananas
+- Sports drinks, glucose
+- Fast digestion, rapid blood sugar rise
+- **Use**: Pre/intra/post-workout quick replenishment
+
+**Complex Carbs (Slow)**:
+- Oats, brown rice, sweet potatoes
+- Whole wheat bread, quinoa
+- Slow digestion, stable blood sugar
+- **Use**: Daily staple food, maintain stable energy
+
+## How Many Carbs Per Day?
+
+### Adjust Based on Goals
+
+| Goal | Intake | 70kg Male Example |
+|------|--------|-------------------|
+| Fat loss | 2-3g/kg | 140-210g |
+| Maintenance | 3-4g/kg | 210-280g |
+| Muscle building | 4-6g/kg | 280-420g |
+| Endurance athlete | 6-8g/kg | 420-560g |
+
+## Carb Timing
+
+### Pre-Workout (1-2 hours)
+
+**Purpose**: Provide energy for training
+
+**Recommendations**:
+- Oats + banana
+- White rice + lean meat
+- Whole wheat bread + eggs
+
+**Amount**: 1-1.5g/kg body weight
+
+### Post-Workout (30-60 minutes)
+
+**Purpose**: Replenish muscle glycogen, promote recovery
+
+**Recommendations**:
+- White rice + chicken breast
+- Sweet potato + beef
+- Banana + protein powder
+
+**Amount**: 1-1.5g/kg body weight
+
+## Carb Cycling Strategies
+
+### What is Carb Cycling?
+
+Adjusting carbohydrate intake on different days based on training schedule.
+
+### Common Cycling Protocols
+
+**Protocol 1: High/Low Days**
+- Training days: High carbs (4-5g/kg)
+- Rest days: Low carbs (2-3g/kg)
+
+**Protocol 2: Carb Cycling**
+- High carb day: 5-6g/kg (large muscle group training)
+- Medium carb day: 3-4g/kg (small muscle group/cardio)
+- Low carb day: 1-2g/kg (rest day)
+
+## Common Mistakes
+
+### ❌ Completely Eliminating Carbs
+
+**Dangers**:
+- Weak training, strength decline
+- Brain function affected
+- Metabolic rate drops
+- Increased muscle breakdown
+
+**Correct Approach**: Even during fat loss, maintain minimum 2g/kg carb intake.
+
+### ❌ Eating Only Fruit for Carbs
+
+**Problems**:
+- Excessive fructose intake
+- Liver burden increases
+- Blood sugar fluctuations
+
+**Correct Approach**: Starch-based staple foods as main source, fruit in moderation (2-3 servings daily).
+
+## Summary
+
+Carbohydrates are the core of training energy:
+
+1. **Intake**: Adjust based on goals and training volume (2-6g/kg)
+2. **Type**: Slow carbs pre-workout, fast carbs post-workout
+3. **Timing**: Focus on pre/post-workout, even distribution daily
+4. **Periodization**: Adjust based on training/rest days
+5. **Quality**: Prioritize whole grains, tubers, fruits
+
+> **Carbohydrates are not the enemy—used with right timing and amount, they are your best training partner.**
+    `,
+    tags: ['碳水化合物', 'carbohydrates', '能量', '营养', '训练'],
+    relatedExercises: ['cardio', 'hiit', 'endurance'],
+    isPremium: false,
+    createdAt: '2026-04-13',
+  },
+  {
+    id: '10',
+    slug: 'sleep-recovery',
+    title: '睡眠与恢复：肌肉生长的隐形训练',
+    titleEn: 'Sleep and Recovery: The Invisible Training for Muscle Growth',
+    category: 'training_principle',
+    categoryZh: '训练原理',
+    categoryEn: 'Training Principles',
+    summary: '训练只是刺激，恢复才是生长。掌握睡眠优化和主动恢复策略，让训练效果最大化。',
+    summaryEn: 'Training is just the stimulus, recovery is where growth happens. Master sleep optimization and active recovery strategies to maximize training results.',
+    content: `
+![Sleep](https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=1200)
+
+# 睡眠与恢复：肌肉生长的隐形训练
+
+很多人把全部精力放在训练上，却忽视了恢复。事实是：**训练只是刺激，恢复才是生长。** 你在健身房里破坏肌肉，在睡眠中修复肌肉。没有恢复，训练就是自我伤害。
+
+这篇指南，教你优化恢复，让训练效果翻倍。
+
+## 为什么恢复比训练更重要？
+
+### 超量恢复原理
+
+训练 → 疲劳 → 恢复 → 超量恢复（变得更强）
+
+| 阶段 | 状态 | 能力水平 |
+|------|------|----------|
+| 训练前 | 基线 | 100% |
+| 训练后 |  {
+    id: '9',
+    slug: 'carb-guide',
+    title: '碳水化合物完全指南',
+    titleEn: 'Complete Carbohydrate Guide',
+    category: 'training_principle',
+    categoryZh: '训练原理',
+    categoryEn: 'Training Principles',
+    summary: '掌握碳水化合物摄入策略。',
+    summaryEn: 'Master carbohydrate intake strategies.',
+    content: '文章内容...',
+    contentEn: 'Content...',
+    tags: ['carbs'],
+    relatedExercises: [],
+    isPremium: false,
+    createdAt: '2026-04-13',
+  },
+  {
+    id: '10',
+    slug: 'sleep-recovery',
+    title: '睡眠与恢复',
+    titleEn: 'Sleep and Recovery',
+    category: 'training_principle',
+    categoryZh: '训练原理',
+    categoryEn: 'Training Principles',
+    summary: '优化恢复让训练效果最大化。',
+    summaryEn: 'Optimize recovery for maximum results.',
+    content: '文章内容...',
+    contentEn: 'Content...',
+    tags: ['sleep'],
+    relatedExercises: [],
+    isPremium: false,
+    createdAt: '2026-04-13',
+  },
+  {
+    id: '11',
+    slug: 'middle-age-fitness',
+    title: '中年健身指南',
+    titleEn: 'Middle Age Fitness Guide',
+    category: 'population_guide',
+    categoryZh: '人群指南',
+    categoryEn: 'Population Guides',
+    summary: '40岁以后的科学健身方法。',
+    summaryEn: 'Scientific fitness methods after 40.',
+    content: '文章内容...',
+    contentEn: 'Content...',
+    tags: ['middle-age'],
+    relatedExercises: [],
+    isPremium: true,
+    createdAt: '2026-04-13',
+  },
+  {
+    id: '12',
+    slug: 'deadlift-guide',
+    title: '硬拉完全指南',
+    titleEn: 'Complete Deadlift Guide',
+    category: 'specialized',
+    categoryZh: '专项训练',
+    categoryEn: 'Specialized Training',
+    summary: '掌握硬拉技术，打造强大后链。',
+    summaryEn: 'Master deadlift technique for posterior chain.',
+    content: '文章内容...',
+    contentEn: 'Content...',
+    tags: ['deadlift'],
+    relatedExercises: ['deadlift'],
+    isPremium: true,
+    createdAt: '2026-04-13',
+  },
+  {
+    id: '13',
+    slug: 'bench-guide',
+    title: '卧推完全指南',
+    titleEn: 'Complete Bench Press Guide',
+    category: 'specialized',
+    categoryZh: '专项训练',
+    categoryEn: 'Specialized Training',
+    summary: '掌握卧推技术，打造完美胸肌。',
+    summaryEn: 'Master bench press for perfect chest.',
+    content: '文章内容...',
+    contentEn: 'Content...',
+    tags: ['bench'],
+    relatedExercises: ['bench-press'],
+    isPremium: true,
+    createdAt: '2026-04-13',
+  },];
