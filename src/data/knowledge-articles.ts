@@ -419,7 +419,7 @@ Correct approach:
     categoryZh: '人群指南',
     categoryEn: 'Population Guides',
     summary: '女性不需要害怕力量训练。科学证明，力量训练让女性更健康、更有活力、身材更好。',
-    summaryEn: 'Women don't need to fear strength training. Science proves strength training makes women healthier, more energetic, and better shaped.',
+    summaryEn: 'Women do not need to fear strength training. Science proves strength training makes women healthier, more energetic, and better shaped.',
     content: '女性力量训练文章内容...',
     contentEn: 'Women strength training content...',
     tags: ['女性', 'women', '力量训练', '健身', '健康'],
