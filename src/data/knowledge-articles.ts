@@ -414,7 +414,7 @@ Correct approach:
     id: '8',
     slug: 'women-strength-training',
     title: '女性力量训练指南：打破偏见，塑造力量',
-    titleEn: 'Women's Strength Training Guide: Break Stereotypes, Build Power',
+    titleEn: "Women Strength Training Guide: Break Stereotypes, Build Power",
     category: 'population_guide',
     categoryZh: '人群指南',
     categoryEn: 'Population Guides',
