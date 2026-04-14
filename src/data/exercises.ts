@@ -32,7 +32,8 @@ export const exercises: Exercise[] = [
       '下降深度不够',
       '呼吸节奏混乱'
     ],
-    alternatives: ['knee-push-up', 'incline-push-up', 'diamond-push-up']
+    alternatives: ['knee-push-up', 'incline-push-up', 'diamond-push-up'],
+    gifUrl: '/gif/pushup.gif'
   },
   {
     id: 'knee-push-up',
@@ -183,7 +184,8 @@ export const exercises: Exercise[] = [
       '弯腰驼背',
       '下蹲深度不够'
     ],
-    alternatives: ['sumo-squat', 'goblet-squat']
+    alternatives: ['sumo-squat', 'goblet-squat'],
+    gifUrl: '/gif/squat.gif'
   },
   {
     id: 'lunge',
@@ -205,7 +207,8 @@ export const exercises: Exercise[] = [
       '身体前倾',
       '膝盖内扣'
     ],
-    alternatives: ['reverse-lunge', 'walking-lunge']
+    alternatives: ['reverse-lunge', 'walking-lunge'],
+    gifUrl: '/gif/lunge.gif'
   },
   {
     id: 'reverse-lunge',
@@ -420,7 +423,8 @@ export const exercises: Exercise[] = [
       '臀部没有完全抬起',
       '大腿后侧代偿过多'
     ],
-    alternatives: ['single-leg-glute-bridge', 'hip-thrust']
+    alternatives: ['single-leg-glute-bridge', 'hip-thrust'],
+    gifUrl: '/gif/glute-bridge.gif'
   },
   {
     id: 'single-leg-glute-bridge',
@@ -572,7 +576,8 @@ export const exercises: Exercise[] = [
       '憋气',
       '腰部下沉'
     ],
-    alternatives: ['knee-plank', 'side-plank']
+    alternatives: ['knee-plank', 'side-plank'],
+    gifUrl: '/gif/plank.gif'
   },
   {
     id: 'knee-plank',
@@ -764,7 +769,8 @@ export const exercises: Exercise[] = [
       '核心松弛',
       '动作幅度不够'
     ],
-    alternatives: ['slow-mountain-climber', 'cross-body-mountain-climber']
+    alternatives: ['slow-mountain-climber', 'cross-body-mountain-climber'],
+    gifUrl: '/gif/mountain-climber.gif'
   },
   {
     id: 'russian-twist',
@@ -786,7 +792,8 @@ export const exercises: Exercise[] = [
       '转动幅度不够',
       '背部弯曲'
     ],
-    alternatives: ['weighted-russian-twist', 'bicycle-crunch']
+    alternatives: ['weighted-russian-twist', 'bicycle-crunch'],
+    gifUrl: '/gif/russian-twist.gif'
   },
   {
     id: 'v-up',
@@ -832,7 +839,8 @@ export const exercises: Exercise[] = [
       '核心松弛',
       '落地过重'
     ],
-    alternatives: ['half-burpee', 'burpee-without-push-up']
+    alternatives: ['half-burpee', 'burpee-without-push-up'],
+    gifUrl: '/gif/burpee.gif'
   },
   {
     id: 'half-burpee',

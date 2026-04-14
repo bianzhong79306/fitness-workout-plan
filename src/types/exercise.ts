@@ -30,6 +30,7 @@ export interface Exercise {
   mistakes: string[];
   alternatives?: string[];
   image?: string;
+  gifUrl?: string; // GIF动图演示
   videoUrl?: string;
 }
 
