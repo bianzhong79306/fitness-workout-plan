@@ -35,8 +35,16 @@ async function HomePageContent({
     <div className="flex flex-col min-h-screen">
       {/* Hero Section - 活力渐变背景 */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* 动感渐变背景 */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-50 via-blue-50 to-purple-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
+        {/* 背景图片 */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30 dark:opacity-20"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80')`,
+          }}
+        />
+        
+        {/* 动感渐变覆盖层 */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-100/80 via-blue-100/60 to-purple-100/80 dark:from-slate-900/95 dark:via-slate-800/90 dark:to-slate-900/95" />
         
         {/* 动态装饰元素 */}
         <div className="absolute top-20 right-20 w-96 h-96 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-full blur-3xl animate-pulse" />
