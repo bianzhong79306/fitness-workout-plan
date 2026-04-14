@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, BookOpen, Crown, Dumbbell, Tag } from 'lucide-react';
 import type { KnowledgeArticle } from '@/data/knowledge-articles';
+import React from 'react';
 
 interface ArticleClientProps {
   locale: string;
@@ -19,76 +20,195 @@ export function ArticleClient({ locale, article, categories }: ArticleClientProp
     ? categories[article.category]?.zh || article.categoryZh
     : categories[article.category]?.en || article.categoryEn;
 
-  // Simple Markdown renderer (basic implementation)
+  // Enhanced Markdown renderer
   const renderMarkdown = (content: string) => {
-    return content
-      .split('\n')
-      .map((line, index) => {
-        // Headers
-        if (line.startsWith('# ')) {
-          return <h1 key={index} className="text-2xl font-bold mb-4">{line.slice(2)}</h1>;
-        }
-        if (line.startsWith('## ')) {
-          return <h2 key={index} className="text-xl font-semibold mb-3 mt-6">{line.slice(3)}</h2>;
-        }
-        if (line.startsWith('### ')) {
-          return <h3 key={index} className="text-lg font-medium mb-2 mt-4">{line.slice(4)}</h3>;
-        }
+    const lines = content.split('\n');
+    const result: React.ReactNode[] = [];
+    let i = 0;
 
-        // Bold
-        if (line.includes('**')) {
-          const parts = line.split(/\*\*(.*?)\*\*/);
-          return (
-            <p key={index} className="mb-2">
-              {parts.map((part, i) => i % 2 === 1 ? <strong key={i}>{part}</strong> : part)}
-            </p>
-          );
-        }
+    while (i < lines.length) {
+      const line = lines[i];
 
-        // Lists
-        if (line.startsWith('- ') || line.startsWith('* ')) {
-          return <li key={index} className="ml-4 mb-1">{line.slice(2)}</li>;
-        }
+      // Skip empty lines
+      if (!line.trim()) {
+        i++;
+        continue;
+      }
 
-        // Check marks
-        if (line.startsWith('- ❌') || line.startsWith('- ✅')) {
-          return (
-            <li key={index} className="ml-4 mb-1 flex items-center gap-2">
-              {line.startsWith('- ✅') ? (
-                <span className="text-green-500">✅</span>
-              ) : (
-                <span className="text-red-500">❌</span>
-              )}
-              {line.slice(4)}
-            </li>
-          );
-        }
+      // Image: ![alt](url)
+      const imgMatch = line.match(/^!\[(.*?)\]\((.*?)\)$/);
+      if (imgMatch) {
+        result.push(
+          <figure key={i} className="my-8 -mx-4 md:mx-0">
+            <img
+              src={imgMatch[2]}
+              alt={imgMatch[1]}
+              className="w-full rounded-xl shadow-lg object-cover max-h-[400px]"
+            />
+            {imgMatch[1] && (
+              <figcaption className="text-center text-sm text-muted-foreground mt-2">
+                {imgMatch[1]}
+              </figcaption>
+            )}
+          </figure>
+        );
+        i++;
+        continue;
+      }
 
-        // Tables (basic)
-        if (line.startsWith('|')) {
-          const cells = line.split('|').filter(c => c.trim());
-          if (line.includes('---')) {
-            return null; // Skip separator
-          }
-          return (
-            <div key={index} className="grid grid-cols-2 gap-2 mb-1 py-1 border-b">
-              {cells.map((cell, i) => (
-                <span key={i} className={i === 0 ? 'font-medium' : 'text-muted-foreground'}>
-                  {cell.trim()}
-                </span>
+      // Table
+      if (line.startsWith('|')) {
+        const tableLines: string[] = [];
+        while (i < lines.length && lines[i].startsWith('|')) {
+          tableLines.push(lines[i]);
+          i++;
+        }
+        result.push(renderTable(tableLines));
+        continue;
+      }
+
+      // Headers
+      if (line.startsWith('# ')) {
+        result.push(
+          <h1 key={i} className="text-3xl font-bold mb-6 mt-8 text-primary scroll-m-20">
+            {renderInline(line.slice(2))}
+          </h1>
+        );
+        i++;
+        continue;
+      }
+      if (line.startsWith('## ')) {
+        result.push(
+          <h2 key={i} className="text-2xl font-semibold mb-4 mt-8 pb-2 border-b">
+            {renderInline(line.slice(3))}
+          </h2>
+        );
+        i++;
+        continue;
+      }
+      if (line.startsWith('### ')) {
+        result.push(
+          <h3 key={i} className="text-xl font-medium mb-3 mt-6 text-foreground">
+            {renderInline(line.slice(4))}
+          </h3>
+        );
+        i++;
+        continue;
+      }
+
+      // Horizontal rule
+      if (line === '---') {
+        result.push(<hr key={i} className="my-8 border-t-2 border-muted" />);
+        i++;
+        continue;
+      }
+
+      // Blockquote
+      if (line.startsWith('> ')) {
+        result.push(
+          <blockquote key={i} className="my-4 pl-4 pr-4 py-3 bg-muted/50 rounded-lg border-l-4 border-primary italic">
+            {renderInline(line.slice(2))}
+          </blockquote>
+        );
+        i++;
+        continue;
+      }
+
+      // Lists
+      if (line.startsWith('- ') || line.startsWith('* ')) {
+        const listItems: string[] = [];
+        while (i < lines.length && (lines[i].startsWith('- ') || lines[i].startsWith('* '))) {
+          listItems.push(lines[i].slice(2));
+          i++;
+        }
+        result.push(
+          <ul key={`list-${i}`} className="my-4 space-y-2">
+            {listItems.map((item, idx) => {
+              if (item.startsWith('❌')) {
+                return (
+                  <li key={idx} className="ml-6 flex items-start gap-2 text-red-600">
+                    <span className="text-lg">❌</span>
+                    <span>{renderInline(item.slice(2).trim())}</span>
+                  </li>
+                );
+              }
+              if (item.startsWith('✅')) {
+                return (
+                  <li key={idx} className="ml-6 flex items-start gap-2 text-green-600">
+                    <span className="text-lg">✅</span>
+                    <span>{renderInline(item.slice(2).trim())}</span>
+                  </li>
+                );
+              }
+              return (
+                <li key={idx} className="ml-6 list-disc text-muted-foreground">
+                  {renderInline(item)}
+                </li>
+              );
+            })}
+          </ul>
+        );
+        continue;
+      }
+
+      // Regular paragraph
+      result.push(
+        <p key={i} className="mb-4 leading-relaxed text-muted-foreground">
+          {renderInline(line)}
+        </p>
+      );
+      i++;
+    }
+
+    return result;
+  };
+
+  // Render table
+  const renderTable = (tableLines: string[]) => {
+    const headerCells = tableLines[0].split('|').filter(c => c.trim());
+    const rows = tableLines.slice(1).filter(line => !line.includes('---'));
+
+    return (
+      <div className="my-6 overflow-x-auto">
+        <table className="w-full border-collapse rounded-lg overflow-hidden shadow-sm border">
+          <thead className="bg-primary/10">
+            <tr>
+              {headerCells.map((cell, idx) => (
+                <th key={idx} className="px-4 py-3 text-left font-semibold border-b">
+                  {renderInline(cell.trim())}
+                </th>
               ))}
-            </div>
-          );
-        }
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, rowIdx) => {
+              const cells = row.split('|').filter(c => c.trim());
+              return (
+                <tr key={rowIdx} className="hover:bg-muted/50 transition-colors even:bg-muted/20">
+                  {cells.map((cell, cellIdx) => (
+                    <td key={cellIdx} className="px-4 py-3 border-b">
+                      {renderInline(cell.trim())}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    );
+  };
 
-        // Empty lines
-        if (!line.trim()) {
-          return <br key={index} />;
-        }
-
-        // Regular text
-        return <p key={index} className="mb-2">{line}</p>;
-      });
+  // Inline formatting
+  const renderInline = (text: string): React.ReactNode => {
+    // Bold **text**
+    const boldParts = text.split(/\*\*(.*?)\*\*/);
+    if (boldParts.length > 1) {
+      return boldParts.map((part, idx) =>
+        idx % 2 === 1 ? <strong key={idx} className="font-semibold text-foreground">{part}</strong> : part
+      );
+    }
+    return text;
   };
 
   return (
@@ -130,7 +250,7 @@ export function ArticleClient({ locale, article, categories }: ArticleClientProp
 
       {/* Article Content */}
       <Card className="mb-8">
-        <CardContent className="py-6">
+        <CardContent className="py-6 px-4 md:px-8">
           <div className="prose prose-neutral max-w-none">
             {renderMarkdown(isZh ? article.content : article.contentEn)}
           </div>
@@ -140,7 +260,7 @@ export function ArticleClient({ locale, article, categories }: ArticleClientProp
       {/* Related Exercises */}
       {article.relatedExercises.length > 0 && (
         <Card className="mb-8 bg-muted/30">
-          <Card className="p-6">
+          <CardContent className="p-6">
             <div className="flex items-center gap-2 mb-4">
               <Dumbbell className="w-5 h-5 text-primary" />
               <h3 className="font-medium">
@@ -162,7 +282,7 @@ export function ArticleClient({ locale, article, categories }: ArticleClientProp
                 ? '点击查看相关动作的详细教学'
                 : 'Click to view detailed instructions for related exercises'}
             </p>
-          </Card>
+          </CardContent>
         </Card>
       )}
 
