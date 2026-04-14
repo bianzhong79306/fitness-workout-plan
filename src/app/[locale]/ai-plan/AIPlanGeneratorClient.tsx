@@ -141,25 +141,47 @@ export default function AIPlanGeneratorClient({ locale }: { locale: string }) {
   };
   
   return (
-    <div className="container mx-auto py-8 px-4 max-w-4xl">
-      <div className="text-center mb-8">
-        <Sparkles className="w-12 h-12 text-primary mx-auto mb-4" />
-        <h1 className="text-3xl font-bold">
-          {locale === 'zh' ? 'AI 训练计划生成' : 'AI Plan Generator'}
-        </h1>
-      </div>
+    <div className="min-h-screen">
+      {/* 活力Hero区域 */}
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-violet-600 via-purple-500 to-fuchsia-500">
+        {/* 光晕装饰 */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-fuchsia-300/30 rounded-full blur-2xl" />
+        
+        <div className="container mx-auto px-4 relative z-10 text-center text-white">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/10 border border-white/20">
+            <Sparkles className="w-5 h-5 animate-pulse" />
+            <span className="font-medium">{locale === 'zh' ? "智能生成个性化计划" : "Generate Personalized Plan"}</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4">
+            {locale === 'zh' ? 'AI 训练计划生成' : 'AI Plan Generator'}
+          </h1>
+          
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            {locale === 'zh' ? '根据您的目标、水平、器械，智能生成专属训练计划' : 'Generate your personalized workout plan based on goals, level, and equipment'}
+          </p>
+        </div>
+      </section>
       
-      <Card className="mb-8">
+      {/* 内容区域 */}
+      <div className="container mx-auto px-4 py-16 max-w-4xl">
+      
+      <Card className="mb-8 border-2 border-violet-500/20 shadow-xl">
+        <div className="h-2 bg-gradient-to-r from-violet-500 via-purple-500 to-fuchsia-500 rounded-t-lg" />
         <CardHeader>
-          <CardTitle>{locale === 'zh' ? '设置参数' : 'Settings'}</CardTitle>
+          <CardTitle className="flex items-center gap-2">
+            <Target className="w-5 h-5 text-violet-500" />
+            {locale === 'zh' ? '设置参数' : 'Settings'}
+          </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           {/* Goal */}
           <div>
-            <label className="text-sm font-medium mb-2 block">{locale === 'zh' ? '目标' : 'Goal'}</label>
-            <div className="flex gap-2">
+            <label className="text-sm font-medium mb-3 block">{locale === 'zh' ? '目标' : 'Goal'}</label>
+            <div className="flex flex-wrap gap-2">
               {(['general', 'muscle_gain', 'fat_loss', 'strength', 'endurance'] as Goal[]).map(g => (
-                <Button key={g} variant={goal === g ? 'default' : 'outline'} size="sm" onClick={() => setGoal(g)}>
+                <Button key={g} className={goal === g ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white rounded-full" : "rounded-full"} variant={goal === g ? 'default' : 'outline'} size="sm" onClick={() => setGoal(g)}>
                   {goalLabels[g]}
                 </Button>
               ))}
@@ -168,10 +190,10 @@ export default function AIPlanGeneratorClient({ locale }: { locale: string }) {
           
           {/* Level */}
           <div>
-            <label className="text-sm font-medium mb-2 block">{locale === 'zh' ? '水平' : 'Level'}</label>
+            <label className="text-sm font-medium mb-3 block">{locale === 'zh' ? '水平' : 'Level'}</label>
             <div className="flex gap-2">
               {(['beginner', 'intermediate', 'advanced'] as Level[]).map(l => (
-                <Button key={l} variant={fitnessLevel === l ? 'default' : 'outline'} size="sm" onClick={() => setFitnessLevel(l)}>
+                <Button key={l} className={fitnessLevel === l ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white rounded-full" : "rounded-full"} variant={fitnessLevel === l ? 'default' : 'outline'} size="sm" onClick={() => setFitnessLevel(l)}>
                   {levelLabels[l]}
                 </Button>
               ))}
@@ -180,30 +202,30 @@ export default function AIPlanGeneratorClient({ locale }: { locale: string }) {
           
           {/* Days */}
           <div>
-            <label className="text-sm font-medium mb-2 block">{locale === 'zh' ? '每周天数' : 'Days/Week'}: {availableDays}</label>
+            <label className="text-sm font-medium mb-3 block">{locale === 'zh' ? '每周天数' : 'Days/Week'}: <span className="font-bold text-violet-600">{availableDays}</span></label>
             <div className="flex gap-1">
               {[1,2,3,4,5,6].map(d => (
-                <Button key={d} variant={availableDays === d ? 'default' : 'outline'} size="sm" className="w-8" onClick={() => setAvailableDays(d)}>{d}</Button>
+                <Button key={d} className={availableDays === d ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white rounded-full w-10" : "rounded-full w-10"} variant={availableDays === d ? 'default' : 'outline'} size="sm" onClick={() => setAvailableDays(d)}>{d}</Button>
               ))}
             </div>
           </div>
           
           {/* Duration */}
           <div>
-            <label className="text-sm font-medium mb-2 block">{locale === 'zh' ? '每次时长' : 'Duration'}: {sessionDuration}min</label>
+            <label className="text-sm font-medium mb-3 block">{locale === 'zh' ? '每次时长' : 'Duration'}: <span className="font-bold text-violet-600">{sessionDuration}</span>min</label>
             <div className="flex gap-2">
               {[30,45,60,90].map(d => (
-                <Button key={d} variant={sessionDuration === d ? 'default' : 'outline'} size="sm" onClick={() => setSessionDuration(d)}>{d}</Button>
+                <Button key={d} className={sessionDuration === d ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white rounded-full" : "rounded-full"} variant={sessionDuration === d ? 'default' : 'outline'} size="sm" onClick={() => setSessionDuration(d)}>{d}</Button>
               ))}
             </div>
           </div>
           
           {/* Equipment */}
           <div>
-            <label className="text-sm font-medium mb-2 block">{locale === 'zh' ? '器械' : 'Equipment'}</label>
-            <div className="flex gap-2">
+            <label className="text-sm font-medium mb-3 block">{locale === 'zh' ? '器械' : 'Equipment'}</label>
+            <div className="flex flex-wrap gap-2">
               {equipmentOptions.map(e => (
-                <Button key={e.key} variant={equipment.includes(e.key) ? 'default' : 'outline'} size="sm" onClick={() => handleEquipment(e.key)}>
+                <Button key={e.key} className={equipment.includes(e.key) ? "bg-gradient-to-r from-violet-500 to-purple-500 text-white rounded-full" : "rounded-full"} variant={equipment.includes(e.key) ? 'default' : 'outline'} size="sm" onClick={() => handleEquipment(e.key)}>
                   {e.label}
                 </Button>
               ))}
@@ -211,62 +233,64 @@ export default function AIPlanGeneratorClient({ locale }: { locale: string }) {
           </div>
           
           {/* Generate Button */}
-          <Button className="w-full" size="lg" onClick={handleGenerate} disabled={loading}>
-            {loading ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" />{locale === 'zh' ? '生成中...' : 'Generating...'}</>
-              : <><Sparkles className="w-4 h-4 mr-2" />{locale === 'zh' ? '生成计划' : 'Generate Plan'}</>}
+          <Button className="w-full bg-gradient-to-r from-violet-600 via-purple-500 to-fuchsia-500 text-white rounded-full shadow-lg text-lg py-6" size="lg" onClick={handleGenerate} disabled={loading}>
+            {loading ? <><Loader2 className="w-5 h-5 mr-2 animate-spin" />{locale === 'zh' ? '生成中...' : 'Generating...'}</>
+              : <><Sparkles className="w-5 h-5 mr-2 animate-pulse" />{locale === 'zh' ? '生成计划' : 'Generate Plan'}</>}
           </Button>
         </CardContent>
       </Card>
       
       {error && (
-        <Card className="mb-8 border-destructive">
+        <Card className="mb-8 border-2 border-red-500/20">
           <CardContent className="flex items-center gap-2 py-4">
-            <AlertCircle className="w-5 h-5 text-destructive" />
-            <span>{error}</span>
+            <AlertCircle className="w-5 h-5 text-red-500" />
+            <span className="text-red-600">{error}</span>
           </CardContent>
         </Card>
       )}
       
       {generatedPlan && (
-        <Card>
+        <Card className="border-2 border-green-500/20 shadow-xl">
+          <div className="h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-t-lg" />
           <CardHeader>
             <div className="flex justify-between items-start">
               <div>
-                <CardTitle>{locale === 'zh' ? generatedPlan.name : generatedPlan.nameEn}</CardTitle>
-                <CardDescription>{locale === 'zh' ? generatedPlan.description : generatedPlan.descriptionEn}</CardDescription>
+                <CardTitle className="text-xl font-bold">{locale === 'zh' ? generatedPlan.name : generatedPlan.nameEn}</CardTitle>
+                <CardDescription className="mt-2">{locale === 'zh' ? generatedPlan.description : generatedPlan.descriptionEn}</CardDescription>
               </div>
-              <Badge>{generatedPlan.difficulty}</Badge>
+              <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full">{generatedPlan.difficulty}</Badge>
             </div>
-            <div className="flex gap-4 text-sm text-muted-foreground mt-2">
-              <span><Clock className="w-4 h-4 inline mr-1" />{generatedPlan.durationWeeks} {locale === 'zh' ? '周' : 'wks'}</span>
-              <span><Dumbbell className="w-4 h-4 inline mr-1" />{generatedPlan.sessionsPerWeek} {locale === 'zh' ? '次/周' : 'sessions/wk'}</span>
+            <div className="flex gap-4 text-sm mt-4">
+              <span className="px-3 py-1 rounded-full bg-violet-100 text-violet-700"><Clock className="w-4 h-4 inline mr-1" />{generatedPlan.durationWeeks} {locale === 'zh' ? '周' : 'wks'}</span>
+              <span className="px-3 py-1 rounded-full bg-purple-100 text-purple-700"><Dumbbell className="w-4 h-4 inline mr-1" />{generatedPlan.sessionsPerWeek} {locale === 'zh' ? '次' : 'ses'}</span>
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             {generatedPlan.sessions.map(s => (
-              <div key={s.sessionNumber} className="border rounded-lg p-4">
-                <div className="flex justify-between mb-2">
-                  <h3 className="font-medium">{locale === 'zh' ? s.name : s.nameEn}</h3>
-                  <span className="text-sm text-muted-foreground">{s.durationMinutes}min</span>
+              <div key={s.sessionNumber} className="border-2 border-violet-200 rounded-lg p-4 bg-gradient-to-br from-violet-50 to-purple-50">
+                <div className="flex justify-between mb-3">
+                  <h3 className="font-bold text-violet-700">{locale === 'zh' ? s.name : s.nameEn}</h3>
+                  <span className="text-sm text-violet-500 font-medium">{s.durationMinutes}min</span>
                 </div>
-                <div className="space-y-1">
+                <div className="space-y-2">
                   {s.exercises.map((ex, i) => (
-                    <div key={i} className="flex justify-between text-sm">
-                      <span>{locale === 'zh' ? ex.name : ex.nameEn}</span>
-                      <span className="text-muted-foreground">{ex.sets}×{ex.reps} ({ex.restSeconds}s)</span>
+                    <div key={i} className="flex justify-between text-sm bg-white/50 rounded px-2 py-1">
+                      <span className="font-medium">{locale === 'zh' ? ex.name : ex.nameEn}</span>
+                      <span className="text-violet-600">{ex.sets}×{ex.reps} ({ex.restSeconds}s)</span>
                     </div>
                   ))}
                 </div>
               </div>
             ))}
             
-            <Button className="w-full" onClick={handleSave} disabled={saving}>
-              {saving ? <><Loader2 className="w-4 h-4 mr-2 animate-spin" />{locale === 'zh' ? '保存中...' : 'Saving...'}</>
-                : <><CheckCircle className="w-4 h-4 mr-2" />{locale === 'zh' ? '开始此计划' : 'Start This Plan'}</>}
+            <Button className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full shadow-lg text-lg py-6" onClick={handleSave} disabled={saving}>
+              {saving ? <><Loader2 className="w-5 h-5 mr-2 animate-spin" />{locale === 'zh' ? '保存中...' : 'Saving...'}</>
+                : <><CheckCircle className="w-5 h-5 mr-2" />{locale === 'zh' ? '开始此计划' : 'Start This Plan'}</>}
             </Button>
           </CardContent>
         </Card>
       )}
+      </div>
     </div>
   );
 }

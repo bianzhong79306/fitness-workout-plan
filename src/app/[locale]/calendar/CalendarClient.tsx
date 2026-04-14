@@ -106,36 +106,51 @@ export function CalendarClient({ locale }: CalendarClientProps) {
     monthData?.days?.reduce((sum, d) => sum + d.workoutCount, 0) || 0;
 
   return (
-    <div className="container py-8">
-      {/* 页面标题 */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold flex items-center gap-2">
-          <CalendarDays className="h-8 w-8 text-primary" />
-          {isZh ? '训练日历' : 'Workout Calendar'}
-        </h1>
-        <p className="text-muted-foreground mt-2">
-          {isZh ? '查看您的训练历史和进度' : 'View your workout history and progress'}
-        </p>
-      </div>
+    <div className="min-h-screen">
+      {/* 活力Hero区域 */}
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-indigo-600 via-blue-500 to-cyan-500">
+        {/* 光晕装饰 */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-300/30 rounded-full blur-2xl" />
+        
+        <div className="container relative z-10 text-center text-white">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/10 border border-white/20">
+            <CalendarDays className="w-5 h-5" />
+            <span className="font-medium">{isZh ? "记录每一次突破" : "Track Every Achievement"}</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4">
+            {isZh ? '训练日历' : 'Workout Calendar'}
+          </h1>
+          
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            {isZh ? '查看您的训练历史和进度' : 'View your workout history and progress'}
+          </p>
+        </div>
+      </section>
+      
+      {/* 内容区域 */}
+      <div className="container py-16">
 
-      <Card>
+      <Card className="border-2 border-indigo-500/20 shadow-xl">
+        <div className="h-2 bg-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500 rounded-t-lg" />
         <CardHeader className="pb-3">
           <CardTitle className="flex items-center justify-between">
             {/* 月份导航 */}
-            <div className="flex items-center gap-2">
-              <Button variant="outline" size="icon" onClick={goToPrevMonth}>
+            <div className="flex items-center gap-3">
+              <Button className="rounded-full bg-gradient-to-r from-indigo-500 to-blue-500 text-white" size="icon" onClick={goToPrevMonth}>
                 <ChevronLeft className="h-4 w-4" />
               </Button>
-              <span className="text-lg font-semibold min-w-[140px] text-center">
+              <span className="text-xl font-bold min-w-[160px] text-center text-indigo-700">
                 {monthName}
               </span>
-              <Button variant="outline" size="icon" onClick={goToNextMonth}>
+              <Button className="rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white" size="icon" onClick={goToNextMonth}>
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
 
             {/* 今天按钮 */}
-            <Button variant="outline" size="sm" onClick={goToToday}>
+            <Button className="rounded-full bg-gradient-to-r from-indigo-100 to-blue-100 text-indigo-700 border-2 border-indigo-300" onClick={goToToday}>
               {isZh ? '今天' : 'Today'}
             </Button>
           </CardTitle>
@@ -143,18 +158,18 @@ export function CalendarClient({ locale }: CalendarClientProps) {
 
         <CardContent>
           {/* 月度统计 */}
-          <div className="flex flex-wrap gap-4 mb-6 pb-4 border-b">
-            <div className="text-sm">
-              <span className="text-muted-foreground">
+          <div className="flex flex-wrap gap-4 mb-6 pb-4 border-b-2 border-indigo-200">
+            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-indigo-100 to-blue-100">
+              <span className="text-indigo-600 font-medium">
                 {isZh ? '训练天数: ' : 'Workout days: '}
               </span>
-              <span className="font-semibold">{workoutDays}</span>
+              <span className="font-bold text-indigo-700">{workoutDays}</span>
             </div>
-            <div className="text-sm">
-              <span className="text-muted-foreground">
+            <div className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-cyan-100">
+              <span className="text-blue-600 font-medium">
                 {isZh ? '总训练次数: ' : 'Total workouts: '}
               </span>
-              <span className="font-semibold">{totalWorkouts}</span>
+              <span className="font-bold text-blue-700">{totalWorkouts}</span>
             </div>
           </div>
 
@@ -179,8 +194,8 @@ export function CalendarClient({ locale }: CalendarClientProps) {
 
           {/* 空数据提示 */}
           {!loading && workoutDays === 0 && (
-            <div className="mt-6 text-center text-muted-foreground">
-              <p>
+            <div className="mt-6 text-center p-8 rounded-2xl bg-gradient-to-br from-indigo-50 to-blue-50 border-2 border-indigo-200">
+              <p className="text-indigo-600">
                 {isZh
                   ? '本月还没有训练记录，开始您的第一次训练吧！'
                   : 'No workouts this month. Start your first workout!'}
@@ -197,6 +212,7 @@ export function CalendarClient({ locale }: CalendarClientProps) {
         onClose={() => setDialogOpen(false)}
         locale={locale}
       />
+      </div>
     </div>
   );
 }
