@@ -1943,6 +1943,422 @@ Fat loss is a process requiring patience and strategy. Understanding the science
     isPremium: false,
     createdAt: '2026-04-14',
   },
+  // ==================== 新手指南 ====================
+  {
+    id: '3',
+    slug: 'beginner-guide',
+    title: '健身新手完全入门指南',
+    titleEn: 'The Complete Beginner Guide to Fitness',
+    category: 'population_guide',
+    categoryZh: '人群指南',
+    categoryEn: 'Population Guides',
+    summary: '从零开始健身？这份指南告诉你需要知道的一切：训练基础、常见错误、进阶路径，让你的健身之路少走弯路。',
+    summaryEn: 'Starting fitness from zero? This guide tells you everything you need to know: training basics, common mistakes, progression paths - take fewer detours on your fitness journey.',
+    content: `
+![Fitness Beginner](https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80)
+
+# 健身新手完全入门指南
+
+恭喜你决定开始健身！这是一个改变人生的决定。
+
+但作为新手，你可能会感到困惑：从哪里开始？做什么动作？每周练几次？怎么避免受伤？
+
+这份指南将回答所有这些问题，让你的健身之路从一开始就走对方向。
+
+---
+
+## 一、健身前的心态准备
+
+健身不是几天或几周的事情，而是几个月甚至几年的过程。
+
+### 正确的预期
+
+| 预期 | 实际情况 |
+|------|----------|
+| 1个月看到效果 | 需要3-6个月 |
+| 每次训练都很爽 | 初期会不适 |
+| 越练越轻松 | 越练越有挑战 |
+| 照着做就行 | 需要理解原理 |
+
+**真实时间线**：
+
+| 时间 | 预期变化 |
+|------|----------|
+| 1-4周 | 学习动作，身体适应 |
+| 5-12周 | 开始看到初步变化 |
+| 3-6个月 | 明显可见的变化 |
+| 6-12个月 | 巨大的改变 |
+
+### 心理准备
+
+**接受不舒服**
+
+训练会带来肌肉酸痛、呼吸急促、心率升高、疲劳感。这些都是正常的，不是身体出了问题。
+
+**接受失败**
+
+你会遇到动作做不好、进步停滞、某天不想练、看不到效果。这些也是正常的。
+
+**接受长期投入**
+
+健身像投资：初期投入大，中期开始回报，后期持续收益。
+
+---
+
+## 二、训练基础知识
+
+### 训练类型
+
+| 类型 | 目的 | 频率建议 |
+|------|------|----------|
+| 力量训练 | 增肌、增强力量 | 2-4次/周 |
+| 有氧训练 | 提高心肺、减脂 | 2-3次/周 |
+| 灵活性训练 | 关节健康、预防受伤 | 每天5-10分钟 |
+
+### 力量训练基础
+
+**关键概念**：
+
+| 术语 | 说明 |
+|------|------|
+| 1RM | 你能举起的最大重量（1次） |
+| 组数 | 每个动作做的轮数 |
+| 次数 | 每组重复动作的数量 |
+| 休息 | 组与组之间的休息时间 |
+
+**新手推荐参数**：
+
+| 参数 | 建议 |
+|------|------|
+| 重量 | 60-70% 1RM |
+| 组数 | 3组 |
+| 次数 | 8-12次 |
+| 休息 | 60-90秒 |
+
+---
+
+## 三、新手训练计划
+
+### 全身训练方案（每周3次）
+
+| 训练日 | 内容 |
+|--------|------|
+| 周一 | 全身训练A |
+| 周三 | 全身训练B |
+| 周五 | 全身训练C |
+
+**训练A**：深蹲3组10次、推胸3组10次、划船3组10次、核心3组30秒
+
+**训练B**：硬拉3组8次、推肩3组10次、下拉3组10次、核心3组30秒
+
+**训练C**：腿举3组12次、俯卧撑3组10次、划船3组10次、核心3组30秒
+
+### 为什么全身训练最好？
+
+| 分化训练 | 全身训练 |
+|----------|----------|
+| 每肌群每周1次 | 每肌群每周3次 |
+| 单次强度高 | 单次强度适中 |
+| 适合进阶者 | 适合新手 |
+
+全身训练学习频率更高、肌肉刺激更多次、恢复更容易管理。
+
+---
+
+## 四、核心动作详解
+
+### 深蹲（Squat）
+
+![Squat](https://images.unsplash.com/photo-1574640046782-d74b8336785a?w=800&q=80)
+
+**动作要点**：
+
+1. 脚与肩同宽，脚尖略外展
+2. 下蹲时臀部后移
+3. 膝盖与脚尖同方向
+4. 下蹲至大腿平行地面
+5. 保持挺胸收腹
+6. 起立时臀部发力
+
+**常见错误**：膝盖内扣（纠正：脚尖外展）、下蹲太浅（目标：大腿平行）、背部弯曲（挺胸收腹）
+
+### 硬拉（Deadlift）
+
+**动作要点**：脚与髋同宽、杆紧贴身体、背部保持挺直、肩在杆上方、起立时髋和膝同时伸展。
+
+**常见错误**：背部弯曲（降低重量）、杆离身体远（杆贴腿）、起立顺序错（髋膝同步）。
+
+### 推胸（Bench Press）
+
+**动作要点**：躺平脚踩实地面、握距略宽于肩、肩胛骨收紧、下放至胸口、推起至手臂伸直。
+
+**常见错误**：肘部外展90度（改为75度）、背部拱起（肩胛骨收紧）、脚踩不稳（踩实地面）。
+
+### 划船（Row）
+
+**动作要点**：单手撑凳或俯身、拉起时肘贴近身体、肩胛骨后缩、下放时控制。
+
+**常见错误**：耸肩（放松肩膀）、肘外展（肘贴身体）、用手臂发力（用背部发力）。
+
+---
+
+## 五、新手常见问题解答
+
+### 问题1：应该先增肌还是减脂？
+
+| 体脂率 | 建议 |
+|--------|------|
+| 小于15%男性，小于22%女性 | 增肌优先 |
+| 15-25%男性，22-32%女性 | 同时进行 |
+| 大于25%男性，大于32%女性 | 减脂优先 |
+
+### 问题2：应该用器械还是自由重量？
+
+器械安全易学适合完全新手，自由重量功能性更强适合学习后过渡。
+
+### 问题3：需要补剂吗？
+
+新手不需要补剂。优先级：饮食基础、训练规律、睡眠充足，补剂可选。
+
+### 问题4：酸痛怎么办？
+
+延迟性肌肉酸痛（DOMS）是正常的。缓解方法：轻度活动、按摩、冷热交替浴、充足睡眠。
+
+### 问题5：练了几天没效果？
+
+检查条件：训练频率每周至少2-3次、训练强度有挑战感、蛋白质足够、睡眠7-8小时、时间至少4-6周。
+
+---
+
+## 六、新手避坑指南
+
+**陷阱1：追求完美计划** - 没有完美计划，任何计划都比不开始好。先开始，再优化。
+
+**陷阱2：照搬别人计划** - 每个人的时间、水平、目标、条件不同。参考别人计划，根据自己的情况调整。
+
+**陷阱3：过度依赖信息收集** - 收集大量资料却不开始训练。只需要基础知识和简单计划，开始执行。
+
+**陷阱4：忽视营养** - 训练只是刺激，营养才是增长的物质。蛋白质每公斤体重1.2-1.6克。
+
+**陷阱5：忽视睡眠** - 睡眠不足影响恢复、激素、精神。每晚7-9小时。
+
+---
+
+## 七、进阶路线图
+
+**第一阶段（0-3个月）**：学习动作、建立习惯、每周3次训练、记录数据。
+
+**第二阶段（3-6个月）**：动作精进、重量提升、分化训练引入、营养优化。
+
+**第三阶段（6-12个月）**：动作全面、计划个性化、目标明确、知识深入。
+
+---
+
+## 八、总结要点
+
+1. 心态准备 - 这是长期过程
+2. 训练基础 - 从全身训练开始
+3. 核心动作 - 掌握深蹲、硬拉、推胸、划船
+4. 常见问题 - 有解答，不困惑
+5. 避坑指南 - 避开新手常见陷阱
+6. 进阶路线 - 有规划，不迷失
+
+健身不是复杂的科学，但需要正确的开始。
+
+最重要的一点：今天就开始行动。
+    `,
+    contentEn: `
+![Fitness Beginner](https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80)
+
+# The Complete Beginner Guide to Fitness
+
+Congratulations on deciding to start fitness! This is a life-changing decision.
+
+But as a beginner, you might feel confused: Where to start? What exercises to do? How many times per week? How to avoid injury?
+
+This guide answers all these questions, putting you on the right path from the very beginning.
+
+---
+
+## I. Mental Preparation Before Starting
+
+Fitness isn't days or weeks—it's months or years.
+
+### Correct Expectations
+
+| Expectation | Reality |
+|-------------|---------|
+| Results in 1 month | Needs 3-6 months |
+| Every session feels great | Initial discomfort |
+| Gets easier | Gets more challenging |
+| Just follow instructions | Need to understand principles |
+
+**Timeline**:
+
+1-4 weeks: Learning movements, adapting
+5-12 weeks: Initial changes
+3-6 months: Visible changes
+6-12 months: Dramatic transformation
+
+### Mental Preparation
+
+**Accept Discomfort** - Muscle soreness, breathlessness, elevated heart rate, fatigue. All normal.
+
+**Accept Failure** - Movements not perfect, progress stalling, days you don't want to train. All normal.
+
+**Accept Long-term Investment** - High initial investment, mid-term returns, long-term gains.
+
+---
+
+## II. Training Fundamentals
+
+### Training Types
+
+| Type | Purpose | Frequency |
+|------|---------|-----------|
+| Strength training | Build muscle, strength | 2-4 times/week |
+| Cardio training | Improve cardio, fat loss | 2-3 times/week |
+| Flexibility | Joint health, prevention | 5-10 min daily |
+
+### Key Concepts
+
+| Term | Explanation |
+|------|-------------|
+| 1RM | Maximum weight you can lift once |
+| Sets | Rounds per exercise |
+| Reps | Repetitions per set |
+| Rest | Rest between sets |
+
+**Beginner Parameters**: Weight 60-70% 1RM, Sets 3, Reps 8-12, Rest 60-90 seconds.
+
+---
+
+## III. Beginner Training Plan
+
+### Full-body Training (3 times weekly)
+
+| Day | Content |
+|-----|---------|
+| Monday | Full-body A |
+| Wednesday | Full-body B |
+| Friday | Full-body C |
+
+**Training A**: Squat 3x10, Bench 3x10, Row 3x10, Core 3x30sec
+
+**Training B**: Deadlift 3x8, Shoulder press 3x10, Pull-down 3x10, Core 3x30sec
+
+**Training C**: Leg press 3x12, Push-up 3x10, Row 3x10, Core 3x30sec
+
+### Why Full-body Best?
+
+Split training: Each muscle 1x/week, high intensity, for advanced.
+Full-body: Each muscle 3x/week, moderate intensity, for beginners.
+
+Benefits: Higher learning frequency, more stimulation, easier recovery management.
+
+---
+
+## IV. Core Exercises
+
+### Squat
+
+![Squat](https://images.unsplash.com/photo-1574640046782-d74b8336785a?w=800&q=80)
+
+**Key Points**: Feet shoulder-width, toes out, hips back when squatting, knees align with toes, thighs parallel to ground, chest up, drive with hips.
+
+**Common Errors**: Knees caving (toes out), squatting shallow (target parallel), back bending (chest up).
+
+### Deadlift
+
+**Key Points**: Feet hip-width, bar close to body, back straight, shoulders over bar, hip and knee extend together.
+
+**Errors**: Back bending (reduce weight), bar far (bar against legs), wrong sequence (hip and knee sync).
+
+### Bench Press
+
+**Key Points**: Lie flat, feet firm, grip wider than shoulders, scapula retracted, lower to chest, press until arms straight.
+
+**Errors**: Elbows 90 degrees (use 75), back arched (retract scapula), feet unstable (firm on ground).
+
+### Row
+
+**Key Points**: One hand on bench or bent over, pull with elbow close to body, scapula retracts, control lowering.
+
+**Errors**: Shrugging (relax shoulders), elbows flared (close to body), using arms (use back).
+
+---
+
+## V. Beginner FAQ
+
+### Q1: Build muscle or lose fat first?
+
+| Body Fat | Recommendation |
+|----------|----------------|
+| Less than 15% men, 22% women | Build muscle |
+| 15-25% men, 22-32% women | Both simultaneously |
+| More than 25% men, 32% women | Fat loss first |
+
+### Q2: Machines or free weights?
+
+Machines: Safe, easy, for complete beginners.
+Free weights: More functional, for after learning.
+
+### Q3: Need supplements?
+
+Beginners don't need supplements. Priority: Diet, training consistency, sleep, supplements optional.
+
+### Q4: Soreness?
+
+DOMS is normal. Relief: Light activity, massage, contrast baths, sleep.
+
+### Q5: No results after days?
+
+Check: Frequency 2-3x/week, intensity challenging, protein sufficient, sleep 7-8 hours, time 4-6 weeks minimum.
+
+---
+
+## VI. Pitfall Guide
+
+**Trap 1: Perfect Plan** - No perfect plan. Any plan beats not starting. Start first, optimize later.
+
+**Trap 2: Copying Others** - Everyone differs in time, level, goal, conditions. Reference and adjust.
+
+**Trap 3: Information Overload** - Collecting without starting. Basic knowledge and simple plan suffice.
+
+**Trap 4: Ignoring Nutrition** - Training is stimulus, nutrition is material. Protein 1.2-1.6g/kg.
+
+**Trap 5: Ignoring Sleep** - Sleep affects recovery, hormones, motivation. 7-9 hours nightly.
+
+---
+
+## VII. Progression Roadmap
+
+**Phase 1 (0-3 months)**: Learn movements, build habits, 3 sessions/week, log data.
+
+**Phase 2 (3-6 months)**: Refine technique, increase weight, introduce split training, optimize nutrition.
+
+**Phase 3 (6-12 months)**: Movement variety, personalized plans, clear goals, deeper knowledge.
+
+---
+
+## VIII. Summary
+
+1. Mental preparation - Long-term process
+2. Training basics - Start full-body
+3. Core movements - Master squat, deadlift, bench, row
+4. Common questions - Have answers
+5. Pitfall guide - Avoid traps
+6. Progression roadmap - Have plan
+
+Fitness isn't complex, but needs correct start.
+
+**Most important**: Start today. Waiting for perfect timing never comes—starting itself is progress.
+    `,
+    tags: ['新手', 'beginner', '入门指南', '健身基础', '训练计划'],
+    relatedExercises: ['squat', 'bench-press', 'deadlift', 'row'],
+    isPremium: false,
+    createdAt: '2026-04-14',
+  },
 ];
 
 // 获取所有文章
