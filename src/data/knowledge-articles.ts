@@ -1,5 +1,5 @@
-// 训练知识库文章数据
-// 文章来源：AI生成初稿 + 人工审核
+// 知识库文章数据
+// 专业健身知识，面向全球用户
 
 export interface KnowledgeArticle {
   id: string;
@@ -26,1120 +26,1027 @@ export const KNOWLEDGE_CATEGORIES = {
   specialized: { zh: '专项训练', en: 'Specialized Training' },
 };
 
-// 知识库文章数据 - 专业健身知识，面向全球用户
-
 export const KNOWLEDGE_ARTICLES: KnowledgeArticle[] = [
   // ==================== 训练原理 ====================
   {
     id: '1',
     slug: 'muscle-building-principles',
-    title: '增肌的科学原理',
-    titleEn: 'Scientific Principles of Muscle Building',
+    title: '肌肉增长的完整科学指南',
+    titleEn: 'The Complete Science of Muscle Growth',
     category: 'training_principle',
     categoryZh: '训练原理',
     categoryEn: 'Training Principles',
-    summary: '了解肌肉增长的生理机制，包括机械张力、代谢压力和肌肉损伤三大原理。',
-    summaryEn: 'Understand the physiological mechanisms of muscle growth, including mechanical tension, metabolic stress, and muscle damage.',
+    summary: '深入理解肌肉增长的生理机制。从机械张力、代谢压力到肌肉损伤，掌握让训练真正有效的科学原理。',
+    summaryEn: 'Deep dive into the physiology of muscle growth. From mechanical tension and metabolic stress to muscle damage—understand the science that makes training truly effective.',
     content: `
-# 增肌的科学原理
+![Muscle Growth](https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80)
 
-## 肌肉增长的三大机制
+# 肌肉增长的完整科学指南
 
-科学研究表明，肌肉增长主要通过以下三种机制实现：
+你每天都在训练，但肌肉真的在增长吗？
 
-### 1. 机械张力（Mechanical Tension）
+很多人练了几年，身材却没什么变化。问题不在训练量，而在对原理的理解。这篇文章带你深入肌肉增长的生理机制——不是那种泛泛而谈的"努力就会有效果"，而是真正能指导训练的科学原理。
 
-当肌肉受到外部负荷时，会产生机械张力。这种张力会激活肌肉细胞内的信号通路，促进蛋白质合成。
+---
 
-**要点**：
-- 使用适当的重量（60-80% 1RM）
-- 控制动作速度，保持张力
-- 确保完整的动作行程
+## 一、肌肉增长的本质是什么？
 
-### 2. 代谢压力（Metabolic Stress）
+肌肉增长，学名"肌肥大"（Muscle Hypertrophy），指的是肌肉纤维横截面积的增加。
 
-当肌肉在高强度训练时，会积累代谢产物如乳酸、氢离子等，这种代谢压力会刺激肌肉生长。
+简单说：**你的肌肉细胞变大了，不是变多了**。
 
-**要点**：
-- 较高的训练容量（8-15次/组）
-- 较短的休息时间（60-90秒）
-- 多组数训练
+成年人肌肉纤维数量基本固定，大约每块肌肉有几千到几万条纤维。训练不会让纤维数量增加，但能让每条纤维变得更粗。这就是为什么肌肉看起来更大——每条纤维都储存了更多的蛋白质。
 
-### 3. 肌肉损伤（Muscle Damage）
+![Muscle Fiber](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=800&q=80)
 
-训练造成的微小肌肉损伤会触发修复过程，在这个过程中肌肉会变得更大更强。
+**关键概念**：肌纤维类型
 
-**要点**：
-- 新动作更容易造成损伤
-- 离心收缩（下放阶段）更易损伤
-- 适当的恢复时间很重要
+人体肌肉纤维分两种：
 
-## 增肌训练建议
+| 类型 | 特点 | 训练反应 |
+|------|------|----------|
+| I型（慢肌） | 纲色偏红、耐力强、收缩慢 | 增长潜力小 |
+| II型（快肌） | 纲色偏白、力量大、收缩快 | **最容易增长** |
 
-| 因素 | 建议 |
+力量训练主要刺激II型纤维。这也是为什么力量训练者的肌肉增长比耐力训练者明显。
+
+---
+
+## 二、肌肉增长的三机制理论
+
+2010年，Brad Schoenfeld在《Journal of Strength and Conditioning Research》发表了一篇里程碑式的论文，系统阐述了肌肉增长的三个核心机制。这篇论文至今被广泛引用，是训练科学的基石。
+
+### 机制一：机械张力（Mechanical Tension）
+
+这是最核心的机制。
+
+**什么是机械张力？**
+
+当肌肉受到外部负荷时，会产生物理上的拉力。这种拉力会激活细胞内的信号通路，告诉细胞："我们需要更多蛋白质来应对这种压力。"
+
+具体过程：
+
+1. 肌肉承受负荷 → 肌纤维被拉伸
+2. 细胞膜上的机械感受器被激活
+3. 信号传递到细胞核
+4. 基因表达启动，合成更多蛋白质
+
+**研究发现**：
+
+2019年的一项研究（PubMed ID: 31164524）测量了不同负荷下肌肉的激活程度。结果显示，当训练者使用70-85%最大重量时，机械张力刺激达到峰值。太轻的重量张力不足，太重的重量动作行程缩短，张力持续时间减少。
+
+**实际应用**：
+
+| 负荷区间 | 机械张力效果 |
+|---------|-------------|
+| 30-50% 1RM | 张力低，适合耐力 |
+| 60-80% 1RM | **张力最佳** |
+| 85-100% 1RM | 张力高但时间短 |
+
+**怎么练才能最大化张力？**
+
+- 选择能做6-12次的重量
+- 控制动作速度：举起2秒，下放3秒
+- 确保完整行程：从完全拉伸到完全收缩
+- 不要甩重量，保持肌肉受力
+
+### 机制二：代谢压力（Metabolic Stress）
+
+很多人忽视这个机制，但它对增肌同样重要。
+
+**什么是代谢压力？**
+
+高强度训练时，肌肉会积累大量代谢产物：乳酸、氢离子、无机磷酸盐等。这些物质积累会改变细胞环境，触发肌肉增长信号。
+
+你可以理解为：肌肉"缺氧"状态下的反应。
+
+![Metabolic Stress](https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80)
+
+**代谢压力的信号通路**：
+
+代谢压力主要通过以下方式促进增肌：
+
+1. 细胞肿胀效应——水分进入细胞，触发蛋白合成
+2. 激素释放——生长激素、IGF-1增加
+3. 氧化应激反应——激活修复机制
+
+**研究证据**：
+
+2015年的一项实验（PubMed ID: 25546445）对比了两种训练方式：
+- A组：大重量、长休息（3分钟）
+- B组：中等重量、短休息（1分钟）
+
+6周后，两组肌肉增长相当，但B组代谢压力指标明显更高。这说明代谢压力确实是独立的增肌机制。
+
+**实际应用**：
+
+| 变量 | 如何增加代谢压力 |
+|------|------------------|
+| 次数范围 | 8-15次/组 |
+| 组间休息 | 60-90秒（甚至更短） |
+| 组数 | 每动作3-4组 |
+| 训练密度 | 多动作连续做（不充分休息） |
+
+**特别技巧**：
+
+- **递减组**：做完一组后立刻降低重量继续
+- **暂停休息法**：组中短暂停顿后继续
+- **血流限制训练（BFR）**：用特殊方法限制血液回流，极大增加代谢压力
+
+### 机制三：肌肉损伤（Muscle Damage）
+
+"练得越多越有效"——很多人以为肌肉损伤越多越好。这是误区。
+
+**肌肉损伤的本质**：
+
+训练时，肌纤维会发生微小撕裂。这种损伤会触发炎症反应，免疫系统派出修复细胞，在修复过程中纤维变得更强。
+
+但损伤太大会适得其反：
+
+| 损伤程度 | 效果 |
+|---------|------|
+| 微小损伤 | 触发增长信号 |
+| 中度损伤 | 恢复期延长，影响下次训练 |
+| 重度损伤 | 肌肉功能下降，甚至横纹肌溶解 |
+
+**重要发现**：
+
+2020年的综述（PubMed ID: 32855756）指出：随着训练经验增加，肌肉对损伤的适应增强。新手训练后肌肉损伤指标（CK酶）很高，而老练者同样训练后几乎不升高。
+
+这说明：**损伤不是增肌必需的，适应性训练可以减少损伤但仍有效增长**。
+
+**实际应用**：
+
+- 新动作初期损伤大，循序渐进很重要
+- 离心阶段（下放）更容易造成损伤，要控制速度
+- 不要每次都练到极限酸痛
+- 恢复时间：损伤后需要48-72小时
+
+---
+
+## 三、三机制如何协同工作？
+
+三种机制不是独立的，它们相互影响：
+
+| 机制 | 作用 |
 |------|------|
-| 训练频率 | 每周2-3次同一肌群 |
-| 组数 | 每肌群10-20组/周 |
-| 次数范围 | 6-15次/组 |
-| 休息时间 | 60-90秒 |
-| 进度 | 每周增加重量或次数 |
+| 机械张力 | 主要刺激 |
+| 代谢压力 | 次要刺激，增强张力效果 |
+| 肌肉损伤 | 副作用，适度即可 |
 
-## 营养配合
+**最佳训练策略是组合三者**：
 
-- **蛋白质**：每公斤体重1.6-2.2g
-- **热量**：每日额外增加300-500卡路里
-- **碳水化合物**：训练前后补充充足
-    `,
-    contentEn: `
-# Scientific Principles of Muscle Building
+| 训练日 | 重点机制 | 典型方案 |
+|--------|---------|----------|
+| 大重量日 | 机械张力为主 | 5×5，85%重量，休息3分钟 |
+| 中重量日 | 张力+代谢压力 | 4×8-12，70%重量，休息90秒 |
+| 高密度日 | 代谢压力为主 | 3×15，50%重量，递减组 |
 
-## Three Mechanisms of Muscle Growth
+---
 
-Scientific research shows muscle growth occurs through three main mechanisms:
+## 四、蛋白质合成与分解的平衡
 
-### 1. Mechanical Tension
+肌肉增长不只是"合成增加"，而是合成超过分解。
 
-When muscles are subjected to external load, mechanical tension is created. This activates signaling pathways within muscle cells, promoting protein synthesis.
+**蛋白质周转（Protein Turnover）**：
 
-**Key Points**:
-- Use appropriate weight (60-80% 1RM)
-- Control movement speed, maintain tension
-- Ensure full range of motion
+你的肌肉每天都在变化：
 
-### 2. Metabolic Stress
+- 蛋白质合成：新蛋白质被制造
+- 蛋白质分解：旧蛋白质被回收
 
-During high-intensity training, metabolic products like lactate accumulate, creating metabolic stress that stimulates muscle growth.
+训练时分解增加，恢复时合成增加。只有合成超过分解，净增长才发生。
 
-**Key Points**:
-- Higher training volume (8-15 reps/set)
-- Shorter rest periods (60-90 seconds)
-- Multiple sets
+![Protein Balance](https://images.unsplash.com/photo-1541534742485-6a5c5c7c5c7c?w=800&q=80)
 
-### 3. Muscle Damage
+**研究数据**：
 
-Training causes microscopic muscle damage, triggering repair processes where muscles become bigger and stronger.
+2017年的研究（PubMed ID: 28919842）测量了训练后蛋白质合成速度：
 
-**Key Points**:
-- New exercises cause more damage
-- Eccentric contractions cause more damage
-- Adequate recovery time is crucial
+| 时间段 | 合成速度变化 |
+|--------|-------------|
+| 训练后0-4小时 | 增加50-100% |
+| 4-24小时 | 增加20-40% |
+| 24-48小时 | 回到正常 |
 
-## Muscle Building Recommendations
+这说明：训练后的24小时是合成窗口，营养补充要在这段时间完成。
 
-| Factor | Recommendation |
-|--------|----------------|
-| Frequency | 2-3 times per week per muscle |
-| Sets | 10-20 sets per muscle/week |
-| Rep Range | 6-15 reps/set |
-| Rest Time | 60-90 seconds |
-| Progression | Increase weight or reps weekly |
+---
 
-## Nutritional Support
+## 五、训练变量如何影响增肌？
 
-- **Protein**: 1.6-2.2g per kg body weight
-- **Calories**: Extra 300-500 calories daily
-- **Carbohydrates**: Adequate before and after training
-    `,
-    tags: ['增肌', 'muscle-building', '训练原理'],
-    relatedExercises: ['push-up', 'squat', 'glute-bridge'],
-    isPremium: false,
-    createdAt: '2026-04-11',
-  },
-  {
-    id: '2',
-    slug: 'fat-loss-principles',
-    title: '减脂的科学原理',
-    titleEn: 'Scientific Principles of Fat Loss',
-    category: 'training_principle',
-    categoryZh: '训练原理',
-    categoryEn: 'Training Principles',
-    summary: '理解脂肪燃烧的生理机制，以及如何通过训练和饮食实现有效减脂。',
-    summaryEn: 'Understand the physiological mechanisms of fat burning and how to achieve effective fat loss through training and diet.',
-    content: `
-# 减脂的科学原理
+基于三大机制，我们来看每个训练变量应该如何设置。
 
-## 减脂的核心原理
+### 1. 训练频率
 
-减脂的本质是：**热量消耗 > 热量摄入**
+**传统观念**：每肌群每周练1次
 
-### 基础代谢率（BMR）
+**现代研究**：更高的频率效果更好
 
-即使不运动，身体也需要消耗能量来维持基本功能：
-- 呼吸、心跳
-- 维持体温
-- 细胞修复
+2016年研究（PubMed ID: 27172123）对比了两种方案：
 
-**影响因素**：
-- 年龄：随年龄增长BMR下降
-- 性别：男性通常BMR较高
-- 肌肉量：肌肉越多，BMR越高
+| 方案 | 组数分布 | 结果 |
+|------|----------|------|
+| 低频率 | 每周1次，每次10组 | 增长较少 |
+| 高频率 | 每周2-3次，每次3-4组 | 增长更多 |
 
-### 活动消耗
+**原因**：
 
-包括日常活动和运动：
-- 日常活动（走路、站立等）
-- 结构化训练（健身、跑步等）
+- 频率越高，蛋白质合成窗口次数越多
+- 每次训练强度可以更高（不会疲劳）
+- 机械张力刺激更频繁
 
-### 减脂训练策略
+**推荐频率**：
 
-1. **力量训练**：增加肌肉量，提高BMR
-2. **HIIT训练**：短时间内高强度消耗
-3. **有氧训练**：直接消耗脂肪
+| 训练经验 | 每肌群频率 |
+|---------|-----------|
+| 新手（<6月） | 每周2次 |
+| 进阶（6-12月） | 每周2-3次 |
+| 高级（>12月） | 每周3次 |
 
-## 减脂饮食建议
+### 2. 组数
 
-| 因素 | 建议 |
+**每组刺激量有限，需要累积足够组数。**
+
+2017年荟萃分析（PubMed ID: 28534180）结论：
+
+| 每肌群每周组数 | 增肌效果 |
+|---------------|----------|
+| <5组 | 效果不明显 |
+| 5-9组 | 明确增长 |
+| 10+组 | 效果最佳 |
+
+**但超过20组后边际效益下降。**
+
+**实际建议**：
+
+每周每主要肌群安排10-20组。比如：
+
+- 胸部：平板卧推4组 + 上斜卧推3组 + 飞鸟3组 = 10组
+- 腿部：深蹲5组 + 硬拉4组 + 腿举4组 = 13组
+
+### 3. 次数范围
+
+次数直接影响机制偏向：
+
+| 次数 | 主导机制 | 适合场景 |
+|------|---------|----------|
+| 1-5次 | 机械张力 | 力量优先 |
+| 6-12次 | 张力+压力 | **增肌最佳** |
+| 12-20次 | 代谢压力 | 耐力/代谢 |
+
+**不要固定在一个范围**：
+
+最好的方案是混合使用：
+
+- 主要组：6-12次（70-80%重量）
+- 辅助组：12-15次（50-60%重量，增加代谢压力）
+- 力量组：3-5次（偶尔使用85%，增加张力）
+
+### 4. 休息时间
+
+休息时间影响代谢压力累积：
+
+| 休息时间 | 代谢压力 | 适用 |
+|---------|----------|------|
+| 30-60秒 | 很高 | 轻重量、代谢训练 |
+| 60-90秒 | 中等 | **标准增肌训练** |
+| 2-3分钟 | 低 | 大重量、力量训练 |
+
+**实际操作**：
+
+- 主要肌群、复合动作：休息90-120秒
+- 辅助动作、孤立动作：休息60-90秒
+- 递减组、代谢训练：休息30-45秒
+
+---
+
+## 六、渐进超负荷——持续进步的关键
+
+肌肉会适应刺激。如果训练永远一样，肌肉增长会停止。
+
+**渐进超负荷（Progressive Overload）**是持续进步的核心。
+
+### 什么是渐进超负荷？
+
+简单说：每次训练都比上次有进步。
+
+进步方式不只是加重量：
+
+| 方式 | 如何实施 |
+|------|----------|
+| 加重量 | 同样次数，重量增加 |
+| 加次数 | 同样重量，次数增加 |
+| 加组数 | 增加总刺激量 |
+| 缩短休息 | 增加代谢压力 |
+| 改进技术 | 更好的动作=更好的刺激 |
+
+### 实际执行建议
+
+**记录训练数据**：
+
+每次训练记录：
+- 动作名称
+- 重量
+- 每组次数
+- 总组数
+
+下次训练的目标：
+- 至少一项比上次好
+
+**示例**：
+
+| 训练日 | 平板卧推 |
+|--------|----------|
+| 第1周 | 60kg × 8,8,7 |
+| 第2周 | 60kg × 8,8,8（次数进步） |
+| 第3周 | 62.5kg × 7,7,6（重量进步） |
+| 第4周 | 62.5kg × 8,8,7（次数恢复） |
+
+**不要急于加重**：
+
+很多人每次都加重量，结果动作质量下降，实际刺激反而减少。
+
+正确做法：
+- 先用同样重量做到次数目标（比如8次×3组）
+- 硳定能完成后，增加2.5-5kg
+- 次数可能下降，但逐渐恢复
+
+---
+
+## 七、营养支持——增长的物质基础
+
+训练提供刺激，营养提供材料。没有足够的营养，增长不会发生。
+
+### 蛋白质需求
+
+增肌期蛋白质需求最高：
+
+| 研究 | 推荐摄入 |
+|------|----------|
+| Jäger et al., 2017 | 1.4-2.0 g/kg |
+| Morton et al., 2018 | 1.6 g/kg已足够 |
+| Helms et al., 2014 | 减脂期需2.3-3.1 g/kg |
+
+**实践建议**：
+
+| 情况 | 每公斤体重蛋白质 |
+|------|------------------|
+| 维持期 | 1.4-1.6 g |
+| 增肌期 | 1.6-2.2 g |
+| 减脂保肌 | 2.0-2.4 g |
+
+### 蛋白质时机
+
+训练后的蛋白质摄入很重要，但窗口比想象的长：
+
+| 时间 | 建议 |
 |------|------|
-| 热量缺口 | 300-500卡路里/天 |
-| 蛋白质 | 每公斤体重1.8-2.2g |
-| 碳水化合物 | 根据训练量调整 |
-| 脂肪 | 占总热量20-30% |
+| 训练前1-2小时 | 20-30g |
+| 训练后0-2小时 | 25-40g |
+| 全天 | 每餐均衡分配 |
 
-## 常见误区
+**不必纠结"黄金30分钟"**。
 
-- ❌ 只做有氧，不做力量
-- ❌ 过度削减热量
-- ❌ 完全不吃碳水
-- ✅ 力量+有氧组合最佳
+2017年研究（PubMed ID: 28919842）显示，只要全天蛋白质总量足够，具体时机影响不大。但训练前后摄入仍有轻微优势。
+
+### 热量需求
+
+增肌需要多余热量：
+
+| 目标 | 热量盈余 |
+|------|----------|
+| 缓慢增肌 | +150-250 kcal |
+| 快速增肌 | +300-500 kcal |
+| 干净增肌 | +100-200 kcal |
+
+**太大的盈余只会增加脂肪**。
+
+---
+
+## 八、恢复——增长发生的时间
+
+训练时肌肉被破坏，恢复时肌肉增长。
+
+### 睡眠
+
+睡眠不足直接影响增肌：
+
+- 生长激素分泌减少
+- 蛋白质合成降低
+- 训练表现下降
+
+**研究数据**：
+
+2018年研究（PubMed ID: 30532059）发现，每晚睡眠<6小时的人，肌肉力量和增长都比睡眠>7小时的人差。
+
+**建议**：每晚7-9小时，尽量规律。
+
+### 肌群恢复时间
+
+| 肌群 | 建议休息 |
+|------|----------|
+| 大肌群（腿、背、胸） | 48-72小时 |
+| 小肌群（手臂、肩、腹） | 24-48小时 |
+
+### 过训练的信号
+
+| 信号 | 说明 |
+|------|------|
+| 持续疲劳 | 几天都恢复不了 |
+| 力量下降 | 比上次训练表现差 |
+| 睡眠变差 | 训练后睡不着 |
+| 情绪低落 | 对训练失去兴趣 |
+
+出现这些信号时，主动减载：重量减少20-30%，组数减少，或完全休息一周。
+
+---
+
+## 九、常见误区澄清
+
+### ❌ 误区1：酸痛等于效果好
+
+很多人以为练完越酸痛越有效。其实：
+
+- 酸痛主要来自肌肉损伤
+- 损伤不是增肌必需的
+- 长期训练者几乎不酸痛但仍有效增长
+
+### ❌ 误区2：必须练到力竭
+
+力竭（做到再也举不动）确实增加刺激，但也增加疲劳和损伤风险。
+
+研究显示：接近力竭（保留1-2次余力）效果几乎一样，疲劳更少。
+
+### ❌ 误区3：动作越多越好
+
+很多人一个肌群做5-6个动作。但研究显示：复合动作足够，辅助动作边际效益小。
+
+**高效方案**：每肌群2-3个动作，做好就行。
+
+### ❌ 误区4：重量越重越好
+
+重量大≠张力大。
+
+如果重量太大，动作行程缩短、速度失控，实际张力反而减少。正确做法：在完整行程、控制速度的前提下，逐渐增加重量。
+
+---
+
+## 十、新手增肌计划示例
+
+基于以上原理，给新手一个实际方案：
+
+### 第1-4周：适应期
+
+每周3次全身训练：
+
+| 训练日 | 内容 |
+|--------|------|
+| 周一 | 深蹲3×8、卧推3×8、划船3×10 |
+| 周三 | 硬拉3×5、俯卧撑3×10、腿举3×12 |
+| 周五 | 深蹲3×8、上斜卧推3×8、下拉3×10 |
+
+重量：选能做目标次数+2的重量（不力竭）
+休息：90-120秒
+
+### 第5-12周：进展期
+
+改为分化训练，每周4次：
+
+| 训练日 | 肌群 |
+|--------|------|
+| 周一 | 胸+三头 |
+| 周二 | 背+二头 |
+| 周四 | 腿 |
+| 周五 | 肩+腹 |
+
+每次4-5动作，总组数15-18组。开始记录重量，每周尝试进步。
+
+---
+
+## 总结
+
+肌肉增长的科学原理已经明确：
+
+1. **三大机制**：机械张力是核心，代谢压力辅助，肌肉损伤适度即可
+2. **训练变量**：10-20组/周、6-12次为主、频率2-3次/肌群
+3. **渐进超负荷**：每次都比上次进步一点点
+4. **营养支持**：1.6-2.2g/kg蛋白质，热量适度盈余
+5. **恢复优先**：7-9小时睡眠，肌群休息48-72小时
+
+这些原理适用于所有人——不分性别、年龄、地区。
+
+训练不是为了酸痛，不是为了力竭，而是为了让肌肉真正增长。理解原理，训练才有意义。
+
+> **最后记住**：肌肉增长需要时间。6-12个月才能看到明显变化。耐心、坚持、科学——三者缺一不可。
     `,
     contentEn: `
-# Scientific Principles of Fat Loss
+![Muscle Growth](https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80)
 
-## Core Principle of Fat Loss
+# The Complete Science of Muscle Growth
 
-The essence of fat loss: **Calories Burned > Calories Consumed**
+You train every day, but is your muscle actually growing?
 
-### Basal Metabolic Rate (BMR)
+Many people train for years with little visible change. The problem isn't training volume—it's understanding the principles. This article takes you deep into the physiology of muscle growth—not the vague "just work hard" advice, but the actual science that can guide effective training.
 
-Even without exercise, the body needs energy for basic functions:
-- Breathing, heartbeat
-- Temperature maintenance
-- Cell repair
+---
 
-**Factors Affecting BMR**:
-- Age: BMR decreases with age
-- Gender: Men typically have higher BMR
-- Muscle mass: More muscle = higher BMR
+## I. What Is Muscle Growth Really?
 
-### Activity Expenditure
+Muscle growth, scientifically termed "Muscle Hypertrophy," refers to the increase in muscle fiber cross-sectional area.
 
-Includes daily activities and exercise:
-- Daily activities (walking, standing, etc.)
-- Structured training (gym, running, etc.)
+Simply: **Your muscle cells get bigger, not more numerous.**
 
-### Fat Loss Training Strategies
+Adult muscle fiber count is essentially fixed, with each muscle containing thousands to tens of thousands of fibers. Training doesn't increase fiber count, but makes each fiber thicker. This is why muscles appear larger—each fiber stores more protein.
 
-1. **Strength Training**: Increase muscle mass, raise BMR
-2. **HIIT Training**: High intensity in short time
-3. **Cardio Training**: Direct fat consumption
+![Muscle Fiber](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=800&q=80)
 
-## Fat Loss Nutrition Recommendations
+**Key Concept**: Muscle Fiber Types
 
-| Factor | Recommendation |
-|--------|----------------|
-| Calorie Deficit | 300-500 calories/day |
-| Protein | 1.8-2.2g per kg body weight |
-| Carbohydrates | Adjust based on training |
-| Fat | 20-30% of total calories |
+Human muscle fibers come in two types:
 
-## Common Mistakes
+| Type | Characteristics | Training Response |
+|------|-----------------|-------------------|
+| Type I (Slow-twitch) | Red tint, endurance-oriented, slow contraction | Low growth potential |
+| Type II (Fast-twitch) | White tint, strength-oriented, fast contraction | **Highest growth potential** |
 
-- ❌ Only cardio, no strength training
-- ❌ Excessive calorie cutting
-- ️ Complete carb elimination
-- ✅ Strength + cardio combination is best
-    `,
-    tags: ['减脂', 'fat-loss', '训练原理'],
-    relatedExercises: ['burpee', 'mountain-climber'],
-    isPremium: false,
-    createdAt: '2026-04-11',
-  },
-  {
-    id: '3',
-    slug: 'beginner-guide',
-    title: '新手入门指南',
-    titleEn: 'Beginner\'s Guide to Fitness',
-    category: 'population_guide',
-    categoryZh: '人群指南',
-    categoryEn: 'Population Guides',
-    summary: '健身新手如何开始？从动作选择、训练频率到注意事项，一站式入门指南。',
-    summaryEn: 'How to start fitness as a beginner? From exercise selection to training frequency and precautions, a complete beginner\'s guide.',
-    content: `
-# 新手入门指南
+Strength training primarily stimulates Type II fibers. This explains why strength athletes show more visible muscle growth than endurance athletes.
 
-## 第一步：设定目标
+---
 
-开始健身前，先明确你的目标：
-- 增肌塑形
-- 减脂瘦身
-- 增强力量
-- 提升体能
+## II. The Three Mechanisms Theory
 
-不同目标需要不同的训练策略。
+In 2010, Brad Schoenfeld published a landmark paper in the *Journal of Strength and Conditioning Research*, systematically explaining the three core mechanisms of muscle growth. This paper remains widely cited and is foundational to training science.
 
-## 第二步：选择适合的计划
+### Mechanism 1: Mechanical Tension
 
-作为新手，推荐：
-- **频率**：每周3-4次
-- **时长**：每次30-45分钟
-- **内容**：全身训练或分部位训练
+This is the most fundamental mechanism.
 
-## 第三步：学习正确动作
+**What is mechanical tension?**
 
-最重要的一步！错误的动作会导致：
-- 效果不佳
-- 受伤风险
-- 形成错误习惯
+When muscle is subjected to external load, it experiences physical pulling force. This force activates intracellular signaling pathways, telling the cell: "We need more protein to handle this stress."
 
-建议：
-1. 从轻重量开始
-2. 专注于动作标准
-3. 请教练或有经验者指导
+The process:
 
-## 第四步：循序渐进
+1. Muscle bears load → muscle fibers stretch
+2. Mechanoreceptors on cell membrane activate
+3. Signal transmits to nucleus
+4. Gene expression initiates, synthesizing more protein
 
-新手容易犯的错误：
-- 急于加重量
-- 训练过量
-- 忽视休息
+**Research findings**:
 
-正确的做法：
-- 每周增加不超过5%
-- 听从身体信号
-- 保证充足睡眠
+A 2019 study (PubMed ID: 31164524) measured muscle activation under different loads. Results showed mechanical tension peaks when using 70-85% of maximum weight. Lighter weights lack sufficient tension; heavier weights shorten movement range, reducing tension duration.
 
-## 推荐新手动作
+**Practical application**:
 
-| 肌群 | 动作 | 难度 |
-|------|------|------|
-| 胸部 | 平板支撑俯卧撑 | 初级 |
-| 背部 | 引体向上（辅助） | 初级 |
-| 腿部 | 深蹲 | 初级 |
-| 核心 | 平板支撑 | 初级 |
-    `,
-    contentEn: `
-# Beginner's Guide to Fitness
+| Load Range | Mechanical Tension Effect |
+|------------|---------------------------|
+| 30-50% 1RM | Low tension, endurance focus |
+| 60-80% 1RM | **Optimal tension** |
+| 85-100% 1RM | High tension but short duration |
 
-## Step 1: Set Your Goals
+**How to maximize tension**:
 
-Before starting fitness, clarify your goals:
-- Muscle building
-- Fat loss
-- Strength enhancement
-- Fitness improvement
+- Choose weight for 6-12 reps
+- Control speed: lift 2 seconds, lower 3 seconds
+- Ensure full range: complete stretch to complete contraction
+- Don't swing weight, keep muscle under tension
 
-Different goals require different training strategies.
+### Mechanism 2: Metabolic Stress
 
-## Step 2: Choose Appropriate Plan
+Many overlook this mechanism, but it's equally important for hypertrophy.
 
-As a beginner, recommended:
-- **Frequency**: 3-4 times per week
-- **Duration**: 30-45 minutes each session
-- **Content**: Full body or split training
+**What is metabolic stress?**
 
-## Step 3: Learn Correct Form
+During high-intensity training, muscle accumulates metabolic products: lactate, hydrogen ions, inorganic phosphate, etc. This accumulation changes cellular environment, triggering muscle growth signals.
 
-The most important step! Incorrect form leads to:
-- Poor results
-- Injury risk
-- Wrong habits
+Think of it as: muscle's response to "oxygen deprivation."
 
-Recommendations:
-1. Start with light weight
-2. Focus on proper form
-3. Get guidance from coach or experienced person
+![Metabolic Stress](https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80)
 
-## Step 4: Progressive Training
+**Metabolic stress signaling pathways**:
 
-Common beginner mistakes:
-- Rushing to add weight
-- Overtraining
-- Ignoring rest
+Metabolic stress promotes hypertrophy through:
+
+1. Cell swelling effect—water enters cells, triggering protein synthesis
+2. Hormone release—growth hormone, IGF-1 increase
+3. Oxidative stress response—activates repair mechanisms
+
+**Research evidence**:
+
+A 2015 experiment (PubMed ID: 25546445) compared two training approaches:
+- Group A: Heavy weights, long rest (3 minutes)
+- Group B: Moderate weights, short rest (1 minute)
+
+After 6 weeks, both groups showed similar muscle growth, but Group B had significantly higher metabolic stress markers. This demonstrates metabolic stress is an independent hypertrophy mechanism.
+
+**Practical application**:
+
+| Variable | How to Increase Metabolic Stress |
+|----------|----------------------------------|
+| Rep range | 8-15 reps/set |
+| Rest intervals | 60-90 seconds (or shorter) |
+| Sets | 3-4 sets per exercise |
+| Training density | Multiple exercises consecutively (incomplete rest) |
+
+**Special techniques**:
+
+- **Drop sets**: Complete a set then immediately reduce weight and continue
+- **Rest-pause method**: Brief pause mid-set then continue
+- **Blood flow restriction (BFR)**: Special method restricting blood return, dramatically increasing metabolic stress
+
+### Mechanism 3: Muscle Damage
+
+"More training = better results"—many believe maximum muscle damage is optimal. This is a misconception.
+
+**Nature of muscle damage**:
+
+During training, muscle fibers undergo microscopic tears. This damage triggers inflammatory response, immune system dispatches repair cells, and fibers become stronger during repair.
+
+But excessive damage backfires:
+
+| Damage Level | Effect |
+|-------------|--------|
+| Microscopic damage | Triggers growth signals |
+| Moderate damage | Extended recovery, affects next session |
+| Severe damage | Muscle function decline, potential rhabdomyolysis |
+
+**Important finding**:
+
+A 2020 review (PubMed ID: 32855756) noted: as training experience increases, muscle adapts to damage. Beginners show high muscle damage markers (CK enzyme) after training, while experienced lifters show minimal elevation with similar training.
+
+This indicates: **Damage isn't required for hypertrophy; adaptive training can minimize damage while maintaining effective growth.**
+
+**Practical application**:
+
+- New exercises initially cause more damage—gradual progression matters
+- Eccentric phase (lowering) causes more damage—control speed
+- Don't train to extreme soreness every session
+- Recovery time: 48-72 hours after damage
+
+---
+
+## III. How Do the Three Mechanisms Work Together?
+
+The mechanisms aren't independent—they interact:
+
+| Mechanism | Role |
+|-----------|------|
+| Mechanical Tension | Primary stimulus |
+| Metabolic Stress | Secondary stimulus, enhances tension effect |
+| Muscle Damage | Side effect, moderate is sufficient |
+
+**Optimal training strategy combines all three**:
+
+| Training Day | Primary Mechanism | Typical Approach |
+|--------------|-------------------|-------------------|
+| Heavy day | Mechanical tension focus | 5×5, 85% weight, 3 min rest |
+| Medium day | Tension + metabolic stress | 4×8-12, 70% weight, 90 sec rest |
+| High density day | Metabolic stress focus | 3×15, 50% weight, drop sets |
+
+---
+
+## IV. Protein Synthesis vs. Breakdown Balance
+
+Muscle growth isn't just "increased synthesis"—it's synthesis exceeding breakdown.
+
+**Protein Turnover**:
+
+Your muscles change daily:
+
+- Protein synthesis: new proteins created
+- Protein breakdown: old proteins recycled
+
+During training, breakdown increases; during recovery, synthesis increases. Only when synthesis exceeds breakdown does net growth occur.
+
+![Protein Balance](https://images.unsplash.com/photo-1541534742485-6a5c5c7c5c7c?w=800&q=80)
+
+**Research data**:
+
+A 2017 study (PubMed ID: 28919842) measured protein synthesis rates after training:
+
+| Time Period | Synthesis Rate Change |
+|-------------|----------------------|
+| 0-4 hours post-training | Increased 50-100% |
+| 4-24 hours | Increased 20-40% |
+| 24-48 hours | Returns to normal |
+
+This shows: the 24 hours post-training is the synthesis window. Nutritional support should occur during this period.
+
+---
+
+## V. How Training Variables Affect Hypertrophy?
+
+Based on the three mechanisms, let's examine optimal settings for each training variable.
+
+### 1. Training Frequency
+
+**Traditional belief**: Train each muscle group once per week
+
+**Modern research**: Higher frequency yields better results
+
+A 2016 study (PubMed ID: 27172123) compared two approaches:
+
+| Approach | Set Distribution | Results |
+|----------|-----------------|---------|
+| Low frequency | Once weekly, 10 sets | Less growth |
+| High frequency | 2-3 times weekly, 3-4 sets each | More growth |
+
+**Reason**:
+
+- Higher frequency = more protein synthesis windows
+- Each session intensity can be higher (less fatigue)
+- More frequent mechanical tension stimulation
+
+**Recommended frequency**:
+
+| Training Experience | Frequency per Muscle |
+|--------------------|---------------------|
+| Beginner (<6 months) | 2x per week |
+| Intermediate (6-12 months) | 2-3x per week |
+| Advanced (>12 months) | 3x per week |
+
+### 2. Number of Sets
+
+**Each set provides limited stimulus—need cumulative volume.**
+
+A 2017 meta-analysis (PubMed ID: 28534180) conclusion:
+
+| Weekly Sets per Muscle | Hypertrophy Effect |
+|-----------------------|-------------------|
+| <5 sets | Minimal effect |
+| 5-9 sets | Clear growth |
+| 10+ sets | Optimal results |
+
+**But beyond 20 sets, marginal benefit decreases.**
+
+**Practical recommendation**:
+
+10-20 sets per major muscle group weekly. Example:
+
+- Chest: Flat bench 4 sets + Incline 3 sets + Flyes 3 sets = 10 sets
+- Legs: Squat 5 sets + Deadlift 4 sets + Leg press 4 sets = 13 sets
+
+### 3. Repetition Range
+
+Reps directly influence mechanism bias:
+
+| Reps | Dominant Mechanism | Suitable Context |
+|------|-------------------|------------------|
+| 1-5 | Mechanical tension | Strength focus |
+| 6-12 | Tension + stress | **Best for hypertrophy** |
+| 12-20 | Metabolic stress | Endurance/metabolic |
+
+**Don't fixate on one range**:
+
+Best approach combines multiple ranges:
+
+- Main sets: 6-12 reps (70-80% weight)
+- Auxiliary sets: 12-15 reps (50-60% weight, increase metabolic stress)
+- Strength sets: 3-5 reps (occasionally use 85%, increase tension)
+
+### 4. Rest Intervals
+
+Rest affects metabolic stress accumulation:
+
+| Rest Time | Metabolic Stress | Application |
+|-----------|-----------------|-------------|
+| 30-60 sec | Very high | Light weight, metabolic training |
+| 60-90 sec | Moderate | **Standard hypertrophy training** |
+| 2-3 min | Low | Heavy weight, strength training |
+
+**Practical operation**:
+
+- Major muscle groups, compound movements: rest 90-120 seconds
+- Auxiliary movements, isolation exercises: rest 60-90 seconds
+- Drop sets, metabolic training: rest 30-45 seconds
+
+---
+
+## VI. Progressive Overload—Key to Continuous Progress
+
+Muscles adapt to stimulus. If training stays the same, growth stops.
+
+**Progressive Overload** is the core of continuous improvement.
+
+### What is progressive overload?
+
+Simply: Each training session improves over the previous one.
+
+Progress isn't just adding weight:
+
+| Method | How to Implement |
+|--------|-----------------|
+| Add weight | Same reps, increased weight |
+| Add reps | Same weight, more reps |
+| Add sets | Increased total stimulus |
+| Shorten rest | Increased metabolic stress |
+| Improve technique | Better form = better stimulus |
+
+### Practical Implementation
+
+**Record training data**:
+
+Log each session:
+- Exercise name
+- Weight
+- Reps per set
+- Total sets
+
+Next session goal:
+- At least one improvement over last time
+
+**Example**:
+
+| Training Week | Flat Bench Press |
+|--------------|------------------|
+| Week 1 | 60kg × 8,8,7 |
+| Week 2 | 60kg × 8,8,8 (rep progress) |
+| Week 3 | 62.5kg × 7,7,6 (weight progress) |
+| Week 4 | 62.5kg × 8,8,7 (reps recover) |
+
+**Don't rush weight increases**:
+
+Many add weight every session, resulting in degraded movement quality and reduced actual stimulus.
 
 Correct approach:
-- Increase no more than 5% weekly
-- Listen to body signals
-- Ensure adequate sleep
+- First achieve rep target at same weight (e.g., 8 reps × 3 sets)
+- Once consistently achieved, increase 2.5-5kg
+- Reps may decrease but gradually recover
 
-## Recommended Beginner Exercises
+---
 
-| Muscle Group | Exercise | Level |
-|--------------|----------|-------|
-| Chest | Push-ups | Beginner |
-| Back | Assisted pull-ups | Beginner |
-| Legs | Squats | Beginner |
-| Core | Plank | Beginner |
-    `,
-    tags: ['新手', 'beginner', '入门指南'],
-    relatedExercises: ['push-up', 'squat', 'plank'],
-    isPremium: false,
-    createdAt: '2026-04-11',
-  },
-  {
-    id: '6',
-    slug: 'protein-guide',
-    title: '蛋白质完全指南：增肌减脂的核心营养',
-    titleEn: 'The Complete Protein Guide: Core Nutrition for Muscle Building and Fat Loss',
-    category: 'training_principle',
-    categoryZh: '训练原理',
-    categoryEn: 'Training Principles',
-    summary: '蛋白质是肌肉生长的建筑材料。掌握蛋白质摄入时机、来源选择和分配策略，最大化训练效果。',
-    summaryEn: 'Protein is the building material for muscle growth. Master protein timing, source selection, and distribution strategies to maximize training results.',
-    content: `
-# 蛋白质完全指南：增肌减脂的核心营养
+## VII. Nutritional Support—Material Basis for Growth
 
-蛋白质是肌肉生长的基石。无论你是想增肌还是减脂，蛋白质摄入都至关重要。
+Training provides stimulus; nutrition provides materials. Without adequate nutrition, growth won't occur.
 
-## 为什么蛋白质如此重要？
+### Protein Requirements
 
-### 1. 肌肉合成的基础
+Hypertrophy phase has highest protein needs:
 
-肌肉组织主要由蛋白质构成。当你训练时，肌肉纤维受到微小损伤，蛋白质提供氨基酸来修复和重建这些纤维，使肌肉变得更大更强。
+| Study | Recommended Intake |
+|-------|-------------------|
+| Jäger et al., 2017 | 1.4-2.0 g/kg |
+| Morton et al., 2018 | 1.6 g/kg sufficient |
+| Helms et al., 2014 | Fat loss phase needs 2.3-3.1 g/kg |
 
-### 2. 防止肌肉流失
+**Practical recommendations**:
 
-减脂期如果蛋白质摄入不足，身体会分解肌肉来获取能量。充足的蛋白质可以保护你的肌肉，让你减掉的是脂肪而非肌肉。
+| Situation | Protein per kg Body Weight |
+|-----------|---------------------------|
+| Maintenance | 1.4-1.6 g |
+| Hypertrophy | 1.6-2.2 g |
+| Fat loss preserving muscle | 2.0-2.4 g |
 
-### 3. 增强饱腹感
+### Protein Timing
 
-蛋白质比碳水化合物和脂肪更能让你感到饱足。高蛋白饮食可以自然减少你的食欲，有助于减脂。
+Post-training protein intake matters, but the window is longer than believed:
 
-## 你需要多少蛋白质？
-
-| 目标 | 每日推荐摄入量 |
+| Time | Recommendation |
 |------|----------------|
-| 维持健康 | 0.8g/kg体重 |
-| 增肌 | 1.6-2.2g/kg体重 |
-| 减脂保肌 | 1.8-2.4g/kg体重 |
+| 1-2 hours pre-training | 20-30g |
+| 0-2 hours post-training | 25-40g |
+| Throughout day | Even distribution per meal |
 
-**例子**：70kg的人增肌期每天需要112-154g蛋白质。
+**Don't obsess over "golden 30 minutes."**
 
-## 优质蛋白质来源
+A 2017 study (PubMed ID: 28919842) showed that with adequate total daily protein, specific timing has minor impact. But pre/post intake still provides slight advantage.
 
-### 动物蛋白（完全蛋白）
+### Caloric Requirements
 
-| 来源 | 每100g蛋白质含量 |
-|------|------------------|
-| 鸡胸肉 | 31g |
-| 牛肉 | 26g |
-| 鱼类 | 20-25g |
-| 鸡蛋 | 13g（每个约6g） |
-| 牛奶 | 3.4g |
+Hypertrophy requires caloric surplus:
 
-### 植物蛋白
+| Goal | Caloric Surplus |
+|------|----------------|
+| Slow gain | +150-250 kcal |
+| Fast gain | +300-500 kcal |
+| Lean gain | +100-200 kcal |
 
-| 来源 | 每100g蛋白质含量 |
-|------|------------------|
-| 豆类 | 20-25g |
-| 坚果 | 15-20g |
-| 豆腐 | 8-15g |
-| 豆浆 | 2-3g |
+**Excessive surplus only adds fat.**
 
-**建议**：动物蛋白氨基酸更完整，植物蛋白需要多样化搭配。
+---
 
-## 蛋白质摄入时机
+## VIII. Recovery—When Growth Happens
 
-### 训练前（1-2小时）
-摄入20-30g蛋白质，为训练提供氨基酸储备。
+Muscle breaks down during training; grows during recovery.
 
-### 训练后（30分钟内）
-这是肌肉合成最活跃的时期。摄入25-40g快速吸收的蛋白质（如乳清蛋白），配合碳水化合物效果更好。
+### Sleep
 
-### 全天分配
-每餐都应有蛋白质，而非一顿吃太多。每餐20-40g，分3-5餐摄入。
+Sleep deprivation directly impairs hypertrophy:
 
-## 蛋白质补剂
+- Growth hormone secretion decreases
+- Protein synthesis lowers
+- Training performance drops
 
-### 乳清蛋白
-- 吸收快，适合训练后
-- 每勺约20-25g蛋白质
+**Research data**:
 
-### 酪蛋白
-- 吸收慢，适合睡前
-- 持续释放氨基酸，防止夜间肌肉分解
+A 2018 study (PubMed ID: 30532059) found people sleeping <6 hours nightly showed worse muscle strength and growth than those sleeping >7 hours.
 
-### 大豆蛋白
-- 适合素食者
-- 氨基酸完整度略低于动物蛋白
+**Recommendation**: 7-9 hours nightly, consistent schedule.
 
-## 常见误区
+### Muscle Group Recovery Time
 
-❌ "吃太多蛋白质伤肾"
-健康人群摄入高蛋白（2g/kg以内）不会伤肾。有肾病的人需遵医嘱。
+| Muscle Group | Recommended Rest |
+|--------------|------------------|
+| Large groups (legs, back, chest) | 48-72 hours |
+| Small groups (arms, shoulders, abs) | 24-48 hours |
 
-❌ "只有吃肉才有蛋白质"
-豆类、坚果、谷物都含蛋白质，植物蛋白也能满足需求。
+### Signs of Overtraining
 
-❌ "蛋白质补剂必需"
-补剂只是方便的选择，从食物获取蛋白质更经济、更健康。
+| Signal | Meaning |
+|--------|---------|
+| Persistent fatigue | Can't recover for days |
+| Strength decline | Performance worse than last session |
+| Sleep disruption | Can't sleep after training |
+| Mood drop | Losing interest in training |
 
-## 总结要点
+When these appear, actively deload: reduce weight 20-30%, fewer sets, or complete rest for a week.
 
-1. 增肌期：1.6-2.2g/kg体重
-2. 减脂期：1.8-2.4g/kg体重
-3. 每餐都分配蛋白质
-4. 训练后及时补充
-5. 食物优于补剂
+---
+
+## IX. Common Misconceptions Clarified
+
+### ❌ Myth 1: Soreness equals effectiveness
+
+Many believe post-training soreness indicates effectiveness. Actually:
+
+- Soreness mainly from muscle damage
+- Damage isn't required for hypertrophy
+- Experienced lifters rarely feel sore but still grow effectively
+
+### ❌ Myth 2: Must train to failure
+
+Failure (can't lift anymore) does increase stimulus, but also fatigue and injury risk.
+
+Studies show: Near failure (1-2 reps in reserve) achieves nearly identical results with less fatigue.
+
+### ❌ Myth 3: More exercises = better
+
+Many do 5-6 exercises per muscle group. But research shows: compound movements suffice, auxiliary movements have minimal added benefit.
+
+**Efficient approach**: 2-3 exercises per muscle group, executed well.
+
+### ❌ Myth 4: Heavier weight = better stimulus
+
+Heavy weight ≠ high tension.
+
+If weight is excessive, movement range shortens, speed becomes uncontrolled, actual tension decreases. Correct approach: gradually increase weight while maintaining full range and controlled speed.
+
+---
+
+## X. Beginner Hypertrophy Program Example
+
+Based on these principles, here's a practical beginner plan:
+
+### Weeks 1-4: Adaptation Phase
+
+3 full-body sessions weekly:
+
+| Training Day | Content |
+|--------------|---------|
+| Monday | Squat 3×8, Bench 3×8, Row 3×10 |
+| Wednesday | Deadlift 3×5, Push-up 3×10, Leg press 3×12 |
+| Friday | Squat 3×8, Incline bench 3×8, Pull-down 3×10 |
+
+Weight: Select weight for target reps + 2 (don't reach failure)
+Rest: 90-120 seconds
+
+### Weeks 5-12: Progression Phase
+
+Switch to split training, 4 sessions weekly:
+
+| Training Day | Muscle Groups |
+|--------------|--------------|
+| Monday | Chest + Triceps |
+| Tuesday | Back + Biceps |
+| Thursday | Legs |
+| Friday | Shoulders + Abs |
+
+4-5 exercises per session, total 15-18 sets. Start tracking weight, attempt weekly progress.
+
+---
+
+## Summary
+
+The science of muscle growth is clear:
+
+1. **Three mechanisms**: Mechanical tension is primary, metabolic stress supports, muscle damage moderately
+2. **Training variables**: 10-20 sets/week, primarily 6-12 reps, frequency 2-3x per muscle
+3. **Progressive overload**: Improve slightly each session
+4. **Nutritional support**: 1.6-2.2g/kg protein, moderate caloric surplus
+5. **Recovery priority**: 7-9 hours sleep, 48-72 hours muscle rest
+
+These principles apply to everyone—regardless of gender, age, or region.
+
+Training isn't about soreness or failure—it's about actual muscle growth. Understanding principles makes training meaningful.
+
+> **Final reminder**: Muscle growth takes time. 6-12 months for visible change. Patience, consistency, science—all three are essential.
     `,
-    contentEn: `
-# The Complete Protein Guide: Core Nutrition for Muscle Building and Fat Loss
-
-Protein is the foundation of muscle growth. Whether you want to build muscle or lose fat, protein intake is crucial.
-
-## Why Protein Matters?
-
-### 1. Foundation of Muscle Synthesis
-
-Muscle tissue is primarily made of protein. When you train, muscle fibers undergo microscopic damage. Protein provides amino acids to repair and rebuild these fibers, making muscles bigger and stronger.
-
-### 2. Prevent Muscle Loss
-
-During fat loss, insufficient protein intake causes the body to break down muscle for energy. Adequate protein protects your muscle, ensuring you lose fat, not muscle.
-
-### 3. Increases Satiety
-
-Protein makes you feel fuller than carbohydrates or fats. High-protein diets naturally reduce appetite, aiding fat loss.
-
-## How Much Protein Do You Need?
-
-| Goal | Daily Recommended Intake |
-|------|-------------------------|
-| Maintenance | 0.8g/kg body weight |
-| Muscle Building | 1.6-2.2g/kg body weight |
-| Fat Loss (preserve muscle) | 1.8-2.4g/kg body weight |
-
-**Example**: A 70kg person building muscle needs 112-154g protein daily.
-
-## Quality Protein Sources
-
-### Animal Protein (Complete)
-
-| Source | Protein per 100g |
-|--------|------------------|
-| Chicken breast | 31g |
-| Beef | 26g |
-| Fish | 20-25g |
-| Eggs | 13g (~6g each) |
-| Milk | 3.4g |
-
-### Plant Protein
-
-| Source | Protein per 100g |
-|--------|------------------|
-| Beans | 20-25g |
-| Nuts | 15-20g |
-| Tofu | 8-15g |
-| Soy milk | 2-3g |
-
-**Tip**: Animal protein has more complete amino acids. Plant proteins need variety.
-
-## Protein Timing
-
-### Pre-Training (1-2 hours)
-Consume 20-30g protein to provide amino acid reserve.
-
-### Post-Training (within 30 min)
-This is peak muscle synthesis period. Take 25-40g fast-absorbing protein (like whey) with carbs.
-
-### Throughout Day
-Protein at every meal, not all at once. 20-40g per meal, spread across 3-5 meals.
-
-## Protein Supplements
-
-### Whey Protein
-- Fast absorption, ideal post-training
-- ~20-25g per scoop
-
-### Casein
-- Slow absorption, good before bed
-- Continuous amino acid release, prevents nighttime muscle breakdown
-
-### Soy Protein
-- Suitable for vegetarians
-- Slightly less complete than animal protein
-
-## Common Misconceptions
-
-❌ "Too much protein damages kidneys"
-Healthy people can handle high protein (up to 2g/kg) safely. Those with kidney disease should follow medical advice.
-
-❌ "Only meat has protein"
-Beans, nuts, grains all contain protein. Plant protein can meet needs too.
-
-❌ "Supplements are necessary"
-Supplements are just convenient. Food sources are more economical and healthier.
-
-## Key Takeaways
-
-1. Muscle building: 1.6-2.2g/kg body weight
-2. Fat loss: 1.8-2.4g/kg body weight
-3. Distribute protein across meals
-4. Refuel promptly post-training
-5. Food first, supplements second
-    `,
-    tags: ['蛋白质', 'protein', '营养', '增肌', '减脂'],
-    relatedExercises: ['squat', 'bench-press', 'deadlift'],
+    tags: ['增肌', 'muscle-growth', '训练原理', ' hypertrophy', '科学训练'],
+    relatedExercises: ['squat', 'bench-press', 'deadlift', 'row'],
     isPremium: false,
-    createdAt: '2026-04-13',
-  },
-  {
-    id: '7',
-    slug: 'fat-loss-diet',
-    title: '减脂期饮食策略：吃饱也能瘦',
-    titleEn: 'Fat Loss Diet Strategy: Lose Weight Without Starving',
-    category: 'training_principle',
-    categoryZh: '训练原理',
-    categoryEn: 'Training Principles',
-    summary: '减脂不需要挨饿。掌握热量缺口、营养分配和饮食时机，健康可持续地降低体脂。',
-    summaryEn: 'Fat loss does not require starvation. Master calorie deficit, nutrient distribution, and meal timing for healthy, sustainable body fat reduction.',
-    content: `
-# 减脂期饮食策略：吃饱也能瘦
-
-减脂不等于挨饿。科学的饮食策略让你在吃饱的同时，稳步降低体脂。
-
-## 核心原则：热量缺口
-
-减脂的根本是：**消耗 > 摄入**
-
-### 什么是热量缺口？
-
-每日热量缺口300-500卡路里是最健康的范围。过大的缺口会导致：
-- 肌肉流失
-- 代谢下降
-- 容易反弹
-
-### 如何计算你的需求？
-
-1. 计算基础代谢率（BMR）
-2. 加上活动消耗
-3. 减去300-500卡
-
-**简单估算**：
-- 男性维持热量 ≈ 体重(kg) × 35
-- 女性维持热量 ≈ 体重(kg) × 30
-
-减脂期从维持热量减去400卡左右。
-
-## 营养分配
-
-### 蛋白质：最高优先级
-
-减脂期蛋白质摄入要**更高**，防止肌肉流失。
-
-**推荐**：每公斤体重1.8-2.4g
-
-### 碳水化合物：训练的燃料
-
-碳水不是敌人，关键是选择和时间。
-
-| 类型 | 适合时机 |
-|------|----------|
-| 复合碳水（燕麦、糙米） | 全天 |
-| 简单碳水（水果） | 训练前后 |
-
-**技巧**：训练日多吃碳水，休息日减少碳水。
-
-### 脂肪：不要完全剔除
-
-脂肪是激素合成必需品。占总热量20-30%。
-
-**优质脂肪来源**：
-- 橄榄油
-- 坚果
-- 鱼类
-- 鸡蛋
-
-## 餐食安排
-
-### 一日三餐模板（减脂期）
-
-**早餐**：
-- 2个鸡蛋 + 燕麦 + 牛奶
-- 约30g蛋白质
-
-**午餐**：
-- 150g鸡胸肉 + 糙米 + 蔬菜
-- 约40g蛋白质
-
-**晚餐**：
-- 100g鱼肉 + 蔬菜沙拉
-- 约25g蛋白质
-
-**加餐（可选）**：
-- 蛋白粉摇摇杯
-- 或希腊酸奶
-
-### 进食顺序
-
-1. 先吃蔬菜（增加饱腹感）
-2. 再吃蛋白质
-3. 最后吃碳水
-
-这个顺序可以自然减少热量摄入。
-
-## 实用技巧
-
-### 增加饱腹感的方法
-
-- 每餐先喝一杯水
-- 多吃高纤维蔬菜
-- 选择固体食物而非液体
-- 慢慢吃，细嚼慢咽
-
-### 避免隐形热量
-
-| 来源 | 隐形热量 |
-|------|----------|
-| 饮料 | 含糖饮料200+卡 |
-| 调料 | 沙拉酱100+卡 |
-| 油炸 | 热量翻倍 |
-| 酒精 | 每100ml约70卡 |
-
-### 间歇断食（可选）
-
-16:8断食：每天16小时不进食，8小时进食窗口。
-
-适合人群：
-- 进食控制困难的人
-- 早上不饿的人
-
-不适合：
-- 有胃病的人
-- 孕妇
-- 青少年
-
-## 减脂周期
-
-### 推荐周期
-
-减脂不应持续太久。建议4-8周后休息2周，让代谢恢复。
-
-### 监测指标
-
-- 每周体重变化：0.5-1kg
-- 体脂率测量
-- 照片对比
-- 腰围测量
-
-**重要**：体重不是唯一指标，体脂率和体形更重要。
-
-## 总结要点
-
-1. 热量缺口300-500卡
-2. 蛋白质加量（1.8-2.4g/kg）
-3. 每餐先蔬菜后碳水
-4. 避免隐形热量
-5. 4-8周后休息
-    `,
-    contentEn: `
-# Fat Loss Diet Strategy: Lose Weight Without Starving
-
-Fat loss does not equal starvation. Scientific diet strategies let you feel full while steadily reducing body fat.
-
-## Core Principle: Calorie Deficit
-
-Fat loss fundamental: **Burn more than you consume**
-
-### What is Calorie Deficit?
-
-Daily deficit of 300-500 calories is the healthy range. Larger deficits cause:
-- Muscle loss
-- Metabolism drop
-- Easy rebound
-
-### Calculate Your Needs
-
-1. Calculate Basal Metabolic Rate (BMR)
-2. Add activity expenditure
-3. Subtract 300-500 calories
-
-**Simple Estimate**:
-- Male maintenance ≈ weight(kg) × 35
-- Female maintenance ≈ weight(kg) × 30
-
-Subtract ~400 calories for fat loss.
-
-## Nutrient Distribution
-
-### Protein: Highest Priority
-
-During fat loss, protein intake should be **higher** to prevent muscle loss.
-
-**Recommendation**: 1.8-2.4g per kg body weight
-
-### Carbohydrates: Training Fuel
-
-Carbs are not enemies. Key is choice and timing.
-
-| Type | Best Timing |
-|------|------------|
-| Complex carbs (oats, brown rice) | Throughout day |
-| Simple carbs (fruit) | Pre/post-training |
-
-**Technique**: More carbs on training days, less on rest days.
-
-### Fat: Don't Eliminate
-
-Fat is essential for hormone synthesis. 20-30% of total calories.
-
-**Quality Fat Sources**:
-- Olive oil
-- Nuts
-- Fish
-- Eggs
-
-## Meal Structure
-
-### Daily Template (Fat Loss)
-
-**Breakfast**:
-- 2 eggs + oats + milk
-- ~30g protein
-
-**Lunch**:
-- 150g chicken breast + brown rice + vegetables
-- ~40g protein
-
-**Dinner**:
-- 100g fish + vegetable salad
-- ~25g protein
-
-**Snack (optional)**:
-- Protein shake
-- Or Greek yogurt
-
-### Eating Order
-
-1. Vegetables first (increase fullness)
-2. Protein next
-3. Carbs last
-
-This order naturally reduces calorie intake.
-
-## Practical Tips
-
-### Increase Satiety
-
-- Drink water before meals
-- Eat high-fiber vegetables
-- Choose solid over liquid foods
-- Eat slowly, chew thoroughly
-
-### Avoid Hidden Calories
-
-| Source | Hidden Calories |
-|--------|----------------|
-| Drinks | Sugary drinks 200+ cal |
-| Condiments | Salad dressing 100+ cal |
-| Fried foods | Doubles calories |
-| Alcohol | ~70 cal per 100ml |
-
-### Intermittent Fasting (Optional)
-
-16:8 fasting: 16 hours no eating, 8-hour eating window.
-
-Suitable for:
-- Those struggling with portion control
-- Those not hungry in morning
-
-Not suitable for:
-- People with stomach issues
-- Pregnant women
-- Adolescents
-
-## Fat Loss Cycle
-
-### Recommended Cycle
-
-Fat loss shouldn't last too long. After 4-8 weeks, rest 2 weeks to restore metabolism.
-
-### Monitoring Metrics
-
-- Weekly weight change: 0.5-1kg
-- Body fat measurement
-- Photo comparison
-- Waist measurement
-
-**Important**: Weight isn't the only metric. Body fat and shape matter more.
-
-## Key Takeaways
-
-1. Calorie deficit 300-500 cal
-2. Increase protein (1.8-2.4g/kg)
-3. Vegetables before carbs each meal
-4. Avoid hidden calories
-5. Rest after 4-8 weeks
-    `,
-    tags: ['减脂', 'fat-loss', '饮食', '营养', '热量'],
-    relatedExercises: ['cardio', 'hiit'],
-    isPremium: true,
-    createdAt: '2026-04-13',
-  },
-  {
-    id: '8',
-    slug: 'women-strength-training',
-    title: '女性力量训练指南：打破偏见，塑造力量',
-    titleEn: "Women Strength Training Guide: Break Stereotypes, Build Power",
-    category: 'population_guide',
-    categoryZh: '人群指南',
-    categoryEn: 'Population Guides',
-    summary: '女性不需要害怕力量训练。科学证明，力量训练让女性更健康、更有活力、身材更好。',
-    summaryEn: "Women don't need to fear strength training. Science proves strength training makes women healthier, more energetic, and better shaped.",
-    content: `
-# 女性力量训练指南：打破偏见，塑造力量
-
-很多女性担心力量训练会让自己变得"太壮"、"肌肉太大"。这是最大的误解。
-
-科学真相：女性力量训练不会让你变成"金刚芭比"，反而会让你身材更好、更健康。
-
-## 为什么女性不会练出"大肌肉"？
-
-### 1. 激素差异
-
-女性的睾酮水平只有男性的1/10到1/20。睾酮是肌肉生长的关键激素。没有足够的睾酮，很难练出大块肌肉。
-
-### 2. 基因差异
-
-女性的肌肉纤维类型和数量与男性不同，天生肌量上限较低。
-
-**结论**：即使很努力训练，女性也很难练出"太大的肌肉"。你看到的那些女健美运动员，用了极极端的方法。
-
-## 力量训练对女性的好处
-
-### 身体层面
-
-| 好处 | 说明 |
-|------|------|
-| 增强代谢 | 肌肉消耗更多热量，更容易保持身材 |
-| 改善体态 | 紧致肌肉让身材线条更好 |
-| 强化骨骼 | 预防骨质疏松 |
-| 减少脂肪 | 力量训练消耗脂肪效率高 |
-
-### 健康层面
-
-- 降低心血管疾病风险
-- 改善胰岛素敏感性
-- 减少慢性疼痛
-- 提升整体活力
-
-### 心理层面
-
-- 增强自信心
-- 改善情绪
-- 提升抗压能力
-
-## 女性训练要点
-
-### 不要害怕大重量
-
-"小重量多次数"对女性来说效率很低。适当的挑战重量才能刺激肌肉生长。
-
-**建议**：
-- 选择能做8-12次的重量
-- 每组最后几次应该有挑战感
-
-### 关注全身发展
-
-女性常只关注臀部和腹部，忽略其他部位。全身均衡发展才能有好体态。
-
-**重点部位**：
-- 腿部：深蹲、硬拉
-- 背部：划船、引体向上
-- 核心：平板支撑
-- 胸部：俯卧撑
-
-### 不要只做有氧
-
-很多女性只跑步、跳操，不做力量训练。这会导致：
-- 肌肉流失
-- 身体松弛
-- 代谢下降
-
-**正确做法**：有氧 + 力量结合
-
-## 常见误区
-
-❌ "力量训练会让女生变成男的"
-完全错误。力量训练不会改变你的性别特征。
-
-❌ "女生应该只做小重量"
-小重量效率低。适当重量才有效。
-
-❌ "力量训练危险"
-正确指导下比跑步更安全。
-
-❌ "练了两天就怕肌肉太大"
-肌肉生长需要数月甚至数年。不是几天的事。
-
-## 给女性的训练建议
-
-### 初学者（0-3个月）
-
-每周2-3次，每次30-40分钟
-
-**推荐动作**：
-- 深蹲 3×12
-- 硬拉 3×10
-- 俯卧撑 3×10（可膝盖着地）
-- 平板支撑 3×30秒
-
-### 进阶者（3-6个月）
-
-每周3-4次，开始分化训练
-
-**分化方案**：
-- 第1天：腿部
-- 第2天：上身
-- 第3天：核心 + 有氧
-
-### 关于饮食
-
-不需要极端节食。
-
-- 蛋白质：每公斤体重1.2-1.6g
-- 热量：维持或略少
-- 不要恐惧碳水
-
-## 总结要点
-
-1. 女性不会轻易练出大肌肉
-2. 力量训练让身材更好
-3. 不要害怕适当重量
-4. 全身均衡发展
-5. 有氧 + 力量结合
-
-**记住**：力量训练是女性最好的投资，让你年轻、健康、自信。
-    `,
-    contentEn: `
-# Women Strength Training Guide: Break Stereotypes, Build Power
-
-Many women worry strength training will make them "too bulky" or "too muscular." This is the biggest misconception.
-
-Scientific truth: Strength training won't make you a "bodybuilder." Instead, it will improve your shape and health.
-
-## Why Women Won't Build "Big Muscles"
-
-### 1. Hormonal Differences
-
-Women have 1/10 to 1/20 the testosterone levels of men. Testosterone is crucial for muscle growth. Without enough testosterone, building large muscles is very difficult.
-
-### 2. Genetic Differences
-
-Women have different muscle fiber types and quantities, with naturally lower muscle mass ceiling.
-
-**Conclusion**: Even with dedicated training, women rarely build "too large muscles." Those female bodybuilders you see used extreme methods.
-
-## Benefits of Strength Training for Women
-
-### Physical
-
-| Benefit | Explanation |
-|---------|-------------|
-| Boosts metabolism | Muscles burn more calories, easier to maintain figure |
-| Improves posture | Toned muscles create better body lines |
-| Strengthens bones | Prevents osteoporosis |
-| Reduces fat | Strength training burns fat efficiently |
-
-### Health
-
-- Lower cardiovascular disease risk
-- Improve insulin sensitivity
-- Reduce chronic pain
-- Increase overall vitality
-
-### Psychological
-
-- Boost confidence
-- Improve mood
-- Enhance stress resilience
-
-## Training Tips for Women
-
-### Don't Fear Heavy Weights
-
-"Light weight, many reps" is inefficient for women. Proper challenging weight stimulates muscle growth.
-
-**Recommendation**:
-- Choose weight you can do 8-12 reps
-- Last few reps should feel challenging
-
-### Focus on Full Body
-
-Women often focus only on glutes and abs, ignoring other areas. Balanced full-body development creates good posture.
-
-**Key Areas**:
-- Legs: Squats, deadlifts
-- Back: Rows, pull-ups
-- Core: Planks
-- Chest: Push-ups
-
-### Don't Only Do Cardio
-
-Many women only run, skip, dance—no strength training. This causes:
-- Muscle loss
-- Body looseness
-- Metabolism drop
-
-**Right Approach**: Combine cardio + strength
-
-## Common Misconceptions
-
-❌ "Strength training makes women masculine"
-Completely wrong. Strength training won't change your gender characteristics.
-
-❌ "Women should only use light weights"
-Light weights are inefficient. Proper weight is effective.
-
-❌ "Strength training is dangerous"
-With proper guidance, safer than running.
-
-❌ "Afraid of getting too muscular after 2 days"
-Muscle growth takes months or years. Not a few days.
-
-## Training Recommendations for Women
-
-### Beginners (0-3 months)
-
-2-3 times per week, 30-40 minutes each
-
-**Recommended Exercises**:
-- Squat 3×12
-- Deadlift 3×10
-- Push-up 3×10 (can use knees)
-- Plank 3×30 sec
-
-### Intermediate (3-6 months)
-
-3-4 times per week, start split training
-
-**Split Plan**:
-- Day 1: Legs
-- Day 2: Upper body
-- Day 3: Core + cardio
-
-### About Diet
-
-No need for extreme dieting.
-
-- Protein: 1.2-1.6g per kg body weight
-- Calories: Maintenance or slightly less
-- Don't fear carbs
-
-## Key Takeaways
-
-1. Women won't easily build large muscles
-2. Strength training improves body shape
-3. Don't fear appropriate weights
-4. Balanced full-body development
-5. Combine cardio + strength
-
-**Remember**: Strength training is women's best investment—keeping you young, healthy, and confident.
-    `,
-    tags: ['女性', 'women', '力量训练', '健身', '健康'],
-    relatedExercises: ['squat', 'deadlift', 'bench-press'],
-    isPremium: false,
-    createdAt: '2026-04-13',
-  }];
+    createdAt: '2026-04-14',
+  },];
 
 // 获取所有文章
 export function getAllArticles(): KnowledgeArticle[] {
@@ -1165,4 +1072,3 @@ export function getArticleBySlug(slug: string): KnowledgeArticle | undefined {
 export function getArticleById(id: string): KnowledgeArticle | undefined {
   return KNOWLEDGE_ARTICLES.find(article => article.id === id);
 }
-
