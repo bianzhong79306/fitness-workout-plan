@@ -1059,7 +1059,7 @@ Training isn't about soreness or failure—it's about actual muscle growth. Unde
     summary: '减脂不是简单的少吃多动。了解能量代谢、脂肪分解的生理过程，掌握真正有效的减脂策略。',
     summaryEn: 'Fat loss is not simply eat less and move more. Understand energy metabolism and fat breakdown physiology to master truly effective fat loss strategies.',
     content: `
-![Fat Loss](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=1200&q=80)
+![Fat Loss](https://images.unsplash.com/photo-1566241142559-40e1dab266c6?w=1200&q=80)
 
 # 科学减脂完整指南
 
@@ -1499,7 +1499,7 @@ Training isn't about soreness or failure—it's about actual muscle growth. Unde
 > **记住**：减脂的目标不只是体重下降，而是体脂下降、肌肉保留。健康减脂才是真正的成功。
     `,
     contentEn: `
-![Fat Loss](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=1200&q=80)
+![Fat Loss](https://images.unsplash.com/photo-1566241142559-40e1dab266c6?w=1200&q=80)
 
 # The Complete Science of Fat Loss
 
@@ -2069,7 +2069,7 @@ Fat loss is a process requiring patience and strategy. Understanding the science
 
 ### 深蹲（Squat）
 
-![Squat](https://images.unsplash.com/photo-1574640046782-d74b8336785a?w=800&q=80)
+![Squat](https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80)
 
 **动作要点**：
 
@@ -2262,7 +2262,7 @@ Benefits: Higher learning frequency, more stimulation, easier recovery managemen
 
 ### Squat
 
-![Squat](https://images.unsplash.com/photo-1574640046782-d74b8336785a?w=800&q=80)
+![Squat](https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80)
 
 **Key Points**: Feet shoulder-width, toes out, hips back when squatting, knees align with toes, thighs parallel to ground, chest up, drive with hips.
 
@@ -2888,7 +2888,7 @@ Target: 140g protein daily
     summary: '减脂不等于挨饿。科学的饮食策略让你在吃饱的同时稳步降低体脂，掌握热量缺口、营养分配、进食技巧。',
     summaryEn: 'Fat loss is not starvation. Scientific diet strategy lets you feel full while steadily lowering body fat. Master calorie deficit, nutrient distribution, eating techniques.',
     content: `
-![Fat Loss Diet](https://images.unsplash.com/photo-1490645935967-10de6ba831e8?w=1200&q=80)
+![Fat Loss Diet](https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=1200&q=80)
 
 # 减脂期饮食策略：吃饱也能瘦
 
@@ -3163,7 +3163,7 @@ Target: 140g protein daily
 > **核心原则**：热量缺口适度，蛋白质充足，进食顺序优化，周期规划必要。
     `,
     contentEn: `
-![Fat Loss Diet](https://images.unsplash.com/photo-1490645935967-10de6ba831e8?w=800&q=80)
+![Fat Loss Diet](https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800&q=80)
 
 # Fat Loss Diet Strategy: Lose While Full
 
@@ -3339,7 +3339,7 @@ Signals of effectiveness: Waist shrinking, training performance stable, appetite
     summary: '女性不需要害怕力量训练。科学证明，力量训练让女性更健康、更有活力、身材更好，不会让你变得太壮。',
     summaryEn: "Women don't need to fear strength training. Science proves strength training makes women healthier, more energetic, better shaped - won't make you too bulky.",
     content: `
-![Women Training](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=1200&q=80)
+![Women Training](https://images.unsplash.com/photo-1566241142559-40e1dab266c6?w=1200&q=80)
 
 # 女性力量训练指南：打破偏见，塑造力量
 
@@ -3365,7 +3365,7 @@ Signals of effectiveness: Waist shrinking, training performance stable, appetite
 
 ## 二、力量训练对女性的好处
 
-![Women Fitness](https://images.unsplash.com/photo-1518611012118-696e725a37af?w=800&q=80)
+![Women Fitness](https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&q=80)
 
 ### 身体层面
 
@@ -3436,7 +3436,7 @@ Signals of effectiveness: Waist shrinking, training performance stable, appetite
 力量训练是女性最好的投资。
     `,
     contentEn: `
-![Women Training](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=1200&q=80)
+![Women Training](https://images.unsplash.com/photo-1566241142559-40e1dab266c6?w=1200&q=80)
 
 # Women Strength Training Guide
 
@@ -3462,7 +3462,7 @@ Women naturally lower muscle mass ceiling.
 
 ## II. Benefits for Women
 
-![Women Fitness](https://images.unsplash.com/photo-1518611012118-696e725a37af?w=800&q=80)
+![Women Fitness](https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=800&q=80)
 
 ### Physical
 
