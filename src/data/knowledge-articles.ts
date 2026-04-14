@@ -2359,6 +2359,523 @@ Fitness isn't complex, but needs correct start.
     isPremium: false,
     createdAt: '2026-04-14',
   },
+  // ==================== 营养知识 ====================
+  {
+    id: '6',
+    slug: 'protein-guide',
+    title: '蛋白质完全指南：增肌减脂的核心营养',
+    titleEn: 'The Complete Protein Guide: Core Nutrition for Muscle and Fat Loss',
+    category: 'specialized',
+    categoryZh: '专项训练',
+    categoryEn: 'Specialized Training',
+    summary: '蛋白质是肌肉生长的基石。深入理解蛋白质的作用、来源、摄入时机和常见误区，让训练真正有效。',
+    summaryEn: 'Protein is the cornerstone of muscle growth. Deep understanding of protein functions, sources, timing, and common myths to make training truly effective.',
+    content: `
+![Protein](https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=80)
+
+# 蛋白质完全指南：增肌减脂的核心营养
+
+蛋白质是健身者最关注的营养素。但很多人只知道"多吃蛋白质"，却不理解为什么、吃多少、怎么吃。
+
+这份指南带你深入理解蛋白质：从生理作用到实际应用，让你的营养策略真正科学有效。
+
+---
+
+## 一、为什么蛋白质如此重要？
+
+### 1. 肌肉合成的基础
+
+肌肉组织主要由蛋白质构成。训练时肌肉纤维受到微小损伤，蛋白质提供氨基酸来修复和重建这些纤维。
+
+这个过程叫肌肉蛋白合成（MPS）。没有足够的蛋白质，MPS无法最大化，训练效果受限。
+
+### 2. 防止肌肉流失
+
+减脂期如果蛋白质摄入不足，身体会分解肌肉来获取能量。充足的蛋白质可以保护肌肉，让你减掉的是脂肪而非肌肉。
+
+研究表明，高蛋白饮食在减脂期可以减少50%以上的肌肉流失。
+
+### 3. 增强饱腹感
+
+蛋白质比碳水化合物和脂肪更能让你感到饱足。高蛋白饮食可以自然减少食欲，有助于减脂。
+
+研究发现，高蛋白早餐比高碳水早餐减少全天热量摄入约200卡。
+
+### 4. 更高的食物热效应
+
+消化蛋白质需要消耗更多能量：
+
+| 营养素 | 热效应 |
+|--------|--------|
+| 蛋白质 | 20-30% |
+| 碳水化合物 | 5-10% |
+| 脂肪 | 0-3% |
+
+吃100卡蛋白质，身体实际只获得70-80卡。这相当于天然的热量折扣。
+
+---
+
+## 二、你需要多少蛋白质？
+
+### 不同目标的推荐量
+
+| 目标 | 每日推荐摄入量 |
+|------|----------------|
+| 维持健康 | 0.8g/kg体重 |
+| 增肌 | 1.6-2.2g/kg体重 |
+| 减脂保肌 | 1.8-2.4g/kg体重 |
+| 老年人 | 1.0-1.2g/kg体重 |
+
+**例子**：70kg的人增肌期每天需要112-154g蛋白质。
+
+### 什么时候需要更多？
+
+| 情况 | 增加量 |
+|------|--------|
+| 训练强度高 | 增加0.2g/kg |
+| 减脂期 | 增加0.4g/kg |
+| 植物蛋白为主 | 增加20% |
+| 年龄大于50 | 增加0.2g/kg |
+
+### 上限是多少？
+
+研究表明，每餐蛋白质合成上限约0.4g/kg，全天总摄入上限约2.5g/kg。
+
+超过这些量不会进一步促进合成，但也不会有害（健康人群）。
+
+---
+
+## 三、优质蛋白质来源
+
+### 动物蛋白（完全蛋白）
+
+![Protein Sources](https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800&q=80)
+
+| 来源 | 每100g蛋白质含量 | 特点 |
+|------|------------------|------|
+| 鸡胸肉 | 31g | 高蛋白低脂，健身首选 |
+| 牛肉 | 26g | 含铁锌，增肌好选择 |
+| 鱼类 | 20-25g | 含Omega-3，营养丰富 |
+| 鸡蛋 | 13g | 氨基酸完整，吸收好 |
+| 牛奶 | 3.4g | 方便获取，含钙 |
+
+### 植物蛋白
+
+| 来源 | 每100g蛋白质含量 | 特点 |
+|------|------------------|------|
+| 豆类 | 20-25g | 素食首选 |
+| 坚果 | 15-20g | 含健康脂肪 |
+| 豆腐 | 8-15g | 热量低 |
+| 豆浆 | 2-3g | 方便饮用 |
+
+**植物蛋白注意**：
+
+- 氨基酸完整度略低于动物蛋白
+- 需要多种来源搭配
+- 或增加总摄入量20%
+
+### 蛋白质质量评分
+
+| 来源 | PDCAAS评分 | 说明 |
+|------|------------|------|
+| 鸡蛋 | 1.00 | 最优 |
+| 牛奶 | 1.00 | 最优 |
+| 牛肉 | 0.92 | 很好 |
+| 大豆 | 0.91 | 很好 |
+| 豆类 | 0.6-0.7 | 中等，需搭配 |
+
+---
+
+## 四、蛋白质摄入时机
+
+### 训练前（1-2小时）
+
+摄入20-30g蛋白质，为训练提供氨基酸储备。
+
+训练前蛋白质比训练后更重要：因为训练时MPS已经开始，训练前的蛋白质正好赶上这个窗口。
+
+### 训练后（30分钟-2小时）
+
+这是肌肉合成最活跃的时期。摄入25-40g快速吸收的蛋白质。
+
+最佳选择：乳清蛋白粉、鸡蛋、鱼肉。
+
+### 全天分配
+
+每餐都应有蛋白质，而非一顿吃太多。
+
+| 餐次 | 推荐蛋白质 |
+|------|------------|
+| 早餐 | 20-30g |
+| 午餐 | 30-40g |
+| 晚餐 | 30-40g |
+| 加餐 | 15-25g |
+
+**为什么分散更好？**
+
+每餐蛋白质会触发一次MPS高峰。分散摄入意味着更多次合成高峰。
+
+### 睡前蛋白质
+
+睡前摄入30-40g酪蛋白可以整夜持续供应氨基酸，防止夜间肌肉分解。
+
+---
+
+## 五、蛋白质补剂
+
+### 乳清蛋白（Whey）
+
+![Protein Powder](https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=800&q=80)
+
+**特点**：
+
+- 吸收快（30-60分钟达峰值）
+- 氨基酸完整
+- BCAA含量高
+
+**适合**：训练后
+
+**每勺**：约20-25g蛋白质
+
+### 酪蛋白（Casein）
+
+**特点**：
+
+- 吸收慢（持续5-7小时）
+- 持续释放氨基酸
+
+**适合**：睡前、长时间不进食
+
+### 大豆蛋白
+
+**特点**：
+
+- 适合素食者
+- 氨基酸完整度略低
+- 含异黄酮
+
+### 补剂是否必需？
+
+**不需要补剂也能达标**。
+
+补剂只是方便的选择。从食物获取蛋白质更经济、更健康、更有饱腹感。
+
+| 方式 | 优势 |
+|------|------|
+| 食物 | 更饱腹、更多营养素、更经济 |
+| 补剂 | 方便、快速、精确控制量 |
+
+---
+
+## 六、常见误区澄清
+
+### ❌ 误区1：吃太多蛋白质伤肾
+
+**真相**：健康人群摄入高蛋白（2g/kg以内）不会伤肾。
+
+多项长期研究证实，健康人高蛋白饮食多年，肾功能没有异常变化。
+
+**注意**：有肾病的人需遵医嘱限制蛋白质。
+
+### ❌ 误区2：只有吃肉才有蛋白质
+
+**真相**：豆类、坚果、谷物都含蛋白质。
+
+素食者只要多种来源搭配，也能满足蛋白质需求。
+
+### ❌ 误区3：蛋白质补剂必需
+
+**真相**：补剂只是方便的选择。食物优先。
+
+很多人不喝蛋白粉也能每天摄入150g+蛋白质。
+
+### ❌ 误区4：训练后必须30分钟内摄入
+
+**真相**：窗口比想象的长。训练后2小时内都有好的效果。
+
+而且，如果训练前吃了蛋白质，训练后的紧迫性更低。
+
+### ❌ 误区5：蛋白质越多越好
+
+**真相**：超过合成上限没有额外好处。
+
+每餐0.4g/kg，全天2.5g/kg是上限。超过的部分只是转化为能量或储存。
+
+---
+
+## 七、实际饮食规划
+
+### 增肌期蛋白质规划（70kg人）
+
+目标：每天140g蛋白质
+
+| 时间 | 餐食 | 蛋白质 |
+|------|------|--------|
+| 早餐 | 2个鸡蛋 + 牛奶 + 燕麦 | 约25g |
+| 午餐 | 150g鸡胸肉 + 糙米 | 约50g |
+| 训练前 | 蛋白粉摇摇杯 | 约25g |
+| 训练后 | 蛋白粉摇摇杯 | 约25g |
+| 晚餐 | 100g鱼肉 + 蔬菜 | 约25g |
+| 睡前 | 希腊酸奶 | 约15g |
+
+**总计**：约140g ✓
+
+### 减脂期蛋白质规划（70kg人）
+
+目标：每天168g蛋白质
+
+| 时间 | 餐食 | 蛋白质 |
+|------|------|--------|
+| 早餐 | 3个鸡蛋 | 约20g |
+| 午餐 | 200g鸡胸肉 | 约60g |
+| 晚餐 | 150g瘦牛肉 | 约40g |
+| 加餐1 | 蛋白粉 | 约25g |
+| 加餐2 | 希腊酸奶 | 约20g |
+| 睡前 | 酪蛋白 | 约25g |
+
+**总计**：约190g ✓（略高于目标）
+
+---
+
+## 八、总结要点
+
+1. **蛋白质是肌肉合成的基础** - 训练后修复和增长必需
+2. **增肌期需1.6-2.2g/kg** - 减脂期需1.8-2.4g/kg
+3. **每餐分配蛋白质** - 比一顿吃太多更好
+4. **训练前后及时补充** - 起码训练前1-2小时吃
+5. **食物优于补剂** - 更饱腹、更健康
+6. **常见误区要避开** - 不伤肾、窗口长、有上限
+
+蛋白质不是复杂的科学，但需要正确的理解和应用。
+
+> **核心原则**：每天总量达标，每餐分散摄入，训练前后重点关注，食物为主补剂为辅。
+    `,
+    contentEn: `
+![Protein](https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1200&q=80)
+
+# The Complete Protein Guide: Core Nutrition for Muscle and Fat Loss
+
+Protein is the most watched nutrient for fitness enthusiasts. But many only know "eat more protein" without understanding why, how much, and how.
+
+This guide takes you deep into understanding protein: from physiological functions to practical application.
+
+---
+
+## I. Why Protein So Important?
+
+### 1. Foundation of Muscle Synthesis
+
+Muscle tissue is primarily made of protein. During training, muscle fibers undergo microscopic damage. Protein provides amino acids to repair and rebuild.
+
+This process is called Muscle Protein Synthesis (MPS). Without sufficient protein, MPS can't maximize, training results limited.
+
+### 2. Prevent Muscle Loss
+
+During fat loss, insufficient protein causes body to break down muscle for energy. Adequate protein protects muscle, ensuring you lose fat not muscle.
+
+Studies show high protein diet reduces over 50% muscle loss during fat loss.
+
+### 3. Increases Satiety
+
+Protein makes you feel fuller than carbs or fats. High protein diet naturally reduces appetite, aiding fat loss.
+
+Research finds high protein breakfast reduces daily calorie intake about 200 cal compared to high carb.
+
+### 4. Higher Thermic Effect
+
+Digesting protein requires more energy:
+
+| Nutrient | Thermic Effect |
+|----------|----------------|
+| Protein | 20-30% |
+| Carbs | 5-10% |
+| Fat | 0-3% |
+
+Eating 100 cal protein, body actually gets 70-80 cal. Natural calorie discount.
+
+---
+
+## II. How Much Do You Need?
+
+### Recommendations by Goal
+
+| Goal | Daily Recommendation |
+|------|----------------------|
+| Maintenance | 0.8g/kg body weight |
+| Muscle building | 1.6-2.2g/kg body weight |
+| Fat loss preserving muscle | 1.8-2.4g/kg body weight |
+| Seniors | 1.0-1.2g/kg body weight |
+
+**Example**: 70kg person building muscle needs 112-154g protein daily.
+
+### When Need More?
+
+| Situation | Increase |
+|-----------|----------|
+| High training intensity | +0.2g/kg |
+| Fat loss phase | +0.4g/kg |
+| Plant protein dominant | +20% |
+| Age over 50 | +0.2g/kg |
+
+---
+
+## III. Quality Protein Sources
+
+### Animal Protein (Complete)
+
+![Protein Sources](https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=800&q=80)
+
+| Source | Protein per 100g | Features |
+|--------|------------------|----------|
+| Chicken breast | 31g | High protein low fat, fitness favorite |
+| Beef | 26g | Contains iron, zinc, good for building |
+| Fish | 20-25g | Contains Omega-3, nutrient rich |
+| Eggs | 13g | Complete amino acids, good absorption |
+| Milk | 3.4g | Convenient, contains calcium |
+
+### Plant Protein
+
+| Source | Protein per 100g | Features |
+|--------|------------------|----------|
+| Beans | 20-25g | Vegetarian favorite |
+| Nuts | 15-20g | Contains healthy fats |
+| Tofu | 8-15g | Low calorie |
+| Soy milk | 2-3g | Convenient drinking |
+
+**Note**: Plant protein slightly less complete amino acids, need variety or increase intake 20%.
+
+---
+
+## IV. Protein Timing
+
+### Pre-Training (1-2 hours)
+
+Consume 20-30g protein, providing amino acid reserve.
+
+Pre-training protein more important than post: MPS starts during training, pre protein catches this window.
+
+### Post-Training (30 min - 2 hours)
+
+Peak muscle synthesis period. Consume 25-40g fast-absorbing protein.
+
+Best choices: whey protein, eggs, fish.
+
+### Daily Distribution
+
+Protein at every meal, not all at once:
+
+| Meal | Recommended |
+|------|-------------|
+| Breakfast | 20-30g |
+| Lunch | 30-40g |
+| Dinner | 30-40g |
+| Snack | 15-25g |
+
+Each meal triggers MPS peak. Distributed intake means more synthesis peaks.
+
+### Bedtime Protein
+
+30-40g casein before bed continuously supplies amino acids, preventing nighttime muscle breakdown.
+
+---
+
+## V. Protein Supplements
+
+![Protein Powder](https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=800&q=80)
+
+### Whey Protein
+
+Fast absorption (30-60 min peak), complete amino acids, high BCAA.
+Suitable for post-training. About 20-25g per scoop.
+
+### Casein
+
+Slow absorption (5-7 hours sustained), continuous amino acid release.
+Suitable for bedtime, long periods without food.
+
+### Soy Protein
+
+Suitable for vegetarians, slightly less complete amino acids.
+
+### Supplements Necessary?
+
+**Not necessary to reach targets.**
+
+Supplements just convenient. Food sources more economical, healthier, more satiating.
+
+---
+
+## VI. Common Myths
+
+### ❌ Myth 1: Too much protein damages kidneys
+
+**Truth**: Healthy people with high protein (up to 2g/kg) don't damage kidneys.
+
+Multiple long-term studies confirm healthy people with high protein diet for years show no abnormal kidney changes.
+
+**Note**: Those with kidney disease should follow medical advice.
+
+### ❌ Myth 2: Only meat has protein
+
+**Truth**: Beans, nuts, grains all contain protein.
+
+Vegetarians with variety can also meet protein needs.
+
+### ❌ Myth 3: Supplements essential
+
+**Truth**: Supplements just convenient. Food first.
+
+Many drink no protein powder yet intake 150g+ daily.
+
+### ❌ Myth 4: Must consume within 30 minutes post-training
+
+**Truth**: Window longer than believed. Within 2 hours post-training effective.
+
+If pre-training protein consumed, post-training urgency lower.
+
+### ❌ Myth 5: More protein always better
+
+**Truth**: Beyond synthesis ceiling no additional benefit.
+
+Per meal 0.4g/kg, total daily 2.5g/kg is ceiling. Beyond just converts to energy or stored.
+
+---
+
+## VII. Practical Meal Planning
+
+### Muscle Building (70kg person)
+
+Target: 140g protein daily
+
+| Time | Meal | Protein |
+|------|------|--------|
+| Breakfast | 2 eggs + milk + oats | ~25g |
+| Lunch | 150g chicken breast + rice | ~50g |
+| Pre-training | Protein shake | ~25g |
+| Post-training | Protein shake | ~25g |
+| Dinner | 100g fish + vegetables | ~25g |
+| Bedtime | Greek yogurt | ~15g |
+
+**Total**: ~140g ✓
+
+---
+
+## VIII. Summary
+
+1. **Protein is muscle synthesis foundation** - Essential for repair and growth
+2. **Building needs 1.6-2.2g/kg** - Fat loss needs 1.8-2.4g/kg
+3. **Distribute across meals** - Better than all at once
+4. **Focus around training** - Pre 1-2 hours at minimum
+5. **Food first, supplements second** - More satiating, healthier
+6. **Avoid common myths** - Not kidney damaging, window long, has ceiling
+
+> **Core Principle**: Daily total meets target, distribute across meals, focus around training, food main supplements auxiliary.
+    `,
+    tags: ['蛋白质', 'protein', '营养', '增肌', '减脂'],
+    relatedExercises: ['squat', 'bench-press', 'deadlift'],
+    isPremium: false,
+    createdAt: '2026-04-14',
+  },
 ];
 
 // 获取所有文章
