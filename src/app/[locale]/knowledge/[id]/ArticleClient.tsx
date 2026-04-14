@@ -39,14 +39,14 @@ export function ArticleClient({ locale, article, categories }: ArticleClientProp
       const imgMatch = line.match(/^!\[(.*?)\]\((.*?)\)$/);
       if (imgMatch) {
         result.push(
-          <figure key={i} className="my-8 -mx-4 md:mx-0">
+          <figure key={i} className="my-8 flex flex-col items-center">
             <img
               src={imgMatch[2]}
               alt={imgMatch[1]}
-              className="w-full rounded-xl shadow-lg object-cover max-h-[400px]"
+              className="rounded-xl shadow-lg object-cover max-w-full h-auto"
             />
             {imgMatch[1] && (
-              <figcaption className="text-center text-sm text-muted-foreground mt-2">
+              <figcaption className="text-center text-sm text-muted-foreground mt-3">
                 {imgMatch[1]}
               </figcaption>
             )}
@@ -106,7 +106,7 @@ export function ArticleClient({ locale, article, categories }: ArticleClientProp
       // Blockquote
       if (line.startsWith('> ')) {
         result.push(
-          <blockquote key={i} className="my-4 pl-4 pr-4 py-3 bg-muted/50 rounded-lg border-l-4 border-primary italic">
+          <blockquote key={i} className="my-4 px-4 py-3 bg-muted/50 rounded-lg border-l-4 border-primary italic">
             {renderInline(line.slice(2))}
           </blockquote>
         );
@@ -212,94 +212,96 @@ export function ArticleClient({ locale, article, categories }: ArticleClientProp
   };
 
   return (
-    <div className="container py-8 max-w-4xl">
-      {/* Back Button */}
-      <Link href="/knowledge">
-        <Button variant="ghost" size="sm" className="mb-6 gap-2">
-          <ArrowLeft className="w-4 h-4" />
-          {isZh ? '返回知识库' : 'Back to Knowledge Base'}
-        </Button>
-      </Link>
+    <div className="min-h-screen bg-gradient-to-b from-muted/30 to-background">
+      <div className="container mx-auto py-8 px-4 md:px-8 lg:px-12 max-w-3xl">
+        {/* Back Button */}
+        <Link href="/knowledge">
+          <Button variant="ghost" size="sm" className="mb-6 gap-2">
+            <ArrowLeft className="w-4 h-4" />
+            {isZh ? '返回知识库' : 'Back to Knowledge Base'}
+          </Button>
+        </Link>
 
-      {/* Article Header */}
-      <div className="mb-8">
-        <div className="flex items-center gap-2 mb-4">
-          <Badge variant="secondary">{categoryName}</Badge>
-          {article.isPremium && (
-            <Badge variant="default" className="gap-1">
-              <Crown className="w-3 h-3" />
-              Pro
-            </Badge>
-          )}
-        </div>
-        <h1 className="text-3xl font-bold mb-4">
-          {isZh ? article.title : article.titleEn}
-        </h1>
-        <p className="text-muted-foreground text-lg">
-          {isZh ? article.summary : article.summaryEn}
-        </p>
-        <div className="flex flex-wrap gap-2 mt-4">
-          {article.tags.map((tag) => (
-            <Badge key={tag} variant="outline" className="gap-1">
-              <Tag className="w-3 h-3" />
-              {tag}
-            </Badge>
-          ))}
-        </div>
-      </div>
-
-      {/* Article Content */}
-      <Card className="mb-8">
-        <CardContent className="py-6 px-4 md:px-8">
-          <div className="prose prose-neutral max-w-none">
-            {renderMarkdown(isZh ? article.content : article.contentEn)}
+        {/* Article Header */}
+        <div className="mb-8 text-center">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Badge variant="secondary">{categoryName}</Badge>
+            {article.isPremium && (
+              <Badge variant="default" className="gap-1">
+                <Crown className="w-3 h-3" />
+                Pro
+              </Badge>
+            )}
           </div>
-        </CardContent>
-      </Card>
+          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+            {isZh ? article.title : article.titleEn}
+          </h1>
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto">
+            {isZh ? article.summary : article.summaryEn}
+          </p>
+          <div className="flex flex-wrap justify-center gap-2 mt-4">
+            {article.tags.map((tag) => (
+              <Badge key={tag} variant="outline" className="gap-1">
+                <Tag className="w-3 h-3" />
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        </div>
 
-      {/* Related Exercises */}
-      {article.relatedExercises.length > 0 && (
-        <Card className="mb-8 bg-muted/30">
-          <CardContent className="p-6">
-            <div className="flex items-center gap-2 mb-4">
-              <Dumbbell className="w-5 h-5 text-primary" />
-              <h3 className="font-medium">
-                {isZh ? '相关动作推荐' : 'Related Exercises'}
-              </h3>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {article.relatedExercises.map((exId) => (
-                <Link key={exId} href={`/exercises/${exId}`}>
-                  <Button variant="outline" size="sm" className="gap-2">
-                    <Dumbbell className="w-3 h-3" />
-                    {exId}
-                  </Button>
-                </Link>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground mt-4">
-              {isZh
-                ? '点击查看相关动作的详细教学'
-                : 'Click to view detailed instructions for related exercises'}
-            </p>
+        {/* Article Content */}
+        <Card className="mb-8 shadow-md">
+          <CardContent className="py-8 px-6 md:px-10 lg:px-12">
+            <article className="prose prose-neutral max-w-none prose-headings:scroll-mt-20">
+              {renderMarkdown(isZh ? article.content : article.contentEn)}
+            </article>
           </CardContent>
         </Card>
-      )}
 
-      {/* Navigation */}
-      <div className="flex flex-col sm:flex-row gap-3">
-        <Link href="/exercises" className="flex-1">
-          <Button variant="outline" className="w-full gap-2">
-            <Dumbbell className="w-4 h-4" />
-            {isZh ? '浏览动作百科' : 'Browse Exercise Library'}
-          </Button>
-        </Link>
-        <Link href="/knowledge" className="flex-1">
-          <Button className="w-full gap-2">
-            <BookOpen className="w-4 h-4" />
-            {isZh ? '更多知识文章' : 'More Articles'}
-          </Button>
-        </Link>
+        {/* Related Exercises */}
+        {article.relatedExercises.length > 0 && (
+          <Card className="mb-8 bg-muted/30">
+            <CardContent className="p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <Dumbbell className="w-5 h-5 text-primary" />
+                <h3 className="font-medium">
+                  {isZh ? '相关动作推荐' : 'Related Exercises'}
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {article.relatedExercises.map((exId) => (
+                  <Link key={exId} href={`/exercises/${exId}`}>
+                    <Button variant="outline" size="sm" className="gap-2">
+                      <Dumbbell className="w-3 h-3" />
+                      {exId}
+                    </Button>
+                  </Link>
+                ))}
+              </div>
+              <p className="text-sm text-muted-foreground mt-4">
+                {isZh
+                  ? '点击查看相关动作的详细教学'
+                  : 'Click to view detailed instructions for related exercises'}
+              </p>
+            </CardContent>
+          </Card>
+        )}
+
+        {/* Navigation */}
+        <div className="flex flex-col sm:flex-row gap-3">
+          <Link href="/exercises" className="flex-1">
+            <Button variant="outline" className="w-full gap-2">
+              <Dumbbell className="w-4 h-4" />
+              {isZh ? '浏览动作百科' : 'Browse Exercise Library'}
+            </Button>
+          </Link>
+          <Link href="/knowledge" className="flex-1">
+            <Button className="w-full gap-2">
+              <BookOpen className="w-4 h-4" />
+              {isZh ? '更多知识文章' : 'More Articles'}
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
