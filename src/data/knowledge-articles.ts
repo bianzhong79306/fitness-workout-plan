@@ -1046,7 +1046,904 @@ Training isn't about soreness or failure—it's about actual muscle growth. Unde
     relatedExercises: ['squat', 'bench-press', 'deadlift', 'row'],
     isPremium: false,
     createdAt: '2026-04-14',
-  },];
+  },
+  // ==================== 减脂原理 ====================
+  {
+    id: '2',
+    slug: 'fat-loss-science',
+    title: '科学减脂完整指南',
+    titleEn: 'The Complete Science of Fat Loss',
+    category: 'training_principle',
+    categoryZh: '训练原理',
+    categoryEn: 'Training Principles',
+    summary: '减脂不是简单的少吃多动。了解能量代谢、脂肪分解的生理过程，掌握真正有效的减脂策略。',
+    summaryEn: 'Fat loss is not simply eat less and move more. Understand energy metabolism and fat breakdown physiology to master truly effective fat loss strategies.',
+    content: `
+![Fat Loss](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=1200&q=80)
+
+# 科学减脂完整指南
+
+减脂是健身领域最热门的话题之一，也是最容易被误解的话题。
+
+很多人以为减脂就是少吃、多运动。但为什么有些人明明吃得很少却瘦不下来？为什么有些人运动很多体重却不降？
+
+答案在于：减脂不是简单的数学题，而是复杂的生理过程。这篇文章带你深入理解减脂的科学原理，让你真正掌握有效的方法。
+
+---
+
+## 一、减脂的本质是什么？
+
+减脂，本质是**脂肪组织分解**，将储存的脂肪转化为能量消耗掉。
+
+但这个过程不是你想发生就发生的。身体有自己的机制决定何时分解脂肪、何时储存脂肪。
+
+### 脂肪是什么？
+
+脂肪组织（Adipose Tissue）主要由脂肪细胞（Adipocytes）组成。每个脂肪细胞像一个储存库，里面装着甘油三酯（Triglycerides）。
+
+甘油三酯的结构：
+- 1个甘油分子
+- 3个脂肪酸分子
+
+当身体需要能量时，甘油三酯会被分解：
+- 甘油 → 进入肝脏代谢
+- 脂肪酸 → 进入血液，被细胞作为能量使用
+
+这个过程叫**脂解**（Lipolysis）。
+
+![Fat Metabolism](https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80)
+
+### 脂解的触发条件
+
+脂解不是自动发生的。需要特定的条件触发：
+
+| 条件 | 脂解效果 |
+|------|----------|
+| 低血糖 | 促进脂解 |
+| 低胰岛素 | 促进脂解 |
+| 高肾上腺素 | 促进脂解 |
+| 高胰岛素 | **抑制脂解** |
+| 高血糖 | 抑制脂解 |
+
+**关键结论**：胰岛素是脂解的主要抑制者。当胰岛素高时，脂肪分解几乎停止。
+
+---
+
+## 二、热量平衡理论
+
+减脂最基础的理论：**热量平衡**（Energy Balance）。
+
+### 简单公式
+
+热量摄入 - 热量消耗 = 热量储存（或消耗）
+
+- 摄入 > 消耗 → 储存（增重）
+- 摄入 < 消耗 → 消耗储存（减重）
+- 摄入 = 消耗 → 维持
+
+这个公式是对的，但**不够精确**。
+
+### 热量消耗的组成
+
+你的身体每天消耗的热量由三部分组成：
+
+| 组成 | 占比 | 说明 |
+|------|------|------|
+| 基础代谢（BMR） | 60-70% | 维持生命的最低能耗 |
+| 活动消耗（TEE） | 20-30% | 运动+日常活动 |
+| 食物热效应（TEF） | 10% | 消化食物消耗 |
+
+**重要发现**：
+
+基础代谢占总消耗的大部分。如果你的基础代谢低，即使运动很多，总消耗也可能不高。
+
+### 影响基础代谢的因素
+
+| 因素 | 影响 |
+|------|------|
+| 体重 | 体重越大，BMR越高 |
+| 肌肉量 | 肌肉多，BMR更高 |
+| 年龄 | 年龄增长，BMR下降 |
+| 性别 | 男性BMR通常高于女性 |
+| 激素 | 甲状腺激素影响大 |
+
+---
+
+## 三、减脂的生理过程
+
+了解了热量平衡，现在看看减脂具体怎么发生。
+
+### 第一步：热量缺口
+
+当你摄入的热量低于消耗时，身体需要从储存中获取能量。
+
+但身体不会立刻选择脂肪。它会按优先级选择：
+
+1. 糖原（Glycogen） - 肌肉和肝脏储存的碳水
+2. 脂肪（Fat） - 脂肪组织储存的甘油三酯
+3. 蛋白质（Protein） - 肌肉等组织分解
+
+**问题**：如果你减得太快，身体会分解肌肉。
+
+### 第二步：激素信号
+
+热量缺口只是条件，激素才是开关。
+
+关键激素：
+
+**胰岛素**
+- 进食后升高
+- 储存能量，抑制脂解
+- 减脂期需要控制胰岛素水平
+
+**肾上腺素/去甲肾上腺素**
+- 运动、压力时升高
+- 促进脂解
+- 高强度训练效果好
+
+**皮质醇**
+- 长期压力时升高
+- 促进肌肉分解
+- 需要避免过度压力
+
+**生长激素**
+- 睡眠时分泌
+- 促进脂解
+- 睡眠充足很重要
+
+### 第三步：脂肪动员
+
+脂解发生后，脂肪酸从脂肪细胞释放进入血液。
+
+但这不是终点。脂肪酸需要：
+
+1. 被运输到需要的细胞
+2. 进入细胞 mitochondria
+3. 氧化分解产生能量
+
+如果脂肪酸释放太多但未被消耗，会重新储存为脂肪。
+
+---
+
+## 四、为什么有些人减脂困难？
+
+### 代谢适应（Metabolic Adaptation）
+
+当你长期处于热量缺口状态，身体会降低代谢来适应。
+
+研究发现：
+
+- 减重10%后，BMR可能降低20-25%
+- 这是身体的自我保护机制
+- 防止能量耗尽
+
+**实际影响**：
+
+| 减重进度 | BMR变化 | 需要调整 |
+|----------|----------|----------|
+| 第1-4周 | 变化小 | 保持方案 |
+| 第5-8周 | 开始下降 | 调整热量 |
+| 第9-12周 | 显著下降 | 需要休息周 |
+
+### 瘦素抵抗
+
+瘦素（Leptin）是脂肪细胞分泌的激素，告诉大脑你有足够的能量。
+
+当瘦素水平高时：
+- 食欲下降
+- 代谢升高
+
+但肥胖者常出现**瘦素抵抗**：
+- 大脑接收不到瘦素信号
+- 食欲持续高涨
+- 代谢不升高
+
+这就是为什么肥胖者很难减脂——他们的身体信号失灵了。
+
+### 饮食习惯的影响
+
+长期高糖、高加工食品饮食会导致：
+
+- 胰岛素持续高水平
+- 脂解几乎不发生
+- 脂肪不断储存
+- 瘦素抵抗发展
+
+改变饮食习惯需要时间，不是几天就能逆转。
+
+---
+
+## 五、有效的减脂策略
+
+基于以上科学原理，我们来制定有效策略。
+
+### 1. 合理的热量缺口
+
+| 目标 | 推荐缺口 |
+|------|----------|
+| 缓慢减脂 | 200-300 kcal/天 |
+| 中速减脂 | 400-500 kcal/天 |
+| 快速减脂 | 不超过700 kcal/天 |
+
+**太大的缺口导致**：
+- 肌肉分解
+- 代谢快速下降
+- 恢复困难
+
+### 2. 蛋白质摄入
+
+减脂期蛋白质比增肌期更重要。
+
+| 人群 | 推荐摄入 |
+|------|----------|
+| 普通人 | 1.6-2.0 g/kg |
+| 训练者 | 2.0-2.4 g/kg |
+
+高蛋白的好处：
+
+- 保护肌肉
+- 更高的食物热效应
+- 更好的饱腹感
+
+### 3. 碳水策略
+
+碳水不是敌人，但需要策略性安排。
+
+**方法一：碳水循环**
+
+| 训练日 | 碳水摄入 |
+|--------|----------|
+| 高强度训练日 | 1.5-2.0 g/kg |
+| 中等训练日 | 1.0-1.5 g/kg |
+| 休息日 | 0.5-1.0 g/kg |
+
+**方法二：时间窗口**
+
+- 大部分碳水安排在训练前后
+- 其他时间低碳水
+- 睡前少碳水（降低胰岛素）
+
+### 4. 训练安排
+
+减脂期训练的目标：
+
+- 消耗热量
+- 保持肌肉
+- 促进脂解激素
+
+**力量训练**
+
+每周2-4次，保持肌肉量。
+
+| 类型 | 组数 | 次数 |
+|------|------|------|
+| 复合动作 | 3-4组 | 6-10次 |
+| 辅助动作 | 2-3组 | 10-15次 |
+
+**有氧训练**
+
+| 类型 | 时间 | 频率 |
+|------|------|------|
+| 低强度有氧 | 30-45分钟 | 3-4次/周 |
+| HIIT | 15-20分钟 | 2次/周 |
+
+**最佳组合**：力量训练 + 适量有氧。
+
+---
+
+## 六、减脂周期的规划
+
+减脂不是直线过程。需要周期规划。
+
+### 推荐周期
+
+| 周期 | 时间 | 目标 |
+|------|------|------|
+| 减脂期 | 8-12周 | 降低体脂 |
+| 休息期 | 2-4周 | 恢复代谢 |
+| 维持期 | 4-8周 | 稳定体重 |
+
+### 为什么需要休息期？
+
+持续减脂导致：
+
+- 代谢适应
+- 瘦素下降
+- 食欲上升
+- 皮质醇升高
+
+休息期让身体恢复：
+
+- 热量恢复到维持水平
+- 瘦素水平回升
+- 代谢部分恢复
+- 心理压力降低
+
+**这不是偷懒，这是策略。**
+
+---
+
+## 七、常见误区澄清
+
+### ❌ 误区1：运动越多越好
+
+过度训练导致：
+
+- 皮质醇升高
+- 肌肉分解
+- 恢复不足
+- 反效果
+
+**建议**：每周训练4-6小时足够。
+
+### ❌ 误区2：不吃碳水最有效
+
+低碳初期体重下降快，但：
+
+- 大部分是水分和糖原
+- 长期低碳影响训练表现
+- 可能导致肌肉流失
+
+**正确做法**：碳水循环，不是完全切断。
+
+### ❌ 误区3：只做有氧不力量
+
+纯有氧减脂的后果：
+
+- 肌肉流失
+- BMR下降
+- 最终变成skinny fat
+
+**力量训练是减脂的基础。**
+
+### ❌ 误区4：体重下降等于成功
+
+体重变化包含：
+
+- 脂肪变化
+- 水分变化
+- 肌肉变化
+- 糖原变化
+
+**关注体脂率，不是体重。**
+
+---
+
+## 八、减脂期监测指标
+
+### 每周测量
+
+| 指标 | 方法 | 期望变化 |
+|------|------|----------|
+| 体重 | 晨起空腹 | 下降0.5-1kg |
+| 腰围 | 晨起测量 | 每周0.5-1cm |
+| 体脂率 | 专业设备 | 下降0.5-1% |
+| 照片 | 每周同条件 | 对比变化 |
+
+### 判断是否有效
+
+| 信号 | 说明 |
+|------|------|
+| 腰围减小 | 腹部脂肪减少 |
+| 训练表现稳定 | 肌肉保留好 |
+| 食欲正常 | 方案可持续 |
+| 睡眠正常 | 恢复充足 |
+
+---
+
+## 九、新手减脂计划示例
+
+### 第1-4周：适应期
+
+**饮食**：
+
+- 热量缺口300 kcal
+- 蛋白质2.0g/kg
+- 正常碳水
+
+**训练**：
+
+| 类型 | 内容 |
+|------|------|
+| 力量 | 每周3次全身训练 |
+| 有氧 | 每周2次30分钟 |
+
+### 第5-8周：进展期
+
+**饮食**：
+
+- 热量缺口增至400-500 kcal
+- 碳水循环开始
+
+**训练**：
+
+| 类型 | 内容 |
+|------|------|
+| 力量 | 分化训练，每周4次 |
+| 有氧 | 增加1次 |
+
+### 第9-12周：冲刺期
+
+**饮食**：
+
+- 热量缺口保持400-500 kcal
+- 高蛋白维持
+
+**训练**：
+
+| 类型 | 内容 |
+|------|------|
+| 力量 | 维持强度 |
+| 有氧 | HIIT加入 |
+
+### 第13-16周：休息期
+
+- 热量恢复维持水平
+- 训练减少有氧
+- 让身体恢复
+
+---
+
+## 十、总结要点
+
+减脂的科学原理告诉我们：
+
+1. **热量缺口是基础**，但不是全部
+2. **激素调控脂解**，胰岛素是关键
+3. **蛋白质保护肌肉**，减脂期最重要
+4. **力量训练必备**，保持BMR
+5. **周期规划必要**，避免代谢适应
+
+减脂是一个需要耐心和策略的过程。理解科学原理，你才能制定真正有效的方案。
+
+> **记住**：减脂的目标不只是体重下降，而是体脂下降、肌肉保留。健康减脂才是真正的成功。
+    `,
+    contentEn: `
+![Fat Loss](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=1200&q=80)
+
+# The Complete Science of Fat Loss
+
+Fat loss is one of the hottest topics in fitness, and also one of the most misunderstood.
+
+Many think fat loss is simply eating less and moving more. But why do some people eat very little yet can't lose weight? Why do some exercise a lot yet their weight doesn't drop?
+
+The answer: Fat loss isn't simple math, but a complex physiological process. This article takes you deep into the science of fat loss so you can truly master effective methods.
+
+---
+
+## I. What Is Fat Loss Really?
+
+Fat loss is fundamentally **fat tissue breakdown** - converting stored fat into energy to be consumed.
+
+But this process doesn't happen whenever you want. The body has its own mechanisms deciding when to break down fat and when to store it.
+
+### What Is Fat?
+
+Adipose Tissue is primarily composed of Adipocytes. Each fat cell is like a storage depot containing Triglycerides.
+
+Triglyceride structure:
+- 1 glycerol molecule
+- 3 fatty acid molecules
+
+When the body needs energy, triglycerides are broken down:
+- Glycerol → enters liver metabolism
+- Fatty acids → enter bloodstream, used by cells as energy
+
+This process is called **Lipolysis**.
+
+![Fat Metabolism](https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80)
+
+### Lipolysis Trigger Conditions
+
+Lipolysis doesn't happen automatically. Specific conditions trigger it:
+
+| Condition | Lipolysis Effect |
+|-----------|------------------|
+| Low blood glucose | Promotes lipolysis |
+| Low insulin | Promotes lipolysis |
+| High adrenaline | Promotes lipolysis |
+| High insulin | **Inhibits lipolysis** |
+| High blood glucose | Inhibits lipolysis |
+
+**Key Conclusion**: Insulin is the main inhibitor of lipolysis. When insulin is high, fat breakdown nearly stops.
+
+---
+
+## II. Energy Balance Theory
+
+The most fundamental theory of fat loss: **Energy Balance**.
+
+### Simple Equation
+
+Calories In - Calories Out = Energy Stored (or Consumed)
+
+- In > Out → Storage (weight gain)
+- In < Out → Consume storage (weight loss)
+- In = Out → Maintenance
+
+This equation is correct, but **not precise enough**.
+
+### Components of Calorie Expenditure
+
+Your body's daily calorie expenditure consists of three parts:
+
+| Component | Percentage | Explanation |
+|-----------|------------|-------------|
+| Basal Metabolic Rate (BMR) | 60-70% | Minimum energy to sustain life |
+| Activity Expenditure (TEE) | 20-30% | Exercise + daily activities |
+| Thermic Effect of Food (TEF) | 10% | Energy to digest food |
+
+**Important Finding**:
+
+BMR accounts for most expenditure. If your BMR is low, even with lots of exercise, total expenditure may not be high.
+
+### Factors Affecting BMR
+
+| Factor | Effect |
+|--------|--------|
+| Body weight | Heavier = higher BMR |
+| Muscle mass | More muscle = higher BMR |
+| Age | Aging = decreasing BMR |
+| Gender | Men typically higher BMR than women |
+| Hormones | Thyroid hormones have major impact |
+
+---
+
+## III. The Physiological Process of Fat Loss
+
+Understanding energy balance, now let's see exactly how fat loss happens.
+
+### Step 1: Calorie Deficit
+
+When calories consumed are less than expended, the body needs to get energy from storage.
+
+But the body doesn't immediately choose fat. It selects by priority:
+
+1. Glycogen - carbs stored in muscles and liver
+2. Fat - triglycerides stored in fat tissue
+3. Protein - breakdown of muscle etc.
+
+**Problem**: If you cut too fast, the body will break down muscle.
+
+### Step 2: Hormonal Signals
+
+Calorie deficit is just the condition; hormones are the switch.
+
+Key hormones:
+
+**Insulin**
+- Elevated after eating
+- Stores energy, inhibits lipolysis
+- Need to control insulin levels during fat loss
+
+**Adrenaline/Noradrenaline**
+- Elevated during exercise, stress
+- Promotes lipolysis
+- High-intensity training works well
+
+**Cortisol**
+- Elevated during chronic stress
+- Promotes muscle breakdown
+- Need to avoid excessive stress
+
+**Growth Hormone**
+- Secreted during sleep
+- Promotes lipolysis
+- Adequate sleep matters
+
+### Step 3: Fat Mobilization
+
+After lipolysis, fatty acids are released from fat cells into bloodstream.
+
+But this isn't the end. Fatty acids need to:
+
+1. Be transported to cells that need them
+2. Enter cell mitochondria
+3. Be oxidized to produce energy
+
+If too many fatty acids are released but not consumed, they'll be re-stored as fat.
+
+---
+
+## IV. Why Do Some People Struggle with Fat Loss?
+
+### Metabolic Adaptation
+
+When you're in prolonged calorie deficit, the body lowers metabolism to adapt.
+
+Research shows:
+
+- After 10% weight loss, BMR may decrease 20-25%
+- This is the body's self-protection mechanism
+- Prevents energy depletion
+
+**Practical Impact**:
+
+| Weight Loss Progress | BMR Change | Need to Adjust |
+|---------------------|------------|----------------|
+| Weeks 1-4 | Minimal change | Keep plan |
+| Weeks 5-8 | Starting to drop | Adjust calories |
+| Weeks 9-12 | Significant drop | Need rest week |
+
+### Leptin Resistance
+
+Leptin is a hormone secreted by fat cells, telling the brain you have sufficient energy.
+
+When leptin levels are high:
+- Appetite decreases
+- Metabolism increases
+
+But obese individuals often develop **leptin resistance**:
+- Brain doesn't receive leptin signals
+- Appetite stays elevated
+- Metabolism doesn't increase
+
+This is why obese individuals struggle with fat loss - their body signals are malfunctioning.
+
+### Diet Habit Effects
+
+Long-term high-sugar, processed food diets cause:
+
+- Persistently high insulin
+- Lipolysis rarely occurs
+- Fat continuously stored
+- Leptin resistance develops
+
+Changing diet habits takes time, not reversible in days.
+
+---
+
+## V. Effective Fat Loss Strategies
+
+Based on the science above, let's develop effective strategies.
+
+### 1. Reasonable Calorie Deficit
+
+| Goal | Recommended Deficit |
+|------|---------------------|
+| Slow fat loss | 200-300 kcal/day |
+| Moderate fat loss | 400-500 kcal/day |
+| Fast fat loss | No more than 700 kcal/day |
+
+**Too large deficit causes**:
+- Muscle breakdown
+- Rapid metabolic drop
+- Recovery difficulty
+
+### 2. Protein Intake
+
+Protein is more important during fat loss than muscle building.
+
+| Population | Recommended Intake |
+|------------|---------------------|
+| General | 1.6-2.0 g/kg |
+| Training individuals | 2.0-2.4 g/kg |
+
+High protein benefits:
+
+- Protects muscle
+- Higher thermic effect of food
+- Better satiety
+
+### 3. Carb Strategy
+
+Carbs aren't enemies, but need strategic arrangement.
+
+**Method 1: Carb Cycling**
+
+| Training Day | Carb Intake |
+|--------------|-------------|
+| High-intensity training | 1.5-2.0 g/kg |
+| Moderate training | 1.0-1.5 g/kg |
+| Rest days | 0.5-1.0 g/kg |
+
+**Method 2: Timing Window**
+
+- Most carbs around training
+- Low carbs other times
+- Few carbs before bed (lower insulin)
+
+### 4. Training Arrangement
+
+Fat loss training goals:
+
+- Burn calories
+- Maintain muscle
+- Promote lipolysis hormones
+
+**Strength Training**
+
+2-4 times weekly, maintain muscle mass.
+
+| Type | Sets | Reps |
+|------|------|------|
+| Compound movements | 3-4 sets | 6-10 reps |
+| Auxiliary movements | 2-3 sets | 10-15 reps |
+
+**Cardio Training**
+
+| Type | Duration | Frequency |
+|------|----------|-----------|
+| Low-intensity cardio | 30-45 min | 3-4 times/week |
+| HIIT | 15-20 min | 2 times/week |
+
+**Best Combination**: Strength training + moderate cardio.
+
+---
+
+## VI. Fat Loss Cycle Planning
+
+Fat loss isn't a linear process. Needs cycle planning.
+
+### Recommended Cycle
+
+| Phase | Duration | Goal |
+|-------|----------|------|
+| Fat loss phase | 8-12 weeks | Lower body fat |
+| Rest phase | 2-4 weeks | Restore metabolism |
+| Maintenance phase | 4-8 weeks | Stabilize weight |
+
+### Why Need Rest Phase?
+
+Continuous fat loss causes:
+
+- Metabolic adaptation
+- Leptin drops
+- Appetite rises
+- Cortisol elevates
+
+Rest phase lets body recover:
+
+- Calories return to maintenance
+- Leptin levels rise
+- Metabolism partially restores
+- Psychological stress lowers
+
+**This isn't laziness, this is strategy.**
+
+---
+
+## VII. Common Misconceptions Clarified
+
+### ❌ Myth 1: More exercise = better
+
+Overtraining causes:
+
+- Cortisol elevation
+- Muscle breakdown
+- Insufficient recovery
+- Counterproductive effect
+
+**Recommendation**: 4-6 hours training weekly is sufficient.
+
+### ❌ Myth 2: No carbs most effective
+
+Low carb initially drops weight fast, but:
+
+- Mostly water and glycogen
+- Long-term low carb affects training performance
+- May cause muscle loss
+
+**Right approach**: Carb cycling, not complete elimination.
+
+### ❌ Myth 3: Only cardio, no strength
+
+Pure cardio fat loss consequences:
+
+- Muscle loss
+- BMR drops
+- Eventually becomes skinny fat
+
+**Strength training is the foundation of fat loss.**
+
+### ❌ Myth 4: Weight drop = success
+
+Weight changes include:
+
+- Fat changes
+- Water changes
+- Muscle changes
+- Glycogen changes
+
+**Focus on body fat percentage, not weight.**
+
+---
+
+## VIII. Fat Loss Monitoring Metrics
+
+### Weekly Measurements
+
+| Metric | Method | Expected Change |
+|--------|--------|-----------------|
+| Weight | Morning fasting | Drop 0.5-1kg |
+| Waist circumference | Morning measure | 0.5-1cm weekly |
+| Body fat percentage | Professional device | Drop 0.5-1% |
+| Photos | Same conditions weekly | Compare changes |
+
+### Judging Effectiveness
+
+| Signal | Meaning |
+|--------|--------|
+| Waist shrinking | Abdominal fat reducing |
+| Training performance stable | Muscle preservation good |
+| Appetite normal | Plan sustainable |
+| Sleep normal | Recovery sufficient |
+
+---
+
+## IX. Beginner Fat Loss Plan Example
+
+### Weeks 1-4: Adaptation Phase
+
+**Diet**:
+
+- Calorie deficit 300 kcal
+- Protein 2.0g/kg
+- Normal carbs
+
+**Training**:
+
+| Type | Content |
+|------|--------|
+| Strength | 3 full-body sessions weekly |
+| Cardio | 2 sessions 30 min weekly |
+
+### Weeks 5-8: Progress Phase
+
+**Diet**:
+
+- Increase deficit to 400-500 kcal
+- Start carb cycling
+
+**Training**:
+
+| Type | Content |
+|------|--------|
+| Strength | Split training, 4 sessions weekly |
+| Cardio | Add 1 session |
+
+### Weeks 9-12: Sprint Phase
+
+**Diet**:
+
+- Maintain 400-500 kcal deficit
+- Maintain high protein
+
+**Training**:
+
+| Type | Content |
+|------|--------|
+| Strength | Maintain intensity |
+| Cardio | Add HIIT |
+
+### Weeks 13-16: Rest Phase
+
+- Calories return to maintenance
+- Reduce cardio training
+- Let body recover
+
+---
+
+## X. Summary Points
+
+Fat loss science tells us:
+
+1. **Calorie deficit is foundation**, but not everything
+2. **Hormones regulate lipolysis**, insulin is key
+3. **Protein protects muscle**, most important during fat loss
+4. **Strength training essential**, maintains BMR
+5. **Cycle planning necessary**, avoid metabolic adaptation
+
+Fat loss is a process requiring patience and strategy. Understanding the science allows you to develop truly effective plans.
+
+> **Remember**: Fat loss goal isn't just weight dropping, but body fat dropping with muscle preserved. Healthy fat loss is true success.
+    `,
+    tags: ['减脂', 'fat-loss', '热量缺口', '科学减脂', '代谢'],
+    relatedExercises: ['squat', 'deadlift', 'hiit', 'running'],
+    isPremium: false,
+    createdAt: '2026-04-14',
+  },
+];
 
 // 获取所有文章
 export function getAllArticles(): KnowledgeArticle[] {
