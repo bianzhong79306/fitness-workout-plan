@@ -274,6 +274,17 @@
     transform: scale(1.05);
   }
   
+  /* 深色文字确保对比度 */
+  .stats-card .text-slate-900,
+  .stats-card .text-3xl {
+    color: #1e293b !important;
+  }
+  
+  .stats-card .text-slate-600,
+  .stats-card .text-sm {
+    color: #475569 !important;
+  }
+  
   /* 导航活跃状态 */
   .nav-active {
     position: relative;

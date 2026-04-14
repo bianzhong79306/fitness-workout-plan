@@ -389,7 +389,7 @@ async function HomePageContent({
               </Button>
             </Link>
             <Link href="/knowledge">
-              <Button size="lg" variant="outline" className="border-2 border-white/50 hover:bg-white/10 rounded-full px-8 font-semibold">
+              <Button size="lg" className="bg-green-700 text-white border-2 border-white/40 hover:bg-green-600 rounded-full px-8 font-semibold shadow-lg">
                 <BookOpen className="w-5 h-5 mr-2" />
                 {isZh ? "浏览知识库" : "Browse Knowledge"}
               </Button>
