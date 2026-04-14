@@ -57,7 +57,7 @@ export const KNOWLEDGE_ARTICLES: KnowledgeArticle[] = [
 
 成年人肌肉纤维数量基本固定，大约每块肌肉有几千到几万条纤维。训练不会让纤维数量增加，但能让每条纤维变得更粗。这就是为什么肌肉看起来更大——每条纤维都储存了更多的蛋白质。
 
-![Muscle Fiber](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=800&q=80)
+![Muscle Fiber](https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80)
 
 **关键概念**：肌纤维类型
 
@@ -217,7 +217,7 @@ export const KNOWLEDGE_ARTICLES: KnowledgeArticle[] = [
 
 训练时分解增加，恢复时合成增加。只有合成超过分解，净增长才发生。
 
-![Protein Balance](https://images.unsplash.com/photo-1541534742485-6a5c5c7c5c7c?w=800&q=80)
+![Protein Balance](https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80)
 
 **研究数据**：
 
@@ -559,7 +559,7 @@ Simply: **Your muscle cells get bigger, not more numerous.**
 
 Adult muscle fiber count is essentially fixed, with each muscle containing thousands to tens of thousands of fibers. Training doesn't increase fiber count, but makes each fiber thicker. This is why muscles appear larger—each fiber stores more protein.
 
-![Muscle Fiber](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=800&q=80)
+![Muscle Fiber](https://images.unsplash.com/photo-1552074284-5e88ef1aef18?w=800&q=80)
 
 **Key Concept**: Muscle Fiber Types
 
@@ -719,7 +719,7 @@ Your muscles change daily:
 
 During training, breakdown increases; during recovery, synthesis increases. Only when synthesis exceeds breakdown does net growth occur.
 
-![Protein Balance](https://images.unsplash.com/photo-1541534742485-6a5c5c7c5c7c?w=800&q=80)
+![Protein Balance](https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&q=80)
 
 **Research data**:
 
