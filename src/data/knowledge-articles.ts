@@ -2876,6 +2876,655 @@ Target: 140g protein daily
     isPremium: false,
     createdAt: '2026-04-14',
   },
+  // ==================== 饮食策略 ====================
+  {
+    id: '7',
+    slug: 'fat-loss-diet',
+    title: '减脂期饮食策略：吃饱也能瘦',
+    titleEn: 'Fat Loss Diet Strategy: Lose While Full',
+    category: 'specialized',
+    categoryZh: '专项训练',
+    categoryEn: 'Specialized Training',
+    summary: '减脂不等于挨饿。科学的饮食策略让你在吃饱的同时稳步降低体脂，掌握热量缺口、营养分配、进食技巧。',
+    summaryEn: 'Fat loss is not starvation. Scientific diet strategy lets you feel full while steadily lowering body fat. Master calorie deficit, nutrient distribution, eating techniques.',
+    content: `
+![Fat Loss Diet](https://images.unsplash.com/photo-1490645935967-10de6ba831e8?w=1200&q=80)
+
+# 减脂期饮食策略：吃饱也能瘦
+
+减脂不等于挨饿。很多人认为减脂就是要少吃、要饿、要忍耐。
+
+其实，科学的饮食策略让你在吃饱的同时，稳步降低体脂。这篇文章教你如何做到。
+
+---
+
+## 一、核心原则：热量缺口
+
+减脂的根本是：消耗大于摄入。
+
+### 什么是热量缺口？
+
+每日热量缺口300-500卡路里是最健康的范围。
+
+| 缺口大小 | 效果 |
+|----------|------|
+| 200-300卡 | 缓慢减脂，可持续 |
+| 300-500卡 | 推荐范围 |
+| 500-700卡 | 较快，但需要监控 |
+| >700卡 | 不推荐，肌肉流失风险 |
+
+过大的缺口导致肌肉流失、代谢下降、容易反弹。
+
+### 如何计算你的需求？
+
+**简单估算**：
+
+| 性别 | 维持热量公式 |
+|------|-------------|
+| 男性 | 体重(kg) × 35 |
+| 女性 | 体重(kg) × 30 |
+
+减脂期从维持热量减去400卡左右。
+
+**例子**：70kg男性，维持约2450卡，减脂期摄入约2000-2050卡。
+
+---
+
+## 二、营养分配
+
+### 蛋白质：最高优先级
+
+减脂期蛋白质摄入要更高，防止肌肉流失。
+
+**推荐**：每公斤体重1.8-2.4g。
+
+| 体重 | 每日蛋白质 |
+|------|------------|
+| 50kg | 90-120g |
+| 60kg | 108-144g |
+| 70kg | 126-168g |
+| 80kg | 144-192g |
+
+### 碳水化合物：训练的燃料
+
+碳水不是敌人，关键是选择和时机。
+
+| 类型 | 特点 | 适合时机 |
+|------|------|----------|
+| 复合碳水 | 消化慢，稳定血糖 | 全天主选 |
+| 简单碳水 | 消化快，快速能量 | 训练前后 |
+
+**技巧**：训练日多吃碳水，休息日减少碳水。
+
+### 脂肪：不要完全剔除
+
+脂肪是激素合成必需品。占总热量20-30%。
+
+**优质脂肪来源**：橄榄油、坚果、鱼类、鸡蛋。
+
+---
+
+## 三、餐食安排
+
+### 一日餐食模板
+
+![Healthy Meal](https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80)
+
+**早餐**：
+
+- 2-3个鸡蛋
+- 燕麦或全麦面包
+- 牛奶或豆浆
+- 约25-35g蛋白质
+
+**午餐**：
+
+- 150g鸡胸肉或鱼肉
+- 糙米或红薯
+- 大量蔬菜
+- 约40-50g蛋白质
+
+**晚餐**：
+
+- 100g瘦肉或鱼
+- 蔬菜沙拉
+- 少量碳水
+- 约25-30g蛋白质
+
+**加餐（可选）**：
+
+- 蛋白粉摇摇杯
+- 或希腊酸奶
+- 或少量坚果
+
+### 进食顺序
+
+这个顺序可以自然减少热量摄入：
+
+| 顺序 | 内容 | 原因 |
+|------|------|------|
+| 第1 | 蔬菜 | 增加饱腹感 |
+| 第2 | 蛋白质 | 进一步饱腹 |
+| 第3 | 碳水 | 最后吃，自然减少 |
+
+**研究显示**：这个顺序可以减少15-20%的热量摄入。
+
+---
+
+## 四、增加饱腹感的技巧
+
+### 餐前准备
+
+| 技巧 | 效果 |
+|------|------|
+| 每餐前喝水一杯 | 减少进食量 |
+| 先吃蔬菜 | 先占胃容量 |
+| 使用小盘子 | 视觉满足 |
+
+### 选择高饱腹感食物
+
+| 食物类型 | 饱腹指数 |
+|----------|----------|
+| 煮土豆 | 最高 |
+| 鸡蛋 | 很高 |
+| 燕麦 | 很高 |
+| 鱼类 | 很高 |
+| 蔬菜 | 高 |
+| 水果 | 中高 |
+| 蛋糕 | 很低 |
+
+### 进食方式
+
+| 方式 | 说明 |
+|------|------|
+| 慢慢吃 | 给大脑时间接收饱腹信号 |
+| 细嚼慢咽 | 每口20-30次 |
+| 专心吃 | 不要边看边吃 |
+| 固体优于液体 | 固体饱腹感更强 |
+
+---
+
+## 五、避免隐形热量
+
+### 常见隐形热量陷阱
+
+| 来源 | 隐形热量 |
+|------|----------|
+| 含糖饮料 | 每500ml约200卡 |
+| 沙拉酱 | 每100g约100-150卡 |
+| 油炸烹饪 | 热量翻倍 |
+| 酒精 | 每100ml约70卡 |
+| 调料酱 | 每100g约50-100卡 |
+
+### 替代方案
+
+| 原来 | 替代 |
+|------|------|
+| 含糖饮料 | 水、茶、黑咖啡 |
+| 油炸 | 烤、煮、蒸 |
+| 沙拉酱 | 油醋汁、柠檬汁 |
+| 酒精 | 减少或不喝 |
+
+---
+
+## 六、间歇断食（可选）
+
+### 16:8断食法
+
+每天16小时不进食，8小时进食窗口。
+
+**典型安排**：
+
+| 时间 | 内容 |
+|------|------|
+| 20:00 - 12:00 | 不进食 |
+| 12:00 | 第一餐 |
+| 20:00 | 最后一餐 |
+
+**适合人群**：
+
+- 进食控制困难的人
+- 早上不饿的人
+- 工作日程固定的人
+
+**不适合**：
+
+- 有胃病的人
+- 孕妇
+- 需要早上训练的人
+
+### 间歇断食的好处
+
+| 好处 | 说明 |
+|------|------|
+| 自然减少热量 | 进食窗口短 |
+| 胰岛素降低 | 有助于脂解 |
+| 自噬作用 | 身体自我清理 |
+| 简单易执行 | 不需要复杂规划 |
+
+---
+
+## 七、减脂周期规划
+
+### 推荐周期
+
+减脂不应持续太久。
+
+| 周期 | 时间 | 内容 |
+|------|------|------|
+| 减脂期 | 8-12周 | 降低体脂 |
+| 休息期 | 2-4周 | 恢复代谢 |
+| 维持期 | 4-8周 | 稳定体重 |
+
+### 为什么需要休息期？
+
+持续减脂导致代谢适应、瘦素下降、食欲上升、皮质醇升高。
+
+休息期让热量恢复到维持水平，瘦素回升，代谢部分恢复。
+
+---
+
+## 八、监测指标
+
+### 每周测量
+
+| 指标 | 方法 | 期望变化 |
+|------|------|----------|
+| 体重 | 晨起空腹 | 下降0.5-1kg |
+| 腰围 | 晨起测量 | 减少0.5-1cm |
+| 体脂率 | 专业设备 | 下降0.5-1% |
+| 照片 | 每周同条件 | 对比变化 |
+
+### 判断效果
+
+| 信号 | 说明 |
+|------|------|
+| 腰围减小 | 腹部脂肪减少 |
+| 训练表现稳定 | 肌肉保留好 |
+| 食欲正常 | 方案可持续 |
+| 睡眠正常 | 恢复充足 |
+
+**重要**：体重不是唯一指标，体脂率和体形更重要。
+
+---
+
+## 九、总结要点
+
+1. 热量缺口300-500卡
+2. 蛋白质加量（1.8-2.4g/kg）
+3. 每餐先蔬菜后碳水
+4. 避免隐形热量
+5. 可选间歇断食
+6. 4-8周后休息
+7. 监测腰围和体脂
+
+减脂不需要挨饿。科学的策略让你在满足的同时达成目标。
+
+> **核心原则**：热量缺口适度，蛋白质充足，进食顺序优化，周期规划必要。
+    `,
+    contentEn: `
+![Fat Loss Diet](https://images.unsplash.com/photo-1490645935967-10de6ba831e8?w=800&q=80)
+
+# Fat Loss Diet Strategy: Lose While Full
+
+Fat loss is not starvation. Many think it means eating less, being hungry, enduring.
+
+Actually, scientific diet strategy lets you feel full while steadily lowering body fat.
+
+---
+
+## I. Core Principle: Calorie Deficit
+
+Fat loss fundamental: Burn more than consume.
+
+### What is Calorie Deficit?
+
+Daily deficit 300-500 calories is healthy range.
+
+| Deficit | Effect |
+|---------|--------|
+| 200-300 cal | Slow, sustainable |
+| 300-500 cal | Recommended |
+| 500-700 cal | Faster, needs monitoring |
+| >700 cal | Not recommended, muscle loss risk |
+
+Too large deficit causes muscle loss, metabolic drop, easy rebound.
+
+### Calculate Your Needs
+
+**Simple Estimate**:
+
+| Gender | Maintenance Formula |
+|--------|----------------------|
+| Male | Weight(kg) × 35 |
+| Female | Weight(kg) × 30 |
+
+Subtract ~400 calories for fat loss.
+
+---
+
+## II. Nutrient Distribution
+
+### Protein: Highest Priority
+
+During fat loss, protein intake needs to be higher.
+
+**Recommendation**: 1.8-2.4g per kg.
+
+### Carbs: Training Fuel
+
+Carbs not enemy, key is choice and timing.
+
+Complex carbs for daily, simple carbs around training.
+
+**Technique**: More carbs training days, less rest days.
+
+### Fat: Don't Eliminate
+
+Fat essential for hormone synthesis. 20-30% of total calories.
+
+Quality sources: olive oil, nuts, fish, eggs.
+
+---
+
+## III. Meal Arrangement
+
+![Healthy Meal](https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80)
+
+**Breakfast**: 2-3 eggs, oats, milk. ~25-35g protein.
+
+**Lunch**: 150g chicken, brown rice, lots of vegetables. ~40-50g protein.
+
+**Dinner**: 100g lean meat or fish, salad, small carbs. ~25-30g protein.
+
+**Snack**: Protein shake or Greek yogurt or nuts.
+
+### Eating Order
+
+| Order | Content | Reason |
+|-------|---------|--------|
+| First | Vegetables | Increase fullness |
+| Second | Protein | Further fullness |
+| Third | Carbs | Last, naturally reduced |
+
+Studies show this order reduces 15-20% calorie intake.
+
+---
+
+## IV. Satiety Techniques
+
+**Pre-meal**: Drink water, start with vegetables, use small plates.
+
+**High Satiety Foods**: Boiled potatoes (highest), eggs, oats, fish, vegetables.
+
+**Eating Style**: Eat slowly, chew thoroughly, focus on eating, solids over liquids.
+
+---
+
+## V. Avoid Hidden Calories
+
+| Source | Hidden Calories |
+|--------|------------------|
+| Sugary drinks | ~200 cal per 500ml |
+| Salad dressing | ~100-150 cal per 100g |
+| Fried cooking | Doubles calories |
+| Alcohol | ~70 cal per 100ml |
+
+**Alternatives**: Water instead of drinks, grill/steam instead of fry, vinaigrette instead of dressing.
+
+---
+
+## VI. Intermittent Fasting (Optional)
+
+### 16:8 Method
+
+16 hours no eating, 8 hour eating window.
+
+**Schedule**: 20:00-12:00 no eating, 12:00 first meal, 20:00 last meal.
+
+**Suitable**: Those struggling with portion control, not hungry morning.
+
+**Not Suitable**: Stomach issues, pregnant, morning training.
+
+---
+
+## VII. Fat Loss Cycle
+
+| Phase | Duration | Content |
+|-------|----------|---------|
+| Fat loss | 8-12 weeks | Lower body fat |
+| Rest | 2-4 weeks | Restore metabolism |
+| Maintenance | 4-8 weeks | Stabilize weight |
+
+Fat loss shouldn't last too long. Rest phase lets metabolism recover.
+
+---
+
+## VIII. Monitoring
+
+Weekly: Weight, waist circumference, body fat percentage, photos.
+
+Signals of effectiveness: Waist shrinking, training performance stable, appetite normal, sleep normal.
+
+**Important**: Body fat and shape matter more than weight.
+
+---
+
+## IX. Summary
+
+1. Deficit 300-500 cal
+2. Higher protein (1.8-2.4g/kg)
+3. Vegetables before carbs
+4. Avoid hidden calories
+5. Optional intermittent fasting
+6. Rest after 4-8 weeks
+7. Monitor waist and body fat
+
+> **Core**: Moderate deficit, sufficient protein, optimize eating order, cycle planning necessary.
+    `,
+    tags: ['减脂饮食', 'fat-loss-diet', '热量缺口', '饮食策略', '间歇断食'],
+    relatedExercises: ['squat', 'hiit', 'running'],
+    isPremium: false,
+    createdAt: '2026-04-14',
+  },
+  // ==================== 女性指南 ====================
+  {
+    id: '8',
+    slug: 'women-strength-training',
+    title: '女性力量训练指南：打破偏见，塑造力量',
+    titleEn: 'Women Strength Training Guide: Break Stereotypes, Build Power',
+    category: 'population_guide',
+    categoryZh: '人群指南',
+    categoryEn: 'Population Guides',
+    summary: '女性不需要害怕力量训练。科学证明，力量训练让女性更健康、更有活力、身材更好，不会让你变得太壮。',
+    summaryEn: "Women don't need to fear strength training. Science proves strength training makes women healthier, more energetic, better shaped - won't make you too bulky.",
+    content: `
+![Women Training](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=1200&q=80)
+
+# 女性力量训练指南：打破偏见，塑造力量
+
+很多女性担心力量训练会让自己变得太壮、肌肉太大。这是最大的误解。
+
+科学真相：女性力量训练不会让你变成金刚芭比，反而会让你身材更好、更健康。
+
+---
+
+## 一、为什么女性不会练出大肌肉？
+
+### 1. 激素差异
+
+女性的睾酮水平只有男性的1/10到1/20。睾酮是肌肉生长的关键激素。没有足够的睾酮，很难练出大块肌肉。
+
+### 2. 基因差异
+
+女性的肌肉纤维类型和数量与男性不同，天生肌量上限较低。
+
+**结论**：即使很努力训练，女性也很难练出太大的肌肉。
+
+---
+
+## 二、力量训练对女性的好处
+
+![Women Fitness](https://images.unsplash.com/photo-1518611012118-696e725a37af?w=800&q=80)
+
+### 身体层面
+
+| 好处 | 说明 |
+|------|------|
+| 增强代谢 | 肌肉消耗更多热量 |
+| 改善体态 | 紧致肌肉让身材线条更好 |
+| 强化骨骼 | 预防骨质疏松 |
+| 减少脂肪 | 力量训练消耗脂肪效率高 |
+
+### 健康层面
+
+降低心血管疾病风险、改善胰岛素敏感性、减少慢性疼痛、提升整体活力。
+
+### 心理层面
+
+增强自信心、改善情绪、提升抗压能力。
+
+---
+
+## 三、女性训练要点
+
+### 不要害怕大重量
+
+小重量多次数效率低。适当的挑战重量才有效。
+
+建议：选择能做8-12次的重量。
+
+### 关注全身发展
+
+| 部位 | 动作 |
+|------|------|
+| 腿部 | 深蹲、硬拉 |
+| 背部 | 划船、引体向上 |
+| 核心 | 平板支撑 |
+| 胸部 | 俯卧撑 |
+
+### 不要只做有氧
+
+只跑步跳操会导致肌肉流失、身体松弛。正确做法：有氧 + 力量结合。
+
+---
+
+## 四、常见误区
+
+力量训练不会让女生变成男的、小重量效率低、正确指导比跑步安全、肌肉生长需要数月不是几天、只要瘦不好要有肌肉才紧致。
+
+---
+
+## 五、训练计划
+
+初学者（0-3个月）：每周2-3次，深蹲3×12、硬拉3×10、俯卧撑3×10、平板支撑3×30秒。
+
+进阶者（3-6个月）：每周3-4次，分化训练。
+
+---
+
+## 六、饮食建议
+
+蛋白质每公斤体重1.2-1.6g，热量维持或略少，不要恐惧碳水。
+
+---
+
+## 七、总结
+
+女性不会轻易练出大肌肉、力量训练让身材更好、不要害怕适当重量、全身均衡发展、有氧力量结合、饮食不必极端。
+
+力量训练是女性最好的投资。
+    `,
+    contentEn: `
+![Women Training](https://images.unsplash.com/photo-1571019613242-c5c5dee9f50b?w=1200&q=80)
+
+# Women Strength Training Guide
+
+Many women worry strength training will make them too bulky. This is misconception.
+
+Scientific truth: Won't make you bodybuilder. Improves shape and health.
+
+---
+
+## I. Why Women Won't Build Large Muscles?
+
+### 1. Hormonal Differences
+
+Women have 1/10 to 1/20 testosterone of men. Testosterone crucial for muscle growth.
+
+### 2. Genetic Differences
+
+Women naturally lower muscle mass ceiling.
+
+**Conclusion**: Women rarely build too large muscles even with dedicated training.
+
+---
+
+## II. Benefits for Women
+
+![Women Fitness](https://images.unsplash.com/photo-1518611012118-696e725a37af?w=800&q=80)
+
+### Physical
+
+Boosts metabolism, improves posture, strengthens bones, reduces fat efficiently.
+
+### Health
+
+Lower cardiovascular risk, improve insulin sensitivity, reduce pain, increase vitality.
+
+### Psychological
+
+Boost confidence, improve mood, enhance stress resilience.
+
+---
+
+## III. Training Tips
+
+### Don't Fear Heavy Weights
+
+Light weights inefficient. Challenging weight for 8-12 reps effective.
+
+### Focus on Full Body
+
+Legs: squat, deadlift. Back: row, pull-up. Core: plank. Chest: push-up.
+
+### Don't Only Do Cardio
+
+Only cardio causes muscle loss. Right: cardio + strength.
+
+---
+
+## IV. Common Misconceptions
+
+Won't make masculine, light weights inefficient, safer than running with guidance, growth takes months, muscle makes tight not just thin.
+
+---
+
+## V. Training Plan
+
+Beginners: 2-3x weekly, squat 3×12, deadlift 3×10, push-up 3×10, plank 3×30sec.
+
+Intermediate: 3-4x weekly, split training.
+
+---
+
+## VI. Diet
+
+Protein 1.2-1.6g/kg, maintenance or slightly less calories, don't fear carbs.
+
+---
+
+## VII. Summary
+
+Women won't easily build large muscles, training improves shape, don't fear weights, full-body balance, cardio + strength, no extreme diet.
+
+Strength training is women's best investment.
+    `,
+    tags: ['女性', 'women', '力量训练', '健身', '健康'],
+    relatedExercises: ['squat', 'deadlift', 'push-up', 'plank'],
+    isPremium: false,
+    createdAt: '2026-04-14',
+  },
 ];
 
 // 获取所有文章
