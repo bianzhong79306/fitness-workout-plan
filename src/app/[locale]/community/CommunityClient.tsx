@@ -239,15 +239,31 @@ export function CommunityClient({ locale }: CommunityClientProps) {
   }
 
   return (
-    <div className="container py-8 max-w-2xl">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div className="flex items-center gap-2">
-          <Users className="h-6 w-6 text-primary" />
-          <h1 className="text-2xl font-bold">
+    <div className="min-h-screen">
+      {/* 活力Hero区域 */}
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-rose-600 via-pink-500 to-purple-500">
+        {/* 光晕装饰 */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-300/30 rounded-full blur-2xl" />
+        
+        <div className="container max-w-2xl relative z-10 text-center text-white">
+          <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full bg-white/10 border border-white/20">
+            <Users className="w-5 h-5" />
+            <span className="font-medium">{isZh ? "分享健身心得" : "Share Your Journey"}</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-4">
             {isZh ? '健身社区' : 'Fitness Community'}
           </h1>
+          
+          <p className="text-xl text-white/90 max-w-xl mx-auto">
+            {isZh ? '与健身伙伴交流，分享你的进步' : 'Connect with fitness buddies, share your progress'}
+          </p>
         </div>
+      </section>
+      
+      {/* 内容区域 */}
+      <div className="container py-16 max-w-2xl">
 
         <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
           <DialogTrigger asChild>
