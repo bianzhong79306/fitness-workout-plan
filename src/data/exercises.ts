@@ -33,7 +33,6 @@ export const exercises: Exercise[] = [
       '呼吸节奏混乱'
     ],
     alternatives: ['knee-push-up', 'incline-push-up', 'diamond-push-up'],
-    gifUrl: '/gif/pushup.gif'
   },
   {
     id: 'knee-push-up',
@@ -185,7 +184,6 @@ export const exercises: Exercise[] = [
       '下蹲深度不够'
     ],
     alternatives: ['sumo-squat', 'goblet-squat'],
-    gifUrl: '/gif/squat.gif'
   },
   {
     id: 'lunge',
@@ -208,7 +206,6 @@ export const exercises: Exercise[] = [
       '膝盖内扣'
     ],
     alternatives: ['reverse-lunge', 'walking-lunge'],
-    gifUrl: '/gif/lunge.gif'
   },
   {
     id: 'reverse-lunge',
@@ -424,7 +421,6 @@ export const exercises: Exercise[] = [
       '大腿后侧代偿过多'
     ],
     alternatives: ['single-leg-glute-bridge', 'hip-thrust'],
-    gifUrl: '/gif/glute-bridge.gif'
   },
   {
     id: 'single-leg-glute-bridge',
@@ -577,7 +573,6 @@ export const exercises: Exercise[] = [
       '腰部下沉'
     ],
     alternatives: ['knee-plank', 'side-plank'],
-    gifUrl: '/gif/plank.gif'
   },
   {
     id: 'knee-plank',
@@ -770,7 +765,6 @@ export const exercises: Exercise[] = [
       '动作幅度不够'
     ],
     alternatives: ['slow-mountain-climber', 'cross-body-mountain-climber'],
-    gifUrl: '/gif/mountain-climber.gif'
   },
   {
     id: 'russian-twist',
@@ -793,7 +787,6 @@ export const exercises: Exercise[] = [
       '背部弯曲'
     ],
     alternatives: ['weighted-russian-twist', 'bicycle-crunch'],
-    gifUrl: '/gif/russian-twist.gif'
   },
   {
     id: 'v-up',
@@ -840,7 +833,6 @@ export const exercises: Exercise[] = [
       '落地过重'
     ],
     alternatives: ['half-burpee', 'burpee-without-push-up'],
-    gifUrl: '/gif/burpee.gif'
   },
   {
     id: 'half-burpee',

@@ -30,7 +30,7 @@ export interface Exercise {
   mistakes: string[];
   alternatives?: string[];
   image?: string;
-  gifUrl?: string; // GIF动图演示
+  // gifUrl?: string; // TODO: 后期添加专业健身GIF演示（需解决版权问题）
   videoUrl?: string;
 }
 

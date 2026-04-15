@@ -89,20 +89,6 @@ async function ExerciseDetailContent({
             <p className="mt-2 text-muted-foreground">{exercise.description}</p>
           </div>
 
-          {/* GIF 动作演示 */}
-          {exercise.gifUrl && (
-            <div className="relative rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-800 border-2 border-blue-500/20">
-              <img
-                src={exercise.gifUrl}
-                alt={isZh ? `${exercise.name}动作演示` : `${exercise.nameEn} demonstration`}
-                className="w-full h-auto max-h-[400px] object-contain mx-auto"
-              />
-              <div className="absolute bottom-2 right-2 bg-blue-500/80 text-white text-xs px-2 py-1 rounded-full">
-                {isZh ? "动作演示" : "Animation"}
-              </div>
-            </div>
-          )}
-
           {/* Tips */}
           <Card>
             <CardHeader>
